@@ -16,7 +16,7 @@ public class TestProyectoDisenoSoftware {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        System.out.println("Testeando commit a development branch");
+        System.out.println("Enviando a la rama development");
     }
     
 }
