@@ -19,6 +19,7 @@ public class TestProyectoDisenoSoftware {
         System.out.println("Enviando a la rama development");
         System.out.println("Colaborador haciendo COMMIT");
         System.out.println("COlaborado freddy");
+        System.out.println("Ejemplo Pull");
     }
     
 }
