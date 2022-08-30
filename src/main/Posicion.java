@@ -1,7 +1,6 @@
 
 package main;
 
-import main.SensorPosicion;
 /**
  * @author Grupo Padel: Jairo García, Santiago Gualotuña, Andrés Ponce, Anthony Simbaña
  */
@@ -9,17 +8,12 @@ public class Posicion extends Observado{
 
     private float posX;
     private float posY;
- 
-    private SensorPosicion sensor;
 
     public Posicion(float posX, float posY, SensorPosicion sensor) {
         this.posX = posX;
         this.posY = posY;
-        this.sensor = sensor ;
+        this.observador = sensor ;
     }
-    
-    
-    
 
     public float getPosX() {
         return posX;
@@ -38,17 +32,15 @@ public class Posicion extends Observado{
     }
 
     public SensorPosicion getSensor() {
-        return sensor;
+        return (SensorPosicion) observador;
     }
 
     public void setSensor(SensorPosicion sensor) {
-        this.sensor = sensor;
+        this.observador = sensor;
     }
-
-    
     
     @Override
-    public void notificar() {
+    public void notificar(){
         
     }
     
