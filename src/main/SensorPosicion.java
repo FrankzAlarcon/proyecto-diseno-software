@@ -11,7 +11,7 @@ package main;
 public class SensorPosicion extends Observador{
     
     float distanciaTotal;
-    Posicion actual = new Posicion();
+    //Posicion actual = new Posicion(distanciaTotal, distanciaTotal, sensor);
 
     public SensorPosicion(float distanciaTotal) {
         this.distanciaTotal = distanciaTotal;
