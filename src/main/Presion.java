@@ -41,11 +41,11 @@ public class Presion extends Observado{
     }
 
     public SensorPresion getSensorPresion() {
-        return SensorPresion;
+        return sensorPresion;
     }
 
     public void setSensorPresion(SensorPresion SensorPresion) {
-        this.SensorPresion = SensorPresion;
+        this.sensorPresion = SensorPresion;
     }
 
     public Observador getObservador() {
