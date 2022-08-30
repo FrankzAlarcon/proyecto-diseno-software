@@ -9,6 +9,14 @@ package main;
  * @author Grupo Padel: Jairo García, Santiago Gualotuña, Andrés Ponce, Anthony Simbaña
  */
 public class SensorPosicion extends Observador{
+    
+    float distanciaTotal;
+    Posicion actual = new Posicion();
+
+    public SensorPosicion(float distanciaTotal) {
+        this.distanciaTotal = distanciaTotal;
+    }   
+    
 
     private float sensibilidad;
     private int numeroGolpes;
