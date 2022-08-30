@@ -5,6 +5,7 @@ package areamaquinas;
  *
  * @author dell
  */
-public class Maquina {
-    
+public abstract class Maquina {
+    private int idMaquina;
+    private boolean ocupado;
 }
