@@ -10,10 +10,10 @@ package main;
  * @author Frankz
  */
 public abstract class Controlador {
-    private double umbral;
+    protected double umbral;
     
     Observador observador;
-    
+   
     public abstract void definirUmbral(double umbral);
     public abstract void ejecutarAccion();
 }

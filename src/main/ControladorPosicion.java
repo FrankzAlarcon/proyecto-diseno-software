@@ -9,10 +9,34 @@ package main;
  * @author Grupo Padel: Jairo García, Santiago Gualotuña, Andrés Ponce, Anthony Simbaña
  */
 public class ControladorPosicion extends Controlador{
+    
+    private float distanciaRecorrida;
+
+    public ControladorPosicion(SensorPosicion observador) {
+        this.distanciaRecorrida = 0;
+        this.umbral = 0;
+        this.observador = observador;
+    }
+
+    public double getUmbral() {
+        return umbral;
+    }
+
+    public Observador getObservador() {
+        return observador;
+    }
+
+    public void setObservador(Observador observador) {
+        this.observador = observador;
+    }
+    
+    public float getDistanciaRecorrida() {
+        return distanciaRecorrida;
+    }
 
     @Override
     public void definirUmbral(double umbral) {
-        
+        this.umbral = umbral;
     }
 
     @Override

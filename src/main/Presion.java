@@ -11,7 +11,6 @@ package main;
 public class Presion extends Observado{
     private float fuerza;
     private float areaRaqueta;
-    private SensorPresion sensorPresion;
     
     @Override
     public void notificar() {
@@ -21,7 +20,7 @@ public class Presion extends Observado{
     public Presion(float fuerza, float areaRaqueta, SensorPresion sensorPresion) {
         this.fuerza = fuerza;
         this.areaRaqueta = areaRaqueta;
-        this.sensorPresion = sensorPresion;
+        this.observador = sensorPresion;
     }
 
     public float getFuerza() {
@@ -41,11 +40,11 @@ public class Presion extends Observado{
     }
 
     public SensorPresion getSensorPresion() {
-        return sensorPresion;
+        return (SensorPresion)observador;
     }
 
     public void setSensorPresion(SensorPresion SensorPresion) {
-        this.sensorPresion = SensorPresion;
+        this.observador = SensorPresion;
     }
 
     public Observador getObservador() {
@@ -54,8 +53,5 @@ public class Presion extends Observado{
 
     public void setObservador(Observador observador) {
         this.observador = observador;
-    }
-    
-    
-    
+    }    
 }
