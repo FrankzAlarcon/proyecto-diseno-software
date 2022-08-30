@@ -9,10 +9,53 @@ package main;
  * @author Grupo Padel: Jairo García, Santiago Gualotuña, Andrés Ponce, Anthony Simbaña
  */
 public class Presion extends Observado{
-
+    private float fuerza;
+    private float areaRaqueta;
+    private SensorPresion SensorPresion;
+    
     @Override
     public void notificar() {
         
     }
+
+    public Presion(float fuerza, float areaRaqueta, SensorPresion SensorPresion) {
+        this.fuerza = fuerza;
+        this.areaRaqueta = areaRaqueta;
+        this.SensorPresion = SensorPresion;
+    }
+
+    public float getFuerza() {
+        return fuerza;
+    }
+
+    public void setFuerza(float fuerza) {
+        this.fuerza = fuerza;
+    }
+
+    public float getAreaRaqueta() {
+        return areaRaqueta;
+    }
+
+    public void setAreaRaqueta(float areaRaqueta) {
+        this.areaRaqueta = areaRaqueta;
+    }
+
+    public SensorPresion getSensorPresion() {
+        return SensorPresion;
+    }
+
+    public void setSensorPresion(SensorPresion SensorPresion) {
+        this.SensorPresion = SensorPresion;
+    }
+
+    public Observador getObservador() {
+        return observador;
+    }
+
+    public void setObservador(Observador observador) {
+        this.observador = observador;
+    }
+    
+    
     
 }
