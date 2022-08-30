@@ -7,7 +7,7 @@ import main.Rutina;
  * @author dell
  */
 public class RutinaMaquinas implements Rutina{
-    Lista<Numero>
+    //Lista<Numero>
     
 
     @Override
