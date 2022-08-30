@@ -11,27 +11,32 @@ package main;
 public class ControladorPosicion extends Controlador{
     
     private float distanciaRecorrida;
-    SensorPosicion observador = new SensorPosicion(distanciaRecorrida);
 
-    public ControladorPosicion(double umbral, float distanciaRecorrida) {
-        this.distanciaRecorrida = distanciaRecorrida;
+    public ControladorPosicion(SensorPosicion observador) {
+        this.distanciaRecorrida = 0;
+        this.umbral = 0;
+        this.observador = observador;
     }
 
+    public double getUmbral() {
+        return umbral;
+    }
+
+    public Observador getObservador() {
+        return observador;
+    }
+
+    public void setObservador(Observador observador) {
+        this.observador = observador;
+    }
+    
     public float getDistanciaRecorrida() {
         return distanciaRecorrida;
     }
 
-    public void setDistanciaRecorrida(float distanciaRecorrida) {
-        this.distanciaRecorrida = distanciaRecorrida;
-    }
-    
-    
-    
-    
-
     @Override
     public void definirUmbral(double umbral) {
-        
+        this.umbral = umbral;
     }
 
     @Override
