@@ -1,5 +1,6 @@
 package main;
 
+import areamaquinas.AreaMaquinasPanel;
 import trailrunning.TrailRunningPane;
 
 import javax.swing.*;
@@ -67,7 +68,7 @@ public class ActividadesPane extends JPanel implements ReturnHandler{
     }
 
     private void mostrarPanelAreaMaquinas(){
-
+        mainFrame.setMainPanel(new AreaMaquinasPanel(mainFrame));
     }
 
     private void mostrarPanelPadel(){
