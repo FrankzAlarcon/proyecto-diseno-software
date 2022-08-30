@@ -11,4 +11,20 @@ package cycling;
  */
 public class RutinaCycling {
     
+    private double distancia;
+    private double caloriasQuemadas;
+    //constructor
+    public RutinaCycling(double distancia, double caloriasQuemadas) {
+        this.distancia = distancia;
+        this.caloriasQuemadas = caloriasQuemadas;
+    }
+        
+    public void iniciar() {
+    }
+    public void detener() {
+    }
+    public void calcularCaloriasQuemadas() {
+    }
+    public void calcularDistancia() {
+    }
 }
