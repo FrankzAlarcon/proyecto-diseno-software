@@ -6,6 +6,7 @@ import trailrunning.TrailRunningPane;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
+import padel.PadelPane;
 
 public class ActividadesPane extends JPanel implements ReturnHandler{
     private JButton runningBtn, trailRunningBtn, cyclingBtn, padelBtn, areaMaquinasBtn;
@@ -72,7 +73,7 @@ public class ActividadesPane extends JPanel implements ReturnHandler{
     }
 
     private void mostrarPanelPadel(){
-
+        mainFrame.setMainPanel(new PadelPane(mainFrame));
     }
     @Override
     public void doReturnAction() {
