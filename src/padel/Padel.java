@@ -8,9 +8,10 @@ import main.Aplicacion;
 
 /**
  *
- * @author Grupo Padel: Jairo García, Santiago Gualotuña, Andrés Ponce, Anthony Simbaña
+ * @author Anthony Simbaña
  */
 public class Padel {
+
     private Raqueta raqueta;
     private Aplicacion aplicacion;
     private float caloriasQuemadas;
@@ -20,15 +21,16 @@ public class Padel {
         this.aplicacion = aplicacion;
         this.caloriasQuemadas = caloriasQuemadas;
     }
-    
-    public void iniciarEntrenamiento(){
-    
+
+    public void iniciarEntrenamiento() {
+
     }
-    
-    public void detenerEntrenamiento(){}
-    
-    public float calcularCaloriasQuemadas(){
+
+    public void detenerEntrenamiento() {
+    }
+
+    public float calcularCaloriasQuemadas() {
         return 1.0f;
     }
-    
+
 }
