@@ -10,6 +10,8 @@ package main;
  */
 public class SensorPresion extends Observador{
 
+    private float sensibilidad;
+    private int numeroGolpes;
     @Override
     public void actualizar() {
         
