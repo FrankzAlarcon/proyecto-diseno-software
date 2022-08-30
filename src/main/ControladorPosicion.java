@@ -10,7 +10,7 @@ package main;
  */
 public class ControladorPosicion extends Controlador{
     
-    public float distanciaRecorrida;
+    private float distanciaRecorrida;
     SensorPosicion observador = new SensorPosicion(distanciaRecorrida);
 
     public ControladorPosicion(double umbral, float distanciaRecorrida) {
