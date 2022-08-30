@@ -11,13 +11,13 @@ public class MainFrame extends JFrame {
     public static void main(String[] args) {
 
         try {
-            UIManager.setLookAndFeel(new FlatLightLaf());
+            UIManager.setLookAndFeel(new FlatDarkLaf());
         } catch (UnsupportedLookAndFeelException e) {
             throw new RuntimeException(e);
         }
 
         MainFrame frame = new MainFrame();
-        frame.setMainPanel(new TrailRunningPane(frame));
+        frame.setMainPanel(new LogIn(frame));
         frame.setVisible(true);
     }
     private JButton regresarBtn;
@@ -37,7 +37,7 @@ public class MainFrame extends JFrame {
 
         buttonPane.add(regresarBtn);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(500,500);
+        setSize(400,700);
 
         mainPanel.add(buttonPane, BorderLayout.SOUTH);
 
