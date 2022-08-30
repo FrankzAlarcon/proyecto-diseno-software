@@ -21,6 +21,7 @@ public class TestProyectoDisenoSoftware {
         System.out.println("COlaborado freddy");
         System.out.println("Ejemplo Pull");
         System.out.println("otra prueba");
+        System.err.println("otra prueba x2");
         
     }
     
