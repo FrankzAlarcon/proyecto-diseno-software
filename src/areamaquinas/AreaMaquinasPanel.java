@@ -12,6 +12,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
 import main.*;
 
 
@@ -45,6 +46,7 @@ public class AreaMaquinasPanel extends javax.swing.JPanel implements ReturnHandl
         
         
         setLayout(new GridLayout(m,n,5,5));
+        setBorder(new EmptyBorder(10,10,10,10));
         setMatriz();
         
     }
