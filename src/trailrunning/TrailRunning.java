@@ -2,7 +2,6 @@
 package trailrunning;
 
 import main.Aplicacion;
-import main.ControladorUbicacion;
 
 /**
  *
@@ -16,8 +15,6 @@ public class TrailRunning {
     private Velocidad velocidad;
     private Aplicacion aplicacion;
     private Cronometro cronometro;
-    private ControladorUbicacion controladorUbicacion;
-    private ConsumoOxigeno consumoOxigeno;
     
     
     public void iniciar() {
