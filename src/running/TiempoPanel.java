@@ -13,7 +13,7 @@ import running.RunningPanel;
 
 /**
  *
- * @author Stalin
+ * @author Stalin narvaez
  */
 public class TiempoPanel extends javax.swing.JPanel implements ReturnHandler{
     MainFrame mainframe;
