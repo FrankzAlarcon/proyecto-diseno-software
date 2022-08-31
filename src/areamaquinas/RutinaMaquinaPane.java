@@ -1,5 +1,10 @@
-package padel;
 
+package areamaquinas;
+
+/**
+ *
+ * @author dell
+ */
 import main.ActividadesPane;
 import main.MainFrame;
 import main.ReturnHandler;
@@ -7,26 +12,26 @@ import main.ReturnHandler;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
-
-public class PadelPane extends JPanel implements ReturnHandler {
+ 
+public class RutinaMaquinaPane extends JPanel implements ReturnHandler{
     private MainFrame mainFrame;
-    private JButton actionBtn;
-    private JLabel marcaRaqueta, caloriasQuemadas, golpesDados;
+    private JButton actionBtn, realizarRepeticionBtn, cambiarPesoBtn;
+    private JLabel nombreMaquina, numRepeticiones, pesoActual;
     private JPanel dataPanel, actividadPanel;
-    private Color acentColor = new Color(92, 161, 2);
+    private Color acentColor = new Color(96, 2, 163); //Color Morado
     private boolean realizandoActividad = false;
-    public PadelPane(MainFrame mainFrame) {
+    public RutinaMaquinaPane(MainFrame mainFrame) {
         this.mainFrame = mainFrame;
         setOpaque(true);
         setBackground(Color.BLACK);
         setLayout(new BorderLayout());
-        JLabel titulo = new JLabel("Padel");
+        JLabel titulo = new JLabel("Maquina XX");
         titulo.setFont(titulo.getFont().deriveFont(Font.BOLD).deriveFont(25.0f));
-        titulo.setForeground(Color.BLACK);
-        titulo.setHorizontalAlignment(JLabel.LEFT);
+        titulo.setForeground(Color.WHITE);
+        titulo.setHorizontalAlignment(JLabel.CENTER);
         add(titulo, BorderLayout.NORTH);
 
-        actionBtn = new JButton("Iniciar partida");
+        actionBtn = new JButton("Iniciar Rutina");
         actionBtn.setBackground(acentColor);
         actionBtn.setFont(actionBtn.getFont().deriveFont(18.0f));
         actionBtn.setForeground(Color.WHITE);
@@ -36,9 +41,9 @@ public class PadelPane extends JPanel implements ReturnHandler {
         dataPanel.setOpaque(true);
         dataPanel.setBackground(Color.BLACK);
         dataPanel.setBorder(new EmptyBorder(10,10,10,10));
-        caloriasQuemadas = coloredLabel("0.0 cal", acentColor, 20.0f);
-        marcaRaqueta = coloredLabel("Nox",acentColor, 20.0f);
-        golpesDados = coloredLabel("0 golpes",acentColor, 20.0f);
+        pesoActual= coloredLabel("0.0 Kg", acentColor, 20.0f);
+        nombreMaquina = coloredLabel("Maquina de xx",acentColor, 20.0f);
+        numRepeticiones = coloredLabel("0 repeticiones",acentColor, 20.0f);
 
         addDataPanel();
 
@@ -68,18 +73,18 @@ public class PadelPane extends JPanel implements ReturnHandler {
         c.fill = GridBagConstraints.HORIZONTAL;
         c.gridx = 0;
         c.gridy = 0;
-        dataPanel.add(coloredLabel("Marca raqueta", Color.WHITE, 13.0f), c);
+        dataPanel.add(coloredLabel("Nombre Maquina", Color.WHITE, 13.0f), c);
         c.gridy = 1;
-        dataPanel.add(marcaRaqueta, c);
+        dataPanel.add(nombreMaquina, c);
         c.gridy = 2;
-        dataPanel.add(coloredLabel("Calorías quemadas", Color.WHITE, 13.0f), c);
+        dataPanel.add(coloredLabel("Peso Actual", Color.WHITE, 13.0f), c);
         c.gridy = 3;
-        dataPanel.add(caloriasQuemadas, c);
+        dataPanel.add(numRepeticiones, c);
         c.gridy = 0;
         c.gridx = 1;
-        dataPanel.add(coloredLabel("Golpes dados", Color.WHITE, 13.0f), c);
+        dataPanel.add(coloredLabel("Repeticiones", Color.WHITE, 13.0f), c);
         c.gridy = 1;
-        dataPanel.add(golpesDados, c);
+        dataPanel.add(numRepeticiones, c);
 
     }
 
@@ -93,7 +98,7 @@ public class PadelPane extends JPanel implements ReturnHandler {
     private void cambiarPaneles(){
 
         if(realizandoActividad){
-            actionBtn.setText("Iniciar partida");
+            actionBtn.setText("Iniciar rutina");
             realizandoActividad = false;
             remove(actividadPanel);
             add(dataPanel, BorderLayout.CENTER);
@@ -101,7 +106,7 @@ public class PadelPane extends JPanel implements ReturnHandler {
             actividadPanel.setVisible(false);
             //revalidate();
         }else{
-            actionBtn.setText("Terminar partida");
+            actionBtn.setText("Terminar rutina");
             realizandoActividad = true;
             add(actividadPanel, BorderLayout.CENTER);
             dataPanel.setVisible(false);
@@ -111,10 +116,9 @@ public class PadelPane extends JPanel implements ReturnHandler {
 
     }
 
-
     @Override
     public void doReturnAction() {
-        mainFrame.setMainPanel(new ActividadesPane(mainFrame));
+        mainFrame.setMainPanel(new AreaMaquinasPanel(mainFrame));
     }
 
     @Override
