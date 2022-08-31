@@ -13,7 +13,7 @@ public class PadelPane extends JPanel implements ReturnHandler {
     private JButton actionBtn;
     private JLabel marcaRaqueta, caloriasQuemadas, golpesDados;
     private JPanel dataPanel, actividadPanel;
-    private Color acentColor = new Color(92, 161, 2);
+    private Color acentColor = new Color(0, 75, 156);
     private boolean realizandoActividad = false;
     public PadelPane(MainFrame mainFrame) {
         this.mainFrame = mainFrame;
