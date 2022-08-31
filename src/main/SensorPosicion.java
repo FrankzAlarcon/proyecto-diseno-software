@@ -13,8 +13,9 @@ public class SensorPosicion extends Observador{
     private Posicion ultimaPosicion;
     private ControladorPosicion controlador;
 
-    SensorPosicion(){
-        this.observado = new Posicion();
+    public SensorPosicion(){
+        this.ultimaPosicion = new Posicion();
+        this.ultimaPosicion.setSensor(this);
     }
     
     public Observado getObservado() {
@@ -29,8 +30,8 @@ public class SensorPosicion extends Observador{
         return ultimaPosicion;
     }
 
-    public void setUltimaPosicion(Posicion ultimaPosicion) {
-        this.ultimaPosicion = ultimaPosicion;
+    public void registrar(Posicion ultimaPosicion) {
+        this.ultimaPosicion = new Posicion(ultimaPosicion.getPosX(), ultimaPosicion.getPosY());
     }
 
     public ControladorPosicion getControlador() {
@@ -43,6 +44,7 @@ public class SensorPosicion extends Observador{
     
     @Override
     public void actualizar() {
+        
         this.controlador.ejecutarAccion();
     }
     

@@ -17,22 +17,20 @@ public class Posicion extends Observado{
     public Posicion(float posX, float posY) {
         this.posX = posX;
         this.posY = posY;
+        this.observador = new SensorPosicion();
     }
 
     public float getPosX() {
         return posX;
     }
 
-    public void setPosX(float posX) {
+    public void setPos(float posX, float posY){
         this.posX = posX;
+        this.posY = posY;
     }
 
     public float getPosY() {
         return posY;
-    }
-
-    public void setPosY(float posY) {
-        this.posY = posY;
     }
 
     public SensorPosicion getSensor() {
