@@ -11,7 +11,7 @@ import java.awt.*;
 public class PadelPane extends JPanel implements ReturnHandler {
     private MainFrame mainFrame;
     private JButton actionBtn;
-    private JLabel marcaRaqueta, caloriasQuemadas, golpesDados;
+    private JLabel marcaRaqueta, caloriasQuemadas, golpesDados,distanciaRecorrida;
     private JPanel dataPanel, actividadPanel;
     private Color acentColor = new Color(92, 161, 2);
     private boolean realizandoActividad = false;
@@ -23,15 +23,15 @@ public class PadelPane extends JPanel implements ReturnHandler {
         JLabel titulo = new JLabel("Padel");
         titulo.setFont(titulo.getFont().deriveFont(Font.BOLD).deriveFont(25.0f));
         titulo.setForeground(Color.BLACK);
-        titulo.setHorizontalAlignment(JLabel.LEFT);
+        titulo.setHorizontalAlignment(JLabel.CENTER);
         add(titulo, BorderLayout.NORTH);
 
         actionBtn = new JButton("Iniciar partida");
         actionBtn.setBackground(acentColor);
         actionBtn.setFont(actionBtn.getFont().deriveFont(18.0f));
         actionBtn.setForeground(Color.WHITE);
-
         add(actionBtn, BorderLayout.SOUTH);
+        
         dataPanel = new JPanel();
         dataPanel.setOpaque(true);
         dataPanel.setBackground(Color.BLACK);
@@ -39,7 +39,7 @@ public class PadelPane extends JPanel implements ReturnHandler {
         caloriasQuemadas = coloredLabel("0.0 cal", acentColor, 20.0f);
         marcaRaqueta = coloredLabel("Nox",acentColor, 20.0f);
         golpesDados = coloredLabel("0 golpes",acentColor, 20.0f);
-
+        distanciaRecorrida = coloredLabel("100 metros", Color.BLUE, 20.0f);
         addDataPanel();
 
         actividadPanel = new JPanel();
