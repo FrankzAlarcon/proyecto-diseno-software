@@ -29,7 +29,7 @@ public class RutinaInternaPanel extends JPanel implements ReturnHandler {
  
         this.mainFrame = mainFrame;
         setOpaque(true);
-        setBackground(Color.RED);
+        setBackground(Color.BLACK);
         setLayout(new BorderLayout());
         JLabel titulo = new JLabel("Rutina Interna");
         titulo.setFont(titulo.getFont().deriveFont(Font.BOLD).deriveFont(20.0f));

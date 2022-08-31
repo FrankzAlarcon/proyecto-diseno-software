@@ -33,7 +33,7 @@ public class RutinaExternaPanel extends JPanel implements ReturnHandler {
         // initComponents();
         this.mainFrame = mainFrame;
         setOpaque(true);
-        setBackground(Color.RED);
+        setBackground(Color.BLACK);
         setLayout(new BorderLayout());
         JLabel titulo = new JLabel("Rutina Externa");
         titulo.setFont(titulo.getFont().deriveFont(Font.BOLD).deriveFont(20.0f));
