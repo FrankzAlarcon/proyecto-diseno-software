@@ -94,8 +94,8 @@ public class AreaMaquinasPanel extends javax.swing.JPanel implements ReturnHandl
                     c++;
                     if (e.getSource().equals(maquinasBotones[i][j])) {
                             
-                            //mainframe.setMainPanel(new RutinaPanel(mainframe));
-                            System.out.println("Hola");
+                            mainframe.setMainPanel(new RutinaMaquinaPane(mainframe));
+                            
                         }
                         
                     }
