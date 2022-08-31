@@ -6,6 +6,8 @@ package padel;
 
 import main.ControladorPosicion;
 import main.ControladorPresion;
+import main.Posicion;
+import main.Presion;
 import main.SensorPosicion;
 import main.SensorPresion;
 
@@ -40,10 +42,16 @@ public class Raqueta {
     
     public void iniciar(){
         //Controlador presion
-        SensorPosicion senPos = new SensorPosicion(0.2f);
+        //Posicion pos = new Posicion();
+        //SensorPosicion senPos = new SensorPosicion(0.2f);
+        Presion pres = new Presion();
         SensorPresion senPres = new SensorPresion(0.2f);
-        controladorPosicion = new ControladorPosicion(senPos);
-        controladorPresion = new ControladorPresion(senPres);
+        controladorPresion = new ControladorPresion();
+        pres.setObservador(senPres);
+        senPres.setObservado(pres);
+        
+        
+        //controladorPosicion = new ControladorPosicion(senPos);
     }
     
     public void detener(){};
