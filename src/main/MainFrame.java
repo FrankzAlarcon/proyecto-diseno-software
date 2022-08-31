@@ -3,6 +3,7 @@ package main;
 import com.formdev.flatlaf.FlatDarkLaf;
 import com.formdev.flatlaf.FlatLightLaf;
 import trailrunning.TrailRunningPane;
+import running.RunningPanel;
 
 import javax.swing.*;
 import java.awt.*;
