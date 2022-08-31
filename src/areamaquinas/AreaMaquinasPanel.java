@@ -44,7 +44,7 @@ public class AreaMaquinasPanel extends javax.swing.JPanel implements ReturnHandl
         lista.agregar(new MaquinaPoleas(1, false, 4));
         lista.agregar(new MaquinaPoleas(2, true, 4));
         
-        
+        setBackground(Color.BLACK);
         setLayout(new GridLayout(m,n,5,5));
         setBorder(new EmptyBorder(10,10,10,10));
         setMatriz();
