@@ -93,6 +93,11 @@ public class CyclingPane extends JPanel implements ReturnHandler{
         jToggleButton2.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jToggleButton2.setForeground(new java.awt.Color(255, 255, 255));
         jToggleButton2.setText("Externa");
+        jToggleButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -130,6 +135,11 @@ public class CyclingPane extends JPanel implements ReturnHandler{
         // TODO add your handling code here:
         mainFrame.setMainPanel(new RutinaInternaPanel(mainFrame));
     }//GEN-LAST:event_jToggleButton1ActionPerformed
+
+    private void jToggleButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton2ActionPerformed
+        // TODO add your handling code here:
+        mainFrame.setMainPanel(new RutinaExternaPanel(mainFrame));
+    }//GEN-LAST:event_jToggleButton2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
