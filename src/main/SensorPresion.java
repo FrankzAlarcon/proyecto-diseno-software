@@ -11,13 +11,10 @@ package main;
 public class SensorPresion extends Observador{
 
     private float sensibilidad;
-    private int numeroGolpes;
-    private Presion presion;
 
-    public SensorPresion(float sensibilidad, int numeroGolpes, Presion presion) {
+    public SensorPresion(float sensibilidad, Presion presion) {
         this.sensibilidad = sensibilidad;
-        this.numeroGolpes = numeroGolpes;
-        this.presion = presion;
+        this.observado = presion;
     }
 
     public float getSensibilidad() {
@@ -28,33 +25,17 @@ public class SensorPresion extends Observador{
         this.sensibilidad = sensibilidad;
     }
 
-    public int getNumeroGolpes() {
-        return numeroGolpes;
+    public Presion getObservado() {
+        return (Presion)observado;
     }
 
-    public void setNumeroGolpes(int numeroGolpes) {
-        this.numeroGolpes = numeroGolpes;
-    }
-
-    public Presion getPresion() {
-        return presion;
-    }
-
-    public void setPresion(Presion presion) {
-        this.presion = presion;
-    }
-
-    public Observado getObservado() {
-        return observado;
-    }
-
-    public void setObservado(Observado observado) {
+    public void setObservado(Presion observado) {
         this.observado = observado;
     }
     
     @Override
     public void actualizar() {
-        
+
     }
     
 }
