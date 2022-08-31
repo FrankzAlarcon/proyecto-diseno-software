@@ -87,7 +87,7 @@ public class AreaMaquinasPanel extends javax.swing.JPanel implements ReturnHandl
 
     @Override
     public void doReturnAction() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        mainframe.setMainPanel(new ActividadesPane(mainframe));
     }
 
     @Override
