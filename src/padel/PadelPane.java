@@ -22,8 +22,8 @@ public class PadelPane extends JPanel implements ReturnHandler {
         setLayout(new BorderLayout());
         JLabel titulo = new JLabel("Padel");
         titulo.setFont(titulo.getFont().deriveFont(Font.BOLD).deriveFont(25.0f));
-        titulo.setForeground(Color.WHITE);
-        titulo.setHorizontalAlignment(JLabel.CENTER);
+        titulo.setForeground(Color.BLACK);
+        titulo.setHorizontalAlignment(JLabel.LEFT);
         add(titulo, BorderLayout.NORTH);
 
         actionBtn = new JButton("Iniciar partida");
