@@ -11,7 +11,7 @@ import java.awt.*;
 public class PadelPane extends JPanel implements ReturnHandler {
     private MainFrame mainFrame;
     private JButton actionBtn;
-    private JLabel marcaRaqueta, caloriasQuemadas, golpesDados;
+    private JLabel marcaRaqueta, caloriasQuemadas, golpesDados,distanciaRecorrida;
     private JPanel dataPanel, actividadPanel;
     private Color acentColor = new Color(0, 75, 156);
     private boolean realizandoActividad = false;
@@ -75,12 +75,15 @@ public class PadelPane extends JPanel implements ReturnHandler {
         dataPanel.add(coloredLabel("Calorías quemadas", Color.WHITE, 13.0f), c);
         c.gridy = 3;
         dataPanel.add(caloriasQuemadas, c);
-        c.gridy = 0;
         c.gridx = 1;
+        c.gridy = 0;
         dataPanel.add(coloredLabel("Golpes dados", Color.WHITE, 13.0f), c);
         c.gridy = 1;
         dataPanel.add(golpesDados, c);
-
+        c.gridy = 2;
+        dataPanel.add(coloredLabel("Distancia recorrida", Color.WHITE, 13.0f), c);
+        c.gridy = 3;
+        dataPanel.add(distanciaRecorrida, c);
     }
 
     private JLabel coloredLabel(String title, Color c, float size){
