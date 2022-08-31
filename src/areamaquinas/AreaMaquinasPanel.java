@@ -6,6 +6,8 @@
 package areamaquinas;
 
 import java.awt.Color;
+import java.awt.Font;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
@@ -31,32 +33,37 @@ public class AreaMaquinasPanel extends javax.swing.JPanel implements ReturnHandl
     
     
     public AreaMaquinasPanel(MainFrame mainframe) {
+        initComponents();
         this.mainframe = mainframe;
+        lista=new ListaMaquinas();
         lista.agregar(new Dorsalera(1, true, 4));
         lista.agregar(new Dorsalera(2, false, 4));
         lista.agregar(new Dorsalera(3, true, 4));
         lista.agregar(new Dorsalera(4, true, 4));
         lista.agregar(new PrensaPiernas(5, false, 4));
         lista.agregar(new MaquinaPoleas(6, true, 4));
-        initComponents();
+        setLayout(new GridLayout(m,n,2,2));
+        setMatriz();
+        
     }
     
     public void setMatriz(){
+        int ancho=mainframe.getWidth()/n,alto=mainframe.getHeight()/m;
         int x=10,y=10;
         int c=0;
         maquinasBotones=new JButton[m][n];
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
-                maquinasBotones[i][j]=new JButton();
+               
                 
                 if(lista.getMaquina(c).isOcupado()){
-                    maquinasBotones[i][j].setBackground(Color.RED);
+                     maquinasBotones[i][j]=createStyledButton(lista.getMaquina(c).toString(), Color.RED, Color.WHITE);
                 }else{
-                    maquinasBotones[i][j].setBackground(Color.GREEN);
+                     maquinasBotones[i][j]=createStyledButton(lista.getMaquina(c).toString(),Color.GREEN , Color.WHITE);
                 }
-                maquinasBotones[i][j].setBounds(x, y, 48, 48);
+                /*maquinasBotones[i][j].setBounds(x, y, ancho, alto);
                 maquinasBotones[i][j].setText(lista.getMaquina(c).toString());
-                
+                */
                 ButtonController bt = new ButtonController();
                 maquinasBotones[i][j].addActionListener(bt);
                 
@@ -67,19 +74,29 @@ public class AreaMaquinasPanel extends javax.swing.JPanel implements ReturnHandl
             x=10;
             y+=47;
         }   
-    }//Cierre del Mëtodo
+    }
+
+    private JButton createStyledButton(String title, Color bg, Color fg){
+        JButton button = new JButton(title);
+        button.setFont(button.getFont().deriveFont(Font.BOLD).deriveFont(15.0f));
+        button.setBackground(bg);
+        button.setForeground(fg);
+        return button;
+    }
+//Cierre del Mëtodo
     
     private class ButtonController implements ActionListener{
 
         @Override			
         public void actionPerformed(ActionEvent e) {
             int c=0;
-            for (int i = 0; i < n; i++) {
-                for (int j = 0; j < m; j++) {
+            for (int i = 0; i < m; i++) {
+                for (int j = 0; j < n; j++) {
                     c++;
                     if (e.getSource().equals(maquinasBotones[i][j])) {
                             
-                            mainframe.setMainPanel(new RutinaPanel(mainframe));
+                            //mainframe.setMainPanel(new RutinaPanel(mainframe));
+                            System.out.println("Hola");
                         }
                         
                     }
