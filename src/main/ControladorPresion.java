@@ -12,10 +12,10 @@ public class ControladorPresion extends Controlador{
 
     private int numeroGolpes;
     
-    public ControladorPresion(SensorPresion observador){
+    public ControladorPresion(){
         this.numeroGolpes = 0;
         this.umbral = 0;
-        this.observador = observador;
+        this.observador = new SensorPresion();
     }
 
     public int getNumeroGolpes() {

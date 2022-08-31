@@ -12,31 +12,11 @@ public class SensorPosicion extends Observador{
     
     private Posicion ultimaPosicion;
     private ControladorPosicion controlador;
+
+    SensorPosicion(){
+        this.observado = new Posicion();
+    }
     
-
-    private float sensibilidad;
-    private int numeroGolpes;
-
-    public SensorPosicion(float sensibilidad) {
-        this.sensibilidad = sensibilidad;
-    }
-
-    public float getSensibilidad() {
-        return sensibilidad;
-    }
-
-    public void setSensibilidad(float sensibilidad) {
-        this.sensibilidad = sensibilidad;
-    }
-
-    public int getNumeroGolpes() {
-        return numeroGolpes;
-    }
-
-    public void setNumeroGolpes(int numeroGolpes) {
-        this.numeroGolpes = numeroGolpes;
-    }
-
     public Observado getObservado() {
         return observado;
     }

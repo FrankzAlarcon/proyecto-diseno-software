@@ -13,8 +13,14 @@ public class SensorPresion extends Observador{
     private float sensibilidad;
     private ControladorPresion controlador;
 
+    public SensorPresion(){
+        this.sensibilidad = 1.0f;
+        this.observado = new Presion();
+    }
+    
     public SensorPresion(float sensibilidad) {
         this.sensibilidad = sensibilidad;
+        this.observado = new Presion();
     }
 
     public float getSensibilidad() {

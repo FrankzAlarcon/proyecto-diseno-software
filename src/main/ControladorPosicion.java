@@ -14,10 +14,10 @@ public class ControladorPosicion extends Controlador{
     
     private float distanciaRecorrida;
 
-    public ControladorPosicion(SensorPosicion observador) {
+    public ControladorPosicion() {
         this.distanciaRecorrida = 0;
         this.umbral = 0;
-        this.observador = observador;
+        this.observador = new SensorPosicion();
     }
 
     public double getUmbral() {

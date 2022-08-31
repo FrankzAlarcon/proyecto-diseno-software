@@ -17,10 +17,15 @@ public class Presion extends Observado{
         
     }
 
-    public Presion(float fuerza, float areaRaqueta, SensorPresion sensorPresion) {
+    public Presion() {
         this.fuerza = fuerza;
         this.areaRaqueta = areaRaqueta;
-        this.observador = sensorPresion;
+    }
+
+    
+    public Presion(float fuerza, float areaRaqueta) {
+        this.fuerza = fuerza;
+        this.areaRaqueta = areaRaqueta;
     }
 
     public float getFuerza() {

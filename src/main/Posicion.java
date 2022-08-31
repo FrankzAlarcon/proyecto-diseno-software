@@ -9,10 +9,14 @@ public class Posicion extends Observado{
     private float posX;
     private float posY;
 
-    public Posicion(float posX, float posY, SensorPosicion sensor) {
+    public Posicion(){
         this.posX = posX;
         this.posY = posY;
-        this.observador = sensor ;
+    }
+    
+    public Posicion(float posX, float posY) {
+        this.posX = posX;
+        this.posY = posY;
     }
 
     public float getPosX() {
