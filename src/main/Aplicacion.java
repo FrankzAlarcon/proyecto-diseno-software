@@ -6,8 +6,8 @@
 package main;
 
 import com.formdev.flatlaf.FlatDarkLaf;
-
 import javax.swing.*;
+import padel.Padel;
 
 /**
  *
@@ -15,6 +15,7 @@ import javax.swing.*;
  */
 public class Aplicacion {
     Usuario usuario;
+    Padel padel;
     MainFrame mainFrame;
 
     public Aplicacion() {

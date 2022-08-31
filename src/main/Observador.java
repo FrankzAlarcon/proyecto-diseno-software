@@ -10,7 +10,7 @@ package main;
  * @author Frankz
  */
 public abstract class Observador {
-    Controlador controlador;
-    Observado observado;    
+    
+    Observado observado;
     public abstract void actualizar();
 }

@@ -35,7 +35,7 @@ public class SensorPresion extends Observador{
     
     @Override
     public void actualizar() {
-        
+
     }
     
 }
