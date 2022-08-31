@@ -18,7 +18,7 @@ public class Dorsalera extends Maquina{
 
     @Override
     public String toString() {
-        return "Dorsalera";
+        return "Dorsalera "+getIdMaquina();
     }
     
     

@@ -18,7 +18,7 @@ import main.*;
 
 /**
  *
- * @author Frankz
+ * @author Emilio Montalvo
  */
 
 
@@ -38,11 +38,11 @@ public class AreaMaquinasPanel extends javax.swing.JPanel implements ReturnHandl
         this.mainframe = mainframe;
         lista=new ListaMaquinas();
         lista.agregar(new PrensaPiernas(1, false, 4));
-        lista.agregar(new Dorsalera(2, false, 4));
-        lista.agregar(new Dorsalera(3, true, 4));
-        lista.agregar(new Dorsalera(4, true, 4));
-        lista.agregar(new PrensaPiernas(5, false, 4));
-        lista.agregar(new MaquinaPoleas(6, true, 4));
+        lista.agregar(new PrensaPiernas(2, false, 4));
+        lista.agregar(new Dorsalera(1, true, 4));
+        lista.agregar(new Dorsalera(2, true, 4));
+        lista.agregar(new MaquinaPoleas(1, false, 4));
+        lista.agregar(new MaquinaPoleas(2, true, 4));
         
         
         setLayout(new GridLayout(m,n,5,5));

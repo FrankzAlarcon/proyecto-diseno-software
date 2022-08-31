@@ -18,7 +18,7 @@ public class MaquinaPoleas extends Maquina{
 
     @Override
     public String toString() {
-        return "MaquinaPoleas";
+        return "MaquinaPoleas "+getIdMaquina();
     }
     
     
