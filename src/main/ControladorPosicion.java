@@ -17,7 +17,6 @@ public class ControladorPosicion extends Controlador{
     public ControladorPosicion() {
         this.distanciaRecorrida = 0;
         this.umbral = 0;
-        this.observador = new SensorPosicion();
     }
 
     public double getUmbral() {
@@ -50,7 +49,10 @@ public class ControladorPosicion extends Controlador{
         x = x * x;
         float y = auxSubject.getPosY() - auxSubjectUltimo.getPosY();
         y = y * y;
-        distanciaRecorrida += sqrt(x + y);
+        float distance = (float)sqrt(x + y);
+        if(distance > umbral){
+            distanciaRecorrida += distance;
+        }
     }
     
 }

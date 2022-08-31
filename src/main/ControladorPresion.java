@@ -15,7 +15,6 @@ public class ControladorPresion extends Controlador{
     public ControladorPresion(){
         this.numeroGolpes = 0;
         this.umbral = 0;
-        this.observador = new SensorPresion();
     }
 
     public int getNumeroGolpes() {
@@ -43,7 +42,7 @@ public class ControladorPresion extends Controlador{
     public void ejecutarAccion() {
         SensorPresion auxObserver = (SensorPresion)this.observador;
         Presion auxSubject = (Presion)auxObserver.getObservado();
-        if(auxObserver.getSensibilidad() * (auxSubject.getFuerza()/auxSubject.getAreaRaqueta())> this.umbral)
+        if(auxObserver.getSensibilidad() * (auxSubject.getFuerza() / auxSubject.getAreaRaqueta()) > this.umbral)
             this.numeroGolpes++;
     }
     
