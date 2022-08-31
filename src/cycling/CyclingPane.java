@@ -82,6 +82,11 @@ public class CyclingPane extends JPanel implements ReturnHandler{
         jToggleButton1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jToggleButton1.setForeground(new java.awt.Color(255, 255, 255));
         jToggleButton1.setText("Interna");
+        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton1ActionPerformed(evt);
+            }
+        });
 
         jToggleButton2.setBackground(new java.awt.Color(0, 204, 204));
         jToggleButton2.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
@@ -119,6 +124,11 @@ public class CyclingPane extends JPanel implements ReturnHandler{
                 .addContainerGap(59, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+        // TODO add your handling code here:
+        //mainFrame.setMainPanel(new RutinaInternaPanel(mainFrame));
+    }//GEN-LAST:event_jToggleButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
