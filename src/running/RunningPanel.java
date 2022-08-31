@@ -79,7 +79,7 @@ public class RunningPanel extends javax.swing.JPanel implements ReturnHandler {
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JToggleButton jToggleButton2;
     // End of variables declaration//GEN-END:variables
-
+    //hoa
     @Override
     public void doReturnAction() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
