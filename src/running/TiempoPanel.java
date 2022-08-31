@@ -43,37 +43,64 @@ public class TiempoPanel extends javax.swing.JPanel implements ReturnHandler{
         btnTiempo1 = new javax.swing.JToggleButton();
         btnTiempo3 = new javax.swing.JToggleButton();
         btnTiempo2 = new javax.swing.JToggleButton();
+        jLabel1 = new javax.swing.JLabel();
 
+        btnTiempo1.setBackground(new java.awt.Color(0, 102, 0));
+        btnTiempo1.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
+        btnTiempo1.setForeground(new java.awt.Color(255, 255, 255));
         btnTiempo1.setText("10");
+        btnTiempo1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTiempo1ActionPerformed(evt);
+            }
+        });
 
+        btnTiempo3.setBackground(new java.awt.Color(255, 51, 51));
+        btnTiempo3.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
+        btnTiempo3.setForeground(new java.awt.Color(255, 255, 255));
         btnTiempo3.setText("25");
 
+        btnTiempo2.setBackground(new java.awt.Color(204, 102, 0));
+        btnTiempo2.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
+        btnTiempo2.setForeground(new java.awt.Color(255, 255, 255));
         btnTiempo2.setText("15");
+
+        jLabel1.setText("Escoja su rutina programa de entrenamiento cuantos minutos");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(169, 169, 169)
+                .addContainerGap(37, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnTiempo3)
-                    .addComponent(btnTiempo2)
-                    .addComponent(btnTiempo1))
-                .addContainerGap(187, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(btnTiempo1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnTiempo2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnTiempo3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel1))
+                .addContainerGap(38, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(52, 52, 52)
-                .addComponent(btnTiempo1)
-                .addGap(12, 12, 12)
-                .addComponent(btnTiempo2)
-                .addGap(18, 18, 18)
-                .addComponent(btnTiempo3)
-                .addContainerGap(122, Short.MAX_VALUE))
+                .addGap(25, 25, 25)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnTiempo1, javax.swing.GroupLayout.DEFAULT_SIZE, 452, Short.MAX_VALUE)
+                    .addComponent(btnTiempo2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnTiempo3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(231, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnTiempo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTiempo1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnTiempo1ActionPerformed
     @Override
     public void doReturnAction() {
         mainframe.setMainPanel(new RunningPanel(mainframe));
@@ -86,5 +113,6 @@ public class TiempoPanel extends javax.swing.JPanel implements ReturnHandler{
     private javax.swing.JToggleButton btnTiempo1;
     private javax.swing.JToggleButton btnTiempo2;
     private javax.swing.JToggleButton btnTiempo3;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
