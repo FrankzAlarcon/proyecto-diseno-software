@@ -55,19 +55,15 @@ public class ActividadesPane extends JPanel implements ReturnHandler{
         button.setForeground(fg);
         return button;
     }
-
     private void mostrarPanelPrincipalRunning(){
 
     }
-
     private void mostrarPanelPrincipalTrailRunning(){
         mainFrame.setMainPanel(new TrailRunningPane(mainFrame));
     }
-
     private void mostrarPanelPrincipalCycling(){
 
     }
-
     private void mostrarPanelAreaMaquinas(){
         mainFrame.setMainPanel(new AreaMaquinasPanel(mainFrame));
     }

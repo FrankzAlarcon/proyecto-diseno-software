@@ -11,11 +11,11 @@ package main;
 public class SensorUbicacion extends Observador{
     
     private Observado ubicacion;
-
+    private ControladorUbicacion controlador;
     public SensorUbicacion() {
         ubicacion = new Ubicacion(this);
     }
-    
+
     @Override
     public void actualizar() {
         

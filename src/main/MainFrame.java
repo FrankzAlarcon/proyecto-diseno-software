@@ -8,39 +8,27 @@ import javax.swing.*;
 import java.awt.*;
 
 public class MainFrame extends JFrame {
-    public static void main(String[] args) {
-
-        try {
-            UIManager.setLookAndFeel(new FlatDarkLaf());
-        } catch (UnsupportedLookAndFeelException e) {
-            throw new RuntimeException(e);
-        }
-
-        MainFrame frame = new MainFrame();
-        frame.setMainPanel(new LogIn(frame));
-        frame.setVisible(true);
-    }
     private JButton regresarBtn;
     private ReturnHandler currentPane;
     private JPanel mainPanel;
-    public MainFrame() {
+    private Aplicacion aplicacion;
+    public MainFrame(Aplicacion aplicacion) {
+        this.aplicacion = aplicacion;
         regresarBtn = new JButton("Regresar");
         mainPanel = new JPanel(new BorderLayout());
-        //mainPanel.add(regresarBtn);
         setContentPane(mainPanel);
-
-
         JPanel buttonPane = new JPanel();
         regresarBtn.addActionListener(a -> {
             currentPane.doReturnAction();
         });
-
         buttonPane.add(regresarBtn);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(400,700);
-
         mainPanel.add(buttonPane, BorderLayout.SOUTH);
+    }
 
+    public Aplicacion getAplicacion() {
+        return aplicacion;
     }
 
     public void setMainPanel(ReturnHandler panel){
