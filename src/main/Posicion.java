@@ -41,7 +41,7 @@ public class Posicion extends Observado{
     
     @Override
     public void notificar(){
-        
+        this.observador.actualizar();
     }
     
 }

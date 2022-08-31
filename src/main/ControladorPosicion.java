@@ -4,6 +4,8 @@
  */
 package main;
 
+import static java.lang.Math.sqrt;
+
 /**
  *
  * @author Grupo Padel: Jairo García, Santiago Gualotuña, Andrés Ponce, Anthony Simbaña
@@ -41,7 +43,14 @@ public class ControladorPosicion extends Controlador{
 
     @Override
     public void ejecutarAccion() {
-        
+        SensorPosicion auxObserver = (SensorPosicion)this.observador;
+        Posicion auxSubject = (Posicion)auxObserver.getObservado();
+        Posicion auxSubjectUltimo = (Posicion)auxObserver.getUltimaPosicion();
+        float x = auxSubject.getPosX() - auxSubjectUltimo.getPosX();
+        x = x * x;
+        float y = auxSubject.getPosY() - auxSubjectUltimo.getPosY();
+        y = y * y;
+        distanciaRecorrida += sqrt(x + y);
     }
     
 }

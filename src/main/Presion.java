@@ -35,9 +35,6 @@ public class Presion extends Observado{
         return areaRaqueta;
     }
 
-    public void setAreaRaqueta(float areaRaqueta) {
-        this.areaRaqueta = areaRaqueta;
-    }
 
     public SensorPresion getSensorPresion() {
         return (SensorPresion)observador;

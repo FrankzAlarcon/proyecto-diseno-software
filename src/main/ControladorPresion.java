@@ -41,7 +41,10 @@ public class ControladorPresion extends Controlador{
 
     @Override
     public void ejecutarAccion() {
-        
+        SensorPresion auxObserver = (SensorPresion)this.observador;
+        Presion auxSubject = (Presion)auxObserver.getObservado();
+        if(auxObserver.getSensibilidad() * (auxSubject.getFuerza()/auxSubject.getAreaRaqueta())> this.umbral)
+            this.numeroGolpes++;
     }
     
 }

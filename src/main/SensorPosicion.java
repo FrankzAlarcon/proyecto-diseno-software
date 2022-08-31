@@ -10,27 +10,15 @@ package main;
  */
 public class SensorPosicion extends Observador{
     
-    float distanciaTotal;
-    //Posicion actual = new Posicion(distanciaTotal, distanciaTotal, sensor);
-
-    public SensorPosicion(float distanciaTotal) {
-        this.distanciaTotal = distanciaTotal;
-    }   
+    private Posicion ultimaPosicion;
+    private ControladorPosicion controlador;
     
 
     private float sensibilidad;
     private int numeroGolpes;
-    private Presion presion;
-    
-    @Override
-    public void actualizar() {
-        
-    }
 
-    public SensorPosicion(float sensibilidad, int numeroGolpes, Presion presion) {
+    public SensorPosicion(float sensibilidad) {
         this.sensibilidad = sensibilidad;
-        this.numeroGolpes = numeroGolpes;
-        this.presion = presion;
     }
 
     public float getSensibilidad() {
@@ -49,14 +37,6 @@ public class SensorPosicion extends Observador{
         this.numeroGolpes = numeroGolpes;
     }
 
-    public Presion getPresion() {
-        return presion;
-    }
-
-    public void setPresion(Presion presion) {
-        this.presion = presion;
-    }
-
     public Observado getObservado() {
         return observado;
     }
@@ -64,7 +44,31 @@ public class SensorPosicion extends Observador{
     public void setObservado(Observado observado) {
         this.observado = observado;
     }
+
+    public Posicion getUltimaPosicion() {
+        return ultimaPosicion;
+    }
+
+    public void setUltimaPosicion(Posicion ultimaPosicion) {
+        this.ultimaPosicion = ultimaPosicion;
+    }
+
+    public ControladorPosicion getControlador() {
+        return controlador;
+    }
+
+    public void setControlador(ControladorPosicion controlador) {
+        this.controlador = controlador;
+    }
     
+    @Override
+    public void actualizar() {
+        this.controlador.ejecutarAccion();
+    }
     
+    public void actualizar(Observador observador) {
+        this.ultimaPosicion = (Posicion)this.observado;
+        this.observado = observado;
+    }
     
 }
