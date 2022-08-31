@@ -11,7 +11,7 @@ import java.awt.*;
 public class PadelPane extends JPanel implements ReturnHandler {
     private MainFrame mainFrame;
     private JButton actionBtn;
-    private JLabel marcaRaqueta, caloriasQuemadas, golpesDados;
+    private JLabel marcaRaqueta, caloriasQuemadas, golpesDados,distanciaRecorrida;
     private JPanel dataPanel, actividadPanel;
     private Color acentColor = new Color(92, 161, 2);
     private boolean realizandoActividad = false;
@@ -22,7 +22,7 @@ public class PadelPane extends JPanel implements ReturnHandler {
         setLayout(new BorderLayout());
         JLabel titulo = new JLabel("Padel");
         titulo.setFont(titulo.getFont().deriveFont(Font.BOLD).deriveFont(25.0f));
-        titulo.setForeground(Color.WHITE);
+        titulo.setForeground(Color.BLACK);
         titulo.setHorizontalAlignment(JLabel.CENTER);
         add(titulo, BorderLayout.NORTH);
 
@@ -30,8 +30,8 @@ public class PadelPane extends JPanel implements ReturnHandler {
         actionBtn.setBackground(acentColor);
         actionBtn.setFont(actionBtn.getFont().deriveFont(18.0f));
         actionBtn.setForeground(Color.WHITE);
-
         add(actionBtn, BorderLayout.SOUTH);
+        
         dataPanel = new JPanel();
         dataPanel.setOpaque(true);
         dataPanel.setBackground(Color.BLACK);
@@ -39,7 +39,7 @@ public class PadelPane extends JPanel implements ReturnHandler {
         caloriasQuemadas = coloredLabel("0.0 cal", acentColor, 20.0f);
         marcaRaqueta = coloredLabel("Nox",acentColor, 20.0f);
         golpesDados = coloredLabel("0 golpes",acentColor, 20.0f);
-
+        distanciaRecorrida = coloredLabel("100 metros", Color.BLUE, 20.0f);
         addDataPanel();
 
         actividadPanel = new JPanel();
@@ -68,9 +68,9 @@ public class PadelPane extends JPanel implements ReturnHandler {
         c.fill = GridBagConstraints.HORIZONTAL;
         c.gridx = 0;
         c.gridy = 0;
-        dataPanel.add(coloredLabel("Marca raqueta", Color.WHITE, 13.0f), c);
+        //dataPanel.add(coloredLabel("Marca raqueta", Color.WHITE, 13.0f), c);
         c.gridy = 1;
-        dataPanel.add(marcaRaqueta, c);
+        //dataPanel.add(marcaRaqueta, c);
         c.gridy = 2;
         dataPanel.add(coloredLabel("Calorías quemadas", Color.WHITE, 13.0f), c);
         c.gridy = 3;
