@@ -19,6 +19,7 @@ import javax.swing.border.EmptyBorder;
 import main.ActividadesPane;
 import main.MainFrame;
 import main.ReturnHandler;
+import cycling.RutinaInternaPanel;
 
 /**
  *
