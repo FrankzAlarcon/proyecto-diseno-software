@@ -35,7 +35,6 @@ public class Presion extends Observado{
         return areaRaqueta;
     }
 
-
     public SensorPresion getSensorPresion() {
         return (SensorPresion)observador;
     }

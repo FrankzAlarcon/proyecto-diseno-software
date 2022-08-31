@@ -28,10 +28,6 @@ public class Raqueta {
         return marca;
     }
 
-    public void setMarca(String marca) {
-        this.marca = marca;
-    }
-
     public ControladorPosicion getControladorPosicion() {
         return controladorPosicion;
     }

@@ -29,6 +29,18 @@ public class Padel {
     public void detenerEntrenamiento() {
     }
 
+    public Raqueta getRaqueta() {
+        return raqueta;
+    }
+
+    public Aplicacion getAplicacion() {
+        return aplicacion;
+    }
+
+    public float getCaloriasQuemadas() {
+        return caloriasQuemadas;
+    }
+
     public float calcularCaloriasQuemadas() {
         //Calorías quemadas por distancia recorrida. Fuente: https://www.marathonranking.com/entrenamiento/tabla-cuantas-calorias-quemas-por-km-corrido-2/#:~:text=A%20mayor%20peso%20m%C3%A1s%20calor%C3%ADas,%C3%9770%3D700%20calor%C3%ADas%20quemadas.
         caloriasQuemadas += this.raqueta.getControladorPosicion().getDistanciaRecorrida();
