@@ -39,10 +39,7 @@ public class TrailRunningPane extends JPanel implements ReturnHandler {
         caloriasQuemadas = coloredLabel("0.0 cal", acentColor, 20.0f);
         distanciaRecorrida = coloredLabel("0.0 km",acentColor, 20.0f);
         consumoOxigeno = coloredLabel("0.0 O2",acentColor, 20.0f);
-
         addDataPanel();
-
-
         actividadPanel = new JPanel();
         actividadPanel.setBorder(new EmptyBorder(10,10,10,10));
         actividadPanel.setOpaque(true);
