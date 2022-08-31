@@ -27,10 +27,10 @@ public class AreaMaquinasPanel extends javax.swing.JPanel implements ReturnHandl
     ListaMaquinas lista;
     int n=2;
     int m=3;
-    
-    
+
     
     public AreaMaquinasPanel(MainFrame mainframe) {
+        lista = new ListaMaquinas();
         this.mainframe = mainframe;
         lista.agregar(new Dorsalera(1, true, 4));
         lista.agregar(new Dorsalera(2, false, 4));
@@ -85,7 +85,6 @@ public class AreaMaquinasPanel extends javax.swing.JPanel implements ReturnHandl
                     }
                 }
             }
-      
      }
     
 

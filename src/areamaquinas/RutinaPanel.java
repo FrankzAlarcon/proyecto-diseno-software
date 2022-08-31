@@ -5,16 +5,21 @@
  */
 package areamaquinas;
 
+import main.MainFrame;
+import main.ReturnHandler;
+
+import javax.swing.*;
+
 /**
  *
  * @author Frankz
  */
-public class RutinaPanel extends javax.swing.JPanel {
+public class RutinaPanel extends javax.swing.JPanel implements ReturnHandler {
 
     /**
      * Creates new form MaquinaPanel
      */
-    public RutinaPanel() {
+    public RutinaPanel(MainFrame mainFrame) {
         initComponents();
     }
 
@@ -114,5 +119,15 @@ public class RutinaPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
+
+    @Override
+    public void doReturnAction() {
+
+    }
+
+    @Override
+    public JPanel getReference() {
+        return this;
+    }
     // End of variables declaration//GEN-END:variables
 }
