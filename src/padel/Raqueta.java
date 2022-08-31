@@ -21,7 +21,23 @@ public class Raqueta {
         this.controladorPosicion = controladorPosicion;
         this.controladorPresion = controladorPresion;
     }
-            
+    
+    public String getMarca() {
+        return marca;
+    }
+
+    public void setMarca(String marca) {
+        this.marca = marca;
+    }
+
+    public ControladorPosicion getControladorPosicion() {
+        return controladorPosicion;
+    }
+
+    public ControladorPresion getControladorPresion() {
+        return controladorPresion;
+    }  
+    
     public void iniciar(){}
     
     public void detener(){};
