@@ -68,9 +68,9 @@ public class PadelPane extends JPanel implements ReturnHandler {
         c.fill = GridBagConstraints.HORIZONTAL;
         c.gridx = 0;
         c.gridy = 0;
-        dataPanel.add(coloredLabel("Marca raqueta", Color.WHITE, 13.0f), c);
+        //dataPanel.add(coloredLabel("Marca raqueta", Color.WHITE, 13.0f), c);
         c.gridy = 1;
-        dataPanel.add(marcaRaqueta, c);
+        //dataPanel.add(marcaRaqueta, c);
         c.gridy = 2;
         dataPanel.add(coloredLabel("Calorías quemadas", Color.WHITE, 13.0f), c);
         c.gridy = 3;
