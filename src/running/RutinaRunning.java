@@ -1,14 +1,35 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package running;
 
-/**
- *
- * @author Stalin
- */
-public class RutinaRunning {
+import main.Rutina;
+
+
+public abstract class RutinaRunning implements Rutina{
+    
+    double tiempo;
+    double caloriasQuemadas;
+
+    public RutinaRunning() {
+        this.tiempo = tiempo;
+        this.caloriasQuemadas = caloriasQuemadas;
+    }
+    
+    
+    @Override
+    public void iniciar() {
+
+    }
+
+    @Override
+    public void detener() {
+
+    }
+
+    @Override
+    public double calcularCaloriasQuemadas() {
+        
+    
+    return this.caloriasQuemadas;
+    }
     
 }

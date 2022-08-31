@@ -1,14 +1,21 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package running;
 
-/**
- *
- * @author Stalin
- */
-public class NivelRutinaRunning {
+public abstract class NivelRutinaRunning {
+    double velocidad;
+    double inclinacion;
+
+    public NivelRutinaRunning() {
+        this.velocidad = velocidad;
+        this.inclinacion = inclinacion;
+    }
+    
+    public void cambiarVelocidad(){
+    
+    }
+    
+    public void cambiarInclinacion(){
+    
+    }
     
 }

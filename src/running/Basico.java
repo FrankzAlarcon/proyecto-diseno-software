@@ -1,14 +1,29 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package running;
 
-/**
- *
- * @author Stalin
- */
-public class Basico {
+public class Basico extends NivelRutinaRunning{
+    
+   double velocidad;
+   double inclinacion;
+
+    public Basico() {
+        this.velocidad = velocidad;
+        this.inclinacion = inclinacion;
+    }
+   
+   
+    
+    @Override
+    public void cambiarInclinacion() {
+        super.cambiarInclinacion(); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+    }
+
+    @Override
+    public void cambiarVelocidad() {
+        super.cambiarVelocidad(); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+    }
+
+
+
     
 }

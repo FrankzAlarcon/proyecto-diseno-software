@@ -1,15 +1,23 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package running;
 
-/**
- *
- * @author Stalin
- */
-//cambio 111
+import main.Aplicacion;
+
 public class Running {
+    RutinaRunning rutina;
+    Aplicacion aplicacion;
+
+    public Running() {
+        this.rutina = rutina;
+        this.aplicacion = aplicacion;
+    }
+    
+    public void iniciar(){
+    
+    }
+    
+    public void terminar(){
+        
+    }
     
 }
