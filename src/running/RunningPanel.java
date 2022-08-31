@@ -14,8 +14,9 @@ import main.ReturnHandler;
  * @author Stalin
  */
 public class RunningPanel extends javax.swing.JPanel implements ReturnHandler {
-    MainFrame mainframe;
+     MainFrame mainframe;
     public RunningPanel(MainFrame mainframe) {
+        
         this.mainframe = mainframe;
         initComponents();
     }
@@ -35,49 +36,70 @@ public class RunningPanel extends javax.swing.JPanel implements ReturnHandler {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jToggleButton1 = new javax.swing.JToggleButton();
-        jToggleButton2 = new javax.swing.JToggleButton();
+        btnRutinaEstandar = new javax.swing.JToggleButton();
+        btnRutinaPersonalizada = new javax.swing.JToggleButton();
         jLabel1 = new javax.swing.JLabel();
 
-        jToggleButton1.setText("jToggleButton1");
+        btnRutinaEstandar.setText("Estandar");
+        btnRutinaEstandar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRutinaEstandarActionPerformed(evt);
+            }
+        });
 
-        jToggleButton2.setText("jToggleButton2");
+        btnRutinaPersonalizada.setText("Personalizada");
 
-        jLabel1.setText("jLabel1");
+        jLabel1.setText("Seleccione el tipo de rutina:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(57, 57, 57)
-                .addComponent(jToggleButton1)
-                .addGap(41, 41, 41)
-                .addComponent(jToggleButton2)
-                .addContainerGap(72, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(168, 168, 168))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(84, 84, 84)
+                        .addComponent(btnRutinaEstandar)
+                        .addGap(33, 33, 33)
+                        .addComponent(btnRutinaPersonalizada))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(106, 106, 106)
+                        .addComponent(jLabel1)))
+                .addContainerGap(91, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(36, 36, 36)
+                .addGap(31, 31, 31)
                 .addComponent(jLabel1)
-                .addGap(48, 48, 48)
+                .addGap(53, 53, 53)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jToggleButton1)
-                    .addComponent(jToggleButton2))
+                    .addComponent(btnRutinaEstandar)
+                    .addComponent(btnRutinaPersonalizada))
                 .addContainerGap(168, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnRutinaEstandarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRutinaEstandarActionPerformed
+        // TODO add your handling code here:
+        
+    //TiempoPanel panel1 = new TiempoPanel();
+    //panel1.setSize(500, 500);
+    //panel1.setLocation(0, 0);
+    
+    //mainframe.setMainPanel(new panel1(mainframe));
+     
+        
+        
+    }//GEN-LAST:event_btnRutinaEstandarActionPerformed
+    //private void mostrarPanelEstandarRunning(MainFrame mainframe){
+    //mainFrame.setMainPanel(new RunningPanel(mainFrame));
+    //}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JToggleButton btnRutinaEstandar;
+    private javax.swing.JToggleButton btnRutinaPersonalizada;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JToggleButton jToggleButton1;
-    private javax.swing.JToggleButton jToggleButton2;
     // End of variables declaration//GEN-END:variables
     //hoa
     @Override
