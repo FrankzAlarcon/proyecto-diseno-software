@@ -2,6 +2,7 @@ package main;
 
 import areamaquinas.AreaMaquinasPanel;
 import trailrunning.TrailRunningPane;
+import running.RunningPanel;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -57,7 +58,7 @@ public class ActividadesPane extends JPanel implements ReturnHandler{
     }
 
     private void mostrarPanelPrincipalRunning(){
-
+    mainFrame.setMainPanel(new RunningPanel(mainFrame));
     }
 
     private void mostrarPanelPrincipalTrailRunning(){
