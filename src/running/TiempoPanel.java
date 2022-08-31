@@ -4,15 +4,22 @@
  * and open the template in the editor.
  */
 package running;
-
+import javax.swing.JPanel;
 import main.MainFrame;
+import main.ReturnHandler;
+
 
 /**
  *
  * @author Stalin
  */
-public class TiempoPanel extends javax.swing.JPanel {
-
+public class TiempoPanel extends javax.swing.JPanel implements ReturnHandler{
+    MainFrame mainframe;
+    public TiempoPanel(MainFrame mainframe) {
+        
+        this.mainframe = mainframe;
+        initComponents();
+    }
     /**
      * Creates new form TiempoPanel
      */
@@ -20,7 +27,8 @@ public class TiempoPanel extends javax.swing.JPanel {
         initComponents();
     }
 
-    TiempoPanel(MainFrame mainframe) {
+    @Override
+    public void doReturnAction() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -67,7 +75,9 @@ public class TiempoPanel extends javax.swing.JPanel {
                 .addContainerGap(122, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
-
+    public JPanel getReference() {
+         return this;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton btnTiempo1;

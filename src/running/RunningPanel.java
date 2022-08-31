@@ -8,6 +8,7 @@ package running;
 import javax.swing.JPanel;
 import main.MainFrame;
 import main.ReturnHandler;
+import running.TiempoPanel;
  
 /**
  *
@@ -81,20 +82,9 @@ public class RunningPanel extends javax.swing.JPanel implements ReturnHandler {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRutinaEstandarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRutinaEstandarActionPerformed
-        // TODO add your handling code here:
-        
-    //TiempoPanel panel1 = new TiempoPanel();
-    //panel1.setSize(500, 500);
-    //panel1.setLocation(0, 0);
-    
-    //mainframe.setMainPanel(new panel1(mainframe));
-     
-        
-        
+    mainframe.setMainPanel(new TiempoPanel(mainframe));  
     }//GEN-LAST:event_btnRutinaEstandarActionPerformed
-    //private void mostrarPanelEstandarRunning(MainFrame mainframe){
-    //mainFrame.setMainPanel(new RunningPanel(mainFrame));
-    //}
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton btnRutinaEstandar;
