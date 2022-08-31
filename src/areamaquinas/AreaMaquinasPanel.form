@@ -16,52 +16,13 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="btnPrensaPiernas" min="-2" pref="148" max="-2" attributes="0"/>
-                  <Component id="btnMaquinaPoleas" min="-2" pref="148" max="-2" attributes="0"/>
-                  <Component id="btnDorsalera" min="-2" pref="148" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace pref="84" max="32767" attributes="0"/>
-          </Group>
+          <EmptySpace min="0" pref="312" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace pref="45" max="32767" attributes="0"/>
-              <Component id="btnMaquinaPoleas" min="-2" pref="65" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-              <Component id="btnPrensaPiernas" min="-2" pref="70" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="btnDorsalera" min="-2" pref="65" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
-          </Group>
+          <EmptySpace min="0" pref="324" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
-  <SubComponents>
-    <Component class="javax.swing.JButton" name="btnPrensaPiernas">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Prensa de Piernas"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPrensaPiernasActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="btnMaquinaPoleas">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Maquina de Poleas"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnMaquinaPoleasActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="btnDorsalera">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Dorsalera"/>
-      </Properties>
-    </Component>
-  </SubComponents>
 </Form>

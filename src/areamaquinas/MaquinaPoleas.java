@@ -15,5 +15,11 @@ public class MaquinaPoleas extends Maquina{
     void utilizar() {
         System.out.println("uso Maquina de Poleas"); //To change body of generated methods, choose Tools | Templates.
     }
+
+    @Override
+    public String toString() {
+        return "MaquinaPoleas";
+    }
+    
     
 }

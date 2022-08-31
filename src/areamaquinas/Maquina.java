@@ -49,6 +49,8 @@ public abstract class Maquina {
         this.factorCalorias = factorCalorias;
     }
     
+    
+    
     abstract void utilizar();
     
     

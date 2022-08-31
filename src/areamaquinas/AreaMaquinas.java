@@ -12,6 +12,7 @@ public class AreaMaquinas {
     private Aplicacion aplicacion;
     private ListaMaquinas lista;
     private ResumenRutina resumen;
+    private AreaMaquinasPanel area;
 
     public AreaMaquinas(Aplicacion aplicacion, ListaMaquinas lista, ResumenRutina resumen) {
         this.aplicacion = aplicacion;
@@ -23,7 +24,7 @@ public class AreaMaquinas {
         
     }
     
-    public void seleccionarMaquina(){
+    public void seleccionarMaquina(int indice){
         
     }
     
