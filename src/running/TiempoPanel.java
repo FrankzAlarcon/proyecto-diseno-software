@@ -4,10 +4,12 @@
  * and open the template in the editor.
  */
 package running;
+
 import javax.swing.JPanel;
 import main.MainFrame;
 import main.ReturnHandler;
 
+import running.RunningPanel;
 
 /**
  *
@@ -27,10 +29,7 @@ public class TiempoPanel extends javax.swing.JPanel implements ReturnHandler{
         initComponents();
     }
 
-    @Override
-    public void doReturnAction() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -75,6 +74,10 @@ public class TiempoPanel extends javax.swing.JPanel implements ReturnHandler{
                 .addContainerGap(122, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+    @Override
+    public void doReturnAction() {
+        mainframe.setMainPanel(new RunningPanel(mainframe));
+    }
     public JPanel getReference() {
          return this;
     }

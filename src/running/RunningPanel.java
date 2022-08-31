@@ -6,9 +6,12 @@
 package running;
  
 import javax.swing.JPanel;
+import main.ActividadesPane;
 import main.MainFrame;
 import main.ReturnHandler;
+
 import running.TiempoPanel;
+import running.PersonalizadoPanel;
  
 /**
  *
@@ -41,6 +44,9 @@ public class RunningPanel extends javax.swing.JPanel implements ReturnHandler {
         btnRutinaPersonalizada = new javax.swing.JToggleButton();
         jLabel1 = new javax.swing.JLabel();
 
+        btnRutinaEstandar.setBackground(new java.awt.Color(0, 204, 102));
+        btnRutinaEstandar.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        btnRutinaEstandar.setForeground(new java.awt.Color(255, 255, 255));
         btnRutinaEstandar.setText("Estandar");
         btnRutinaEstandar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -48,8 +54,17 @@ public class RunningPanel extends javax.swing.JPanel implements ReturnHandler {
             }
         });
 
+        btnRutinaPersonalizada.setBackground(new java.awt.Color(0, 255, 255));
+        btnRutinaPersonalizada.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        btnRutinaPersonalizada.setForeground(new java.awt.Color(255, 255, 255));
         btnRutinaPersonalizada.setText("Personalizada");
+        btnRutinaPersonalizada.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRutinaPersonalizadaActionPerformed(evt);
+            }
+        });
 
+        jLabel1.setFont(new java.awt.Font("Dubai Medium", 3, 24)); // NOI18N
         jLabel1.setText("Seleccione el tipo de rutina:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -57,33 +72,36 @@ public class RunningPanel extends javax.swing.JPanel implements ReturnHandler {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addContainerGap(53, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(84, 84, 84)
-                        .addComponent(btnRutinaEstandar)
-                        .addGap(33, 33, 33)
-                        .addComponent(btnRutinaPersonalizada))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(106, 106, 106)
-                        .addComponent(jLabel1)))
-                .addContainerGap(91, Short.MAX_VALUE))
+                        .addComponent(btnRutinaEstandar, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnRutinaPersonalizada, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(54, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(31, 31, 31)
                 .addComponent(jLabel1)
-                .addGap(53, 53, 53)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnRutinaEstandar)
-                    .addComponent(btnRutinaPersonalizada))
-                .addContainerGap(168, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnRutinaEstandar, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+                    .addComponent(btnRutinaPersonalizada, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(72, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRutinaEstandarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRutinaEstandarActionPerformed
     mainframe.setMainPanel(new TiempoPanel(mainframe));  
     }//GEN-LAST:event_btnRutinaEstandarActionPerformed
+
+    private void btnRutinaPersonalizadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRutinaPersonalizadaActionPerformed
+        // TODO add your handling code here:
+        mainframe.setMainPanel(new PersonalizadoPanel(mainframe)); 
+    }//GEN-LAST:event_btnRutinaPersonalizadaActionPerformed
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -94,7 +112,7 @@ public class RunningPanel extends javax.swing.JPanel implements ReturnHandler {
     //hoa
     @Override
     public void doReturnAction() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+         mainframe.setMainPanel(new ActividadesPane(mainframe));
     }
 
     @Override

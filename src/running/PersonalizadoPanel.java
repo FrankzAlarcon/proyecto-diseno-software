@@ -5,12 +5,22 @@
  */
 package running;
 
+import javax.swing.JPanel;
+import main.MainFrame;
+import main.ReturnHandler;
+
+import running.RunningPanel;
 /**
  *
  * @author Stalin
  */
-public class PersonalizadoPanel extends javax.swing.JPanel {
-
+public class PersonalizadoPanel extends javax.swing.JPanel implements ReturnHandler{
+    MainFrame mainframe;
+    public PersonalizadoPanel(MainFrame mainframe) {
+        
+        this.mainframe = mainframe;
+        initComponents();
+    }
     /**
      * Creates new form PersonalizadoPanel
      */
@@ -38,6 +48,14 @@ public class PersonalizadoPanel extends javax.swing.JPanel {
             .addGap(0, 300, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    @Override
+    public void doReturnAction() {
+        mainframe.setMainPanel(new RunningPanel(mainframe)); //To change body of generated methods, choose Tools | Templates.
+    }
+    public JPanel getReference() {
+        return this;
+    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
