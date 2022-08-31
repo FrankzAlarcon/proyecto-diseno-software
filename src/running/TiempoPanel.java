@@ -45,6 +45,8 @@ public class TiempoPanel extends javax.swing.JPanel implements ReturnHandler{
         btnTiempo2 = new javax.swing.JToggleButton();
         jLabel1 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(0, 0, 0));
+
         btnTiempo1.setBackground(new java.awt.Color(0, 102, 0));
         btnTiempo1.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         btnTiempo1.setForeground(new java.awt.Color(255, 255, 255));

@@ -44,6 +44,8 @@ public class RunningPanel extends javax.swing.JPanel implements ReturnHandler {
         btnRutinaPersonalizada = new javax.swing.JToggleButton();
         jLabel1 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(0, 0, 0));
+
         btnRutinaEstandar.setBackground(new java.awt.Color(0, 204, 102));
         btnRutinaEstandar.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         btnRutinaEstandar.setForeground(new java.awt.Color(255, 255, 255));
@@ -64,7 +66,8 @@ public class RunningPanel extends javax.swing.JPanel implements ReturnHandler {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Dubai Medium", 3, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Seleccione el tipo de rutina:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -90,7 +93,7 @@ public class RunningPanel extends javax.swing.JPanel implements ReturnHandler {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnRutinaEstandar, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
                     .addComponent(btnRutinaPersonalizada, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(72, Short.MAX_VALUE))
+                .addContainerGap(82, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
