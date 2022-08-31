@@ -1,5 +1,8 @@
 
 package areamaquinas;
+import java.util.ArrayList;
+import main.NumeroRepeticiones;
+import main.Peso;
 import main.Rutina;
 
 /**
@@ -7,22 +10,41 @@ import main.Rutina;
  * @author dell
  */
 public class RutinaMaquinas implements Rutina{
-    //Lista<Numero>
-    
+    private ArrayList<NumeroRepeticiones> numRepeticiones;
+    private ArrayList<Peso> pesos;
+    private ArrayList<Double> tiempos;
+    private Double caloriasQuemadas;
+    //controladoPeso
+    //controladorRepeticiones
 
     @Override
     public void iniciar() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        //Incializa el tiempo 
     }
 
     @Override
     public void detener() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        //Finaliza la rutina y manda a llamar al metodo calorias quemadas
+        caloriasQuemadas = this.calcularCaloriasQuemadas();
+        
     }
 
     @Override
     public double calcularCaloriasQuemadas() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        double calorias = (numRepeticiones.get(0).getNumero() * pesos.get(0).getValor()) / tiempos.get(0); 
+        return calorias ;
+    }
+    
+    public void getDatos(){
+        
+    }
+    
+    public void cambiarRutino(){
+    
+    }
+    
+    public void actualizarDatoss(){
+        
     }
     
 }
