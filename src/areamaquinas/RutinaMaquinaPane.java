@@ -79,7 +79,7 @@ public class RutinaMaquinaPane extends JPanel implements ReturnHandler{
         c.gridy = 2;
         dataPanel.add(coloredLabel("Peso Actual", Color.WHITE, 13.0f), c);
         c.gridy = 3;
-        dataPanel.add(numRepeticiones, c);
+        dataPanel.add(pesoActual, c);
         c.gridy = 0;
         c.gridx = 1;
         dataPanel.add(coloredLabel("Repeticiones", Color.WHITE, 13.0f), c);
