@@ -5,10 +5,36 @@
  */
 package cycling;
 
+import main.ControladorUbicacion;
+
 /**
  *
  * @author Stalin
  */
-public class RutinaExterna {
+public class RutinaExterna extends RutinaCycling{
+    private Ruta ruta;
+    private ControladorUbicacion controladorUbicacion;
+    
+    public RutinaExterna(double distancia, double caloriasQuemadas, Ruta ruta, ControladorUbicacion controladorUbicacion){
+        super(distancia,caloriasQuemadas);
+        this.ruta = ruta;
+        this.controladorUbicacion = controladorUbicacion;
+    }
+    
+    public void iniciar(){
+    }
+    
+    public void detener(){
+    }
+    
+    public void calcularCaloriasQuemadas(){
+    }
+    
+    public void calcularDistancia(){
+    }
+    
+    public void compararUbicacionActual(){
+    }
+    
     
 }

@@ -5,10 +5,36 @@
  */
 package cycling;
 
+import main.Aplicacion;
+
 /**
  *
  * @author Stalin
  */
 public class Cycling {
+    private Aplicacion aplicacion;
+    private RutinaCycling rutina;
+    
+    public static void main(String[] args) {
+        
+    }
+    
+    public Cycling(){ // Realizar el constructor
+    }
+    
+    public void iniciar(){
+    }
+    public void detener(){
+    }
+    
+    public void mostrarRutinas(){
+    }
+    
+    public void seleccionarRutina(){
+    }
+    
+    public void mostrarResultado(){
+    }
+    
     
 }

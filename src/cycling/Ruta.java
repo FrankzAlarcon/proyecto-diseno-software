@@ -5,10 +5,26 @@
  */
 package cycling;
 
+import java.util.ArrayList;
+import main.Ubicacion;
+
 /**
  *
  * @author Stalin
  */
 public class Ruta {
+    private ArrayList<Ubicacion> ubicaciones;
+    
+    public Ruta(){
+    }
+    
+    public void calcularDistancia(){
+    }
+    
+    public void agregar(){
+    }
+    
+    public void quitar(){
+    }
     
 }
