@@ -7,6 +7,7 @@ package main;
 
 import com.formdev.flatlaf.FlatDarkLaf;
 import padel.Padel;
+import trailrunning.TrailRunning;
 
 import javax.swing.*;
 
@@ -18,13 +19,13 @@ public class Aplicacion {
     Usuario usuario; 
     MainFrame mainFrame;
     private Padel padel;
-
+    private TrailRunning trailRunning;
     public static void main(String[] args) {
         new Aplicacion().iniciar();
     }
 
     public void iniciar(){
-        mainFrame.setMainPanel(new LogIn(mainFrame));
+        mainFrame.setMainPanel(new ActividadesPane(mainFrame));
         mainFrame.setVisible(true);
 
     }
@@ -44,6 +45,7 @@ public class Aplicacion {
                 'M'
                 );
         padel = Padel.createInstance(this);
+        trailRunning = new TrailRunning(this);
     }
 
     public void seleccionarArea() {
@@ -61,5 +63,9 @@ public class Aplicacion {
 
     public Padel seleccionarPadel() {
         return padel;
+    }
+
+    public TrailRunning seleccionarTrailRunning() {
+        return trailRunning;
     }
 }

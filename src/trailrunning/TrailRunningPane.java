@@ -15,8 +15,10 @@ public class TrailRunningPane extends JPanel implements ReturnHandler {
     private JPanel dataPanel, actividadPanel;
     private Color acentColor = new Color(92, 161, 2);
     private boolean realizandoActividad = false;
+    private TrailRunning trailRunning;
     public TrailRunningPane(MainFrame mainFrame) {
         this.mainFrame = mainFrame;
+        trailRunning = mainFrame.getAplicacion().seleccionarTrailRunning();
         setOpaque(true);
         setBackground(Color.BLACK);
         setLayout(new BorderLayout());
@@ -44,10 +46,24 @@ public class TrailRunningPane extends JPanel implements ReturnHandler {
         actividadPanel.setBorder(new EmptyBorder(10,10,10,10));
         actividadPanel.setOpaque(true);
         actividadPanel.setBackground(Color.BLACK);
-        actividadPanel.add(coloredLabel("Registrando datos...", Color.WHITE, 15.0f));
+        actividadPanel.setLayout(new BorderLayout());
+        //actividadPanel.add(coloredLabel("Registrando datos...", Color.WHITE, 15.0f));
+
+        JLabel regLabel = coloredLabel("Registrando datos...", Color.WHITE, 15.0f);
+        regLabel.setHorizontalAlignment(JLabel.CENTER);
+        actividadPanel.add(regLabel, BorderLayout.NORTH);
+        JLabel icon = new JLabel();
+        try {
+            ImageIcon image = new ImageIcon(this.getClass().getResource("/res/trail.png"));
+            icon.setIcon(new ImageIcon(image.getImage().getScaledInstance(120,120,Image.SCALE_AREA_AVERAGING)));
+            icon.setHorizontalAlignment(JLabel.CENTER);
+            actividadPanel.add(icon);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
 
         actionBtn.addActionListener(a -> {
-            cambiarPaneles();
+            accionBoton();
         });
         add(dataPanel, BorderLayout.CENTER);
         //add(actividadPanel, BorderLayout.CENTER);
@@ -88,6 +104,18 @@ public class TrailRunningPane extends JPanel implements ReturnHandler {
         return label;
     }
 
+    private void accionBoton() {
+        if(realizandoActividad){
+            trailRunning.detener();
+            caloriasQuemadas.setText(String.format("%.2f cal",trailRunning.calcularCaloriasQuemadas()));
+            distanciaRecorrida.setText(String.format("%.2f m",trailRunning.getControladorUbicacion().getDistanciaRecorrida()));
+
+        }else{
+            trailRunning.iniciar();
+        }
+        cambiarPaneles();
+    }
+
     private void cambiarPaneles(){
 
         if(realizandoActividad){
@@ -112,6 +140,7 @@ public class TrailRunningPane extends JPanel implements ReturnHandler {
 
     @Override
     public void doReturnAction() {
+        if(realizandoActividad) trailRunning.detener();
         mainFrame.setMainPanel(new ActividadesPane(mainFrame));
     }
 

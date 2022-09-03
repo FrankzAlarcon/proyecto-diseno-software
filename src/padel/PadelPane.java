@@ -1,8 +1,13 @@
 package padel;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+
 import main.ActividadesPane;
 import main.MainFrame;
 import main.ReturnHandler;
@@ -47,7 +52,19 @@ public class PadelPane extends JPanel implements ReturnHandler {
         actividadPanel.setBorder(new EmptyBorder(10,10,10,10));
         actividadPanel.setOpaque(true);
         actividadPanel.setBackground(Color.BLACK);
-        actividadPanel.add(coloredLabel("Registrando datos...", Color.WHITE, 15.0f));
+        actividadPanel.setLayout(new BorderLayout());
+        JLabel regLabel = coloredLabel("Registrando datos...", Color.WHITE, 15.0f);
+        regLabel.setHorizontalAlignment(JLabel.CENTER);
+        actividadPanel.add(regLabel, BorderLayout.NORTH);
+        JLabel icon = new JLabel();
+        try {
+            ImageIcon image = new ImageIcon(this.getClass().getResource("/res/padel.png"));
+            icon.setIcon(new ImageIcon(image.getImage().getScaledInstance(120,120,Image.SCALE_FAST)));
+            icon.setHorizontalAlignment(JLabel.CENTER);
+            actividadPanel.add(icon);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
 
         actionBtn.addActionListener(a -> {
             accionBoton();
@@ -133,6 +150,7 @@ public class PadelPane extends JPanel implements ReturnHandler {
 
     @Override
     public void doReturnAction() {
+        if(realizandoActividad) padel.detenerEntrenamiento();
         mainFrame.setMainPanel(new ActividadesPane(mainFrame));
     }
 

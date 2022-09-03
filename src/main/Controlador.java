@@ -16,4 +16,8 @@ public abstract class Controlador {
    
     public abstract void definirUmbral(double umbral);
     public abstract void ejecutarAccion();
+
+    public void setObservador(Observador observador){
+        this.observador = observador;
+    }
 }

@@ -9,20 +9,29 @@ package main;
  * @author green
  */
 public class SensorUbicacion extends Observador{
-    
-    private Observado ubicacion;
-
+    private Ubicacion anterior;
     public SensorUbicacion() {
 
     }
 
-    public void setUbicacion(Observado ubicacion) {
-        this.ubicacion = ubicacion;
+    public Ubicacion getUbicacionActual(){
+        return (Ubicacion) observado;
     }
+
+    public Ubicacion getUbicacionAnterior() {
+        return anterior;
+    }
+
+    public void setUbicacion(Observado ubicacion) {
+        if(this.observado != null)
+            this.anterior = (Ubicacion) this.observado;
+        this.observado = ubicacion;
+    }
+
 
     @Override
     public void actualizar() {
-        
+        controlador.ejecutarAccion();
     }
-    
+
 }
