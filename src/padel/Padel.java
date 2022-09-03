@@ -12,6 +12,10 @@ import main.Aplicacion;
  */
 public class Padel {
 
+    public static Padel createInstance(Aplicacion aplicacion){
+        return new Padel(new Raqueta("Genérica"), aplicacion, 0.0f);
+    }
+
     private Raqueta raqueta;
     private Aplicacion aplicacion;
     private float caloriasQuemadas;

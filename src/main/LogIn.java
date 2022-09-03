@@ -9,6 +9,7 @@ public class LogIn extends JPanel implements ReturnHandler {
     private JPasswordField contraseniaIn;
     private JButton ingresarBtn, registrarseBtn;
     private MainFrame mainFrame;
+    private String user = "pepito", pass = "1234";
     public LogIn(MainFrame mainFrame) {
         this.mainFrame = mainFrame;
         ingresarBtn = new JButton("Ingresar");
@@ -43,7 +44,7 @@ public class LogIn extends JPanel implements ReturnHandler {
         add(registrarseBtn, c);
 
         ingresarBtn.addActionListener(a -> {
-            mostarPanelActividades();
+            validarDatos();
         });
 
         registrarseBtn.addActionListener(a -> {
@@ -53,10 +54,16 @@ public class LogIn extends JPanel implements ReturnHandler {
     }
 
     private void validarDatos(){
-
+        String tempPass = String.valueOf(contraseniaIn.getPassword());
+        if(usuarioIn.getText().equals(user) && tempPass.equals(pass) ){
+            mostarPanelActividades();
+        }else {
+            JOptionPane.showMessageDialog(mainFrame,"Usuario y/o contraseña inválidos...","Error", JOptionPane.ERROR_MESSAGE);
+        }
     }
 
     private void mostarPanelActividades(){
+
         mainFrame.setMainPanel(new ActividadesPane(mainFrame));
     }
 

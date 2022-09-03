@@ -15,19 +15,25 @@ public class ActividadesPane extends JPanel implements ReturnHandler{
     private MainFrame mainFrame;
     public ActividadesPane(MainFrame mainFrame) {
         this.mainFrame = mainFrame;
+        setBackground(Color.BLACK);
         runningBtn = createStyledButton("Running", new Color(168, 95, 0), Color.WHITE);
         trailRunningBtn = createStyledButton("Trail Running", new Color(92, 161, 2), Color.WHITE);
         cyclingBtn = createStyledButton("Cycling", new Color(2, 153, 143), Color.WHITE);
         padelBtn = createStyledButton("Padel", new Color(0, 75, 156), Color.WHITE);
         areaMaquinasBtn = createStyledButton("Área Máquinas", new Color(96, 2, 163), Color.WHITE);
-        setLayout(new GridLayout(0,2,5,5));
-        setBackground(Color.BLACK);
+        JPanel mainContent = new JPanel(new GridLayout(0,2,5,5));
+        setLayout(new BorderLayout());
+        mainContent.setBackground(Color.BLACK);
         setBorder(new EmptyBorder(10,10,10,10));
-        add(runningBtn);
-        add(trailRunningBtn);
-        add(cyclingBtn);
-        add(padelBtn);
-        add(areaMaquinasBtn);
+        mainContent.add(runningBtn);
+        mainContent.add(trailRunningBtn);
+        mainContent.add(cyclingBtn);
+        mainContent.add(padelBtn);
+        mainContent.add(areaMaquinasBtn);
+
+        add(mainContent, BorderLayout.CENTER);
+        JLabel titulo = coloredLabel(mainFrame.getAplicacion().getUsuario().getName(), Color.WHITE, 20.0f );
+        add(titulo, BorderLayout.NORTH);
 
         runningBtn.addActionListener(a -> {
             mostrarPanelPrincipalRunning();
@@ -58,6 +64,12 @@ public class ActividadesPane extends JPanel implements ReturnHandler{
         return button;
     }
 
+    private JLabel coloredLabel(String title, Color c, float size){
+        JLabel label = new JLabel(title);
+        label.setForeground(c);
+        label.setFont(label.getFont().deriveFont(size));
+        return label;
+    }
     private void mostrarPanelPrincipalRunning(){
     mainFrame.setMainPanel(new RunningPanel(mainFrame));
     }

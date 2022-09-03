@@ -6,6 +6,7 @@
 package main;
 
 import com.formdev.flatlaf.FlatDarkLaf;
+import padel.Padel;
 
 import javax.swing.*;
 
@@ -16,6 +17,7 @@ import javax.swing.*;
 public class Aplicacion {
     Usuario usuario; 
     MainFrame mainFrame;
+    private Padel padel;
 
     public static void main(String[] args) {
         new Aplicacion().iniciar();
@@ -34,7 +36,14 @@ public class Aplicacion {
         } catch (UnsupportedLookAndFeelException e) {
             e.printStackTrace();
         }
-        mainFrame = new MainFrame();
+        mainFrame = new MainFrame(this);
+        usuario = new Usuario("Pepito Pistolas",
+                23,
+                160.26,
+                1.85,
+                'M'
+                );
+        padel = Padel.createInstance(this);
     }
 
     public void seleccionarArea() {
@@ -48,7 +57,9 @@ public class Aplicacion {
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
-    
-    
-    
+
+
+    public Padel seleccionarPadel() {
+        return padel;
+    }
 }

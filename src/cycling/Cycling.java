@@ -14,11 +14,7 @@ import main.Aplicacion;
 public class Cycling {
     private Aplicacion aplicacion;
     private RutinaCycling rutina;
-    
-    public static void main(String[] args) {
-        
-    }
-    
+
     public Cycling(){ // Realizar el constructor
     }
     

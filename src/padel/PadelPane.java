@@ -49,6 +49,7 @@ public class PadelPane extends JPanel implements ReturnHandler {
 
         actionBtn.addActionListener(a -> {
             cambiarPaneles();
+            mainFrame.getAplicacion().seleccionarPadel();
         });
         add(dataPanel, BorderLayout.CENTER);
         //add(actividadPanel, BorderLayout.CENTER);
@@ -112,6 +113,8 @@ public class PadelPane extends JPanel implements ReturnHandler {
         }
 
     }
+
+
 
 
     @Override
