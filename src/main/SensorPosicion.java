@@ -29,7 +29,7 @@ public class SensorPosicion extends Observador{
         return ultimaPosicion;
     }
 
-    public void registrar(Posicion ultimaPosicion) {
+    public void setUltimaPosicion(Posicion ultimaPosicion) {
         this.ultimaPosicion = new Posicion(ultimaPosicion.getPosX(), ultimaPosicion.getPosY());
     }
 

@@ -25,6 +25,8 @@ public class Posicion extends Observado{
     }
 
     public void setPos(float posX, float posY){
+        SensorPosicion aux = (SensorPosicion)this.observador;
+        aux.setUltimaPosicion(this);
         this.posX = posX;
         this.posY = posY;
     }

@@ -59,4 +59,24 @@ public class Raqueta {
         this.controladorPresion = null;
     };
     
+    public static void main(String[] args) {
+        Posicion posicion = new Posicion();
+        SensorPosicion sensorPosicion = new SensorPosicion();
+        ControladorPosicion controladorPosicion = new ControladorPosicion();
+        
+        posicion.setObservador(sensorPosicion);
+        sensorPosicion.setControlador(controladorPosicion);
+        controladorPosicion.setObservador(sensorPosicion);
+        
+        posicion.setPos(100, 200);
+        posicion.notificar();
+        
+        posicion.setPos(-500, +20);
+        posicion.notificar();
+        
+        posicion.setPos(10, 213);
+        posicion.notificar();
+        
+        System.out.println(controladorPosicion.getDistanciaRecorrida() + " metros.");
+    }
 }
