@@ -36,8 +36,8 @@ public class Raqueta {
         this.controladorPosicion = new ControladorPosicion();
         
         //Se inicia el medidor de presión
-        Presion presion = new Presion();
-        SensorPresion sensorPresion = new SensorPresion();
+        Presion presion = new Presion(0.06f);
+        SensorPresion sensorPresion = new SensorPresion(1);
         this.controladorPresion = new ControladorPresion();
 
         //Configuración de los medidores
@@ -49,7 +49,8 @@ public class Raqueta {
         presion.setObservador(sensorPresion);
         sensorPresion.setControlador(controladorPresion);
         this.controladorPresion.setObservador(sensorPresion);
-        System.out.println("Acción iniciada ---------------------------------");
+        this.controladorPresion.definirUmbral(120);
+        
         thread = new ActionThread(){
 
             @Override
@@ -58,6 +59,7 @@ public class Raqueta {
                     try {
                         sleep(1000);
                         posicion.notificar();
+                        presion.notificar();
 
                     } catch (InterruptedException e) {
                         //throw new RuntimeException(e);
@@ -74,7 +76,5 @@ public class Raqueta {
         //this.controladorPosicion = null;
         //this.controladorPresion = null;
         thread.stopAction();
-        System.out.println("Accion detenida ------------------------------------------");
-
     };
 }

@@ -52,9 +52,7 @@ public class ControladorPosicion extends Controlador{
         float distance = (float)sqrt(x + y);
         if(distance > umbral){
             distanciaRecorrida += distance;
-            System.out.println("Se paso el umbral");
         }
-        System.out.println("Se ejecuto la acción, " + distance);
     }
     
 }

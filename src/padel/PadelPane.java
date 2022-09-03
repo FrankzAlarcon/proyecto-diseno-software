@@ -39,8 +39,8 @@ public class PadelPane extends JPanel implements ReturnHandler {
         dataPanel.setBorder(new EmptyBorder(10,10,10,10));
         caloriasQuemadas = coloredLabel("0.0 cal", acentColor, 20.0f);
         marcaRaqueta = coloredLabel("Nox",acentColor, 20.0f);
-        golpesDados = coloredLabel("0 golpes",acentColor, 20.0f);
-        distanciaRecorrida= coloredLabel("0 km",acentColor, 20.0f);
+        golpesDados = coloredLabel("0",acentColor, 20.0f);
+        distanciaRecorrida= coloredLabel("0 m",acentColor, 20.0f);
         addDataPanel();
 
         actividadPanel = new JPanel();

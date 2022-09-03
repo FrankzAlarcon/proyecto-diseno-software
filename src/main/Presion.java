@@ -15,7 +15,6 @@ public class Presion extends Observado{
     public Presion() {
         this.fuerza = 0.0f;
         this.areaRaqueta = 1.0f;
-        this.observador = new SensorPresion();
     }
 
     
@@ -49,6 +48,7 @@ public class Presion extends Observado{
     
     @Override
     public void notificar() {
+        this.fuerza =(float)(Math.random() * 80);
         this.observador.actualizar();
     }
 }
