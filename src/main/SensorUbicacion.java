@@ -13,9 +13,13 @@ public class SensorUbicacion extends Observador{
     private Observado ubicacion;
 
     public SensorUbicacion() {
-        ubicacion = new Ubicacion(this);
+
     }
-    
+
+    public void setUbicacion(Observado ubicacion) {
+        this.ubicacion = ubicacion;
+    }
+
     @Override
     public void actualizar() {
         

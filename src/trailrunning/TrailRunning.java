@@ -1,8 +1,7 @@
 
 package trailrunning;
 
-import main.Aplicacion;
-import main.ControladorUbicacion;
+import main.*;
 
 /**
  *
@@ -21,6 +20,13 @@ public class TrailRunning {
     
     public void iniciar() {
         cronometro.iniciar();
+        //Inicializacion del observado y observador
+        SensorUbicacion sensorUbicacion = new SensorUbicacion();
+        Ubicacion ubicacion = new Ubicacion();
+        ubicacion.setObservador(sensorUbicacion);
+        sensorUbicacion.setObservado(ubicacion);
+        //
+
         
     }
     

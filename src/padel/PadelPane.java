@@ -14,7 +14,9 @@ public class PadelPane extends JPanel implements ReturnHandler {
     private JPanel dataPanel, actividadPanel;
     private Color acentColor = new Color(0, 75, 156);
     private boolean realizandoActividad = false;
+    private Padel padel;
     public PadelPane(MainFrame mainFrame) {
+        padel = mainFrame.getAplicacion().seleccionarPadel();
         this.mainFrame = mainFrame;
         setOpaque(true);
         setBackground(Color.BLACK);
@@ -48,12 +50,24 @@ public class PadelPane extends JPanel implements ReturnHandler {
         actividadPanel.add(coloredLabel("Registrando datos...", Color.WHITE, 15.0f));
 
         actionBtn.addActionListener(a -> {
-            cambiarPaneles();
-            mainFrame.getAplicacion().seleccionarPadel();
+            accionBoton();
         });
         add(dataPanel, BorderLayout.CENTER);
         //add(actividadPanel, BorderLayout.CENTER);
         //actividadPanel.setVisible(false);
+    }
+
+    private void accionBoton(){
+        if(realizandoActividad){
+            padel.detenerEntrenamiento();
+            caloriasQuemadas.setText(padel.calcularCaloriasQuemadas() + " cal");
+            marcaRaqueta.setText(padel.getRaqueta().getMarca());
+            distanciaRecorrida.setText(padel.getRaqueta().getControladorPosicion().getDistanciaRecorrida() + " m");
+            golpesDados.setText(padel.getRaqueta().getControladorPresion().getNumeroGolpes() + "");
+        }else{
+            padel.iniciarEntrenamiento();
+        }
+        cambiarPaneles();
     }
 
     private void addDataPanel(){

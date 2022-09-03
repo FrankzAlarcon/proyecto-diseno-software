@@ -46,10 +46,11 @@ public class SensorPosicion extends Observador{
         
         this.controlador.ejecutarAccion();
     }
-    
+
+    /*
     public void actualizar(Observador observador) {
         this.ultimaPosicion = (Posicion)this.observado;
         this.observado = observado;
-    }
+    }*/
     
 }

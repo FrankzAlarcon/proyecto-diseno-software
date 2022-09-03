@@ -14,9 +14,10 @@ public class Ubicacion extends Observado {
     private double elevacion;
     public SensorUbicacion sensor;
 
-    public Ubicacion(SensorUbicacion sensor) {
-        this.sensor = sensor;
+    public Ubicacion() {
+
     }
+
 
     @Override
     public void notificar() {

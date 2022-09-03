@@ -1,12 +1,7 @@
 
 package padel;
 
-import main.ControladorPosicion;
-import main.ControladorPresion;
-import main.Posicion;
-import main.Presion;
-import main.SensorPosicion;
-import main.SensorPresion;
+import main.*;
 
 /**
  *
@@ -16,6 +11,7 @@ public class Raqueta {
     private String marca;
     private ControladorPosicion controladorPosicion;
     private ControladorPresion controladorPresion;
+    private ActionThread thread;
 
     public Raqueta(String marca) {
         this.marca = marca;
@@ -48,14 +44,37 @@ public class Raqueta {
         posicion.setObservador(sensorPosicion);
         sensorPosicion.setControlador(controladorPosicion);
         this.controladorPosicion.setObservador(sensorPosicion);
+        this.controladorPosicion.definirUmbral(0.5);
         
         presion.setObservador(sensorPresion);
         sensorPresion.setControlador(controladorPresion);
         this.controladorPresion.setObservador(sensorPresion);
+        System.out.println("Acción iniciada ---------------------------------");
+        thread = new ActionThread(){
+
+            @Override
+            public void run() {
+                while(isRunning) {
+                    try {
+                        sleep(1000);
+                        posicion.notificar();
+
+                    } catch (InterruptedException e) {
+                        //throw new RuntimeException(e);
+                    }
+                }
+            }
+
+        };
+
+        thread.start();
     }
     
     public void detener(){
-        this.controladorPosicion = null;
-        this.controladorPresion = null;
+        //this.controladorPosicion = null;
+        //this.controladorPresion = null;
+        thread.stopAction();
+        System.out.println("Accion detenida ------------------------------------------");
+
     };
 }
