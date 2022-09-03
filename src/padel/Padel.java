@@ -57,9 +57,7 @@ public class Padel {
         caloriasQuemadas *= this.aplicacion.getUsuario().getPeso() * 0.06 * this.aplicacion.getUsuario().getAltura();
 
         //Calorías quemadas por edad
-        caloriasQuemadas -= 5.72 * this.aplicacion.getUsuario().getEdad();
-
-        //Calorías quemadas por altura
+        caloriasQuemadas *= 5.72 / this.aplicacion.getUsuario().getEdad();
 
         //Calorías por sexo. Fuente: https://gimnasiorizo.wordpress.com/2013/08/23/gasto-calorico-diferencia-entre-hombres-y-mujeres/
         if(this.aplicacion.getUsuario().getSexo() == 'F')
