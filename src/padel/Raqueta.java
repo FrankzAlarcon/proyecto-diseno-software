@@ -44,7 +44,7 @@ public class Raqueta {
         posicion.setObservador(sensorPosicion);
         sensorPosicion.setControlador(controladorPosicion);
         this.controladorPosicion.setObservador(sensorPosicion);
-        this.controladorPosicion.definirUmbral(0.5);
+        this.controladorPosicion.definirUmbral(0.35);
         
         presion.setObservador(sensorPresion);
         sensorPresion.setControlador(controladorPresion);
@@ -57,7 +57,7 @@ public class Raqueta {
             public void run() {
                 while(isRunning) {
                     try {
-                        sleep(1000);
+                        sleep(2000);
                         posicion.notificar();
                         presion.notificar();
 

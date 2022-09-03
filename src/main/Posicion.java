@@ -41,8 +41,8 @@ public class Posicion extends Observado{
     @Override
     public void notificar(){
         ((SensorPosicion)this.observador).setUltimaPosicion(this);
-        this.posX =(float)(Math.random()*5);
-        this.posY =(float)(Math.random()*5);
+        this.posX =(float)(Math.random());
+        this.posY =(float)(Math.random());
 
         this.observador.actualizar();
     }
