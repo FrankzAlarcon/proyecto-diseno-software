@@ -11,11 +11,10 @@ package main;
 public class SensorPosicion extends Observador{
     
     private Posicion ultimaPosicion;
-    private ControladorPosicion controlador;
 
     public SensorPosicion(){
         this.ultimaPosicion = new Posicion();
-        this.ultimaPosicion.setSensor(this);
+        this.ultimaPosicion.setObservador(this);
     }
     
     public Observado getObservado() {
@@ -35,7 +34,7 @@ public class SensorPosicion extends Observador{
     }
 
     public ControladorPosicion getControlador() {
-        return controlador;
+        return (ControladorPosicion)controlador;
     }
 
     public void setControlador(ControladorPosicion controlador) {

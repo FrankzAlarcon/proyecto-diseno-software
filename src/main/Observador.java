@@ -11,6 +11,8 @@ package main;
  */
 public abstract class Observador {
     
-    Observado observado;    
+    Observado observado;
+    Controlador controlador;
+    
     public abstract void actualizar();
 }

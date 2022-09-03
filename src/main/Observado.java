@@ -13,4 +13,9 @@ public abstract class Observado {
     Observador observador;
     
     public abstract void notificar();
+    
+    public void setObservador(Observador observador){
+        observador.observado = this;
+        this.observador = observador;
+    }
 }

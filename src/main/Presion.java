@@ -45,11 +45,7 @@ public class Presion extends Observado{
 
     public Observador getObservador() {
         return observador;
-    }
-
-    public void setObservador(Observador observador) {
-        this.observador = observador;
-    }    
+    } 
     
     @Override
     public void notificar() {

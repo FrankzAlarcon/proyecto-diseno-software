@@ -11,7 +11,6 @@ package main;
 public class SensorPresion extends Observador{
 
     private float sensibilidad;
-    private ControladorPresion controlador;
 
     public SensorPresion(){
         this.sensibilidad = 1.0f;
@@ -39,7 +38,7 @@ public class SensorPresion extends Observador{
     }
 
     public ControladorPresion getControlador() {
-        return controlador;
+        return (ControladorPresion)controlador;
     }
 
     public void setControlador(ControladorPresion controlador) {

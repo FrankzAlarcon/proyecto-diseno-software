@@ -36,10 +36,6 @@ public class Posicion extends Observado{
     public SensorPosicion getSensor() {
         return (SensorPosicion) observador;
     }
-
-    public void setSensor(SensorPosicion sensor) {
-        this.observador = sensor;
-    }
     
     @Override
     public void notificar(){
