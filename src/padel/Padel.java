@@ -27,10 +27,11 @@ public class Padel {
     }
 
     public void iniciarEntrenamiento() {
-
+        this.raqueta.iniciar();
     }
 
     public void detenerEntrenamiento() {
+        this.raqueta.detener();
     }
 
     public Raqueta getRaqueta() {

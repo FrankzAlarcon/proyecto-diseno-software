@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package padel;
 
 import main.ControladorPosicion;
@@ -37,19 +34,29 @@ public class Raqueta {
     }  
     
     public void iniciar(){
-        //Controlador presion
-        //Posicion pos = new Posicion();
-        //SensorPosicion senPos = new SensorPosicion(0.2f);
-        Presion pres = new Presion();
-        SensorPresion senPres = new SensorPresion(0.2f);
-        controladorPresion = new ControladorPresion();
-        pres.setObservador(senPres);
-        senPres.setObservado(pres);
+        //Se inicia el medidor de posición
+        Posicion posicion = new Posicion();
+        SensorPosicion sensorPosicion = new SensorPosicion();
+        this.controladorPosicion = new ControladorPosicion();
         
+        //Se inicia el medidor de presión
+        Presion presion = new Presion();
+        SensorPresion sensorPresion = new SensorPresion();
+        this.controladorPresion = new ControladorPresion();
+
+        //Configuración de los medidores
+        posicion.setObservador(sensorPosicion);
+        sensorPosicion.setControlador(controladorPosicion);
+        this.controladorPosicion.setObservador(sensorPosicion);
         
-        //controladorPosicion = new ControladorPosicion(senPos);
+        presion.setObservador(sensorPresion);
+        sensorPresion.setControlador(controladorPresion);
+        this.controladorPresion.setObservador(sensorPresion);
     }
     
-    public void detener(){};
+    public void detener(){
+        this.controladorPosicion = null;
+        this.controladorPresion = null;
+    };
     
 }
