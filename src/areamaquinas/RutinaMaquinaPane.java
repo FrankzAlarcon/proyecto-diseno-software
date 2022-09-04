@@ -20,8 +20,12 @@ public class RutinaMaquinaPane extends JPanel implements ReturnHandler{
     private JPanel dataPanel, actividadPanel;
     private Color acentColor = new Color(96, 2, 163); //Color Morado
     private boolean realizandoActividad = false;
+    private ResumenRutina resumen;
+    
+    
     public RutinaMaquinaPane(MainFrame mainFrame) {
         this.mainFrame = mainFrame;
+        //this.resumen=mainFrame.getAplicacion().seleccionarAreaMaquina();
         setOpaque(true);
         setBackground(Color.BLACK);
         setLayout(new BorderLayout());
@@ -93,6 +97,10 @@ public class RutinaMaquinaPane extends JPanel implements ReturnHandler{
         label.setForeground(c);
         label.setFont(label.getFont().deriveFont(size));
         return label;
+    }
+    
+    private void iniciarRutina(){
+        
     }
 
     private void cambiarPaneles(){

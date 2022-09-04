@@ -5,6 +5,7 @@
  */
 package main;
 
+import areamaquinas.AreaMaquinas;
 import com.formdev.flatlaf.FlatDarkLaf;
 import padel.Padel;
 import trailrunning.TrailRunning;
@@ -20,6 +21,7 @@ public class Aplicacion {
     MainFrame mainFrame;
     private Padel padel;
     private TrailRunning trailRunning;
+    private AreaMaquinas areaMaquinas;
     public static void main(String[] args) {
         new Aplicacion().iniciar();
     }
@@ -67,5 +69,9 @@ public class Aplicacion {
 
     public TrailRunning seleccionarTrailRunning() {
         return trailRunning;
+    }
+    
+    public AreaMaquinas seleccionarAreaMaquina(){
+        return areaMaquinas;
     }
 }
