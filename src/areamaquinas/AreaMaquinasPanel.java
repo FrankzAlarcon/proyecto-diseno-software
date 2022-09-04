@@ -7,10 +7,14 @@ package areamaquinas;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 import java.awt.GridLayout;
+import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import main.*;
@@ -40,25 +44,26 @@ public class AreaMaquinasPanel extends javax.swing.JPanel implements ReturnHandl
         lista.agregar(new PrensaPiernas(1, false, 4));
         lista.agregar(new PrensaPiernas(2, false, 4));
         lista.agregar(new Dorsalera(1, true, 4));
-        lista.agregar(new Dorsalera(2, true, 4));
+        lista.agregar(new Dorsalera(2, false, 4));
         lista.agregar(new MaquinaPoleas(1, false, 4));
         lista.agregar(new MaquinaPoleas(2, true, 4));
         
         setBackground(Color.BLACK);
-        setLayout(new GridLayout(m,n,5,5));
+        setLayout(new GridBagLayout());        
         setBorder(new EmptyBorder(10,10,10,10));
         setMatriz();
         
     }
     
     public void setMatriz(){
-       
+        
         int c=0;
         maquinasBotones=new JButton[m][n];
+        int posicionesY[] = {0,2,4};
+        String nombres[] = {"Prensas de Piernas", "Dorsaleras", "Máquinas de Poleas"};
         for (int i = 0; i < m; i++) {
-            for (int j = 0; j < n; j++) {
-               
-                
+            setTitulo(nombres[i], 0, posicionesY[i], 2);
+            for (int j = 0; j < n; j++) {                               
                 if(lista.getMaquina(c).isOcupado()){
                      maquinasBotones[i][j]=createStyledButton(lista.getMaquina(c).toString(), new Color(92, 161, 2), Color.WHITE);
                 }else{
@@ -69,14 +74,42 @@ public class AreaMaquinasPanel extends javax.swing.JPanel implements ReturnHandl
                 */
                 ButtonController bt = new ButtonController();
                 maquinasBotones[i][j].addActionListener(bt);
-                
-                this.add(maquinasBotones[i][j]);
+                GridBagConstraints restricciones = generarRestriccionesLayout(j + 1,  posicionesY[i] + 1 , 1, true);
+                this.add(maquinasBotones[i][j], restricciones);
                 c++;
             }
             
         }   
     }
+    
+    public void setTitulo(String text, int x, int y, int gridWidth) {
+        JPanel panel = new JPanel();        
+        panel.setBackground(new Color(1, 1, 1, 0));
+        panel.add(coloredLabel(text,Color.WHITE, 15.0f));
+        GridBagConstraints restricciones = generarRestriccionesLayout(x, y, gridWidth, false);
+        this.add(panel, restricciones);
+    }
+    
+    private GridBagConstraints generarRestriccionesLayout(int x, int y, int gridWidth, boolean isButton) {
+        GridBagConstraints restricciones = new GridBagConstraints();
+        restricciones.fill = GridBagConstraints.HORIZONTAL;
+        restricciones.gridx = x;
+        restricciones.gridy = y;
+        restricciones.gridwidth = gridWidth;     
+        restricciones.insets = new Insets(3, 5, 3, 5);
+        if (isButton) {
+           restricciones.ipady = 140; 
+        }
+        return restricciones;
+    }
 
+    private JLabel coloredLabel(String title, Color c, float size){
+        JLabel label = new JLabel(title);
+        label.setForeground(c);
+        label.setFont(label.getFont().deriveFont(size).deriveFont(Font.BOLD));
+        return label;
+    }
+    
     private JButton createStyledButton(String title, Color bg, Color fg){
         JButton button = new JButton(title);
         button.setFont(button.getFont().deriveFont(Font.BOLD).deriveFont(15.0f));
