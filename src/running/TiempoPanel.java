@@ -5,6 +5,7 @@
  */
 package running;
 
+import javax.swing.Action;
 import javax.swing.JPanel;
 import main.MainFrame;
 import main.ReturnHandler;
@@ -21,6 +22,7 @@ public class TiempoPanel extends javax.swing.JPanel implements ReturnHandler{
         
         this.mainframe = mainframe;
         initComponents();
+        actionBtn.setVisible(false);
     }
     /**
      * Creates new form TiempoPanel
@@ -44,6 +46,8 @@ public class TiempoPanel extends javax.swing.JPanel implements ReturnHandler{
         btnTiempo3 = new javax.swing.JToggleButton();
         btnTiempo2 = new javax.swing.JToggleButton();
         jLabel1 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        actionBtn = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(0, 0, 0));
 
@@ -61,13 +65,44 @@ public class TiempoPanel extends javax.swing.JPanel implements ReturnHandler{
         btnTiempo3.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         btnTiempo3.setForeground(new java.awt.Color(255, 255, 255));
         btnTiempo3.setText("25");
+        btnTiempo3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTiempo3ActionPerformed(evt);
+            }
+        });
 
         btnTiempo2.setBackground(new java.awt.Color(204, 102, 0));
         btnTiempo2.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         btnTiempo2.setForeground(new java.awt.Color(255, 255, 255));
         btnTiempo2.setText("15");
+        btnTiempo2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTiempo2ActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Escoja su rutina programa de entrenamiento cuantos minutos");
+
+        actionBtn.setBackground(new java.awt.Color(92, 161, 2));
+        actionBtn.setFont(new java.awt.Font("Dialog", 0, 17)); // NOI18N
+        actionBtn.setForeground(new java.awt.Color(255, 255, 255));
+        actionBtn.setText("Iniciar  recorrido");
+        actionBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                actionBtnActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(actionBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(actionBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -85,6 +120,7 @@ public class TiempoPanel extends javax.swing.JPanel implements ReturnHandler{
                         .addComponent(btnTiempo3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel1))
                 .addContainerGap(38, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -96,13 +132,63 @@ public class TiempoPanel extends javax.swing.JPanel implements ReturnHandler{
                     .addComponent(btnTiempo1, javax.swing.GroupLayout.DEFAULT_SIZE, 452, Short.MAX_VALUE)
                     .addComponent(btnTiempo2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnTiempo3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(231, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 192, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnTiempo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTiempo1ActionPerformed
         // TODO add your handling code here:
+        if(btnTiempo1.isSelected()){
+            System.out.println("hola se selecciono btn tiempo 1");
+            btnTiempo2.setSelected(false);
+            btnTiempo3.setSelected(false);
+            actionBtn.setVisible(true);
+        }else{
+        actionBtn.setVisible(false);
+        }
+        
+        
     }//GEN-LAST:event_btnTiempo1ActionPerformed
+
+    private void btnTiempo2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTiempo2ActionPerformed
+        // TODO add your handling code here:
+        if(btnTiempo2.isSelected()){
+            System.out.println("hola se selecciono btn tiempo 2");
+            btnTiempo1.setSelected(false);
+            btnTiempo3.setSelected(false);
+            actionBtn.setVisible(true);
+        }else{
+        actionBtn.setVisible(false);
+        }
+    }//GEN-LAST:event_btnTiempo2ActionPerformed
+
+    private void btnTiempo3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTiempo3ActionPerformed
+        // TODO add your handling code here:
+        if(btnTiempo3.isSelected()){
+            System.out.println("hola se selecciono btn tiempo 3");
+            btnTiempo1.setSelected(false);
+            btnTiempo2.setSelected(false);
+            actionBtn.setVisible(true);
+        }else{
+        actionBtn.setVisible(false);
+        }
+    }//GEN-LAST:event_btnTiempo3ActionPerformed
+
+    private void actionBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actionBtnActionPerformed
+        // TODO add your handling code here:
+        System.out.println("Se incio iniciar recorrido con");
+        if(btnTiempo1.isSelected()){
+            System.out.println(" tiempo 1");   
+        }
+        if(btnTiempo2.isSelected()){
+            System.out.println("tiempo 2");
+        }
+        if(btnTiempo3.isSelected()){
+            System.out.println("tiempo 2");  
+        }
+        
+    }//GEN-LAST:event_actionBtnActionPerformed
     @Override
     public void doReturnAction() {
         mainframe.setMainPanel(new RunningPanel(mainframe));
@@ -112,9 +198,11 @@ public class TiempoPanel extends javax.swing.JPanel implements ReturnHandler{
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton actionBtn;
     private javax.swing.JToggleButton btnTiempo1;
     private javax.swing.JToggleButton btnTiempo2;
     private javax.swing.JToggleButton btnTiempo3;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
