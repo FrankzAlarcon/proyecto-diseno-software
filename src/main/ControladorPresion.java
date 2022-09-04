@@ -28,10 +28,6 @@ public class ControladorPresion extends Controlador{
     public Observador getObservador() {
         return observador;
     }
-
-    public void setObservador(Observador observador) {
-        this.observador = observador;
-    }
     
     @Override
     public void definirUmbral(double umbral) {

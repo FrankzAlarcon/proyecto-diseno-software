@@ -26,10 +26,6 @@ public class ControladorPosicion extends Controlador{
     public Observador getObservador() {
         return observador;
     }
-
-    public void setObservador(Observador observador) {
-        this.observador = observador;
-    }
     
     public float getDistanciaRecorrida() {
         return distanciaRecorrida;

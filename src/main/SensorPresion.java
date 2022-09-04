@@ -28,22 +28,6 @@ public class SensorPresion extends Observador{
     public void setSensibilidad(float sensibilidad) {
         this.sensibilidad = sensibilidad;
     }
-
-    public Observado getObservado() {
-        return observado;
-    }
-
-    public void setObservado(Observado observado) {
-        this.observado = observado;
-    }
-
-    public ControladorPresion getControlador() {
-        return (ControladorPresion)controlador;
-    }
-
-    public void setControlador(ControladorPresion controlador) {
-        this.controlador = controlador;
-    }
     
     @Override
     public void actualizar() {
