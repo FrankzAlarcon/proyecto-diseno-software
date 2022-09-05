@@ -1,6 +1,4 @@
-package trailrunning;
-
-import main.Ubicacion;
+package main;
 
 public class Vec3 {
 
