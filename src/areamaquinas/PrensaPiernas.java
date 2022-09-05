@@ -18,7 +18,7 @@ public class PrensaPiernas extends Maquina{
 
     @Override
     public String toString() {
-        return "Prensa Piernas "+getIdMaquina();
+        return "Prensa de piernas "+getIdMaquina();
     }
     
     

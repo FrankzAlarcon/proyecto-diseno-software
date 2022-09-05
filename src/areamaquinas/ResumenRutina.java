@@ -33,4 +33,22 @@ public class ResumenRutina {
     public void mostrar(){
         
     }
+
+    public Maquina getMaquina() {
+        return maquina;
+    }
+
+    public void setMaquina(Maquina maquina) {
+        this.maquina = maquina;
+    }
+
+    public RutinaMaquinas getRutina() {
+        return rutina;
+    }
+
+    public void setRutina(RutinaMaquinas rutina) {
+        this.rutina = rutina;
+    }
+    
+    
 }

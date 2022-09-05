@@ -15,6 +15,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import main.*;
@@ -34,12 +35,16 @@ public class AreaMaquinasPanel extends javax.swing.JPanel implements ReturnHandl
     ListaMaquinas lista;
     int n=2;
     int m=3;
-    
+    ResumenRutina resumen;
+    AreaMaquinas areaMaquianas;
     
     
     public AreaMaquinasPanel(MainFrame mainframe) {
         initComponents();
         this.mainframe = mainframe;
+        this.areaMaquianas=this.mainframe.getAplicacion().seleccionarAreaMaquina();
+        
+        
         lista=new ListaMaquinas();
         lista.agregar(new PrensaPiernas(1, false, 4));
         lista.agregar(new PrensaPiernas(2, false, 4));
@@ -47,6 +52,7 @@ public class AreaMaquinasPanel extends javax.swing.JPanel implements ReturnHandl
         lista.agregar(new Dorsalera(2, false, 4));
         lista.agregar(new MaquinaPoleas(1, false, 4));
         lista.agregar(new MaquinaPoleas(2, true, 4));
+        areaMaquianas.setLista(lista);
         
         setBackground(Color.BLACK);
         setLayout(new GridBagLayout());        
@@ -64,10 +70,10 @@ public class AreaMaquinasPanel extends javax.swing.JPanel implements ReturnHandl
         for (int i = 0; i < m; i++) {
             setTitulo(nombres[i], 0, posicionesY[i], 2);
             for (int j = 0; j < n; j++) {                               
-                if(lista.getMaquina(c).isOcupado()){
-                     maquinasBotones[i][j]=createStyledButton(lista.getMaquina(c).toString(), new Color(92, 161, 2), Color.WHITE);
+                if(areaMaquianas.getMaquina(c).isOcupado()){
+                     maquinasBotones[i][j]=createStyledButton(areaMaquianas.getMaquina(c).toString(), new Color(92, 161, 2), Color.WHITE);
                 }else{
-                     maquinasBotones[i][j]=createStyledButton(lista.getMaquina(c).toString(),new Color(203, 50, 52) , Color.WHITE);
+                     maquinasBotones[i][j]=createStyledButton(areaMaquianas.getMaquina(c).toString(),new Color(203, 50, 52) , Color.WHITE);
                 }
                 /*maquinasBotones[i][j].setBounds(x, y, ancho, alto);
                 maquinasBotones[i][j].setText(lista.getMaquina(c).toString());
@@ -128,8 +134,12 @@ public class AreaMaquinasPanel extends javax.swing.JPanel implements ReturnHandl
                     
                     if (e.getSource().equals(maquinasBotones[i][j])) {
                             
-                            mainframe.setMainPanel(new RutinaMaquinaPane(mainframe));
-                            
+                        Maquina m=areaMaquianas.seleccionarMaquina(c, mainframe);
+                           if(m!=null){
+                               resumen=new ResumenRutina(m, new RutinaMaquinas());
+                               areaMaquianas.setResumen(resumen);
+                               mainframe.setMainPanel(new RutinaMaquinaPane(mainframe));
+                           }                          
                         }
                         
                     }

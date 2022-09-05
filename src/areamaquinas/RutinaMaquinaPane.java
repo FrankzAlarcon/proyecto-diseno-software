@@ -25,11 +25,11 @@ public class RutinaMaquinaPane extends JPanel implements ReturnHandler{
     
     public RutinaMaquinaPane(MainFrame mainFrame) {
         this.mainFrame = mainFrame;
-        //this.resumen=mainFrame.getAplicacion().seleccionarAreaMaquina();
+        this.resumen=mainFrame.getAplicacion().seleccionarAreaMaquina().getResumen();
         setOpaque(true);
         setBackground(Color.BLACK);
         setLayout(new BorderLayout());
-        JLabel titulo = new JLabel("Maquina XX");
+        JLabel titulo = new JLabel("Maquina "+resumen.getMaquina());
         titulo.setFont(titulo.getFont().deriveFont(Font.BOLD).deriveFont(25.0f));
         titulo.setForeground(Color.WHITE);
         titulo.setHorizontalAlignment(JLabel.CENTER);

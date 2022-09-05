@@ -51,6 +51,7 @@ public class Aplicacion {
         padel = Padel.createInstance(this);
         trailRunning = new TrailRunning(this);
         cycling = new Cycling();
+        areaMaquinas =new AreaMaquinas(this);
     }
 
     public void seleccionarArea() {

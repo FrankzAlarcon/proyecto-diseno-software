@@ -1,7 +1,9 @@
 
 package areamaquinas;
 
+import javax.swing.JOptionPane;
 import main.Aplicacion;
+import main.MainFrame;
 
 /**
  *
@@ -20,17 +22,70 @@ public class AreaMaquinas {
         this.resumen = resumen;
     }
     
-    public void desplegarMaquinas(){
-        
+     public AreaMaquinas(Aplicacion aplicacion) {
+        this.aplicacion = aplicacion;
+        this.lista = null;
+        this.resumen = null;
     }
     
-    public void seleccionarMaquina(int indice){
-        
+    public ListaMaquinas desplegarMaquinas(){
+        return lista;
     }
     
-    public void mostrarResultado(){
-        
+    public Maquina seleccionarMaquina(int indice,MainFrame mainframe){
+        if(lista.getMaquina(indice).isOcupado()){
+                            
+            JOptionPane.showMessageDialog(mainframe, "Maquina no disponible");
+            return null;
+        }else{
+            return lista.getMaquina(indice);
+            
+
+        }
     }
+    
+    public Maquina getMaquina(int indice) {
+        return lista.getMaquina(indice);
+    }
+    
+    public ResumenRutina mostrarResultado(){
+        return resumen;
+    }
+    
+    
+    public Aplicacion getAplicacion() {
+        return aplicacion;
+    }
+
+    public void setAplicacion(Aplicacion aplicacion) {
+        this.aplicacion = aplicacion;
+    }
+
+    public ListaMaquinas getLista() {
+        return lista;
+    }
+
+    public void setLista(ListaMaquinas lista) {
+        this.lista = lista;
+    }
+
+    public ResumenRutina getResumen() {
+        return resumen;
+    }
+
+    public void setResumen(ResumenRutina resumen) {
+        this.resumen = resumen;
+    }
+
+    public AreaMaquinasPanel getArea() {
+        return area;
+    }
+
+    public void setArea(AreaMaquinasPanel area) {
+        this.area = area;
+    }
+    
+    
     
     
 }
