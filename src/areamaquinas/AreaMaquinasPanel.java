@@ -46,10 +46,10 @@ public class AreaMaquinasPanel extends javax.swing.JPanel implements ReturnHandl
         
         
         lista=new ListaMaquinas();
-        lista.agregar(new PrensaPiernas(1, false, 4));
+        lista.agregar(new PrensaPiernas(1, true, 4));
         lista.agregar(new PrensaPiernas(2, false, 4));
         lista.agregar(new Dorsalera(1, true, 4));
-        lista.agregar(new Dorsalera(2, false, 4));
+        lista.agregar(new Dorsalera(2, true, 4));
         lista.agregar(new MaquinaPoleas(1, false, 4));
         lista.agregar(new MaquinaPoleas(2, true, 4));
         areaMaquianas.setLista(lista);
@@ -70,7 +70,7 @@ public class AreaMaquinasPanel extends javax.swing.JPanel implements ReturnHandl
         for (int i = 0; i < m; i++) {
             setTitulo(nombres[i], 0, posicionesY[i], 2);
             for (int j = 0; j < n; j++) {                               
-                if(areaMaquianas.getMaquina(c).isOcupado()){
+                if(!areaMaquianas.getMaquina(c).isOcupado()){
                      maquinasBotones[i][j]=createStyledButton(areaMaquianas.getMaquina(c).toString(), new Color(92, 161, 2), Color.WHITE);
                 }else{
                      maquinasBotones[i][j]=createStyledButton(areaMaquianas.getMaquina(c).toString(),new Color(203, 50, 52) , Color.WHITE);
@@ -141,9 +141,9 @@ public class AreaMaquinasPanel extends javax.swing.JPanel implements ReturnHandl
                                mainframe.setMainPanel(new RutinaMaquinaPane(mainframe));
                            }                          
                         }
-                        
+                        c++;
                     }
-                c++;
+                
                 }
             }
       
