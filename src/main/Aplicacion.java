@@ -7,6 +7,7 @@ package main;
 
 import areamaquinas.AreaMaquinas;
 import com.formdev.flatlaf.FlatDarkLaf;
+import cycling.Cycling;
 import padel.Padel;
 import trailrunning.TrailRunning;
 
@@ -17,7 +18,8 @@ import javax.swing.*;
  * @author Frankz
  */
 public class Aplicacion {
-    Usuario usuario; 
+    private final Cycling cycling;
+    Usuario usuario;
     MainFrame mainFrame;
     private Padel padel;
     private TrailRunning trailRunning;
@@ -48,6 +50,7 @@ public class Aplicacion {
                 );
         padel = Padel.createInstance(this);
         trailRunning = new TrailRunning(this);
+        cycling = new Cycling();
     }
 
     public void seleccionarArea() {
@@ -73,5 +76,9 @@ public class Aplicacion {
     
     public AreaMaquinas seleccionarAreaMaquina(){
         return areaMaquinas;
+    }
+
+    public Cycling seleccionarCycling() {
+        return cycling;
     }
 }

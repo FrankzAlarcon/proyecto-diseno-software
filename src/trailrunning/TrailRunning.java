@@ -42,6 +42,7 @@ public class TrailRunning {
         controladorUbicacion = new ControladorUbicacion();
         controladorUbicacion.setObservador(sensorUbicacion);
         sensorUbicacion.setControlador(controladorUbicacion);
+        controladorUbicacion.definirUmbral(5);
         System.out.println("Acción iniciada ------------------------------");
         thread = new ActionThread() {
             @Override
@@ -85,6 +86,6 @@ public class TrailRunning {
     }
     
     public double calcularCaloriasQuemadas() {
-        return MET * aplicacion.getUsuario().getPeso() * cronometro.calcular();
+        return MET * aplicacion.getUsuario().getPeso() * cronometro.calcular()/3600;
     }
 }

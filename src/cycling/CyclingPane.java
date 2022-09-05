@@ -5,17 +5,14 @@
 package cycling;
 
 import com.formdev.flatlaf.FlatDarkLaf;
-import java.awt.BorderLayout;
+
 import java.awt.Color;
-import java.awt.Font;
-import java.awt.GridLayout;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
-import javax.swing.border.EmptyBorder;
+
 import main.ActividadesPane;
 import main.MainFrame;
 import main.ReturnHandler;
@@ -32,6 +29,7 @@ public class CyclingPane extends JPanel implements ReturnHandler{
     public CyclingPane(MainFrame mainFrame) {
         initComponents();
         this.mainFrame = mainFrame;
+        setBackground(Color.BLACK);
        
     }
     
@@ -64,8 +62,8 @@ public class CyclingPane extends JPanel implements ReturnHandler{
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jToggleButton1 = new javax.swing.JToggleButton();
-        jToggleButton2 = new javax.swing.JToggleButton();
+        rutinaInternaBtn = new javax.swing.JToggleButton();
+        rutinaExternaBtn = new javax.swing.JToggleButton();
 
         setBackground(new java.awt.Color(51, 51, 51));
         setPreferredSize(new java.awt.Dimension(439, 463));
@@ -78,23 +76,23 @@ public class CyclingPane extends JPanel implements ReturnHandler{
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Escoga la rutina:");
 
-        jToggleButton1.setBackground(new java.awt.Color(255, 51, 204));
-        jToggleButton1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jToggleButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jToggleButton1.setText("Interna");
-        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+        rutinaInternaBtn.setBackground(new java.awt.Color(255, 51, 204));
+        rutinaInternaBtn.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        rutinaInternaBtn.setForeground(new java.awt.Color(255, 255, 255));
+        rutinaInternaBtn.setText("Interna");
+        rutinaInternaBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton1ActionPerformed(evt);
+                llamarRutinaInterna(evt);
             }
         });
 
-        jToggleButton2.setBackground(new java.awt.Color(0, 204, 204));
-        jToggleButton2.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jToggleButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jToggleButton2.setText("Externa");
-        jToggleButton2.addActionListener(new java.awt.event.ActionListener() {
+        rutinaExternaBtn.setBackground(new java.awt.Color(0, 204, 204));
+        rutinaExternaBtn.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        rutinaExternaBtn.setForeground(new java.awt.Color(255, 255, 255));
+        rutinaExternaBtn.setText("Externa");
+        rutinaExternaBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton2ActionPerformed(evt);
+                llamarRutinaExterna(evt);
             }
         });
 
@@ -106,9 +104,9 @@ public class CyclingPane extends JPanel implements ReturnHandler{
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel2)
-                    .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(rutinaInternaBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(37, 37, 37)
-                .addComponent(jToggleButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(rutinaExternaBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(82, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -124,28 +122,28 @@ public class CyclingPane extends JPanel implements ReturnHandler{
                 .addComponent(jLabel2)
                 .addGap(57, 57, 57)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jToggleButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(rutinaInternaBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(rutinaExternaBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(59, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+    private void llamarRutinaInterna(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
         // TODO add your handling code here:
-        //mainFrame.setMainPanel(new RutinaInternaPanel(mainFrame));
+        mainFrame.setMainPanel(new RutinaInternaPanel(mainFrame));
     }//GEN-LAST:event_jToggleButton1ActionPerformed
 
-    private void jToggleButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton2ActionPerformed
+    private void llamarRutinaExterna(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton2ActionPerformed
         // TODO add your handling code here:
-        //mainFrame.setMainPanel(new RutinaExternaPanel(mainFrame));
+        mainFrame.setMainPanel(new RutinaExternaPanel(mainFrame));
     }//GEN-LAST:event_jToggleButton2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JToggleButton jToggleButton1;
-    private javax.swing.JToggleButton jToggleButton2;
+    private javax.swing.JToggleButton rutinaInternaBtn;
+    private javax.swing.JToggleButton rutinaExternaBtn;
     // End of variables declaration//GEN-END:variables
 
     @Override

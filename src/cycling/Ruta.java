@@ -16,15 +16,21 @@ public class Ruta {
     private ArrayList<Ubicacion> ubicaciones;
     
     public Ruta(){
+        ubicaciones = new ArrayList<>();
     }
     
     public void calcularDistancia(){
     }
     
-    public void agregar(){
+    public void agregar(Ubicacion ubicacion){
+        ubicaciones.add(ubicacion);
     }
     
-    public void quitar(){
+    public void quitar(Ubicacion ubicacion){
+        ubicaciones.remove(ubicacion);
     }
-    
+
+    public ArrayList<Ubicacion> getUbicaciones() {
+        return ubicaciones;
+    }
 }

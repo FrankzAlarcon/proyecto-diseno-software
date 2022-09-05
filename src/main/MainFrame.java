@@ -35,6 +35,7 @@ public class MainFrame extends JFrame {
         setSize(400,700);
 
         mainPanel.add(buttonPane, BorderLayout.SOUTH);
+       //setResizable(false);
 
     }
 

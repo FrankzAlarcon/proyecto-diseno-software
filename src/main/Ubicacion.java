@@ -15,21 +15,22 @@ public class Ubicacion extends Observado {
     public SensorUbicacion sensor;
 
     public Ubicacion() {
-        this(0.0,0.0);
+        this(0.0,0.0,0.0);
     }
 
-    public Ubicacion(double latitud, double longitud) {
+    public Ubicacion(double latitud, double longitud, double elevacion) {
         this.latitud = latitud;
         this.longitud = longitud;
+        this.elevacion = elevacion;
     }
 
     @Override
     public void notificar() {
         SensorUbicacion sensor = ((SensorUbicacion)this.observador);
-        sensor.setUbicacion(new Ubicacion(latitud, longitud));
-        latitud += 0.0005;
-        longitud += 0.0005;
-
+        sensor.setUbicacion(new Ubicacion(latitud, longitud, elevacion));
+        latitud += 0.0001;
+        longitud += 0.0001;
+        elevacion = Math.random()*2;
         sensor.actualizar();
 
     }
