@@ -51,7 +51,7 @@ public class TiempoPanel extends javax.swing.JPanel implements ReturnHandler{
 
         setBackground(new java.awt.Color(0, 0, 0));
 
-        btnTiempo1.setBackground(new java.awt.Color(0, 102, 0));
+        btnTiempo1.setBackground(new java.awt.Color(200, 198, 86));
         btnTiempo1.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         btnTiempo1.setForeground(new java.awt.Color(255, 255, 255));
         btnTiempo1.setText("10");
@@ -61,7 +61,7 @@ public class TiempoPanel extends javax.swing.JPanel implements ReturnHandler{
             }
         });
 
-        btnTiempo3.setBackground(new java.awt.Color(255, 51, 51));
+        btnTiempo3.setBackground(new java.awt.Color(192, 77, 88));
         btnTiempo3.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         btnTiempo3.setForeground(new java.awt.Color(255, 255, 255));
         btnTiempo3.setText("25");
@@ -71,7 +71,7 @@ public class TiempoPanel extends javax.swing.JPanel implements ReturnHandler{
             }
         });
 
-        btnTiempo2.setBackground(new java.awt.Color(204, 102, 0));
+        btnTiempo2.setBackground(new java.awt.Color(196, 127, 81));
         btnTiempo2.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         btnTiempo2.setForeground(new java.awt.Color(255, 255, 255));
         btnTiempo2.setText("15");
@@ -81,12 +81,14 @@ public class TiempoPanel extends javax.swing.JPanel implements ReturnHandler{
             }
         });
 
-        jLabel1.setText("Escoja su rutina programa de entrenamiento cuantos minutos");
+        jLabel1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Seleccione la duración de su rutina de entrenamiento");
 
         actionBtn.setBackground(new java.awt.Color(92, 161, 2));
         actionBtn.setFont(new java.awt.Font("Dialog", 0, 17)); // NOI18N
         actionBtn.setForeground(new java.awt.Color(255, 255, 255));
-        actionBtn.setText("Iniciar  recorrido");
+        actionBtn.setText("Iniciar  rutina");
         actionBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 actionBtnActionPerformed(evt);
@@ -108,19 +110,19 @@ public class TiempoPanel extends javax.swing.JPanel implements ReturnHandler{
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(37, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(btnTiempo1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnTiempo2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnTiempo3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel1))
-                .addContainerGap(38, Short.MAX_VALUE))
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(50, Short.MAX_VALUE)
+                .addComponent(btnTiempo1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnTiempo2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnTiempo3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(51, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -179,13 +181,16 @@ public class TiempoPanel extends javax.swing.JPanel implements ReturnHandler{
         // TODO add your handling code here:
         System.out.println("Se incio iniciar recorrido con");
         if(btnTiempo1.isSelected()){
-            System.out.println(" tiempo 1");   
+            System.out.println(" tiempo 1"); 
+             mainframe.setMainPanel(new RutinaEnCurso(mainframe)); 
         }
         if(btnTiempo2.isSelected()){
             System.out.println("tiempo 2");
+             mainframe.setMainPanel(new RutinaEnCurso(mainframe)); 
         }
         if(btnTiempo3.isSelected()){
             System.out.println("tiempo 2");  
+             mainframe.setMainPanel(new RutinaEnCurso(mainframe)); 
         }
         
     }//GEN-LAST:event_actionBtnActionPerformed
