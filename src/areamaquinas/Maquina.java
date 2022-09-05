@@ -19,10 +19,12 @@ public abstract class Maquina {
     
     public void iniciarUso(){
         ocupado=true;
+        this.utilizar();
     }
     
     public void detenerUso(){
         ocupado=false;
+        
     }
 
     public int getIdMaquina() {
