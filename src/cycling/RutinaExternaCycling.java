@@ -12,16 +12,17 @@ import main.*;
  * @author Stalin
  */
 public class RutinaExternaCycling implements Rutina {
+
     private Ruta ruta;
     private ControladorUbicacion controladorUbicacion;
     private ActionThread thread;
     private double distancia;
-    
-    public RutinaExternaCycling(){
+
+    public RutinaExternaCycling() {
         this.ruta = new Ruta();
     }
-    
-    public void iniciar(){
+
+    public void iniciar() {
         //Inicializacion del observado y observador
         SensorUbicacion sensorUbicacion = new SensorUbicacion();
         Ubicacion ubicacion = new Ubicacion();
@@ -43,11 +44,10 @@ public class RutinaExternaCycling implements Rutina {
         thread = new ActionThread() {
             @Override
             public void run() {
-                while(isRunning) {
+                while (isRunning) {
                     try {
                         sleep(1000);
                         ubicacion.notificar();
-
 
                     } catch (InterruptedException e) {
                         throw new RuntimeException(e);
@@ -58,22 +58,21 @@ public class RutinaExternaCycling implements Rutina {
 
         thread.start();
 
-
     }
-    
-    public void detener(){
+
+    public void detener() {
         thread.stopAction();
     }
-    
-    public double calcularCaloriasQuemadas(){
+
+    public double calcularCaloriasQuemadas() {
         return 0.0;
     }
-    
-    public double calcularDistancia(){
+
+    public double calcularDistancia() {
         return distancia;
     }
-    
-    public void compararUbicacionActual(){
+
+    public void compararUbicacionActual() {
     }
 
     public Ruta getRuta() {

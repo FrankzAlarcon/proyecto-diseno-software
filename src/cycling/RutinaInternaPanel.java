@@ -69,6 +69,8 @@ public class RutinaInternaPanel extends JPanel implements ReturnHandler {
         aumentarficultad = coloredLabel("", acentColor, 20.0f);
 
         actionDificultad = new JComboBox<String>();
+        actionDificultad.setBackground(acentColor);
+        actionDificultad.setForeground(Color.WHITE);
         actionDificultad.setBounds(220, 135, 80, 20);
         add(actionDificultad);
         actionDificultad.addItem("1");
@@ -168,6 +170,8 @@ public class RutinaInternaPanel extends JPanel implements ReturnHandler {
             add(dataPanel, BorderLayout.CENTER);
             dataPanel.setVisible(true);
             actividadPanel.setVisible(false);
+            actionDificultad.setVisible(true);
+            
             //revalidate();
         } else {
             actionBtn.setText("Terminar");
@@ -175,6 +179,8 @@ public class RutinaInternaPanel extends JPanel implements ReturnHandler {
             add(actividadPanel, BorderLayout.CENTER);
             dataPanel.setVisible(false);
             actividadPanel.setVisible(true);
+            actionDificultad.setVisible(false);
+            
             //revalidate();
         }
 

@@ -18,9 +18,10 @@ public class Cycling {
     private RutinaInternaCycling rutinaInterna;
     private RutinaExternaCycling rutinaExterna;
 
-    public Cycling(){ // Realizar el constructor
+    public Cycling(Aplicacion aplicacion){ // Realizar el constructor
         rutinaExterna = new RutinaExternaCycling();
-        rutinaInterna = new RutinaInternaCycling();
+        rutinaInterna = new RutinaInternaCycling(aplicacion);
+        this.aplicacion=aplicacion;
     }
     
     public void iniciar(){

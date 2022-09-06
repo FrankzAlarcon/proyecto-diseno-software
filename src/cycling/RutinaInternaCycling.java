@@ -7,7 +7,9 @@ package cycling;
 
 import static java.lang.Thread.sleep;
 import main.ActionThread;
+import main.Aplicacion;
 import main.ControladorUbicacion;
+import main.DefinableAction;
 import main.Rutina;
 import main.SensorUbicacion;
 import main.Ubicacion;
@@ -19,15 +21,23 @@ import trailrunning.Cronometro;
  */
 public class RutinaInternaCycling implements Rutina {
 
-    private static double MET = 6.0;
+    private static double MET = 7.0;
     private Bicicleta bicicleta;
     private Cronometro cronometro;
     private ControladorUbicacion controladorUbicacion;
-    private ActionThread thread;
     private double caloriaaQuemadas;
     private Ruta ruta;
-    public RutinaInternaCycling() {
+    private double distanciaRecorrida;
+    private Aplicacion aplicacion;
+
+    public RutinaInternaCycling(Aplicacion aplicacion) {
         bicicleta = new Bicicleta(5);
+        this.aplicacion=aplicacion;
+        
+    }
+
+    public ControladorUbicacion getControladorUbicacion() {
+        return controladorUbicacion;
     }
 
     public void iniciar() {
@@ -35,40 +45,9 @@ public class RutinaInternaCycling implements Rutina {
         cronometro.iniciar();
         bicicleta.iniciar();
 
-        //Inicializacion del observado y observador
-        SensorUbicacion sensorUbicacion = new SensorUbicacion();
-        Ubicacion ubicacion = new Ubicacion();
-        ubicacion.setSensor(sensorUbicacion);
-        sensorUbicacion.setObservado(ubicacion);
-        //Controlador ubicacion
-        controladorUbicacion = new ControladorUbicacion();
-        controladorUbicacion.setSensor(sensorUbicacion);
-        sensorUbicacion.setControlador(controladorUbicacion);
-        controladorUbicacion.definirUmbral(5);
-
-        System.out.println("Acción iniciada ------------------------------");
-        thread = new ActionThread() {
-            @Override
-            public void run() {
-                while (isRunning) {
-                    try {
-                        sleep(1000);
-                        ubicacion.notificar();
-                        //ruta.agregar(new Ubicacion(ubicacion.getLatitud(), ubicacion.getLongitud(), ubicacion.getElevacion()));
-
-                    } catch (InterruptedException e) {
-                        //throw new RuntimeException(e);
-                    }
-                }
-            }
-        };
-
-        thread.start();
-
     }
 
     public void detener() {
-        thread.stopAction();
         cronometro.detener();
         bicicleta.detener();
         double segundos = cronometro.calcular();
@@ -78,12 +57,12 @@ public class RutinaInternaCycling implements Rutina {
 
     public double calcularCaloriasQuemadas() {
 
-       // return Aplicacion.getUsuario().getPeso()*cronometro.calcular()/12; 
-       return 0;
+        return aplicacion.getUsuario().getPeso()*cronometro.calcular()/60*0.0175*MET; 
+        //return 0;
     }
 
     public double calcularDistancia() {
-        return controladorUbicacion.getDistanciaRecorrida();
+        return bicicleta.getDistaciaRecorrida();
     }
 
     public void setBicicleta(Bicicleta bicicleta) {

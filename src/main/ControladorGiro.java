@@ -12,14 +12,17 @@ public class ControladorGiro extends Controlador{
     @Override
     public void verificarUmbral() {
         double angulo = ((Giro)this.sensor.getObservado()).getAnguloTotal();
-        double numVueltas = angulo/(2*Math.PI); //numero de vueltas
-        if(numVueltas >= umbral){
-            anguloTotal += angulo;
+        if (angulo>umbral) {
+            anguloTotal=angulo;
+            action.exec();
         }
+        
 
         System.out.println("Control de giro---------------------->"+anguloTotal);
     }
+    
     public double getAnguloTotal() {
         return anguloTotal;
     }
+
 }

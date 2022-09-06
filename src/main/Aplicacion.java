@@ -24,6 +24,7 @@ public class Aplicacion {
     private Padel padel;
     private TrailRunning trailRunning;
     private AreaMaquinas areaMaquinas;
+
     public static void main(String[] args) {
         new Aplicacion().iniciar();
     }
@@ -50,7 +51,7 @@ public class Aplicacion {
                 );
         padel = Padel.createInstance(this);
         trailRunning = new TrailRunning(this);
-        cycling = new Cycling();
+        cycling = new Cycling(this);
         areaMaquinas =new AreaMaquinas(this);
     }
 

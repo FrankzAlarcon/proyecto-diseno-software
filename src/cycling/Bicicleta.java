@@ -15,7 +15,9 @@ public class Bicicleta {
 
     private int dificultad;
     private ControladorGiro controladorGiro;
+    private double distanciaRecorrida;
     private ActionThread thread;
+    private double radio = 0.5;//
 
     public Bicicleta(int dificultad) {
         this.dificultad = dificultad;
@@ -33,15 +35,15 @@ public class Bicicleta {
     }
 
     public void aumentarDificultad() {
-        
-        if (dificultad >0) {
+
+        if (dificultad > 0) {
             dificultad++;
         }
 
     }
 
     public void disminuirDificultad() {
-        if (dificultad <=5) {
+        if (dificultad <= 5) {
             dificultad--;
         }
     }
@@ -54,6 +56,15 @@ public class Bicicleta {
         controladorGiro = new ControladorGiro();
         controladorGiro.setSensor(sensorGiro);
         sensorGiro.setControlador(controladorGiro);
+        controladorGiro.setAction(new DefinableAction() {
+            @Override
+            public void exec() {
+
+                distanciaRecorrida += (controladorGiro.getAnguloTotal()-dificultad*2) * radio * Math.PI * 2;
+            }
+
+        });
+
         thread = new ActionThread() {
             @Override
             public void run() {
@@ -78,5 +89,10 @@ public class Bicicleta {
 
     public double getAnguloTotal() {
         return controladorGiro.getAnguloTotal();
+    }
+
+    public double getDistaciaRecorrida() {
+
+        return distanciaRecorrida;
     }
 }
