@@ -22,7 +22,7 @@ import main.SensorRepeticion;
 public class RutinaMaquinaPane extends JPanel implements ReturnHandler{
     private MainFrame mainFrame;
     private JButton actionBtn, realizarRepeticionBtn, cambiarPesoBtn;
-    private JLabel nombreMaquina, numRepeticiones, pesoActual, numRepeticionesTime, pesoActualTime;
+    private JLabel nombreMaquina, numRepeticiones, pesoActual, numRepeticionesTime, pesoActualTime, titulo;
     private JPanel dataPanel, actividadPanel;
     private Color acentColor = new Color(96, 2, 163); //Color Morado
     private boolean realizandoActividad = false;
@@ -53,14 +53,16 @@ public class RutinaMaquinaPane extends JPanel implements ReturnHandler{
         this.auxRepeticion.setSensor(sensorRepeticionActual);
         this.controladorRepeticion = new ControladorRepeticiones(5.0, sensorRepeticionActual);
         
-        rutinaActual.setControladorPeso(controladorPeso);
-        //this.rutinaActual.;
+        this.rutinaActual.setControladorPeso(controladorPeso);
+        this.rutinaActual.setControladorRepeticion(controladorRepeticion);
         
+        this.rutinaActual.agregarPeso(auxPeso); //va inciar en cero
+        this.rutinaActual.agregarRepeticion(auxRepeticion); //va iniviar en cero
         
         setOpaque(true);
         setBackground(Color.BLACK);
         setLayout(new BorderLayout());
-        JLabel titulo = new JLabel("Maquina "+resumen.getMaquina());
+        titulo = new JLabel("Maquina "+resumen.getMaquina());
         titulo.setFont(titulo.getFont().deriveFont(Font.BOLD).deriveFont(25.0f));
         titulo.setForeground(Color.WHITE);
         titulo.setHorizontalAlignment(JLabel.CENTER);
@@ -90,7 +92,7 @@ public class RutinaMaquinaPane extends JPanel implements ReturnHandler{
         pesoActualTime= coloredLabel(Double.toString(rutinaActual.getPesos().get(numEjercicio).getValor()), acentColor, 20.0f);
         numRepeticionesTime = coloredLabel(Integer.toString(rutinaActual.getNumRepeticiones().get(numEjercicio).getNumero()),acentColor, 20.0f);
         
-        addDataPaneRealTime();
+        //addDataPaneRealTime();
         
         actionBtn.addActionListener(a -> {
             cambiarPaneles();
@@ -170,6 +172,7 @@ public class RutinaMaquinaPane extends JPanel implements ReturnHandler{
             actionBtn.setText("Iniciar rutina");
             realizandoActividad = false;
             remove(actividadPanel);
+            add(titulo, BorderLayout.NORTH);
             add(dataPanel, BorderLayout.CENTER);
             dataPanel.setVisible(true);
             actividadPanel.setVisible(false);
@@ -178,6 +181,7 @@ public class RutinaMaquinaPane extends JPanel implements ReturnHandler{
             actionBtn.setText("Terminar rutina");
             realizandoActividad = true;
             remove(dataPanel);
+            remove(titulo);
             add(actividadPanel, BorderLayout.PAGE_START);
             add(dataPanel, BorderLayout.CENTER);
             actividadPanel.setVisible(true);

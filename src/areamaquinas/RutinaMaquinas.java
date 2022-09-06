@@ -55,7 +55,7 @@ public class RutinaMaquinas implements Rutina{
         LocalTime tiempo=LocalTime.now();
         double segundosFinal = tiempo.getHour()*3600.0 + tiempo.getMinute() * 60.0 + tiempo.getSecond();
         this.tiempos.add(segundosFinal - tiempoUltimo);
-        caloriasQuemadas = this.calcularCaloriasQuemadas();
+        this.caloriasQuemadas = this.calcularCaloriasQuemadas(); //Retorna y asigna
     }
     
     @Override
@@ -64,7 +64,6 @@ public class RutinaMaquinas implements Rutina{
         for(int i=0; i < pesos.size(); i++){
             calorias += (this.numRepeticiones.get(i).getNumero() * this.pesos.get(i).getValor()) / this.tiempos.get(i); 
         }
-        this.caloriasQuemadas = calorias;
         return calorias ;
     }
 
