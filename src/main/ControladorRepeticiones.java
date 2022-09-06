@@ -13,7 +13,7 @@ public class ControladorRepeticiones extends Controlador{
 
     public ControladorRepeticiones(double umbral, SensorRepeticion sensor) {
         this.umbral = umbral;
-        this.sensor = null;
+        this.sensor = new SensorRepeticion();
     }
     
     @Override
