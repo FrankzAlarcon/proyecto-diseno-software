@@ -7,13 +7,11 @@ package cycling;
 
 import static java.lang.Thread.sleep;
 import main.ActionThread;
-import main.Aplicacion;
 import main.ControladorUbicacion;
 import main.Rutina;
 import main.SensorUbicacion;
 import main.Ubicacion;
 import trailrunning.Cronometro;
-import main.*;
 
 /**
  *
@@ -28,7 +26,6 @@ public class RutinaInternaCycling implements Rutina {
     private ActionThread thread;
     private double caloriaaQuemadas;
     private Ruta ruta;
-
     public RutinaInternaCycling() {
         bicicleta = new Bicicleta(5);
     }
@@ -41,13 +38,14 @@ public class RutinaInternaCycling implements Rutina {
         //Inicializacion del observado y observador
         SensorUbicacion sensorUbicacion = new SensorUbicacion();
         Ubicacion ubicacion = new Ubicacion();
-        ubicacion.setObservador(sensorUbicacion);
+        ubicacion.setSensor(sensorUbicacion);
         sensorUbicacion.setObservado(ubicacion);
         //Controlador ubicacion
         controladorUbicacion = new ControladorUbicacion();
-        controladorUbicacion.setObservador(sensorUbicacion);
+        controladorUbicacion.setSensor(sensorUbicacion);
         sensorUbicacion.setControlador(controladorUbicacion);
         controladorUbicacion.definirUmbral(5);
+
         System.out.println("Acción iniciada ------------------------------");
         thread = new ActionThread() {
             @Override

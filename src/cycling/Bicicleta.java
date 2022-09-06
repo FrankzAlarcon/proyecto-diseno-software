@@ -49,10 +49,10 @@ public class Bicicleta {
     public void iniciar() {
         Giro giro = new Giro();
         SensorGiro sensorGiro = new SensorGiro();
-        giro.setObservador(sensorGiro);
+        giro.setSensor(sensorGiro);
         sensorGiro.setObservado(giro);
         controladorGiro = new ControladorGiro();
-        controladorGiro.setObservador(sensorGiro);
+        controladorGiro.setSensor(sensorGiro);
         sensorGiro.setControlador(controladorGiro);
         thread = new ActionThread() {
             @Override

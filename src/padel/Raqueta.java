@@ -41,14 +41,14 @@ public class Raqueta {
         this.controladorPresion = new ControladorPresion();
 
         //Configuración de los medidores
-        posicion.setObservador(sensorPosicion);
+        posicion.setSensor(sensorPosicion);
         sensorPosicion.setControlador(controladorPosicion);
-        this.controladorPosicion.setObservador(sensorPosicion);
+        this.controladorPosicion.setSensor(sensorPosicion);
         this.controladorPosicion.definirUmbral(0.35);
         
-        presion.setObservador(sensorPresion);
+        presion.setSensor(sensorPresion);
         sensorPresion.setControlador(controladorPresion);
-        this.controladorPresion.setObservador(sensorPresion);
+        this.controladorPresion.setSensor(sensorPresion);
         this.controladorPresion.definirUmbral(120);
         
         thread = new ActionThread(){

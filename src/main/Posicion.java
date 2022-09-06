@@ -24,7 +24,7 @@ public class Posicion extends Observado{
     }
 
     public void setPos(float posX, float posY){
-        SensorPosicion aux = (SensorPosicion)this.observador;
+        SensorPosicion aux = (SensorPosicion)this.sensor;
         aux.setUltimaPosicion(this);
         this.posX = posX;
         this.posY = posY;
@@ -35,16 +35,16 @@ public class Posicion extends Observado{
     }
 
     public SensorPosicion getSensor() {
-        return (SensorPosicion) observador;
+        return (SensorPosicion) sensor;
     }
     
     @Override
     public void notificar(){
-        ((SensorPosicion)this.observador).setUltimaPosicion(this);
+        ((SensorPosicion)this.sensor).setUltimaPosicion(this);
         this.posX =(float)(Math.random());
         this.posY =(float)(Math.random());
 
-        this.observador.actualizar();
+        this.sensor.actualizar();
     }
     
 }

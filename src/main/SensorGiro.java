@@ -1,8 +1,8 @@
 package main;
 
-public class SensorGiro extends Observador{
+public class SensorGiro extends Sensor {
     @Override
     public void actualizar() {
-        controlador.ejecutarAccion();
+        controlador.verificarUmbral();
     }
 }

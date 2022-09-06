@@ -8,13 +8,13 @@ package main;
  *
  * @author Grupo Padel: Jairo García, Santiago Gualotuña, Andrés Ponce, Anthony Simbaña
  */
-public class SensorPosicion extends Observador{
+public class SensorPosicion extends Sensor {
     
     private Posicion ultimaPosicion;
 
     public SensorPosicion(){
         this.ultimaPosicion = new Posicion();
-        this.ultimaPosicion.setObservador(this);
+        this.ultimaPosicion.setSensor(this);
     }
 
     public Posicion getUltimaPosicion() {
@@ -28,7 +28,7 @@ public class SensorPosicion extends Observador{
     @Override
     public void actualizar() {
         
-        this.controlador.ejecutarAccion();
+        this.controlador.verificarUmbral();
     }
 
     /*

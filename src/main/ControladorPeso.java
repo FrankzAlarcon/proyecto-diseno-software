@@ -13,7 +13,7 @@ public class ControladorPeso extends Controlador{
     
     public ControladorPeso(double umbral) {
         this.umbral = umbral;
-        this.observador = new SensorPeso();
+        this.sensor = new SensorPeso();
     }    
 
     @Override
@@ -22,7 +22,7 @@ public class ControladorPeso extends Controlador{
     }
 
     @Override
-    public void ejecutarAccion() {
+    public void verificarUmbral() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
         
