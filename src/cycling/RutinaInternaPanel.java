@@ -12,6 +12,8 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Image;
 import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -95,13 +97,22 @@ public class RutinaInternaPanel extends JPanel implements ReturnHandler {
             icon.setHorizontalAlignment(JLabel.CENTER);
             actividadPanel.add(icon);
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
 
         actionBtn.addActionListener(a -> {
             accionBoton();
         });
         add(dataPanel, BorderLayout.CENTER);
+
+        actionDificultad.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int dificultadF = Integer.parseInt((String)actionDificultad.getSelectedItem());
+                mainFrame.getAplicacion().seleccionarCycling().seleccionarRutinaInterna().getBicicleta().setDificultad(dificultadF);
+                dificutad.setText(dificultadF +" N");
+            }
+        });
 
     }
 

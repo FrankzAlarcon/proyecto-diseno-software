@@ -59,7 +59,7 @@ public class TrailRunningPane extends JPanel implements ReturnHandler {
             icon.setHorizontalAlignment(JLabel.CENTER);
             actividadPanel.add(icon);
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
 
         actionBtn.addActionListener(a -> {
