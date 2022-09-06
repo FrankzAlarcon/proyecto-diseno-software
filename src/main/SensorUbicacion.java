@@ -8,7 +8,7 @@ package main;
  *
  * @author green
  */
-public class SensorUbicacion extends Observador{
+public class SensorUbicacion extends Sensor {
     private Ubicacion anterior;
     public SensorUbicacion() {
 
@@ -31,7 +31,7 @@ public class SensorUbicacion extends Observador{
 
     @Override
     public void actualizar() {
-        controlador.ejecutarAccion();
+        controlador.verificarUmbral();
     }
 
 }

@@ -35,20 +35,20 @@ public class Presion extends Observado{
     }
 
     public SensorPresion getSensorPresion() {
-        return (SensorPresion)observador;
+        return (SensorPresion) sensor;
     }
 
     public void setSensorPresion(SensorPresion SensorPresion) {
-        this.observador = SensorPresion;
+        this.sensor = SensorPresion;
     }
 
-    public Observador getObservador() {
-        return observador;
+    public Sensor getObservador() {
+        return sensor;
     } 
     
     @Override
     public void notificar() {
         this.fuerza =(float)(Math.random() * 80);
-        this.observador.actualizar();
+        this.sensor.actualizar();
     }
 }

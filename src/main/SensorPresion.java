@@ -8,7 +8,7 @@ package main;
  * comentando...
  * @author Grupo Padel: Jairo García, Santiago Gualotuña, Andrés Ponce, Anthony Simbaña
  */
-public class SensorPresion extends Observador{
+public class SensorPresion extends Sensor {
 
     private float sensibilidad;
 
@@ -31,6 +31,6 @@ public class SensorPresion extends Observador{
     
     @Override
     public void actualizar() {
-        this.controlador.ejecutarAccion();
+        this.controlador.verificarUmbral();
     }
 }

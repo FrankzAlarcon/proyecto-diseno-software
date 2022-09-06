@@ -15,6 +15,7 @@ public class RutinaExternaCycling implements Rutina {
     private Ruta ruta;
     private ControladorUbicacion controladorUbicacion;
     private ActionThread thread;
+    private double distancia;
     
     public RutinaExternaCycling(){
         this.ruta = new Ruta();
@@ -24,13 +25,20 @@ public class RutinaExternaCycling implements Rutina {
         //Inicializacion del observado y observador
         SensorUbicacion sensorUbicacion = new SensorUbicacion();
         Ubicacion ubicacion = new Ubicacion();
-        ubicacion.setObservador(sensorUbicacion);
+        ubicacion.setSensor(sensorUbicacion);
         sensorUbicacion.setObservado(ubicacion);
         //Controlador ubicacion
         controladorUbicacion = new ControladorUbicacion();
-        controladorUbicacion.setObservador(sensorUbicacion);
+        controladorUbicacion.setSensor(sensorUbicacion);
         sensorUbicacion.setControlador(controladorUbicacion);
         controladorUbicacion.definirUmbral(5);
+        controladorUbicacion.setAction(new DefinableAction() {
+            @Override
+            public void exec() {
+                ruta.agregar(new Ubicacion(ubicacion.getLatitud(), ubicacion.getLongitud(), ubicacion.getElevacion()));
+                distancia += controladorUbicacion.getDistanciaRecorrida();
+            }
+        });
         System.out.println("Acción iniciada ------------------------------");
         thread = new ActionThread() {
             @Override
@@ -39,7 +47,7 @@ public class RutinaExternaCycling implements Rutina {
                     try {
                         sleep(1000);
                         ubicacion.notificar();
-                        ruta.agregar(new Ubicacion(ubicacion.getLatitud(), ubicacion.getLongitud(), ubicacion.getElevacion()));
+
 
                     } catch (InterruptedException e) {
                         throw new RuntimeException(e);
@@ -62,7 +70,7 @@ public class RutinaExternaCycling implements Rutina {
     }
     
     public double calcularDistancia(){
-        return controladorUbicacion.getDistanciaRecorrida();
+        return distancia;
     }
     
     public void compararUbicacionActual(){

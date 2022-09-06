@@ -23,8 +23,8 @@ public class ControladorPosicion extends Controlador{
         return umbral;
     }
 
-    public Observador getObservador() {
-        return observador;
+    public Sensor getSensor() {
+        return sensor;
     }
     
     public float getDistanciaRecorrida() {
@@ -37,8 +37,8 @@ public class ControladorPosicion extends Controlador{
     }
 
     @Override
-    public void ejecutarAccion() {
-        SensorPosicion auxObserver = (SensorPosicion)this.observador;
+    public void verificarUmbral() {
+        SensorPosicion auxObserver = (SensorPosicion)this.sensor;
         Posicion auxSubject = (Posicion)auxObserver.getObservado();
         Posicion auxSubjectUltimo = (Posicion)auxObserver.getUltimaPosicion();
         float x = auxSubject.getPosX() - auxSubjectUltimo.getPosX();

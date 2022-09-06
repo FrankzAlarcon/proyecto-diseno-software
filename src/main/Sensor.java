@@ -9,7 +9,7 @@ package main;
  *
  * @author Frankz
  */
-public abstract class Observador {
+public abstract class Sensor {
     
     Observado observado;
     Controlador controlador;

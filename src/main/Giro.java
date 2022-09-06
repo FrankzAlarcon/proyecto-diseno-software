@@ -5,7 +5,7 @@ public class Giro extends Observado{
 
     @Override
     public void notificar() {
-        SensorGiro sensorGiro = (SensorGiro) this.observador;
+        SensorGiro sensorGiro = (SensorGiro) this.sensor;
         anguloTotal += 10;
         sensorGiro.actualizar();
 

@@ -9,7 +9,7 @@ package main;
  *
  * @author Frankz
  */
-public class SensorRepeticion extends Observador{
+public class SensorRepeticion extends Sensor {
     private NumeroRepeticion numRepeticiones;
 
     public SensorRepeticion() {

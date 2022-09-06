@@ -10,12 +10,12 @@ package main;
  * @author Frankz
  */
 public abstract class Observado {
-    Observador observador;
+    Sensor sensor;
     
     public abstract void notificar();
     
-    public void setObservador(Observador observador){
-        observador.observado = this;
-        this.observador = observador;
+    public void setSensor(Sensor sensor){
+        sensor.observado = this;
+        this.sensor = sensor;
     }
 }

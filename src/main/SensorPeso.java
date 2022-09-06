@@ -9,7 +9,7 @@ package main;
  *
  * @author Frankz
  */
-public class SensorPeso extends Observador{
+public class SensorPeso extends Sensor {
     private Peso pesoActual;
 
     public SensorPeso() {

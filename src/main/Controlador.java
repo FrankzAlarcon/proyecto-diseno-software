@@ -12,12 +12,18 @@ package main;
 public abstract class Controlador {
     protected double umbral;
     
-    Observador observador;
-   
+    Sensor sensor;
+    DefinableAction action;
     public abstract void definirUmbral(double umbral);
-    public abstract void ejecutarAccion();
+    public abstract void verificarUmbral();
+    public void setAction(DefinableAction action){
+        this.action = action;
+    }
 
-    public void setObservador(Observador observador){
-        this.observador = observador;
+    public void setSensor(Sensor sensor){
+        this.sensor = sensor;
+    }
+    public Sensor getSensor(){
+        return sensor;
     }
 }

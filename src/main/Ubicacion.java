@@ -12,8 +12,6 @@ public class Ubicacion extends Observado {
     private double latitud = 0.0;
     private double longitud = 0.0;
     private double elevacion;
-    public SensorUbicacion sensor;
-
     public Ubicacion() {
         this(0.0,0.0,0.0);
     }
@@ -26,7 +24,7 @@ public class Ubicacion extends Observado {
 
     @Override
     public void notificar() {
-        SensorUbicacion sensor = ((SensorUbicacion)this.observador);
+        SensorUbicacion sensor = ((SensorUbicacion) this.sensor);
         sensor.setUbicacion(new Ubicacion(latitud, longitud, elevacion));
         latitud += 0.0001;
         longitud += 0.0001;
@@ -50,5 +48,17 @@ public class Ubicacion extends Observado {
     @Override
     public String toString() {
         return latitud + ", " + longitud;
+    }
+
+    public Vec3 toVec3() {
+        double R = 6371e3 + elevacion;
+        double tetha = Math.toRadians(longitud);
+        double phi = Math.toRadians(latitud);
+
+        double x = R * Math.cos(phi) * Math.sin(tetha);
+        double y = R * Math.sin(phi);
+        double z = R * Math.cos(phi) * Math.cos(tetha);
+
+        return new Vec3(x, y, z);
     }
 }

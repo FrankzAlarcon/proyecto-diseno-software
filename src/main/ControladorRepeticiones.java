@@ -13,7 +13,7 @@ public class ControladorRepeticiones extends Controlador{
 
     public ControladorRepeticiones(double umbral, SensorRepeticion sensor) {
         this.umbral = umbral;
-        this.observador = sensor;
+        this.sensor = null;
     }
     
     @Override
@@ -22,7 +22,7 @@ public class ControladorRepeticiones extends Controlador{
     }
 
     @Override
-    public void ejecutarAccion() {
+    public void verificarUmbral() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
