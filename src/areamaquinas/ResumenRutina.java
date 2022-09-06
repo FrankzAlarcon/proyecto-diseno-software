@@ -56,7 +56,7 @@ public class ResumenRutina {
     public String[] getResumen(){
        String[] resumen=new String[5];
        
-       //resumen[0]=RutinaMaquinas
+       resumen[0]=rutina.getPesos().toString();
         return resumen;
     }
             

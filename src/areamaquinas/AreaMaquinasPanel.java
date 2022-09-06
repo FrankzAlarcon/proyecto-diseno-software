@@ -58,7 +58,7 @@ public class AreaMaquinasPanel extends javax.swing.JPanel implements ReturnHandl
         setLayout(new GridBagLayout());        
         setBorder(new EmptyBorder(10,10,10,10));
         setMatriz();
-        
+       
     }
     
     public void setMatriz(){
