@@ -11,9 +11,10 @@ package main;
  */
 public class ControladorPeso extends Controlador{
     
-    public ControladorPeso(double umbral) {
+    
+    public ControladorPeso(double umbral, SensorPeso sensor) {
         this.umbral = umbral;
-        this.observador = new SensorPeso();
+        this.observador = sensor;
     }    
 
     @Override

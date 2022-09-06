@@ -12,6 +12,12 @@ import main.ReturnHandler;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
+import main.ControladorPeso;
+import main.ControladorRepeticiones;
+import main.NumeroRepeticion;
+import main.Peso;
+import main.SensorPeso;
+import main.SensorRepeticion;
  
 public class RutinaMaquinaPane extends JPanel implements ReturnHandler{
     private MainFrame mainFrame;
@@ -23,12 +29,32 @@ public class RutinaMaquinaPane extends JPanel implements ReturnHandler{
     private ResumenRutina resumen;
     private RutinaMaquinas rutinaActual;
     private int numEjercicio = 0;
+    private Peso auxPeso;
+    private SensorPeso sensorPesoSctual;
+    private ControladorPeso controladorPeso;
+
+    private NumeroRepeticion auxRepeticion;
+    private SensorRepeticion sensorRepeticionActual;
+    private ControladorRepeticiones controladorRepeticion;
     
     
     public RutinaMaquinaPane(MainFrame mainFrame) {
         this.mainFrame = mainFrame;
         this.resumen=mainFrame.getAplicacion().seleccionarAreaMaquina().getResumen();
         this.rutinaActual = new RutinaMaquinas(); //La Rutina Actual
+        /*----- PESO */
+        this.auxPeso = new Peso();
+        this.sensorPesoSctual = new SensorPeso(auxPeso);
+        this.auxPeso.setSensor(sensorPesoSctual);
+        this.controladorPeso = new ControladorPeso(5.0, sensorPesoSctual);
+        /*--- REPETICION */
+        this.auxRepeticion = new NumeroRepeticion();
+        this.sensorRepeticionActual = new SensorRepeticion();
+        this.auxRepeticion.setSensor(sensorRepeticionActual);
+        this.controladorRepeticion = new ControladorRepeticiones(5.0, sensorRepeticionActual);
+        
+        rutinaActual.setControladorPeso(controladorPeso);
+        //this.rutinaActual.;
         
         
         setOpaque(true);
@@ -135,7 +161,7 @@ public class RutinaMaquinaPane extends JPanel implements ReturnHandler{
     }
     
     private void iniciarRutina(){
-        resumen.iniciar();
+        this.rutinaActual.iniciar();
     }
 
     private void cambiarPaneles(){

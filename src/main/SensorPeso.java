@@ -13,6 +13,7 @@ public class SensorPeso extends Observador{
     private Peso pesoActual;
 
     public SensorPeso() {
+        this.pesoActual = null;
     }
 
     

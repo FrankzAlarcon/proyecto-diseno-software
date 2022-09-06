@@ -11,12 +11,10 @@ package main;
  */
 public class ControladorRepeticiones extends Controlador{
 
-    public ControladorRepeticiones(double umbral) {
+    public ControladorRepeticiones(double umbral, SensorRepeticion sensor) {
         this.umbral = umbral;
-        this.observador = new SensorRepeticion();
+        this.observador = sensor;
     }
-    
-    
     
     @Override
     public void definirUmbral(double umbral) {

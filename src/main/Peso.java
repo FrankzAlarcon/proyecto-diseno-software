@@ -13,7 +13,12 @@ public class Peso extends Observado{
     private double valor;
     SensorPeso sensor;
 
-    public Peso(SensorPeso sensor) {
+    public Peso() {
+        this.valor = 0.0; 
+        this.sensor = null;
+    } 
+    public Peso(double valor, SensorPeso sensor) {
+        this.valor = valor; 
         this.sensor = sensor;
     }    
 

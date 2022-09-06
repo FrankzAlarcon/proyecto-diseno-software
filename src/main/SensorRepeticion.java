@@ -13,6 +13,7 @@ public class SensorRepeticion extends Observador{
     private NumeroRepeticion numRepeticiones;
 
     public SensorRepeticion() {
+        this.numRepeticiones = null;
     }
     
     public SensorRepeticion(NumeroRepeticion numRepeticiones) {
