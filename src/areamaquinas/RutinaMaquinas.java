@@ -114,7 +114,7 @@ public class RutinaMaquinas implements Rutina{
         };
 
         threadPeso.start();
-         threadRepeticion.start();
+        threadRepeticion.start();
         
         
         
