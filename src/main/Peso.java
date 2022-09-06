@@ -17,6 +17,12 @@ public class Peso extends Observado{
         this.valor = 0.0; 
         this.sensor = null;
     } 
+    
+    public Peso(double valor) {
+        this.valor = valor; 
+        this.sensor = null;
+    } 
+    
     public Peso(double valor, SensorPeso sensor) {
         this.valor = valor; 
         this.sensor = sensor;
@@ -41,7 +47,10 @@ public class Peso extends Observado{
         
     @Override
     public void notificar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        SensorPeso sensor = ((SensorPeso) this.sensor);
+        sensor.setPesoActual(new Peso(valor));
+        
+        sensor.actualizar();
     }
     
 }

@@ -1,13 +1,18 @@
 
 package areamaquinas;
 
+import static java.lang.Thread.sleep;
 import java.time.LocalTime;
 import java.util.ArrayList;
+import main.ActionThread;
 import main.ControladorPeso;
 import main.ControladorRepeticiones;
+import main.DefinableAction;
 import main.NumeroRepeticion;
 import main.Peso;
 import main.Rutina;
+import main.SensorPeso;
+import main.SensorRepeticion;
 
 /**
  *
@@ -21,6 +26,9 @@ public class RutinaMaquinas implements Rutina{
     private double tiempoUltimo;
     private ControladorPeso controladorPeso ;
     private ControladorRepeticiones controladorRepeticion; 
+    private ActionThread threadPeso;
+    private ActionThread threadRepeticion;
+
 
     public RutinaMaquinas() {
         this.numRepeticiones = new ArrayList();
@@ -46,7 +54,71 @@ public class RutinaMaquinas implements Rutina{
     public void iniciar() {
         LocalTime tiempo=LocalTime.now();
         double segundosInicio = tiempo.getHour()*3600.0 + tiempo.getMinute() * 60.0 + tiempo.getSecond();
-        this.tiempoUltimo=  segundosInicio;     
+        this.tiempoUltimo=  segundosInicio;
+        
+        Peso peso=new Peso();
+        SensorPeso sensorPeso=new SensorPeso();
+        peso.setSensor(sensorPeso);
+        sensorPeso.setObservado(peso);
+        
+        NumeroRepeticion nrepeticion=new NumeroRepeticion();
+        SensorRepeticion sensorRepeticion=new SensorRepeticion();
+        nrepeticion.setSensor(sensorRepeticion);
+        sensorRepeticion.setObservado(nrepeticion);
+        
+        controladorPeso=new ControladorPeso(5, sensorPeso);
+        controladorRepeticion=new ControladorRepeticiones(1, sensorRepeticion);
+        
+        
+        
+        controladorPeso.setAction(new DefinableAction() {
+            @Override
+            public void exec() {
+                //actualizarSubRutina(nuevoPeso);
+            }
+        });
+        threadPeso = new ActionThread() {
+            @Override
+            public void run() {
+                while(isRunning) {
+                    try {
+                        sleep(1000);
+                        peso.notificar();
+
+                    } catch (InterruptedException e) {
+                        //throw new RuntimeException(e);
+                    }
+                }
+            }
+        };
+        
+        controladorRepeticion.setAction(new DefinableAction() {
+            @Override
+            public void exec() {
+                //actualizarSubRutina(nuevoPeso);
+            }
+        });
+        threadRepeticion = new ActionThread() {
+            @Override
+            public void run() {
+                while(isRunning) {
+                    try {
+                        sleep(1000);
+                        nrepeticion.notificar();
+
+                    } catch (InterruptedException e) {
+                        //throw new RuntimeException(e);
+                    }
+                }
+            }
+        };
+
+        threadPeso.start();
+         threadRepeticion.start();
+        
+        
+        
+        
     }
 
     @Override
@@ -132,6 +204,7 @@ public class RutinaMaquinas implements Rutina{
     
     
     public void actualizarSubRutina(Peso nuevoPeso){
+        
         this.numRepeticiones.add(new NumeroRepeticion()); //La repetecion se establece en 0
         this.pesos.add(nuevoPeso);
         LocalTime tiempo=LocalTime.now();

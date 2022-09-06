@@ -18,12 +18,16 @@ public class ControladorRepeticiones extends Controlador{
     
     @Override
     public void definirUmbral(double umbral) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       this.umbral = umbral;
     }
 
     @Override
     public void verificarUmbral() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+         SensorRepeticion sensor = (SensorRepeticion) this.sensor;
+        
+        if(sensor.getNumRepeticiones().getNumero() >= umbral){
+            action.exec();
+        }
     }
     
 }

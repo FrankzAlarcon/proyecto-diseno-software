@@ -19,12 +19,18 @@ public class ControladorPeso extends Controlador{
 
     @Override
     public void definirUmbral(double umbral) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.umbral = umbral;
     }
 
     @Override
     public void verificarUmbral() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        SensorPeso sensor = (SensorPeso) this.sensor;
+        //System.out.println(sensor.getUbicacionAnterior() + " " + sensor.getUbicacionActual());
+        
+        //System.out.println("Acción ejecutada: " +tempDistance);
+        if(sensor.getPesoActual().getValor() >= umbral){
+            action.exec();
+        }
     }
         
 }

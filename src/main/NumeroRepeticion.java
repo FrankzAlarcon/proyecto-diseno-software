@@ -17,6 +17,11 @@ public class NumeroRepeticion extends Observado{
         this.numero = 0;
         this.sensor = null;
     }
+    public NumeroRepeticion(int numero) {
+        this.numero = numero;
+        
+    }
+    
     public NumeroRepeticion(int valor,SensorRepeticion sensor) {
         this.numero = valor;
         this.sensor = sensor;
@@ -42,7 +47,10 @@ public class NumeroRepeticion extends Observado{
 
     @Override
     public void notificar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       SensorRepeticion sensor = ((SensorRepeticion) this.sensor);
+        sensor.setNumRepeticiones(new NumeroRepeticion(numero+1));
+       
+        sensor.actualizar();
     }
     
     

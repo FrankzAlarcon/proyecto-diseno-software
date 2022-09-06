@@ -31,7 +31,7 @@ public class SensorPeso extends Sensor {
     
     @Override
     public void actualizar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        controlador.verificarUmbral();
     }
     
 }
