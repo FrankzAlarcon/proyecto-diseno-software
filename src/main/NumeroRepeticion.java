@@ -10,18 +10,18 @@ package main;
  * @author Frankz
  */
 public class NumeroRepeticion extends Observado{
-    private double numero;
+    private int numero;
     SensorRepeticion sensor;
 
     public NumeroRepeticion(SensorRepeticion sensor) {
         this.sensor = sensor;
     }
 
-    public double getNumero() {
+    public int getNumero() {
         return numero;
     }
 
-    public void setNumero(double numero) {
+    public void setNumero(int numero) {
         this.numero = numero;
     }
 
