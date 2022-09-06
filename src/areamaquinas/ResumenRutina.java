@@ -52,6 +52,14 @@ public class ResumenRutina {
     public void setMaquina(Maquina maquina) {
         this.maquina = maquina;
     }
+    
+    public String[] getResumen(){
+       String[] resumen=new String[5];
+       
+       //resumen[0]=RutinaMaquinas
+        return resumen;
+    }
+            
 
     public RutinaMaquinas getRutina() {
         return rutina;
@@ -60,6 +68,8 @@ public class ResumenRutina {
     public void setRutina(RutinaMaquinas rutina) {
         this.rutina = rutina;
     }
+    
+    
     
     
 }
