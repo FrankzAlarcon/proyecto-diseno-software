@@ -2,20 +2,20 @@
 package running;
 
 public abstract class NivelRutinaRunning {
-    double velocidad;
-    double inclinacion;
+    protected double velocidad;
+    protected double inclinacion;
 
     public NivelRutinaRunning() {
         this.velocidad = velocidad;
         this.inclinacion = inclinacion;
     }
     
-    public void cambiarVelocidad(){
+    public abstract void cambiarVelocidad();
     
-    }
     
-    public void cambiarInclinacion(){
     
-    }
+    public abstract void cambiarInclinacion();
+    
+    
     
 }

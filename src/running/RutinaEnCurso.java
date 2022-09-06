@@ -98,7 +98,7 @@ public class RutinaEnCurso extends javax.swing.JPanel implements ReturnHandler{
     }// </editor-fold>//GEN-END:initComponents
 
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
-       mainframe.setMainPanel(new Resultados(mainframe)); // TODO add your handling code here:
+       mainframe.setMainPanel(new ResultadosPanel(mainframe)); // TODO add your handling code here:
     }//GEN-LAST:event_jToggleButton1ActionPerformed
 
     @Override

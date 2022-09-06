@@ -13,15 +13,15 @@ import main.ReturnHandler;
  *
  * @author Stalin
  */
-public class Resultados extends javax.swing.JPanel implements ReturnHandler {
+public class ResultadosPanel extends javax.swing.JPanel implements ReturnHandler {
 
    MainFrame mainframe;
-    public Resultados(MainFrame mainframe) {
+    public ResultadosPanel(MainFrame mainframe) {
         
         this.mainframe = mainframe;
         initComponents();
     }
-    public Resultados() {
+    public ResultadosPanel() {
         initComponents();
     }
 

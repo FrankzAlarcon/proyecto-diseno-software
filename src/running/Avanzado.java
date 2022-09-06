@@ -14,15 +14,35 @@ public class Avanzado extends NivelRutinaRunning{
    
     
     
+    //getters & setters
+    public double getVelocidad() {
+        return velocidad;
+    }
+
+    public void setVelocidad(double velocidad) {
+        this.velocidad = velocidad;
+    }
+
+    public double getInclinacion() {
+        return inclinacion;
+    }
+
+    public void setInclinacion(double inclinacion) {
+        this.inclinacion = inclinacion;
+    }
+
+    
+    //metodos
+    
     
     @Override
     public void cambiarInclinacion() {
-        super.cambiarInclinacion(); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+        
     }
 
     @Override
     public void cambiarVelocidad() {
-        super.cambiarVelocidad(); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+       
     }
     
     
