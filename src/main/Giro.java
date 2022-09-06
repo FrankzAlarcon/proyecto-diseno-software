@@ -11,6 +11,7 @@ public class Giro extends Observado{
 
     }
     public double getAnguloTotal() {
+        
         return anguloTotal;
     }
 }

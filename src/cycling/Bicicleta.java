@@ -5,7 +5,6 @@
  */
 package cycling;
 
-
 import main.*;
 
 /**
@@ -13,30 +12,39 @@ import main.*;
  * @author Stalin
  */
 public class Bicicleta {
+
     private int dificultad;
     private ControladorGiro controladorGiro;
     private ActionThread thread;
-    
-    public Bicicleta(int dificultad){
+
+    public Bicicleta(int dificultad) {
         this.dificultad = dificultad;
     }
 
     public int getDificultad() {
+
         return dificultad;
     }
 
-    public void calcularDistanciaRecorrida(){
-    }
-    
-    public void calcularCaloriasQuemadas(){
-    }
-    
-    public void aumentarDificultad(){
-    }
-    
-    public void disminuirDificultad(){
+    public void calcularDistanciaRecorrida() {
     }
 
+    public void calcularCaloriasQuemadas() {
+    }
+
+    public void aumentarDificultad() {
+        
+        if (dificultad >0) {
+            dificultad++;
+        }
+
+    }
+
+    public void disminuirDificultad() {
+        if (dificultad <=5) {
+            dificultad--;
+        }
+    }
 
     public void iniciar() {
         Giro giro = new Giro();
@@ -49,7 +57,7 @@ public class Bicicleta {
         thread = new ActionThread() {
             @Override
             public void run() {
-                while(isRunning) {
+                while (isRunning) {
                     try {
                         sleep(1000);
                         giro.notificar();
@@ -63,11 +71,12 @@ public class Bicicleta {
 
         thread.start();
     }
+
     public void detener() {
         thread.stopAction();
     }
 
-    public double getAnguloTotal(){
+    public double getAnguloTotal() {
         return controladorGiro.getAnguloTotal();
     }
 }

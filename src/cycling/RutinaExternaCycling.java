@@ -42,7 +42,7 @@ public class RutinaExternaCycling implements Rutina {
                         ruta.agregar(new Ubicacion(ubicacion.getLatitud(), ubicacion.getLongitud(), ubicacion.getElevacion()));
 
                     } catch (InterruptedException e) {
-                        //throw new RuntimeException(e);
+                        throw new RuntimeException(e);
                     }
                 }
             }

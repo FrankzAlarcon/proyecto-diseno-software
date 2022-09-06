@@ -14,6 +14,7 @@ import java.awt.Image;
 import java.awt.Insets;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -28,11 +29,13 @@ public class RutinaInternaPanel extends JPanel implements ReturnHandler {
 
     private MainFrame mainFrame;
     private JButton actionBtn;
-    private JLabel caloriasQuemadas, distanciaRecorrida, consumoOxigeno, dificutad;
+
+    private JComboBox actionDificultad;
+    private JLabel caloriasQuemadas, distanciaRecorrida, dificutad, aumentarficultad;
     private boolean realizandoActividad = false;
     private Color acentColor = new Color(2, 153, 143);
     private JPanel dataPanel, actividadPanel;
-    private RutinaInternaCycling rutina;
+    private RutinaInternaCycling rutinaInterna;
 
     /**
      * Creates new form RutinaInterno
@@ -41,7 +44,7 @@ public class RutinaInternaPanel extends JPanel implements ReturnHandler {
         //initComponents();
 
         this.mainFrame = mainFrame;
-        rutina = mainFrame.getAplicacion().seleccionarCycling().seleccionarRutinaInterna();
+        rutinaInterna = mainFrame.getAplicacion().seleccionarCycling().seleccionarRutinaInterna();
         setOpaque(true);
         setBackground(Color.BLACK);
         setLayout(new BorderLayout());
@@ -62,10 +65,19 @@ public class RutinaInternaPanel extends JPanel implements ReturnHandler {
         dataPanel.setBorder(new EmptyBorder(10, 10, 10, 10));
         caloriasQuemadas = coloredLabel("0.0 cal", acentColor, 20.0f);
         distanciaRecorrida = coloredLabel("0 m", acentColor, 20.0f);
-        consumoOxigeno = coloredLabel("0.2 ", acentColor, 20.0f);
         dificutad = coloredLabel("0.0", acentColor, 20.0f);
-        addDataPanel();
+        aumentarficultad = coloredLabel("", acentColor, 20.0f);
 
+        actionDificultad = new JComboBox<String>();
+        actionDificultad.setBounds(220, 135, 80, 20);
+        add(actionDificultad);
+        actionDificultad.addItem("1");
+        actionDificultad.addItem("2");
+        actionDificultad.addItem("3");
+        actionDificultad.addItem("4");
+        actionDificultad.addItem("5");
+        
+        addDataPanel();
         actividadPanel = new JPanel();
         actividadPanel.setBorder(new EmptyBorder(10, 10, 10, 10));
         actividadPanel.setOpaque(true);
@@ -115,6 +127,10 @@ public class RutinaInternaPanel extends JPanel implements ReturnHandler {
         dataPanel.add(coloredLabel("Dificultad", Color.WHITE, 13.0f), c);
         c.gridy = 1;
         dataPanel.add(dificutad, c);
+        c.gridy = 2;
+        dataPanel.add(coloredLabel("Aumentar Dificultad", Color.WHITE, 13.0f), c);
+        c.gridy = 3;
+        dataPanel.add(aumentarficultad, c);
 
     }
 
@@ -126,19 +142,26 @@ public class RutinaInternaPanel extends JPanel implements ReturnHandler {
     }
 
     private void accionBoton() {
-        if(realizandoActividad){
-            rutina.detener();
+        if (realizandoActividad) {
+            /*rutina.detener();
             distanciaRecorrida.setText(String.format("%.2f m", rutina.calcularDistancia()));
             caloriasQuemadas.setText(String.format("%.2f cal", rutina.calcularCaloriasQuemadas()));
-            dificutad.setText(rutina.getBicicleta().getDificultad() + "");
-        }else{
-            rutina.iniciar();
+            dificutad.setText(rutina.getBicicleta().getDificultad() + "");*/
+
+            rutinaInterna.detener();
+            distanciaRecorrida.setText(String.format("%.2f m", rutinaInterna.calcularDistancia()));
+            caloriasQuemadas.setText(rutinaInterna.calcularCaloriasQuemadas() + " cal");
+            dificutad.setText(rutinaInterna.getBicicleta().getDificultad() + " N");
+
+        } else {
+            rutinaInterna.iniciar();
         }
         cambiarPaneles();
     }
-    private void cambiarPaneles(){
 
-        if(realizandoActividad){
+    private void cambiarPaneles() {
+
+        if (realizandoActividad) {
             actionBtn.setText("Iniciar");
             realizandoActividad = false;
             remove(actividadPanel);
@@ -146,7 +169,7 @@ public class RutinaInternaPanel extends JPanel implements ReturnHandler {
             dataPanel.setVisible(true);
             actividadPanel.setVisible(false);
             //revalidate();
-        }else{
+        } else {
             actionBtn.setText("Terminar");
             realizandoActividad = true;
             add(actividadPanel, BorderLayout.CENTER);

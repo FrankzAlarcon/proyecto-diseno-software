@@ -59,6 +59,10 @@ public class RutinaExternaPanel extends JPanel implements ReturnHandler {
         caloriasQuemadas = coloredLabel("0.0 cal", acentColor, 20.0f);
         distanciaRecorrida = coloredLabel("0 m", acentColor, 20.0f);
         ubicaciones = coloredLabel("",acentColor,20.0f);
+        
+
+        
+        
 
         addDataPanel();
 
@@ -134,7 +138,7 @@ public class RutinaExternaPanel extends JPanel implements ReturnHandler {
     private void accionBoton() {
         if(realizandoActividad) {
             rutinaExterna.detener();
-            distanciaRecorrida.setText(rutinaExterna.calcularDistancia() + " m");
+            distanciaRecorrida.setText(String.format("%.2f cm",rutinaExterna.calcularDistancia()));
             caloriasQuemadas.setText(rutinaExterna.calcularCaloriasQuemadas() + " cal");
             String ubicacionesTxt = "<html>";
             for(Ubicacion u : rutinaExterna.getRuta().getUbicaciones()){
