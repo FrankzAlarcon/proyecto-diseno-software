@@ -5,6 +5,7 @@
  */
 package running;
 
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import main.MainFrame;
 import main.ReturnHandler;
@@ -37,18 +38,21 @@ public class PersonalizadoPanel extends javax.swing.JPanel implements ReturnHand
         lblVelocidad = new javax.swing.JLabel();
         lblInclinacion = new javax.swing.JLabel();
         txtTiempo = new javax.swing.JTextField();
-        txtVelocidad = new javax.swing.JTextField();
-        txtInclinacion = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
         actionBtn = new javax.swing.JButton();
+        cmbVelocidad = new javax.swing.JComboBox<>();
+        cmbInclinacion = new javax.swing.JComboBox<>();
+        txtTitulo = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(0, 0, 0));
 
         lblTiempo.setText("Tiempo");
 
-        lblVelocidad.setText("Velocidad");
+        lblVelocidad.setText("Nivel Velocidad");
 
-        lblInclinacion.setText("Inclinacion");
+        lblInclinacion.setText("Nivel Inclinación");
+
+        txtTiempo.setToolTipText("El tiempo recomendado es 30 minutos.");
 
         actionBtn.setBackground(new java.awt.Color(92, 161, 2));
         actionBtn.setFont(new java.awt.Font("Dialog", 0, 17)); // NOI18N
@@ -71,45 +75,88 @@ public class PersonalizadoPanel extends javax.swing.JPanel implements ReturnHand
             .addComponent(actionBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
+        cmbVelocidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
+
+        cmbInclinacion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0", "20", "40" }));
+
+        txtTitulo.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        txtTitulo.setForeground(new java.awt.Color(255, 255, 255));
+        txtTitulo.setText("Rutina Personalizada");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(txtTitulo)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(30, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lblInclinacion)
-                    .addComponent(lblVelocidad)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblVelocidad)
+                        .addGap(18, 18, 18)
+                        .addComponent(cmbVelocidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(lblTiempo)
-                    .addComponent(txtTiempo)
-                    .addComponent(txtVelocidad)
-                    .addComponent(txtInclinacion, javax.swing.GroupLayout.DEFAULT_SIZE, 326, Short.MAX_VALUE))
+                    .addComponent(txtTiempo, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(2, 2, 2)
+                        .addComponent(lblInclinacion)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(cmbInclinacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(54, Short.MAX_VALUE))
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(55, 55, 55)
+                .addGap(21, 21, 21)
+                .addComponent(txtTitulo)
+                .addGap(18, 18, 18)
                 .addComponent(lblTiempo)
                 .addGap(18, 18, 18)
                 .addComponent(txtTiempo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(lblVelocidad)
-                .addGap(24, 24, 24)
-                .addComponent(txtVelocidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lblInclinacion)
-                .addGap(18, 18, 18)
-                .addComponent(txtInclinacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 290, Short.MAX_VALUE)
+                .addGap(79, 79, 79)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblVelocidad)
+                    .addComponent(cmbVelocidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(137, 137, 137)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblInclinacion)
+                    .addComponent(cmbInclinacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 166, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
+
+        txtTiempo.getAccessibleContext().setAccessibleName("");
     }// </editor-fold>//GEN-END:initComponents
 
     private void actionBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actionBtnActionPerformed
         // TODO add your handling code here:
-        mainframe.setMainPanel(new RutinaEnCurso(mainframe)); 
+        double tiempo,inclinacion,velocidad;
+        
+        if(txtTiempo.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Valor tiempo vacio!" );   
+        }else{
+            try{       
+            tiempo=Double.parseDouble(txtTiempo.getText());        
+            if(tiempo<=0){
+            JOptionPane.showMessageDialog(null, "No se admiten valores negativos" );
+            }else{
+                velocidad=cmbVelocidad.getSelectedIndex();
+                inclinacion=cmbInclinacion.getSelectedIndex();
+                System.out.println(velocidad);
+                
+                
+            mainframe.setMainPanel(new RutinaEnCurso(mainframe));   
+                
+            }
+            }catch(NumberFormatException e){
+            if(esNumero(txtTiempo.getText())==false){JOptionPane.showMessageDialog(null, "Valor de tiempo incorrecto!" );}
+            }
+        }
+         //mainframe.setMainPanel(new RutinaEnCurso(mainframe));     
     }//GEN-LAST:event_actionBtnActionPerformed
 
     @Override
@@ -120,16 +167,22 @@ public class PersonalizadoPanel extends javax.swing.JPanel implements ReturnHand
     public JPanel getReference() {
         return this;
     }
+    
+    public boolean esNumero(String str) {
+        
+        return str.matches("[+-]?\\d*(\\.\\d+)?");
+    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton actionBtn;
+    private javax.swing.JComboBox<String> cmbInclinacion;
+    private javax.swing.JComboBox<String> cmbVelocidad;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblInclinacion;
     private javax.swing.JLabel lblTiempo;
     private javax.swing.JLabel lblVelocidad;
-    private javax.swing.JTextField txtInclinacion;
     private javax.swing.JTextField txtTiempo;
-    private javax.swing.JTextField txtVelocidad;
+    private javax.swing.JLabel txtTitulo;
     // End of variables declaration//GEN-END:variables
 }
