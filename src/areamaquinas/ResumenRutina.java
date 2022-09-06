@@ -18,6 +18,17 @@ public class ResumenRutina {
         this.rutina = rutina;
     }
     
+    
+    public void iniciar(){
+        maquina.iniciarUso();
+        rutina.iniciar();
+    }
+    
+    public void finalizar(){
+        maquina.detenerUso();
+        rutina.detener();
+        
+    }
     public void visualizarDatos(){
         
     }

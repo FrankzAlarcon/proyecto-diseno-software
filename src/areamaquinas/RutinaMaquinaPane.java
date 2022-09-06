@@ -46,7 +46,7 @@ public class RutinaMaquinaPane extends JPanel implements ReturnHandler{
         dataPanel.setBackground(Color.BLACK);
         dataPanel.setBorder(new EmptyBorder(10,10,10,10));
         pesoActual= coloredLabel("0.0 Kg", acentColor, 20.0f);
-        nombreMaquina = coloredLabel("Maquina de xx",acentColor, 20.0f);
+        nombreMaquina = coloredLabel(resumen.getMaquina().toString(),acentColor, 20.0f);
         numRepeticiones = coloredLabel("0 repeticiones",acentColor, 20.0f);
 
         addDataPanel();
@@ -100,7 +100,7 @@ public class RutinaMaquinaPane extends JPanel implements ReturnHandler{
     }
     
     private void iniciarRutina(){
-        
+        resumen.iniciar();
     }
 
     private void cambiarPaneles(){
