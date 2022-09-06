@@ -23,6 +23,17 @@ public class Bicicleta {
         this.dificultad = dificultad;
     }
 
+    public void setDificultad(int dificultad) {
+        if(dificultad > 5){
+            dificultad = 5;
+        }
+
+        if(dificultad < 1){
+            dificultad = 1;
+        }
+        this.dificultad = dificultad;
+    }
+
     public int getDificultad() {
 
         return dificultad;
@@ -32,20 +43,6 @@ public class Bicicleta {
     }
 
     public void calcularCaloriasQuemadas() {
-    }
-
-    public void aumentarDificultad() {
-
-        if (dificultad > 0) {
-            dificultad++;
-        }
-
-    }
-
-    public void disminuirDificultad() {
-        if (dificultad <= 5) {
-            dificultad--;
-        }
     }
 
     public void iniciar() {
