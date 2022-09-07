@@ -17,18 +17,56 @@ import main.ReturnHandler;
 public class ResultadosEstandarPanel extends javax.swing.JPanel implements ReturnHandler{
 
      MainFrame mainframe;
-    
+    private int option;
 
-    public ResultadosEstandarPanel(MainFrame mainframe) {
+    public ResultadosEstandarPanel(MainFrame mainframe,int option) {
 
         this.mainframe = mainframe;
+        this.option=option;
         initComponents();
+        if(option==1){setLabelsOpcion1();}
+        if(option==2){setLabelsOpcion2();}
+        if(option==3){setLabelsOpcion3();}
+        
+        
+        
         
     }
     public ResultadosEstandarPanel() {
         initComponents();
     }
+    
+    public void setLabelsOpcion1() {
+    lblTiempo1.setText("0-5  min");
+    lblTiempo2.setText("5-8  min");
+    lblTiempo3.setText("8-10 min");
+    
+    lblVelocidad1.setText("4 Km/h");
+    lblVelocidad2.setText("6 Km/h");
+    lblVelocidad3.setText("7 Km/h");
+    
+    
+    
+    }
+    public void setLabelsOpcion2() {
+    lblTiempo1.setText("0-7");
+    lblTiempo2.setText("7-12");
+    lblTiempo3.setText("12-15");
+    
+    lblVelocidad1.setText("4  Km/h");
+    lblVelocidad2.setText("7  Km/h");
+    lblVelocidad3.setText("9 Km/h");    
+    }
+    public void setLabelsOpcion3() {
+    lblTiempo1.setText("0-12");
+    lblTiempo2.setText("12-20");
+    lblTiempo3.setText("20-25");
 
+    lblVelocidad1.setText("4 Km/h");
+    lblVelocidad2.setText("7 Km/h");
+    lblVelocidad3.setText("10  Km/h");
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -65,21 +103,27 @@ public class ResultadosEstandarPanel extends javax.swing.JPanel implements Retur
         lblInclinacion.setForeground(new java.awt.Color(255, 255, 255));
         lblInclinacion.setText("Calorias quemadas");
 
+        lblTiempo1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         lblTiempo1.setForeground(new java.awt.Color(226, 135, 67));
         lblTiempo1.setText("tmp1");
 
+        lblTiempo2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         lblTiempo2.setForeground(new java.awt.Color(226, 135, 67));
         lblTiempo2.setText("tmp2");
 
+        lblVelocidad1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         lblVelocidad1.setForeground(new java.awt.Color(226, 135, 67));
         lblVelocidad1.setText("v1");
 
+        lblVelocidad2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         lblVelocidad2.setForeground(new java.awt.Color(226, 135, 67));
         lblVelocidad2.setText("v2");
 
+        lblTiempo3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         lblTiempo3.setForeground(new java.awt.Color(226, 135, 67));
         lblTiempo3.setText("tmp3");
 
+        lblVelocidad3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         lblVelocidad3.setForeground(new java.awt.Color(226, 135, 67));
         lblVelocidad3.setText("v3");
 
@@ -91,6 +135,10 @@ public class ResultadosEstandarPanel extends javax.swing.JPanel implements Retur
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(146, 146, 146)
+                .addComponent(lblTitulo)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(35, 35, 35)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -104,23 +152,17 @@ public class ResultadosEstandarPanel extends javax.swing.JPanel implements Retur
                             .addComponent(lblTiempo1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblTiempo2, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblTiempo3, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(238, 238, 238)
+                        .addGap(143, 143, 143)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblVelocidad1, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblVelocidad2, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblVelocidad1, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblVelocidad3, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addContainerGap(101, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(146, 146, 146)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblInclinacion)
-                            .addComponent(lblTitulo)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(162, 162, 162)
-                        .addComponent(lblCalorias)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(lblCalorias)
+                            .addComponent(lblInclinacion))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -128,13 +170,12 @@ public class ResultadosEstandarPanel extends javax.swing.JPanel implements Retur
                 .addGap(12, 12, 12)
                 .addComponent(lblTitulo)
                 .addGap(47, 47, 47)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblTiempo)
-                            .addComponent(lblVelocidad))
-                        .addGap(36, 36, 36)
-                        .addComponent(lblTiempo1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblTiempo)
+                    .addComponent(lblVelocidad))
+                .addGap(36, 36, 36)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblTiempo1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblVelocidad1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(52, 52, 52)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -144,11 +185,11 @@ public class ResultadosEstandarPanel extends javax.swing.JPanel implements Retur
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblTiempo3, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblVelocidad3, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 85, Short.MAX_VALUE)
+                .addGap(46, 46, 46)
                 .addComponent(lblInclinacion)
                 .addGap(18, 18, 18)
                 .addComponent(lblCalorias)
-                .addGap(154, 154, 154))
+                .addContainerGap(193, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

@@ -18,9 +18,11 @@ import running.RunningPanel;
  */
 public class TiempoPanel extends javax.swing.JPanel implements ReturnHandler{
     MainFrame mainframe;
+    private int option;
     public TiempoPanel(MainFrame mainframe) {
         
         this.mainframe = mainframe;
+        
         initComponents();
         actionBtn.setVisible(false);
     }
@@ -181,16 +183,19 @@ public class TiempoPanel extends javax.swing.JPanel implements ReturnHandler{
         System.out.println("Se incio iniciar recorrido con");
         if(btnTiempo1.isSelected()){
             System.out.println(" tiempo 1"); 
-             mainframe.setMainPanel(new RutinaEnCursoEstandar(mainframe));
+             option=1;
+             mainframe.setMainPanel(new RutinaEnCursoEstandar(mainframe,option));
              
         }
         if(btnTiempo2.isSelected()){
+            option=2;
             System.out.println("tiempo 2");
-             mainframe.setMainPanel(new RutinaEnCursoEstandar(mainframe)); 
+             mainframe.setMainPanel(new RutinaEnCursoEstandar(mainframe,option)); 
         }
         if(btnTiempo3.isSelected()){
+            option=3;
             System.out.println("tiempo 2");  
-             mainframe.setMainPanel(new RutinaEnCursoPersonalizado(mainframe)); 
+             mainframe.setMainPanel(new RutinaEnCursoEstandar(mainframe,option)); 
         }
         
     }//GEN-LAST:event_actionBtnActionPerformed
@@ -201,6 +206,12 @@ public class TiempoPanel extends javax.swing.JPanel implements ReturnHandler{
     public JPanel getReference() {
          return this;
     }
+
+    public int getOption() {
+        return option;
+    }
+    
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton actionBtn;

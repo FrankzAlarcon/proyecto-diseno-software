@@ -17,9 +17,11 @@ public class RutinaEnCursoEstandar extends javax.swing.JPanel implements ReturnH
      * Creates new form RutinaEnCurso
      */
     MainFrame mainframe;
-    public RutinaEnCursoEstandar(MainFrame mainframe) {
+    private int option;
+    public RutinaEnCursoEstandar(MainFrame mainframe,int option) {
         
         this.mainframe = mainframe;
+        this.option=option;
         initComponents();
         //actionBtn.setVisible(false);
     }
@@ -98,7 +100,7 @@ public class RutinaEnCursoEstandar extends javax.swing.JPanel implements ReturnH
 
     private void finalBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_finalBtnActionPerformed
         
-        mainframe.setMainPanel(new ResultadosEstandarPanel(mainframe)); // TODO add your handling code here:
+        mainframe.setMainPanel(new ResultadosEstandarPanel(mainframe,option)); // TODO add your handling code here:
         
     }//GEN-LAST:event_finalBtnActionPerformed
 

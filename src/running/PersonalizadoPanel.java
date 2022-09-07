@@ -51,7 +51,7 @@ public class PersonalizadoPanel extends javax.swing.JPanel implements ReturnHand
 
         setBackground(new java.awt.Color(0, 0, 0));
 
-        lblTiempo.setText("Tiempo");
+        lblTiempo.setText("Tiempo (min)");
 
         lblVelocidad.setText("Nivel Velocidad");
 

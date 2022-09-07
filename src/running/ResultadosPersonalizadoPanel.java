@@ -53,11 +53,11 @@ public class ResultadosPersonalizadoPanel extends javax.swing.JPanel implements 
         lblTitulo.setForeground(new java.awt.Color(255, 255, 255));
         lblTitulo.setText("Running");
 
-        jLabel1.setText("Distancia recorrida");
+        jLabel1.setText("Distancia recorrida (Km/h)");
 
         jLabel2.setText("Calorias quemadas");
 
-        jLabel3.setText("Velocidad promedio");
+        jLabel3.setText("Velocidad");
 
         lblDistancia.setFont(new java.awt.Font("Dialog", 0, 17)); // NOI18N
         lblDistancia.setForeground(new java.awt.Color(226, 135, 67));
@@ -95,7 +95,7 @@ public class ResultadosPersonalizadoPanel extends javax.swing.JPanel implements 
                     .addGroup(layout.createSequentialGroup()
                         .addGap(146, 146, 146)
                         .addComponent(lblTitulo)))
-                .addContainerGap(64, Short.MAX_VALUE))
+                .addContainerGap(81, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
