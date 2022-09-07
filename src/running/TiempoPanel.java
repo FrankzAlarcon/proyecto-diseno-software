@@ -51,7 +51,7 @@ public class TiempoPanel extends javax.swing.JPanel implements ReturnHandler{
 
         setBackground(new java.awt.Color(0, 0, 0));
 
-        btnTiempo1.setBackground(new java.awt.Color(200, 198, 86));
+        btnTiempo1.setBackground(new java.awt.Color(194, 140, 99));
         btnTiempo1.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         btnTiempo1.setForeground(new java.awt.Color(255, 255, 255));
         btnTiempo1.setText("10");
@@ -61,7 +61,7 @@ public class TiempoPanel extends javax.swing.JPanel implements ReturnHandler{
             }
         });
 
-        btnTiempo3.setBackground(new java.awt.Color(192, 77, 88));
+        btnTiempo3.setBackground(new java.awt.Color(226, 135, 67));
         btnTiempo3.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         btnTiempo3.setForeground(new java.awt.Color(255, 255, 255));
         btnTiempo3.setText("25");
@@ -71,7 +71,7 @@ public class TiempoPanel extends javax.swing.JPanel implements ReturnHandler{
             }
         });
 
-        btnTiempo2.setBackground(new java.awt.Color(196, 127, 81));
+        btnTiempo2.setBackground(new java.awt.Color(210, 137, 83));
         btnTiempo2.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         btnTiempo2.setForeground(new java.awt.Color(255, 255, 255));
         btnTiempo2.setText("15");
@@ -81,11 +81,10 @@ public class TiempoPanel extends javax.swing.JPanel implements ReturnHandler{
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Seleccione la duración de su rutina de entrenamiento");
 
-        actionBtn.setBackground(new java.awt.Color(92, 161, 2));
+        actionBtn.setBackground(new java.awt.Color(226, 135, 67));
         actionBtn.setFont(new java.awt.Font("Dialog", 0, 17)); // NOI18N
         actionBtn.setForeground(new java.awt.Color(255, 255, 255));
         actionBtn.setText("Iniciar  rutina");
@@ -120,7 +119,7 @@ public class TiempoPanel extends javax.swing.JPanel implements ReturnHandler{
                 .addComponent(btnTiempo3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(51, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addGap(28, 28, 28)
+                .addGap(63, 63, 63)
                 .addComponent(jLabel1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -182,15 +181,16 @@ public class TiempoPanel extends javax.swing.JPanel implements ReturnHandler{
         System.out.println("Se incio iniciar recorrido con");
         if(btnTiempo1.isSelected()){
             System.out.println(" tiempo 1"); 
-             mainframe.setMainPanel(new RutinaEnCurso(mainframe)); 
+             mainframe.setMainPanel(new RutinaEnCursoEstandar(mainframe));
+             
         }
         if(btnTiempo2.isSelected()){
             System.out.println("tiempo 2");
-             mainframe.setMainPanel(new RutinaEnCurso(mainframe)); 
+             mainframe.setMainPanel(new RutinaEnCursoEstandar(mainframe)); 
         }
         if(btnTiempo3.isSelected()){
             System.out.println("tiempo 2");  
-             mainframe.setMainPanel(new RutinaEnCurso(mainframe)); 
+             mainframe.setMainPanel(new RutinaEnCursoPersonalizado(mainframe)); 
         }
         
     }//GEN-LAST:event_actionBtnActionPerformed

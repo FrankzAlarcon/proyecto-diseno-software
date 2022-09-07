@@ -57,9 +57,10 @@ public class PersonalizadoPanel extends javax.swing.JPanel implements ReturnHand
 
         lblInclinacion.setText("Nivel Inclinación");
 
+        txtTiempo.setForeground(new java.awt.Color(226, 135, 67));
         txtTiempo.setToolTipText("El tiempo recomendado es 30 minutos.");
 
-        actionBtn.setBackground(new java.awt.Color(92, 161, 2));
+        actionBtn.setBackground(new java.awt.Color(226, 135, 67));
         actionBtn.setFont(new java.awt.Font("Dialog", 0, 17)); // NOI18N
         actionBtn.setForeground(new java.awt.Color(255, 255, 255));
         actionBtn.setText("Iniciar rutina");
@@ -80,9 +81,11 @@ public class PersonalizadoPanel extends javax.swing.JPanel implements ReturnHand
             .addComponent(actionBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
+        cmbVelocidad.setForeground(new java.awt.Color(226, 135, 67));
         cmbVelocidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
         cmbVelocidad.setSelectedIndex(-1);
 
+        cmbInclinacion.setForeground(new java.awt.Color(226, 135, 67));
         cmbInclinacion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0", "20", "40" }));
         cmbInclinacion.setSelectedIndex(-1);
 
@@ -157,7 +160,7 @@ public class PersonalizadoPanel extends javax.swing.JPanel implements ReturnHand
                         mainframe.getAplicacion().seleccionarRunning().seleccionarPersonalizada().iniciar();
                         System.out.println(mainframe.getAplicacion().seleccionarRunning().seleccionarPersonalizada().getCaloriasQuemadas());
 
-                        mainframe.setMainPanel(new RutinaEnCurso(mainframe));
+                        mainframe.setMainPanel(new RutinaEnCursoPersonalizado(mainframe));
                     }else{JOptionPane.showMessageDialog(null, "Debe seleccionar velocidad e inclinación ");}
                 }
             } catch (NumberFormatException e) {
@@ -166,7 +169,7 @@ public class PersonalizadoPanel extends javax.swing.JPanel implements ReturnHand
                 }
             }
         }
-        //mainframe.setMainPanel(new RutinaEnCurso(mainframe));     
+        //mainframe.setMainPanel(new RutinaEnCursoPersonalizado(mainframe));     
     }//GEN-LAST:event_actionBtnActionPerformed
 
     @Override

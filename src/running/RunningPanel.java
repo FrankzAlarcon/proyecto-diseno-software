@@ -46,7 +46,7 @@ public class RunningPanel extends javax.swing.JPanel implements ReturnHandler {
 
         setBackground(new java.awt.Color(0, 0, 0));
 
-        btnRutinaEstandar.setBackground(new java.awt.Color(0, 204, 102));
+        btnRutinaEstandar.setBackground(new java.awt.Color(232, 159, 105));
         btnRutinaEstandar.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         btnRutinaEstandar.setForeground(new java.awt.Color(255, 255, 255));
         btnRutinaEstandar.setText("Estandar");
@@ -56,7 +56,7 @@ public class RunningPanel extends javax.swing.JPanel implements ReturnHandler {
             }
         });
 
-        btnRutinaPersonalizada.setBackground(new java.awt.Color(0, 255, 255));
+        btnRutinaPersonalizada.setBackground(new java.awt.Color(226, 135, 67));
         btnRutinaPersonalizada.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         btnRutinaPersonalizada.setForeground(new java.awt.Color(255, 255, 255));
         btnRutinaPersonalizada.setText("Personalizada");

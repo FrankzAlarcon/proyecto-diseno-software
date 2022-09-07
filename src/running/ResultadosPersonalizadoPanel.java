@@ -14,19 +14,19 @@ import main.ReturnHandler;
  *
  * @author Stalin
  */
-public class ResultadosPanel extends javax.swing.JPanel implements ReturnHandler {
+public class ResultadosPersonalizadoPanel extends javax.swing.JPanel implements ReturnHandler {
 
     MainFrame mainframe;
     
 
-    public ResultadosPanel(MainFrame mainframe) {
+    public ResultadosPersonalizadoPanel(MainFrame mainframe) {
 
         this.mainframe = mainframe;
         initComponents();
         asignarValores();
     }
 
-    public ResultadosPanel() {
+    public ResultadosPersonalizadoPanel() {
         initComponents();
     }
 
@@ -60,15 +60,15 @@ public class ResultadosPanel extends javax.swing.JPanel implements ReturnHandler
         jLabel3.setText("Velocidad promedio");
 
         lblDistancia.setFont(new java.awt.Font("Dialog", 0, 17)); // NOI18N
-        lblDistancia.setForeground(new java.awt.Color(92, 161, 2));
+        lblDistancia.setForeground(new java.awt.Color(226, 135, 67));
         lblDistancia.setText("0.0 Km");
 
         lblCalorias.setFont(new java.awt.Font("Dialog", 0, 17)); // NOI18N
-        lblCalorias.setForeground(new java.awt.Color(92, 161, 2));
+        lblCalorias.setForeground(new java.awt.Color(226, 135, 67));
         lblCalorias.setText("0.0 cal");
 
         lblVelocidadMedia.setFont(new java.awt.Font("Dialog", 0, 17)); // NOI18N
-        lblVelocidadMedia.setForeground(new java.awt.Color(92, 161, 2));
+        lblVelocidadMedia.setForeground(new java.awt.Color(226, 135, 67));
         lblVelocidadMedia.setText("0.0 m/s");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
