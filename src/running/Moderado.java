@@ -29,7 +29,7 @@ public class Moderado extends NivelRutinaRunning{
             @Override
             public void run() {
                 try {
-                    System.out.println("Estado moderado");
+
                     Thread.sleep(1000*tiempo);
                     rutinaEstandar.actualizarTiempo();
                     rutinaEstandar.actualizarCalorias();

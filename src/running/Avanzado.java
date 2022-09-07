@@ -29,7 +29,6 @@ public class Avanzado extends NivelRutinaRunning{
                 try {
 
                     Thread.sleep(1000*tiempo);
-                    System.out.println("Estado avanzado");
                     rutinaEstandar.actualizarTiempo();
                     rutinaEstandar.actualizarCalorias();
                     rutinaEstandar.detener();

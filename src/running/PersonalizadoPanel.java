@@ -155,11 +155,9 @@ public class PersonalizadoPanel extends javax.swing.JPanel implements ReturnHand
                     if (cmbVelocidad.getSelectedIndex() != -1 || cmbInclinacion.getSelectedIndex() != -1) {
                         velocidad = cmbVelocidad.getSelectedIndex() + 1;
                         inclinacion = cmbInclinacion.getSelectedIndex();
-                        System.out.println(velocidad);
+
                         mainframe.getAplicacion().seleccionarRunning().seleccionarPersonalizada().obtenerDatos(tiempo, velocidad, inclinacion);
                         mainframe.getAplicacion().seleccionarRunning().seleccionarPersonalizada().iniciar();
-                        System.out.println(mainframe.getAplicacion().seleccionarRunning().seleccionarPersonalizada().getCaloriasQuemadas());
-
                         mainframe.setMainPanel(new RutinaEnCursoPersonalizado(mainframe));
                     }else{JOptionPane.showMessageDialog(null, "Debe seleccionar velocidad e inclinación ");}
                 }

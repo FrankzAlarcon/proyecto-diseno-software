@@ -33,7 +33,6 @@ public class Basico extends NivelRutinaRunning{
                     rutinaEstandar.actualizarTiempo();
                     rutinaEstandar.actualizarCalorias();
                     rutinaEstandar.cambiarNivel(new Moderado(rutinaEstandar));
-                    System.out.println("Estado básico");
                 } catch (Exception e) {
                 }
             }

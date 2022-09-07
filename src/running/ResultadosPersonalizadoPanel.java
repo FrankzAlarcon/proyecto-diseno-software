@@ -137,8 +137,7 @@ public class ResultadosPersonalizadoPanel extends javax.swing.JPanel implements 
         velocidad = mainframe.getAplicacion().seleccionarRunning().seleccionarPersonalizada().getNivelVelocidad()*1.2;
         calorias = mainframe.getAplicacion().seleccionarRunning().seleccionarPersonalizada().getCaloriasQuemadas();
         //System.out.println(Calorias); 
-        System.out.println(mainframe.getAplicacion().seleccionarRunning().seleccionarPersonalizada().getCaloriasQuemadas()); 
-             
+
         lblCalorias.setText(String.format("%.2f cal", calorias));
         lblVelocidadMedia.setText(String.format("%.2f km/h", velocidad));
         lblDistancia.setText(String.format("%.2f Km", distancia));

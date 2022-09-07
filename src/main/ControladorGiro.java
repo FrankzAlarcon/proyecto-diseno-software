@@ -16,9 +16,6 @@ public class ControladorGiro extends Controlador{
             anguloTotal=angulo;
             action.exec();
         }
-        
-
-        System.out.println("Control de giro---------------------->"+anguloTotal);
     }
     
     public double getAnguloTotal() {

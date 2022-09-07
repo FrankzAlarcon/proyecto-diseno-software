@@ -47,7 +47,7 @@ public class RutinaExternaCycling implements Rutina {
                 distanciaRecorrida += controladorUbicacion.getDistanciaRecorrida();
             }
         });
-        System.out.println("Acción iniciada ------------------------------");
+
         thread = new ActionThread() {
             @Override
             public void run() {
