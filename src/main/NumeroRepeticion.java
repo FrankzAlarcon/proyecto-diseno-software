@@ -48,7 +48,7 @@ public class NumeroRepeticion extends Observado{
     @Override
     public void notificar() {
        SensorRepeticion sensor = ((SensorRepeticion) this.sensor);
-        sensor.setNumRepeticiones(new NumeroRepeticion(numero+1));
+        numero++;
        
         sensor.actualizar();
     }

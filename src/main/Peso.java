@@ -5,6 +5,8 @@
  */
 package main;
 
+import java.util.Random;
+
 /**
  *
  * @author Frankz
@@ -47,8 +49,10 @@ public class Peso extends Observado{
         
     @Override
     public void notificar() {
+        Random r = new Random();
         SensorPeso sensor = ((SensorPeso) this.sensor);
-        sensor.setPesoActual(new Peso(valor));
+        
+        valor=r.nextInt(10)+1;
         
         sensor.actualizar();
     }
