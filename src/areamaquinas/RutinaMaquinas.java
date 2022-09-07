@@ -40,6 +40,10 @@ public class RutinaMaquinas implements Rutina{
         this.tiempoUltimo = 0.0;
         this.controladorPeso =  null;
         this.controladorRepeticion = null;
+        
+//      pesos.add(new Peso(0));
+//      numRepeticiones.add(new NumeroRepeticion(0));
+//      tiempos.add(tiempoUltimo)
     }
     
     public RutinaMaquinas(ArrayList<NumeroRepeticion> numRepeticiones, ArrayList<Peso> pesos, ArrayList<Double> tiempos, Double caloriasQuemadas, double tiempoActual, ControladorPeso controladorPeso, ControladorRepeticiones controladorRepeticion) {
@@ -58,18 +62,27 @@ public class RutinaMaquinas implements Rutina{
         double segundosInicio = tiempo.getHour()*3600.0 + tiempo.getMinute() * 60.0 + tiempo.getSecond();
         this.tiempoUltimo=  segundosInicio;
         
-        Peso peso=new Peso();
+        Peso peso=new Peso(5);
         SensorPeso sensorPeso=new SensorPeso();
         peso.setSensor(sensorPeso);
         sensorPeso.setObservado(peso);
+        sensorPeso.setPesoActual(peso);
         
-        NumeroRepeticion nrepeticion=new NumeroRepeticion();
+        NumeroRepeticion nrepeticion=new NumeroRepeticion(0);
         SensorRepeticion sensorRepeticion=new SensorRepeticion();
         nrepeticion.setSensor(sensorRepeticion);
         sensorRepeticion.setObservado(nrepeticion);
+        sensorRepeticion.setNumRepeticiones(nrepeticion);
         
         controladorPeso=new ControladorPeso(5, sensorPeso);
         controladorRepeticion=new ControladorRepeticiones(1, sensorRepeticion);
+        
+        controladorPeso.setSensor(sensorPeso);
+        controladorRepeticion.setSensor(sensorRepeticion);
+        
+        sensorRepeticion.setControlador(controladorRepeticion);
+        sensorPeso.setControlador(controladorPeso);
+        
         
         
         
@@ -220,6 +233,7 @@ public class RutinaMaquinas implements Rutina{
         SensorRepeticion sensorRepeticion = ((SensorRepeticion)controladorRepeticion.getSensor());
         NumeroRepeticion nuevaRepeticion=sensorRepeticion.getNumRepeticiones();
         
+        numRepeticiones.add(new NumeroRepeticion(0));
         numRepeticiones.set(numRepeticiones.size()-1, nuevaRepeticion);
         
        
