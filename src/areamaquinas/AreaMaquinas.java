@@ -48,11 +48,6 @@ public class AreaMaquinas {
         return lista.getMaquina(indice);
     }
     
-    /*public ResumenRutina mostrarResultado(){
-        return resumen;
-    }
-    */
-    
     public Aplicacion getAplicacion() {
         return aplicacion;
     }

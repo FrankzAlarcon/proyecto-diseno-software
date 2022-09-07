@@ -23,7 +23,7 @@ public class RutinaMaquinas implements Rutina{
     private ArrayList<NumeroRepeticion> numRepeticiones;
     private ArrayList<Peso> pesos;
     private double tiempo;
-    private Double caloriasQuemadas;
+    private double caloriasQuemadas;
     private double tiempoInicial;
     private ControladorPeso controladorPeso ;
     private ControladorRepeticiones controladorRepeticion; 
@@ -193,20 +193,20 @@ public class RutinaMaquinas implements Rutina{
         this.tiempo = tiempo;
     }
 
-    public Double getCaloriasQuemadas() {
+    public double getCaloriasQuemadas() {
         return caloriasQuemadas;
     }
 
-    public void setCaloriasQuemadas(Double caloriasQuemadas) {
+    public void setCaloriasQuemadas(double caloriasQuemadas) {
         this.caloriasQuemadas = caloriasQuemadas;
     }
 
-    public double getTiempoUltimo() {
+    public double getTiempoInicial() {
         return tiempoInicial;
     }
 
-    public void setTiempoUltimo(double tiempoUltimo) {
-        this.tiempoInicial = tiempoUltimo;
+    public void setTiempoInicial(double tiempoInicial) {
+        this.tiempoInicial = tiempoInicial;
     }
 
     public ControladorPeso getControladorPeso() {
