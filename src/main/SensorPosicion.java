@@ -27,7 +27,6 @@ public class SensorPosicion extends Sensor {
     
     @Override
     public void actualizar() {
-        
         this.controlador.verificarUmbral();
     }
 

@@ -12,23 +12,19 @@ import static java.lang.Math.sqrt;
  */
 public class ControladorPosicion extends Controlador{
     
-    private float distanciaRecorrida;
+    private float desplazamiento;
 
     public ControladorPosicion() {
-        this.distanciaRecorrida = 0;
+        this.desplazamiento = 0;
         this.umbral = 0;
     }
 
     public double getUmbral() {
         return umbral;
     }
-
-    public Sensor getSensor() {
-        return sensor;
-    }
     
-    public float getDistanciaRecorrida() {
-        return distanciaRecorrida;
+    public float getDesplazamiento() {
+        return desplazamiento;
     }
 
     @Override
@@ -45,9 +41,9 @@ public class ControladorPosicion extends Controlador{
         x = x * x;
         float y = auxSubject.getPosY() - auxSubjectUltimo.getPosY();
         y = y * y;
-        float distance = (float)sqrt(x + y);
-        if(distance > umbral){
-            distanciaRecorrida += distance;
+        desplazamiento = (float)sqrt(x + y);
+        if(desplazamiento >= umbral){
+            action.exec();
         }
     }
     

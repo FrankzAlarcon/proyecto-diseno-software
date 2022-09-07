@@ -23,19 +23,15 @@ public class Posicion extends Observado{
         return posX;
     }
 
+    public float getPosY() {
+        return posY;
+    }
+    
     public void setPos(float posX, float posY){
         SensorPosicion aux = (SensorPosicion)this.sensor;
         aux.setUltimaPosicion(this);
         this.posX = posX;
         this.posY = posY;
-    }
-
-    public float getPosY() {
-        return posY;
-    }
-
-    public SensorPosicion getSensor() {
-        return (SensorPosicion) sensor;
     }
     
     @Override

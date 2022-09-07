@@ -10,23 +10,19 @@ package main;
  */
 public class ControladorPresion extends Controlador{
 
-    private int numeroGolpes;
+    private float presionEjercida;
     
     public ControladorPresion(){
-        this.numeroGolpes = 0;
+        this.presionEjercida = 0;
         this.umbral = 0;
     }
 
-    public int getNumeroGolpes() {
-        return numeroGolpes;
+    public float getPresionEjercida() {
+        return presionEjercida;
     }
 
     public double getUmbral() {
         return umbral;
-    }
-
-    public Sensor getSensor() {
-        return sensor;
     }
     
     @Override
@@ -38,8 +34,9 @@ public class ControladorPresion extends Controlador{
     public void verificarUmbral() {
         SensorPresion auxObserver = (SensorPresion)this.sensor;
         Presion auxSubject = (Presion)auxObserver.getObservado();
-        if(auxObserver.getSensibilidad() * (auxSubject.getFuerza() / auxSubject.getAreaRaqueta()) > this.umbral)
-            this.numeroGolpes++;
+        presionEjercida = auxObserver.getSensibilidad() * (auxSubject.getFuerza() / auxSubject.getAreaRaqueta());
+        if(presionEjercida >= this.umbral)
+            action.exec();
     }
     
 }
