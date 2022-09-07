@@ -41,28 +41,10 @@ public class RutinaMaquinaPane extends JPanel implements ReturnHandler{
     
     public RutinaMaquinaPane(MainFrame mainFrame) {
         this.mainFrame = mainFrame;
-        maquina = mainFrame.getAplicacion().seleccionarAreaMaquina().getResumen().getMaquina();
-        rutinaActual = new RutinaMaquinas();
+        maquina = mainFrame.getAplicacion().seleccionarAreaMaquina().getRutina().getMaquina();
+        rutinaActual = mainFrame.getAplicacion().seleccionarAreaMaquina().getRutina();
         rutinaActual.setMaquina(maquina);
-        
-        /*
-        /*----- PESO 
-        this.auxPeso = new Peso();
-        this.sensorPesoSctual = new SensorPeso(auxPeso);
-        this.auxPeso.setSensor(sensorPesoSctual);
-        this.controladorPeso = new ControladorPeso(5.0, sensorPesoSctual);
-        /*--- REPETICION 
-        this.auxRepeticion = new NumeroRepeticion();
-        this.sensorRepeticionActual = new SensorRepeticion();
-        this.auxRepeticion.setSensor(sensorRepeticionActual);
-        this.controladorRepeticion = new ControladorRepeticiones(5.0, sensorRepeticionActual);
-        
-        this.rutinaActual.setControladorPeso(controladorPeso);
-        this.rutinaActual.setControladorRepeticion(controladorRepeticion);
-        
-        this.rutinaActual.agregarPeso(auxPeso); //va inciar en cero
-        this.rutinaActual.agregarRepeticion(auxRepeticion); //va iniviar en cero
-        */
+
         setOpaque(true);
         setBackground(Color.BLACK);
         setLayout(new BorderLayout());
@@ -154,6 +136,7 @@ public class RutinaMaquinaPane extends JPanel implements ReturnHandler{
             caloriasQuemadas.setText(String.format("%.2f cal",rutinaActual.calcularCaloriasQuemadas()));
             pesoFinal.setText(String.format("%.2f kg",rutinaActual.calcularPromedioPesos()));
             numRepeticionesTotales.setText(String.format("%d ",rutinaActual.calcularNumRepeteciciones()));
+            this.rutinaActual = new RutinaMaquinas(maquina);
 
         }else{
             rutinaActual.iniciar();

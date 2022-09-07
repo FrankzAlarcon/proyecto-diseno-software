@@ -35,7 +35,7 @@ public class AreaMaquinasPanel extends javax.swing.JPanel implements ReturnHandl
     ListaMaquinas lista;
     int n=2;
     int m=3;
-    ResumenRutina resumen;
+    RutinaMaquinas rutina;
     AreaMaquinas areaMaquianas;
     
     
@@ -46,12 +46,12 @@ public class AreaMaquinasPanel extends javax.swing.JPanel implements ReturnHandl
         
         
         lista=new ListaMaquinas();
-        lista.agregar(new PrensaPiernas(1, true, 4));
+        lista.agregar(new PrensaPiernas(1, false, 4));
         lista.agregar(new PrensaPiernas(2, false, 4));
-        lista.agregar(new Dorsalera(1, true, 4));
-        lista.agregar(new Dorsalera(2, true, 4));
+        lista.agregar(new Dorsalera(1, false, 4));
+        lista.agregar(new Dorsalera(2, false, 4));
         lista.agregar(new MaquinaPoleas(1, false, 4));
-        lista.agregar(new MaquinaPoleas(2, true, 4));
+        lista.agregar(new MaquinaPoleas(2, false, 4));
         areaMaquianas.setLista(lista);
         
         setBackground(Color.BLACK);
@@ -136,8 +136,8 @@ public class AreaMaquinasPanel extends javax.swing.JPanel implements ReturnHandl
                             
                         Maquina m=areaMaquianas.seleccionarMaquina(c, mainframe);
                            if(m!=null){
-                               resumen=new ResumenRutina(m, new RutinaMaquinas());
-                               areaMaquianas.setResumen(resumen);
+                               rutina =new RutinaMaquinas(m);
+                               areaMaquianas.setRutina(rutina);
                                mainframe.setMainPanel(new RutinaMaquinaPane(mainframe));
                            }                          
                         }

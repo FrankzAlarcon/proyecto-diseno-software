@@ -40,13 +40,21 @@ public class RutinaMaquinas implements Rutina{
         this.tiempoInicial = 0.0;
         this.controladorPeso =  null;
         this.controladorRepeticion = null;
-        
-//      pesos.add(new Peso(0));
-//      numRepeticiones.add(new NumeroRepeticion(0));
-//      tiempos.add(tiempoUltimo)
+        this.maquina = null;
+
+    }
+    public RutinaMaquinas(Maquina m) {
+        this.maquina = m;
+        this.numRepeticiones = new ArrayList();
+        this.pesos = new ArrayList();
+        this.tiempo = 0.0;
+        this.caloriasQuemadas = 0.0;
+        this.tiempoInicial = 0.0;
+        this.controladorPeso =  null;
+        this.controladorRepeticion = null;
     }
     
-    public RutinaMaquinas(ArrayList<NumeroRepeticion> numRepeticiones, ArrayList<Peso> pesos, double tiempo, Double caloriasQuemadas, double tiempoActual, ControladorPeso controladorPeso, ControladorRepeticiones controladorRepeticion) {
+    public RutinaMaquinas(ArrayList<NumeroRepeticion> numRepeticiones, ArrayList<Peso> pesos, double tiempo, Double caloriasQuemadas, double tiempoActual, ControladorPeso controladorPeso, ControladorRepeticiones controladorRepeticion, Maquina maquina) {
         this.numRepeticiones = numRepeticiones;
         this.pesos = pesos;
         this.tiempo = tiempo;
@@ -54,6 +62,7 @@ public class RutinaMaquinas implements Rutina{
         this.tiempoInicial = tiempoActual;
         this.controladorPeso = controladorPeso;
         this.controladorRepeticion = controladorRepeticion;
+        this.maquina = maquina;
     }
      
     @Override

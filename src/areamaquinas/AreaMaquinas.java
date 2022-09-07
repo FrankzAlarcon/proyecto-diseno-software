@@ -13,19 +13,19 @@ import main.MainFrame;
 public class AreaMaquinas {
     private Aplicacion aplicacion;
     private ListaMaquinas lista;
-    private ResumenRutina resumen;
     private AreaMaquinasPanel area;
+    private RutinaMaquinas rutina;
 
-    public AreaMaquinas(Aplicacion aplicacion, ListaMaquinas lista, ResumenRutina resumen) {
+    public AreaMaquinas(Aplicacion aplicacion, ListaMaquinas lista, RutinaMaquinas rutina) {
         this.aplicacion = aplicacion;
         this.lista = lista;
-        this.resumen = resumen;
+        this.rutina = rutina;
     }
     
      public AreaMaquinas(Aplicacion aplicacion) {
         this.aplicacion = aplicacion;
         this.lista = null;
-        this.resumen = null;
+        this.rutina=null;
     }
     
     public ListaMaquinas desplegarMaquinas(){
@@ -48,10 +48,10 @@ public class AreaMaquinas {
         return lista.getMaquina(indice);
     }
     
-    public ResumenRutina mostrarResultado(){
+    /*public ResumenRutina mostrarResultado(){
         return resumen;
     }
-    
+    */
     
     public Aplicacion getAplicacion() {
         return aplicacion;
@@ -69,20 +69,20 @@ public class AreaMaquinas {
         this.lista = lista;
     }
 
-    public ResumenRutina getResumen() {
-        return resumen;
-    }
-
-    public void setResumen(ResumenRutina resumen) {
-        this.resumen = resumen;
-    }
-
     public AreaMaquinasPanel getArea() {
         return area;
     }
 
     public void setArea(AreaMaquinasPanel area) {
         this.area = area;
+    }
+
+    public RutinaMaquinas getRutina() {
+        return rutina;
+    }
+
+    public void setRutina(RutinaMaquinas rutina) {
+        this.rutina = rutina;
     }
     
     
