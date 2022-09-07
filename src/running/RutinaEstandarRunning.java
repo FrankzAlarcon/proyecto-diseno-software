@@ -1,50 +1,39 @@
-
 package running;
-import main.Rutina;
 
-public class RutinaEstandarRunning implements Rutina{
-   
+import main.Rutina;
+import main.Aplicacion;
+
+public class RutinaEstandarRunning implements Rutina {
+
     //atributos
     private double velocidad;
     private int inclinacion;
-    NivelRutinaRunning nivel;    
+    NivelRutinaRunning nivel;
     private double tiempo;
     private double caloriasQuemadas;
+    private Aplicacion aplicacion;
 
     //constructor
-
-    public RutinaEstandarRunning(double velocidad, int inclinacion, NivelRutinaRunning nivel, double tiempo, double caloriasQuemadas) {
-        this.velocidad = velocidad;
-        this.inclinacion = inclinacion;
-        this.nivel = nivel;
-        this.tiempo = tiempo;
-        this.caloriasQuemadas = caloriasQuemadas;
+    public RutinaEstandarRunning(Aplicacion aplicacion) {
+        this.aplicacion = aplicacion;
     }
-    
-    
-    
-    
-    
-   
-    //metodos
 
+    //metodos
     @Override
     public double calcularCaloriasQuemadas() {
         double caloriasQuemadas = 0;
-        
-        
+
         return caloriasQuemadas;
     }
 
     @Override
     public void detener() {
-        
+
     }
 
     @Override
     public void iniciar() {
-        
+
     }
-    
- 
+
 }

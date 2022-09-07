@@ -1,26 +1,23 @@
-
 package running;
 
 import main.Aplicacion;
 
 public class Running {
+
     //atributos
     private RutinaPersonalizadaRunning rutinaPersonalizada;
     private RutinaEstandarRunning rutinaEstandar;
     private Aplicacion aplicacion;
 
     //constructores
-    
-    public Running() {
-    }
-    
-    public Running(RutinaPersonalizadaRunning rutinaPersonalizada, RutinaEstandarRunning rutinaEstandar, Aplicacion aplicacion) {
-        this.rutinaPersonalizada = rutinaPersonalizada;
-        this.rutinaEstandar = rutinaEstandar;
+    public Running(Aplicacion aplicacion) {
         this.aplicacion = aplicacion;
-    }
-    //getters & setters
+        this.rutinaEstandar = new RutinaEstandarRunning(aplicacion);
+        this.rutinaPersonalizada = new RutinaPersonalizadaRunning(aplicacion);
 
+    }
+
+    //getters & setters
     public RutinaPersonalizadaRunning getRutinaPersonalizada() {
         return rutinaPersonalizada;
     }
@@ -44,27 +41,17 @@ public class Running {
     public void setAplicacion(Aplicacion aplicacion) {
         this.aplicacion = aplicacion;
     }
-    
-    //metodos de clase
-    
-    //nos dirigimos  la respectivas clases
-    public void seleccionarPersonalizada(){
-       RutinaPersonalizadaRunning rutinaPersonalizada = new RutinaPersonalizadaRunning(0, 0, 0, 0);
-       
-        
-    }
-    
-    public void seleccionarEstandar(){ 
-        
-    }
-    
-    
-    
-    
-    
 
-    
-    
-    
-    
+    //metodos de clase
+    //nos dirigimos  la respectivas clases
+    public RutinaPersonalizadaRunning seleccionarPersonalizada() {
+        return rutinaPersonalizada;
+
+    }
+
+    public RutinaEstandarRunning seleccionarEstandar() {
+        return rutinaEstandar;
+
+    }
+
 }

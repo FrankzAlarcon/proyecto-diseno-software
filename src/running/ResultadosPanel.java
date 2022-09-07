@@ -9,18 +9,23 @@ import javax.swing.JPanel;
 import main.ActividadesPane;
 import main.MainFrame;
 import main.ReturnHandler;
+
 /**
  *
  * @author Stalin
  */
 public class ResultadosPanel extends javax.swing.JPanel implements ReturnHandler {
 
-   MainFrame mainframe;
+    MainFrame mainframe;
+    
+
     public ResultadosPanel(MainFrame mainframe) {
-        
+
         this.mainframe = mainframe;
         initComponents();
+        asignarValores();
     }
+
     public ResultadosPanel() {
         initComponents();
     }
@@ -34,37 +39,37 @@ public class ResultadosPanel extends javax.swing.JPanel implements ReturnHandler
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblRunning = new javax.swing.JLabel();
+        lblTitulo = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        lblDistancia = new javax.swing.JLabel();
+        lblCalorias = new javax.swing.JLabel();
+        lblVelocidadMedia = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(0, 0, 0));
 
-        lblRunning.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        lblRunning.setForeground(new java.awt.Color(255, 255, 255));
-        lblRunning.setText("Running");
+        lblTitulo.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        lblTitulo.setForeground(new java.awt.Color(255, 255, 255));
+        lblTitulo.setText("Running");
 
         jLabel1.setText("Distancia recorrida");
 
-        jLabel2.setText("Tiempo");
+        jLabel2.setText("Calorias quemadas");
 
         jLabel3.setText("Velocidad promedio");
 
-        jLabel4.setFont(new java.awt.Font("Dialog", 0, 17)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(92, 161, 2));
-        jLabel4.setText("0.0 m");
+        lblDistancia.setFont(new java.awt.Font("Dialog", 0, 17)); // NOI18N
+        lblDistancia.setForeground(new java.awt.Color(92, 161, 2));
+        lblDistancia.setText("0.0 Km");
 
-        jLabel5.setFont(new java.awt.Font("Dialog", 0, 17)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(92, 161, 2));
-        jLabel5.setText("0.0 cal");
+        lblCalorias.setFont(new java.awt.Font("Dialog", 0, 17)); // NOI18N
+        lblCalorias.setForeground(new java.awt.Color(92, 161, 2));
+        lblCalorias.setText("0.0 cal");
 
-        jLabel6.setFont(new java.awt.Font("Dialog", 0, 17)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(92, 161, 2));
-        jLabel6.setText("0.0 m/s");
+        lblVelocidadMedia.setFont(new java.awt.Font("Dialog", 0, 17)); // NOI18N
+        lblVelocidadMedia.setForeground(new java.awt.Color(92, 161, 2));
+        lblVelocidadMedia.setText("0.0 m/s");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -77,50 +82,66 @@ public class ResultadosPanel extends javax.swing.JPanel implements ReturnHandler
                         .addComponent(jLabel2))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel5))
+                        .addComponent(lblCalorias))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
-                            .addComponent(jLabel4))
+                            .addComponent(lblDistancia))
                         .addGap(108, 108, 108)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel6)
+                            .addComponent(lblVelocidadMedia)
                             .addComponent(jLabel3)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(146, 146, 146)
-                        .addComponent(lblRunning)))
+                        .addComponent(lblTitulo)))
                 .addContainerGap(64, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(18, 18, 18)
-                .addComponent(lblRunning)
+                .addComponent(lblTitulo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(jLabel3))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel6))
+                    .addComponent(lblDistancia)
+                    .addComponent(lblVelocidadMedia))
                 .addGap(14, 14, 14)
                 .addComponent(jLabel2)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel5)
+                .addComponent(lblCalorias)
                 .addContainerGap(425, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     @Override
     public void doReturnAction() {
-         mainframe.setMainPanel(new ActividadesPane(mainframe));
+        mainframe.setMainPanel(new ActividadesPane(mainframe));
     }
 
     @Override
     public JPanel getReference() {
-           return this;
+        return this;
+    }
+
+    public void asignarValores() {
+        String calorias;
+        String velocidad;
+        String distancia;
+        
+        distancia="" + mainframe.getAplicacion().seleccionarRunning().seleccionarPersonalizada().getDistancia();
+        velocidad="" + mainframe.getAplicacion().seleccionarRunning().seleccionarPersonalizada().getNivelVelocidad()*1.2;
+        calorias = "" + mainframe.getAplicacion().seleccionarRunning().seleccionarPersonalizada().getCaloriasQuemadas();
+        //System.out.println(Calorias); 
+        System.out.println(mainframe.getAplicacion().seleccionarRunning().seleccionarPersonalizada().getCaloriasQuemadas()); 
+             
+        lblCalorias.setText(calorias+" cal");
+        lblVelocidadMedia.setText(velocidad+" km/h");
+        lblDistancia.setText(distancia+" Km");
     }
 
 
@@ -128,9 +149,9 @@ public class ResultadosPanel extends javax.swing.JPanel implements ReturnHandler
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel lblRunning;
+    private javax.swing.JLabel lblCalorias;
+    private javax.swing.JLabel lblDistancia;
+    private javax.swing.JLabel lblTitulo;
+    private javax.swing.JLabel lblVelocidadMedia;
     // End of variables declaration//GEN-END:variables
 }

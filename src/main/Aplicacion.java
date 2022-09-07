@@ -10,6 +10,7 @@ import com.formdev.flatlaf.FlatDarkLaf;
 import cycling.Cycling;
 import padel.Padel;
 import trailrunning.TrailRunning;
+import running.Running;
 
 import javax.swing.*;
 
@@ -18,23 +19,24 @@ import javax.swing.*;
  * @author Frankz
  */
 public class Aplicacion {
+
     private final Cycling cycling;
     Usuario usuario;
     MainFrame mainFrame;
     private Padel padel;
     private TrailRunning trailRunning;
     private AreaMaquinas areaMaquinas;
+    private Running running;
 
     public static void main(String[] args) {
         new Aplicacion().iniciar();
     }
 
-    public void iniciar(){
+    public void iniciar() {
         mainFrame.setMainPanel(new ActividadesPane(mainFrame));
         mainFrame.setVisible(true);
 
     }
-
 
     public Aplicacion() {
         try {
@@ -48,15 +50,16 @@ public class Aplicacion {
                 160.26,
                 1.85,
                 'M'
-                );
+        );
         padel = Padel.createInstance(this);
         trailRunning = new TrailRunning(this);
         cycling = new Cycling(this);
-        areaMaquinas =new AreaMaquinas(this);
+        areaMaquinas = new AreaMaquinas(this);
+        running = new Running(this);
     }
 
     public void seleccionarArea() {
-        
+
     }
 
     public Usuario getUsuario() {
@@ -67,7 +70,6 @@ public class Aplicacion {
         this.usuario = usuario;
     }
 
-
     public Padel seleccionarPadel() {
         return padel;
     }
@@ -75,12 +77,17 @@ public class Aplicacion {
     public TrailRunning seleccionarTrailRunning() {
         return trailRunning;
     }
-    
-    public AreaMaquinas seleccionarAreaMaquina(){
+
+    public Running seleccionarRunning() {
+        return running;
+    }
+
+    public AreaMaquinas seleccionarAreaMaquina() {
         return areaMaquinas;
     }
 
     public Cycling seleccionarCycling() {
         return cycling;
     }
+
 }
