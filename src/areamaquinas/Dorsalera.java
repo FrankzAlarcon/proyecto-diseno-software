@@ -1,6 +1,8 @@
 
 package areamaquinas;
 
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author Emilio Montalvo
@@ -11,9 +13,17 @@ public class Dorsalera extends Maquina{
         super(idMaquina, ocupado, factorCalorias);
     }
 
-    @Override
-    void utilizar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+     @Override
+    public ImageIcon utilizar() {
+        
+         try {
+            ImageIcon image = new ImageIcon(this.getClass().getResource("/res/dorsalera.png"));
+            return image;
+        } catch (Exception e) {
+            return null;
+        }
+        
+        
     }
 
     @Override

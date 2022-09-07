@@ -1,6 +1,8 @@
 
 package areamaquinas;
 
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author Emilio Montalvo
@@ -53,7 +55,7 @@ public abstract class Maquina {
     
     
     
-    abstract void utilizar();
+    abstract ImageIcon utilizar();
     
     
 }

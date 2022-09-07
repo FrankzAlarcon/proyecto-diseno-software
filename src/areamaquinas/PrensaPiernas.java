@@ -1,6 +1,8 @@
 
 package areamaquinas;
 
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author dell
@@ -11,9 +13,17 @@ public class PrensaPiernas extends Maquina{
         super(idMaquina, ocupado, factorCalorias);
     }
     
-    @Override
-    void utilizar() {
-        System.out.println("uso Maquina de Prensa de Piernas"); //To change body of generated methods, choose Tools | Templates.
+     @Override
+    public ImageIcon utilizar() {
+        
+         try {
+            ImageIcon image = new ImageIcon(this.getClass().getResource("/res/prensaPiernas.png"));
+            return image;
+        } catch (Exception e) {
+            return null;
+        }
+        
+        
     }
 
     @Override
