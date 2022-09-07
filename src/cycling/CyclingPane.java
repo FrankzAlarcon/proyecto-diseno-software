@@ -41,18 +41,6 @@ public class CyclingPane extends JPanel implements ReturnHandler{
         
     }
     
-    
-    @SuppressWarnings("unchecked")
-    
-   /* public static void main(String[] args) {
-        try {
-            UIManager.setLookAndFeel(new FlatDarkLaf());
-           
-        } catch (UnsupportedLookAndFeelException ex) {
-            Logger.getLogger(CyclingPane.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-    }/*
 
     /**
      * This method is called from within the constructor to initialize the form.

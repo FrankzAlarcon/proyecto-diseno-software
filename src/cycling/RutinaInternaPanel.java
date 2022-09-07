@@ -43,7 +43,6 @@ public class RutinaInternaPanel extends JPanel implements ReturnHandler {
      * Creates new form RutinaInterno
      */
     public RutinaInternaPanel(MainFrame mainFrame) {
-        //initComponents();
 
         this.mainFrame = mainFrame;
         rutinaInterna = mainFrame.getAplicacion().seleccionarCycling().seleccionarRutinaInterna();
@@ -80,7 +79,7 @@ public class RutinaInternaPanel extends JPanel implements ReturnHandler {
         actionDificultad.addItem("3");
         actionDificultad.addItem("4");
         actionDificultad.addItem("5");
-        
+
         addDataPanel();
         actividadPanel = new JPanel();
         actividadPanel.setBorder(new EmptyBorder(10, 10, 10, 10));
@@ -108,12 +107,11 @@ public class RutinaInternaPanel extends JPanel implements ReturnHandler {
         actionDificultad.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                int dificultadF = Integer.parseInt((String)actionDificultad.getSelectedItem());
+                int dificultadF = Integer.parseInt((String) actionDificultad.getSelectedItem());
                 mainFrame.getAplicacion().seleccionarCycling().seleccionarRutinaInterna().getBicicleta().setDificultad(dificultadF);
-                dificutad.setText(dificultadF +" N");
+                dificutad.setText(dificultadF + " N");
             }
         });
-
 
     }
 
@@ -157,14 +155,10 @@ public class RutinaInternaPanel extends JPanel implements ReturnHandler {
 
     private void accionBoton() {
         if (realizandoActividad) {
-            /*rutina.detener();
-            distanciaRecorrida.setText(String.format("%.2f m", rutina.calcularDistancia()));
-            caloriasQuemadas.setText(String.format("%.2f cal", rutina.calcularCaloriasQuemadas()));
-            dificutad.setText(rutina.getBicicleta().getDificultad() + "");*/
 
             rutinaInterna.detener();
             distanciaRecorrida.setText(String.format("%.2f m", rutinaInterna.calcularDistancia()));
-            caloriasQuemadas.setText(String.format("%.2f cal",rutinaInterna.calcularCaloriasQuemadas()));
+            caloriasQuemadas.setText(String.format("%.2f cal", rutinaInterna.calcularCaloriasQuemadas()));
             dificutad.setText(rutinaInterna.getBicicleta().getDificultad() + " N");
 
         } else {
@@ -183,8 +177,7 @@ public class RutinaInternaPanel extends JPanel implements ReturnHandler {
             dataPanel.setVisible(true);
             actividadPanel.setVisible(false);
             actionDificultad.setVisible(true);
-            
-            //revalidate();
+
         } else {
             actionBtn.setText("Terminar");
             realizandoActividad = true;
@@ -192,8 +185,7 @@ public class RutinaInternaPanel extends JPanel implements ReturnHandler {
             dataPanel.setVisible(false);
             actividadPanel.setVisible(true);
             actionDificultad.setVisible(false);
-            
-            //revalidate();
+
         }
 
     }

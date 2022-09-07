@@ -65,7 +65,7 @@ public class Bicicleta {
                         giro.notificar();
                         System.out.println("Giro la rueda");
                     } catch (InterruptedException e) {
-                        //throw new RuntimeException(e);
+                        throw new RuntimeException(e);
                     }
                 }
             }
