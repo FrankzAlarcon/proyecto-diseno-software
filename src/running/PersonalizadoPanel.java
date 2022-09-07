@@ -86,7 +86,7 @@ public class PersonalizadoPanel extends javax.swing.JPanel implements ReturnHand
         cmbVelocidad.setSelectedIndex(-1);
 
         cmbInclinacion.setForeground(new java.awt.Color(226, 135, 67));
-        cmbInclinacion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0", "20", "40" }));
+        cmbInclinacion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3" }));
         cmbInclinacion.setSelectedIndex(-1);
 
         txtTitulo.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N

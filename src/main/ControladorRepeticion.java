@@ -9,9 +9,9 @@ package main;
  *
  * @author Frankz
  */
-public class ControladorRepeticiones extends Controlador{
+public class ControladorRepeticion extends Controlador{
 
-    public ControladorRepeticiones(double umbral, SensorRepeticion sensor) {
+    public ControladorRepeticion(double umbral, SensorRepeticion sensor) {
         this.umbral = umbral;
         this.sensor = new SensorRepeticion();
     }

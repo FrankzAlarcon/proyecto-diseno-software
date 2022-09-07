@@ -5,20 +5,13 @@ package areamaquinas;
  *
  * @author dell
  */
-import main.ActividadesPane;
 import main.MainFrame;
 import main.ReturnHandler;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
-import main.ControladorPeso;
-import main.ControladorRepeticiones;
-import main.NumeroRepeticion;
-import main.Peso;
-import main.SensorPeso;
-import main.SensorRepeticion;
- 
+
 public class RutinaMaquinaPane extends JPanel implements ReturnHandler{
     private MainFrame mainFrame;
     private JButton actionBtn;

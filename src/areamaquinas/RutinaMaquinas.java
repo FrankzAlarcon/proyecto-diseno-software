@@ -6,14 +6,13 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 import main.ActionThread;
 import main.ControladorPeso;
-import main.ControladorRepeticiones;
+import main.ControladorRepeticion;
 import main.DefinableAction;
 import main.NumeroRepeticion;
 import main.Peso;
 import main.Rutina;
 import main.SensorPeso;
 import main.SensorRepeticion;
-import main.SensorUbicacion;
 
 /**
  *
@@ -26,7 +25,7 @@ public class RutinaMaquinas implements Rutina{
     private double caloriasQuemadas;
     private double tiempoInicial;
     private ControladorPeso controladorPeso ;
-    private ControladorRepeticiones controladorRepeticion; 
+    private ControladorRepeticion controladorRepeticion;
     private ActionThread threadPeso;
     private ActionThread threadRepeticion;
     private Maquina maquina;
@@ -54,7 +53,7 @@ public class RutinaMaquinas implements Rutina{
         this.controladorRepeticion = null;
     }
     
-    public RutinaMaquinas(ArrayList<NumeroRepeticion> numRepeticiones, ArrayList<Peso> pesos, double tiempo, Double caloriasQuemadas, double tiempoActual, ControladorPeso controladorPeso, ControladorRepeticiones controladorRepeticion, Maquina maquina) {
+    public RutinaMaquinas(ArrayList<NumeroRepeticion> numRepeticiones, ArrayList<Peso> pesos, double tiempo, Double caloriasQuemadas, double tiempoActual, ControladorPeso controladorPeso, ControladorRepeticion controladorRepeticion, Maquina maquina) {
         this.numRepeticiones = numRepeticiones;
         this.pesos = pesos;
         this.tiempo = tiempo;
@@ -84,7 +83,7 @@ public class RutinaMaquinas implements Rutina{
         sensorRepeticion.setNumRepeticiones(nrepeticion);
         
         controladorPeso=new ControladorPeso(5, sensorPeso);
-        controladorRepeticion=new ControladorRepeticiones(1, sensorRepeticion);
+        controladorRepeticion=new ControladorRepeticion(1, sensorRepeticion);
         
         controladorPeso.setSensor(sensorPeso);
         controladorRepeticion.setSensor(sensorRepeticion);
@@ -217,11 +216,11 @@ public class RutinaMaquinas implements Rutina{
         this.controladorPeso = controladorPeso;
     }
 
-    public ControladorRepeticiones getControladorRepeticion() {
+    public ControladorRepeticion getControladorRepeticion() {
         return controladorRepeticion;
     }
 
-    public void setControladorRepeticion(ControladorRepeticiones controladorRepeticion) {
+    public void setControladorRepeticion(ControladorRepeticion controladorRepeticion) {
         this.controladorRepeticion = controladorRepeticion;
     }
     
