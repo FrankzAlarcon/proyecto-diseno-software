@@ -170,14 +170,14 @@ public class RutinaMaquinaPane extends JPanel implements ReturnHandler{
             add(dataPanel, BorderLayout.CENTER);
             dataPanel.setVisible(true);
             actividadPanel.setVisible(false);
-            //revalidate();
+            
         }else{
             actionBtn.setText("Terminar rutina");
             realizandoActividad = true;
             remove(dataPanel);
             remove(titulo);
             add(actividadPanel, BorderLayout.PAGE_START);
-            add(dataPanel, BorderLayout.CENTER);
+            dataPanel.setVisible(false);
             actividadPanel.setVisible(true);
             //revalidate();
         }
