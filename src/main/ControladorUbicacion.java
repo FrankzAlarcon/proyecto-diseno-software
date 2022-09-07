@@ -9,8 +9,7 @@ package main;
  * @author green
  */
 public class ControladorUbicacion extends Controlador{
-    
-    private double umbral;
+
     private double distanciaRecorrida;
 
     @Override

@@ -18,4 +18,8 @@ public abstract class Observado {
         sensor.observado = this;
         this.sensor = sensor;
     }
+
+    public Sensor getSensor() {
+        return sensor;
+    }
 }
