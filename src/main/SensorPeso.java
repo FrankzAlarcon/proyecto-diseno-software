@@ -33,5 +33,23 @@ public class SensorPeso extends Sensor {
     public void actualizar() {
         controlador.verificarUmbral();
     }
+
+    public Observado getObservado() {
+        return observado;
+    }
+
+    public void setObservado(Observado observado) {
+        this.observado = observado;
+    }
+
+    public Controlador getControlador() {
+        return controlador;
+    }
+
+    public void setControlador(Controlador controlador) {
+        this.controlador = controlador;
+    }
+    
+    
     
 }

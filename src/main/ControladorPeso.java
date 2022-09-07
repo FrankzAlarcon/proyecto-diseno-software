@@ -32,5 +32,31 @@ public class ControladorPeso extends Controlador{
             action.exec();
         }
     }
+
+    public double getUmbral() {
+        return umbral;
+    }
+
+    public void setUmbral(double umbral) {
+        this.umbral = umbral;
+    }
+
+    public Sensor getSensor() {
+        return sensor;
+    }
+
+    public void setSensor(Sensor sensor) {
+        this.sensor = sensor;
+    }
+
+    public DefinableAction getAction() {
+        return action;
+    }
+
+    public void setAction(DefinableAction action) {
+        this.action = action;
+    }
+    
+    
         
 }
