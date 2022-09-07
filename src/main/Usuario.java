@@ -51,5 +51,13 @@ public class Usuario {
     public void setPeso(double peso) {
         this.peso = peso;
     }
+
+    public static void iniciarAplicacion(){
+        new Aplicacion().iniciar();
+    }
+
+    public static void main(String[] args) {
+        Usuario.iniciarAplicacion();
+    }
     
 }

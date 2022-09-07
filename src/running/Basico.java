@@ -2,6 +2,8 @@
 
 package running;
 
+import main.ActionThread;
+
 public class Basico extends NivelRutinaRunning{
     
     
@@ -22,11 +24,21 @@ public class Basico extends NivelRutinaRunning{
 
     @Override
     public void cambiarNivelRutina(NivelRutinaRunning nivel) {
-        try {
-            Thread.sleep(1000*tiempo);
-            rutinaEstandar.cambiarNivel(new Moderado(rutinaEstandar));
-        } catch (Exception e) {
-        }
+        actionThread = new ActionThread(){
+            @Override
+            public void run() {
+                try {
+
+                    Thread.sleep(1000*tiempo);
+                    rutinaEstandar.actualizarTiempo();
+                    rutinaEstandar.actualizarCalorias();
+                    rutinaEstandar.cambiarNivel(new Moderado(rutinaEstandar));
+                    System.out.println("Estado básico");
+                } catch (Exception e) {
+                }
+            }
+        };
+        actionThread.start();
     }
     
     

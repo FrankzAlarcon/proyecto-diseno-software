@@ -21,11 +21,9 @@ public class ControladorUbicacion extends Controlador{
     @Override
     public void verificarUmbral() {
         SensorUbicacion sensor = (SensorUbicacion) this.sensor;
-        //System.out.println(sensor.getUbicacionAnterior() + " " + sensor.getUbicacionActual());
         Vec3 inicio = sensor.getUbicacionAnterior().toVec3();
         Vec3 destino = sensor.getUbicacionActual().toVec3();
         distanciaRecorrida = destino.minus(inicio).getModule();
-        //System.out.println("Acción ejecutada: " +tempDistance);
         if(distanciaRecorrida >= umbral){
             action.exec();
         }

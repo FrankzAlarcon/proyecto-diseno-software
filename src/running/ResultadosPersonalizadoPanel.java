@@ -129,19 +129,19 @@ public class ResultadosPersonalizadoPanel extends javax.swing.JPanel implements 
     }
 
     public void asignarValores() {
-        String calorias;
-        String velocidad;
-        String distancia;
+        double calorias;
+        double velocidad;
+        double distancia;
         
-        distancia="" + mainframe.getAplicacion().seleccionarRunning().seleccionarPersonalizada().getDistancia();
-        velocidad="" + mainframe.getAplicacion().seleccionarRunning().seleccionarPersonalizada().getNivelVelocidad()*1.2;
-        calorias = "" + mainframe.getAplicacion().seleccionarRunning().seleccionarPersonalizada().getCaloriasQuemadas();
+        distancia = mainframe.getAplicacion().seleccionarRunning().seleccionarPersonalizada().getDistancia();
+        velocidad = mainframe.getAplicacion().seleccionarRunning().seleccionarPersonalizada().getNivelVelocidad()*1.2;
+        calorias = mainframe.getAplicacion().seleccionarRunning().seleccionarPersonalizada().getCaloriasQuemadas();
         //System.out.println(Calorias); 
         System.out.println(mainframe.getAplicacion().seleccionarRunning().seleccionarPersonalizada().getCaloriasQuemadas()); 
              
-        lblCalorias.setText(calorias+" cal");
-        lblVelocidadMedia.setText(velocidad+" km/h");
-        lblDistancia.setText(distancia+" Km");
+        lblCalorias.setText(String.format("%.2f cal", calorias));
+        lblVelocidadMedia.setText(String.format("%.2f km/h", velocidad));
+        lblDistancia.setText(String.format("%.2f Km", distancia));
     }
 
 

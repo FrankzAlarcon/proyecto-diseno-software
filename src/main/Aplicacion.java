@@ -28,10 +28,6 @@ public class Aplicacion {
     private AreaMaquinas areaMaquinas;
     private Running running;
 
-    public static void main(String[] args) {
-        new Aplicacion().iniciar();
-    }
-
     public void iniciar() {
         mainFrame.setMainPanel(new LogIn(mainFrame));
         mainFrame.setVisible(true);
@@ -57,11 +53,6 @@ public class Aplicacion {
         areaMaquinas = new AreaMaquinas(this);
         running = new Running(this);
     }
-
-    public void seleccionarArea() {
-
-    }
-
     public Usuario getUsuario() {
         return usuario;
     }

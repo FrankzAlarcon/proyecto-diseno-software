@@ -33,6 +33,7 @@ public class ActividadesPane extends JPanel implements ReturnHandler{
 
         add(mainContent, BorderLayout.CENTER);
         JLabel titulo = coloredLabel(mainFrame.getAplicacion().getUsuario().getName(), Color.WHITE, 20.0f );
+        titulo.setBorder(new EmptyBorder(10,10,10,10));
         add(titulo, BorderLayout.NORTH);
 
         runningBtn.addActionListener(a -> {

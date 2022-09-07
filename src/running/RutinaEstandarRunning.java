@@ -85,8 +85,10 @@ public class RutinaEstandarRunning implements Rutina {
 
     @Override
     public void detener() {
-        this.calcularCaloriasQuemadas();
-        mainFrame.setMainPanel(new ResultadosEstandarPanel());
+        //this.calcularCaloriasQuemadas();
+        nivel.actionThread.interrupt();
+        mainFrame.setMainPanel(new ResultadosEstandarPanel(mainFrame));
+
 
     }
 
@@ -98,9 +100,17 @@ public class RutinaEstandarRunning implements Rutina {
     }
     public void cambiarNivel(NivelRutinaRunning nivel){
         this.nivel = nivel;
+        this.nivel.cambiarNivelRutina(nivel);
+
         
     }
-    
-     
 
+
+    public void actualizarTiempo() {
+        tiempo += nivel.tiempo;
+    }
+
+    public void actualizarCalorias() {
+        caloriasQuemadas += calcularCaloriasQuemadas();
+    }
 }

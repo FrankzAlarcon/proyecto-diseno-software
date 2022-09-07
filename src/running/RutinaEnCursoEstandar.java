@@ -56,11 +56,13 @@ public class RutinaEnCursoEstandar extends javax.swing.JPanel implements ReturnH
         });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(finalBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
+
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(finalBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -99,8 +101,8 @@ public class RutinaEnCursoEstandar extends javax.swing.JPanel implements ReturnH
     }// </editor-fold>//GEN-END:initComponents
 
     private void finalBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_finalBtnActionPerformed
-        
-        mainframe.setMainPanel(new ResultadosEstandarPanel(mainframe,option)); // TODO add your handling code here:
+        mainframe.getAplicacion().seleccionarRunning().seleccionarEstandar().detener();
+        mainframe.setMainPanel(new ResultadosEstandarPanel(mainframe)); // TODO add your handling code here:
         
     }//GEN-LAST:event_finalBtnActionPerformed
 

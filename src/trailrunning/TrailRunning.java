@@ -33,7 +33,6 @@ public class TrailRunning {
     public void iniciar() {
         cronometro = new Cronometro();
         cronometro.iniciar();
-
         //Inicializacion del observado y observador
         SensorUbicacion sensorUbicacion = new SensorUbicacion();
         Ubicacion ubicacion = new Ubicacion();
@@ -44,7 +43,6 @@ public class TrailRunning {
         controladorUbicacion.setSensor(sensorUbicacion);
         sensorUbicacion.setControlador(controladorUbicacion);
         controladorUbicacion.definirUmbral(5);
-        System.out.println("Acción iniciada ------------------------------");
         controladorUbicacion.setAction(new DefinableAction() {
             @Override
             public void exec() {
@@ -72,23 +70,16 @@ public class TrailRunning {
     }
     
     public void detener(){
-        System.out.println("Acción detenida ------------------------------");
         thread.stopAction();
         cronometro.detener();
         caloriasQuemadas = calcularCaloriasQuemadas();
         distanciaRecorrida += controladorUbicacion.getDistanciaRecorrida();
-        //oxigenoConsumido += consumoOxigeno.calcular();
         velocidad.setTiempo(cronometro.calcular());
         velocidad.setDistancia(distanciaRecorrida);
         consumoOxigeno.setVelocidad(velocidad.calcular());
         consumoOxigeno.setGrado(gradoPromedio);
         
     }
-    /*
-    public void mostrarResultados() {
-        
-    }
-    */
     public void actualizarDistanciaRecorrida() {
         distanciaRecorrida += controladorUbicacion.getDistanciaRecorrida();
     }

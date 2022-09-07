@@ -45,11 +45,6 @@ public class Ubicacion extends Observado {
         return elevacion;
     }
 
-    @Override
-    public String toString() {
-        return latitud + ", " + longitud;
-    }
-
     public Vec3 toVec3() {
         double R = 6371e3 + elevacion;
         double tetha = Math.toRadians(longitud);
