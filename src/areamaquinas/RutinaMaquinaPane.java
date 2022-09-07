@@ -153,7 +153,7 @@ public class RutinaMaquinaPane extends JPanel implements ReturnHandler{
             rutinaActual.detener();
             caloriasQuemadas.setText(String.format("%.2f cal",rutinaActual.calcularCaloriasQuemadas()));
             pesoFinal.setText(String.format("%.2f kg",rutinaActual.calcularPromedioPesos()));
-            numRepeticionesTotales.setText(String.format("%.2f m",rutinaActual.calcularNumRepeteciciones()));
+            numRepeticionesTotales.setText(String.format("%d ",rutinaActual.calcularNumRepeteciciones()));
 
         }else{
             rutinaActual.iniciar();
@@ -176,7 +176,7 @@ public class RutinaMaquinaPane extends JPanel implements ReturnHandler{
             realizandoActividad = true;
             remove(dataPanel);
             remove(titulo);
-            add(actividadPanel, BorderLayout.PAGE_START);
+            add(actividadPanel, BorderLayout.CENTER);
             dataPanel.setVisible(false);
             actividadPanel.setVisible(true);
             //revalidate();

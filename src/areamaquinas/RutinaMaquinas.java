@@ -22,9 +22,9 @@ import main.SensorUbicacion;
 public class RutinaMaquinas implements Rutina{
     private ArrayList<NumeroRepeticion> numRepeticiones;
     private ArrayList<Peso> pesos;
-    private ArrayList<Double> tiempos;
+    private double tiempo;
     private Double caloriasQuemadas;
-    private double tiempoUltimo;
+    private double tiempoInicial;
     private ControladorPeso controladorPeso ;
     private ControladorRepeticiones controladorRepeticion; 
     private ActionThread threadPeso;
@@ -35,9 +35,9 @@ public class RutinaMaquinas implements Rutina{
     public RutinaMaquinas() {
         this.numRepeticiones = new ArrayList();
         this.pesos = new ArrayList();
-        this.tiempos = new ArrayList();
+        this.tiempo = 0.0;
         this.caloriasQuemadas = 0.0;
-        this.tiempoUltimo = 0.0;
+        this.tiempoInicial = 0.0;
         this.controladorPeso =  null;
         this.controladorRepeticion = null;
         
@@ -46,12 +46,12 @@ public class RutinaMaquinas implements Rutina{
 //      tiempos.add(tiempoUltimo)
     }
     
-    public RutinaMaquinas(ArrayList<NumeroRepeticion> numRepeticiones, ArrayList<Peso> pesos, ArrayList<Double> tiempos, Double caloriasQuemadas, double tiempoActual, ControladorPeso controladorPeso, ControladorRepeticiones controladorRepeticion) {
+    public RutinaMaquinas(ArrayList<NumeroRepeticion> numRepeticiones, ArrayList<Peso> pesos, double tiempo, Double caloriasQuemadas, double tiempoActual, ControladorPeso controladorPeso, ControladorRepeticiones controladorRepeticion) {
         this.numRepeticiones = numRepeticiones;
         this.pesos = pesos;
-        this.tiempos = tiempos;
+        this.tiempo = tiempo;
         this.caloriasQuemadas = caloriasQuemadas;
-        this.tiempoUltimo = tiempoActual;
+        this.tiempoInicial = tiempoActual;
         this.controladorPeso = controladorPeso;
         this.controladorRepeticion = controladorRepeticion;
     }
@@ -60,7 +60,7 @@ public class RutinaMaquinas implements Rutina{
     public void iniciar() {
         LocalTime tiempo=LocalTime.now();
         double segundosInicio = tiempo.getHour()*3600.0 + tiempo.getMinute() * 60.0 + tiempo.getSecond();
-        this.tiempoUltimo=  segundosInicio;
+        this.tiempoInicial=  segundosInicio;
         
         Peso peso=new Peso(5);
         SensorPeso sensorPeso=new SensorPeso();
@@ -141,7 +141,7 @@ public class RutinaMaquinas implements Rutina{
         //Finaliza la rutina y manda a llamar al metodo calorias quemadas
         LocalTime tiempo=LocalTime.now();
         double segundosFinal = tiempo.getHour()*3600.0 + tiempo.getMinute() * 60.0 + tiempo.getSecond();
-        this.tiempos.add(segundosFinal - tiempoUltimo);
+        this.tiempo = (segundosFinal - tiempoInicial);
         this.caloriasQuemadas = this.calcularCaloriasQuemadas(); //Retorna y asigna
     }
     
@@ -149,7 +149,7 @@ public class RutinaMaquinas implements Rutina{
     public double calcularCaloriasQuemadas() {
         double calorias=0.0;
         for(int i=0; i < pesos.size(); i++){
-            calorias += (this.numRepeticiones.get(i).getNumero() * this.pesos.get(i).getValor()) / this.tiempos.get(i); 
+            calorias += (this.numRepeticiones.get(i).getNumero() * this.pesos.get(i).getValor()) / this.tiempo; 
         }
         return calorias ;
     }
@@ -176,12 +176,12 @@ public class RutinaMaquinas implements Rutina{
         this.pesos.add(nuevo);
     }
 
-    public ArrayList<Double> getTiempos() {
-        return tiempos;
+    public double getTiempo() {
+        return tiempo;
     }
 
-    public void setTiempos(ArrayList<Double> tiempos) {
-        this.tiempos = tiempos;
+    public void setTiempo(double tiempo) {
+        this.tiempo = tiempo;
     }
 
     public Double getCaloriasQuemadas() {
@@ -193,11 +193,11 @@ public class RutinaMaquinas implements Rutina{
     }
 
     public double getTiempoUltimo() {
-        return tiempoUltimo;
+        return tiempoInicial;
     }
 
     public void setTiempoUltimo(double tiempoUltimo) {
-        this.tiempoUltimo = tiempoUltimo;
+        this.tiempoInicial = tiempoUltimo;
     }
 
     public ControladorPeso getControladorPeso() {
@@ -223,10 +223,6 @@ public class RutinaMaquinas implements Rutina{
         Peso nuevoPeso=sensorPeso.getPesoActual();
         this.numRepeticiones.add(new NumeroRepeticion()); //La repetecion se establece en 0
         this.pesos.add(nuevoPeso);
-        LocalTime tiempo=LocalTime.now();
-        double segundosFinal = tiempo.getHour()*3600.0 + tiempo.getMinute() * 60.0 + tiempo.getSecond();
-        this.tiempos.add(segundosFinal - tiempoUltimo);
-        this.tiempoUltimo = segundosFinal;
     }
     
     public void actualizarRepeticion(){
