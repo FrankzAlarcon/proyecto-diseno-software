@@ -20,7 +20,7 @@ import javax.swing.*;
  */
 public class Aplicacion {
 
-    private final Cycling cycling;
+    private Cycling cycling;
     Usuario usuario;
     MainFrame mainFrame;
     private Padel padel;
@@ -33,7 +33,7 @@ public class Aplicacion {
     }
 
     public void iniciar() {
-        mainFrame.setMainPanel(new ActividadesPane(mainFrame));
+        mainFrame.setMainPanel(new LogIn(mainFrame));
         mainFrame.setVisible(true);
 
     }

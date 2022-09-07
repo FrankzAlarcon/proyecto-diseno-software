@@ -23,6 +23,9 @@ import main.ReturnHandler;
  */
 public class CyclingPane extends JPanel implements ReturnHandler{
     MainFrame mainFrame;
+    private Color accentColor = new Color(2, 153, 143);
+    private Color accentDarkerColor = new Color(2, 115, 107);
+
     /**
      * Creates new form CyclingPane
      */
@@ -76,7 +79,7 @@ public class CyclingPane extends JPanel implements ReturnHandler{
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Escoga la rutina:");
 
-        rutinaInternaBtn.setBackground(new java.awt.Color(255, 51, 204));
+        rutinaInternaBtn.setBackground(accentDarkerColor);
         rutinaInternaBtn.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         rutinaInternaBtn.setForeground(new java.awt.Color(255, 255, 255));
         rutinaInternaBtn.setText("Interna");
@@ -86,7 +89,7 @@ public class CyclingPane extends JPanel implements ReturnHandler{
             }
         });
 
-        rutinaExternaBtn.setBackground(new java.awt.Color(0, 204, 204));
+        rutinaExternaBtn.setBackground(accentColor);
         rutinaExternaBtn.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         rutinaExternaBtn.setForeground(new java.awt.Color(255, 255, 255));
         rutinaExternaBtn.setText("Externa");

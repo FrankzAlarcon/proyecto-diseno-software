@@ -7,6 +7,7 @@ import running.RunningPanel;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 
 public class MainFrame extends JFrame {
     public Aplicacion getAplicacion() {
@@ -36,6 +37,11 @@ public class MainFrame extends JFrame {
 
         mainPanel.add(buttonPane, BorderLayout.SOUTH);
        //setResizable(false);
+        ImageIcon imageIcon = new ImageIcon(MainFrame.class.getResource("/res/logo.png"));
+        ArrayList<Image> images = new ArrayList<>();
+        images.add(imageIcon.getImage().getScaledInstance(64,64,Image.SCALE_AREA_AVERAGING));
+        images.add(imageIcon.getImage().getScaledInstance(32,32,Image.SCALE_AREA_AVERAGING));
+        setIconImages(images);
 
     }
 

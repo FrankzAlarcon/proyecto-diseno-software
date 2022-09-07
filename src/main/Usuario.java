@@ -22,7 +22,7 @@ public class Usuario {
         this.peso = peso;
         this.altura = altura;
         this.sexo = sexo;
-    }        
+    }
 
     public String getName() {
         return name;

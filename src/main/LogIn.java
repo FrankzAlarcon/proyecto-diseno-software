@@ -18,6 +18,15 @@ public class LogIn extends JPanel implements ReturnHandler {
         registrarseBtn = new JButton("Registrarse");
         usuarioIn = new JTextField(25);
         contraseniaIn = new JPasswordField(25);
+        JLabel iconLabel = new JLabel();
+        try {
+            ImageIcon imageIcon = new ImageIcon(LogIn.class.getResource("/res/logo.png"));
+            iconLabel.setIcon(new ImageIcon(imageIcon.getImage().getScaledInstance(150,150,Image.SCALE_AREA_AVERAGING)));
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
 
         GridBagLayout gd = new GridBagLayout();
         setLayout(gd);
@@ -29,15 +38,17 @@ public class LogIn extends JPanel implements ReturnHandler {
         c.gridy = 0;
         c.gridx = 0;
         c.gridwidth = 2;
-        add(new JLabel("Usuario"), c);
+        add(iconLabel, c);
         c.gridy = 1;
-        add(usuarioIn, c);
+        add(new JLabel("Usuario"), c);
         c.gridy = 2;
-        add(new JLabel("Contraseña"), c);
+        add(usuarioIn, c);
         c.gridy = 3;
+        add(new JLabel("Contraseña"), c);
+        c.gridy = 4;
         add(contraseniaIn, c);
         c.gridx = 0;
-        c.gridy = 4;
+        c.gridy = 5;
         c.gridwidth = 1;
         add(ingresarBtn, c);
         c.gridx = 1;

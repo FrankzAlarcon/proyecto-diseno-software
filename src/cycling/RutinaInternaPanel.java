@@ -114,6 +114,7 @@ public class RutinaInternaPanel extends JPanel implements ReturnHandler {
             }
         });
 
+
     }
 
     private void addDataPanel() {
