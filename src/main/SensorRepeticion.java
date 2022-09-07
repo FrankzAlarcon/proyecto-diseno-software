@@ -33,12 +33,12 @@ public class SensorRepeticion extends Sensor {
         controlador.verificarUmbral();
     }
 
-    public Observado getObservado() {
-        return observado;
+    public Factor getFactor() {
+        return factor;
     }
 
-    public void setObservado(Observado observado) {
-        this.observado = observado;
+    public void setFactor(Factor factor) {
+        this.factor = factor;
     }
 
     public Controlador getControlador() {

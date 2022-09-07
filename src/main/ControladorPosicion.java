@@ -35,7 +35,7 @@ public class ControladorPosicion extends Controlador{
     @Override
     public void verificarUmbral() {
         SensorPosicion auxObserver = (SensorPosicion)this.sensor;
-        Posicion auxSubject = (Posicion)auxObserver.getObservado();
+        Posicion auxSubject = (Posicion)auxObserver.getFactor();
         Posicion auxSubjectUltimo = (Posicion)auxObserver.getUltimaPosicion();
         float x = auxSubject.getPosX() - auxSubjectUltimo.getPosX();
         x = x * x;

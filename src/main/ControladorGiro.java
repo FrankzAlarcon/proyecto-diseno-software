@@ -11,7 +11,7 @@ public class ControladorGiro extends Controlador{
 
     @Override
     public void verificarUmbral() {
-        double angulo = ((Giro)this.sensor.getObservado()).getAnguloTotal();
+        double angulo = ((Giro)this.sensor.getFactor()).getAnguloTotal();
         if (angulo>umbral) {
             anguloTotal=angulo;
             action.exec();

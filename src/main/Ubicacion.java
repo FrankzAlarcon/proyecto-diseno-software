@@ -8,7 +8,7 @@ package main;
  *
  * @author green
  */
-public class Ubicacion extends Observado {
+public class Ubicacion extends Factor {
     private double latitud = 0.0;
     private double longitud = 0.0;
     private double elevacion;

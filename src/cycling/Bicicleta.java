@@ -43,7 +43,7 @@ public class Bicicleta {
         Giro giro = new Giro();
         SensorGiro sensorGiro = new SensorGiro();
         giro.setSensor(sensorGiro);
-        sensorGiro.setObservado(giro);
+        sensorGiro.setFactor(giro);
         controladorGiro = new ControladorGiro();
         controladorGiro.setSensor(sensorGiro);
         sensorGiro.setControlador(controladorGiro);

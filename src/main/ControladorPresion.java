@@ -33,7 +33,7 @@ public class ControladorPresion extends Controlador{
     @Override
     public void verificarUmbral() {
         SensorPresion auxObserver = (SensorPresion)this.sensor;
-        Presion auxSubject = (Presion)auxObserver.getObservado();
+        Presion auxSubject = (Presion)auxObserver.getFactor();
         presionEjercida = auxObserver.getSensibilidad() * (auxSubject.getFuerza() / auxSubject.getAreaRaqueta());
         if(presionEjercida >= this.umbral)
             action.exec();

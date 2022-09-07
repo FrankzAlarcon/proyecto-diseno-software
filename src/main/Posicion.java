@@ -4,7 +4,7 @@ package main;
 /**
  * @author Grupo Padel: Jairo García, Santiago Gualotuña, Andrés Ponce, Anthony Simbaña
  */
-public class Posicion extends Observado{
+public class Posicion extends Factor {
 
     private float posX;
     private float posY;

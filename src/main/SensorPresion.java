@@ -18,7 +18,7 @@ public class SensorPresion extends Sensor {
     
     public SensorPresion(float sensibilidad) {
         this.sensibilidad = sensibilidad;
-        this.observado = new Presion();
+        this.factor = new Presion();
     }
 
     public float getSensibilidad() {

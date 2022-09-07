@@ -15,17 +15,17 @@ public class SensorUbicacion extends Sensor {
     }
 
     public Ubicacion getUbicacionActual(){
-        return (Ubicacion) observado;
+        return (Ubicacion) factor;
     }
 
     public Ubicacion getUbicacionAnterior() {
         return anterior;
     }
 
-    public void setUbicacion(Observado ubicacion) {
-        if(this.observado != null)
-            this.anterior = (Ubicacion) this.observado;
-        this.observado = ubicacion;
+    public void setUbicacion(Factor ubicacion) {
+        if(this.factor != null)
+            this.anterior = (Ubicacion) this.factor;
+        this.factor = ubicacion;
     }
 
 

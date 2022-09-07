@@ -9,7 +9,7 @@ package main;
  *
  * @author Frankz
  */
-public class NumeroRepeticion extends Observado{
+public class NumeroRepeticion extends Factor {
     private int numero;
     SensorRepeticion sensor;
 

@@ -11,7 +11,7 @@ import java.util.Random;
  *
  * @author Frankz
  */
-public class Peso extends Observado{
+public class Peso extends Factor {
     private double valor;
     SensorPeso sensor;
 

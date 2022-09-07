@@ -1,6 +1,6 @@
 package main;
 
-public class Giro extends Observado{
+public class Giro extends Factor {
     private double anguloTotal;
 
     @Override

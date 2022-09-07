@@ -73,13 +73,13 @@ public class RutinaMaquinas implements Rutina{
         Peso peso=new Peso(5);
         SensorPeso sensorPeso=new SensorPeso();
         peso.setSensor(sensorPeso);
-        sensorPeso.setObservado(peso);
+        sensorPeso.setFactor(peso);
         sensorPeso.setPesoActual(peso);
         
         NumeroRepeticion nrepeticion=new NumeroRepeticion(0);
         SensorRepeticion sensorRepeticion=new SensorRepeticion();
         nrepeticion.setSensor(sensorRepeticion);
-        sensorRepeticion.setObservado(nrepeticion);
+        sensorRepeticion.setFactor(nrepeticion);
         sensorRepeticion.setNumRepeticiones(nrepeticion);
         
         controladorPeso=new ControladorPeso(5, sensorPeso);

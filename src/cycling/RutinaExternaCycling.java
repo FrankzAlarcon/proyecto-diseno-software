@@ -34,7 +34,7 @@ public class RutinaExternaCycling implements Rutina {
         SensorUbicacion sensorUbicacion = new SensorUbicacion();
         Ubicacion ubicacion = new Ubicacion();
         ubicacion.setSensor(sensorUbicacion);
-        sensorUbicacion.setObservado(ubicacion);
+        sensorUbicacion.setFactor(ubicacion);
         //Controlador ubicacion
         controladorUbicacion = new ControladorUbicacion();
         controladorUbicacion.setSensor(sensorUbicacion);

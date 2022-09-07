@@ -9,13 +9,13 @@ package main;
  *
  * @author Frankz
  */
-public abstract class Observado {
+public abstract class Factor {
     Sensor sensor;
     
     public abstract void notificar();
     
     public void setSensor(Sensor sensor){
-        sensor.observado = this;
+        sensor.factor = this;
         this.sensor = sensor;
     }
 

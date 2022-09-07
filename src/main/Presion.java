@@ -8,7 +8,7 @@ package main;
  *
  * @author Grupo Padel: Jairo García, Santiago Gualotuña, Andrés Ponce, Anthony Simbaña
  */
-public class Presion extends Observado{
+public class Presion extends Factor {
     private float fuerza;
     private float areaRaqueta;
 
