@@ -224,6 +224,31 @@ public class RutinaMaquinas implements Rutina{
         
        
     }
+
+    public ActionThread getThreadPeso() {
+        return threadPeso;
+    }
+
+    public void setThreadPeso(ActionThread threadPeso) {
+        this.threadPeso = threadPeso;
+    }
+
+    public ActionThread getThreadRepeticion() {
+        return threadRepeticion;
+    }
+
+    public void setThreadRepeticion(ActionThread threadRepeticion) {
+        this.threadRepeticion = threadRepeticion;
+    }
+
+    public Maquina getMaquina() {
+        return maquina;
+    }
+
+    public void setMaquina(Maquina maquina) {
+        this.maquina = maquina;
+    }
+    
     
     
 
