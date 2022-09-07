@@ -29,6 +29,7 @@ public class RutinaMaquinas implements Rutina{
     private ControladorRepeticiones controladorRepeticion; 
     private ActionThread threadPeso;
     private ActionThread threadRepeticion;
+    private Maquina maquina;
 
 
     public RutinaMaquinas() {
