@@ -79,7 +79,7 @@ public class RutinaEstandarRunning implements Rutina {
     @Override
     public double calcularCaloriasQuemadas() {
         double caloriasQuemadas = 0;
-
+        caloriasQuemadas = this.tiempo * mainFrame.getAplicacion().getUsuario().getPeso()*0.029;
         return caloriasQuemadas;
     }
 
