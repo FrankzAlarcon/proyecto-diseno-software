@@ -249,6 +249,21 @@ public class RutinaMaquinas implements Rutina{
         this.maquina = maquina;
     }
     
+    public double calcularPromedioPesos(){
+        double aux = 0.0;
+        for(int i=0; i < this.pesos.size(); i++ ){
+            aux += pesos.get(i).getValor();        
+        }
+        return aux;
+    }
+    public int calcularNumRepeteciciones(){
+        int aux = 0;
+        for(int i=0; i < this.numRepeticiones.size(); i++ ){
+            aux += numRepeticiones.get(i).getNumero();        
+        }
+        return aux;
+    }
+    
     
     
 

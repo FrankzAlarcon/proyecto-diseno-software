@@ -21,13 +21,14 @@ import main.SensorRepeticion;
  
 public class RutinaMaquinaPane extends JPanel implements ReturnHandler{
     private MainFrame mainFrame;
-    private JButton actionBtn, realizarRepeticionBtn, cambiarPesoBtn;
-    private JLabel nombreMaquina, numRepeticiones, pesoActual, numRepeticionesTime, pesoActualTime, titulo;
+    private JButton actionBtn;
+    private JLabel caloriasQuemadas, numRepeticionesTotales, pesoFinal, titulo;
     private JPanel dataPanel, actividadPanel;
     private Color acentColor = new Color(96, 2, 163); //Color Morado
     private boolean realizandoActividad = false;
-    private ResumenRutina resumen;
     private RutinaMaquinas rutinaActual;
+    private Maquina maquina;
+    /*
     private int numEjercicio = 0;
     private Peso auxPeso;
     private SensorPeso sensorPesoSctual;
@@ -36,18 +37,21 @@ public class RutinaMaquinaPane extends JPanel implements ReturnHandler{
     private NumeroRepeticion auxRepeticion;
     private SensorRepeticion sensorRepeticionActual;
     private ControladorRepeticiones controladorRepeticion;
-    
+    */
     
     public RutinaMaquinaPane(MainFrame mainFrame) {
         this.mainFrame = mainFrame;
-        this.resumen=mainFrame.getAplicacion().seleccionarAreaMaquina().getResumen();
-        this.rutinaActual = new RutinaMaquinas(); //La Rutina Actual
-        /*----- PESO */
+        maquina = mainFrame.getAplicacion().seleccionarAreaMaquina().getResumen().getMaquina();
+        rutinaActual = new RutinaMaquinas();
+        rutinaActual.setMaquina(maquina);
+        
+        /*
+        /*----- PESO 
         this.auxPeso = new Peso();
         this.sensorPesoSctual = new SensorPeso(auxPeso);
         this.auxPeso.setSensor(sensorPesoSctual);
         this.controladorPeso = new ControladorPeso(5.0, sensorPesoSctual);
-        /*--- REPETICION */
+        /*--- REPETICION 
         this.auxRepeticion = new NumeroRepeticion();
         this.sensorRepeticionActual = new SensorRepeticion();
         this.auxRepeticion.setSensor(sensorRepeticionActual);
@@ -58,11 +62,11 @@ public class RutinaMaquinaPane extends JPanel implements ReturnHandler{
         
         this.rutinaActual.agregarPeso(auxPeso); //va inciar en cero
         this.rutinaActual.agregarRepeticion(auxRepeticion); //va iniviar en cero
-        
+        */
         setOpaque(true);
         setBackground(Color.BLACK);
         setLayout(new BorderLayout());
-        titulo = new JLabel("Maquina "+resumen.getMaquina());
+        titulo = new JLabel(maquina.toString());
         titulo.setFont(titulo.getFont().deriveFont(Font.BOLD).deriveFont(25.0f));
         titulo.setForeground(Color.WHITE);
         titulo.setHorizontalAlignment(JLabel.CENTER);
@@ -78,9 +82,9 @@ public class RutinaMaquinaPane extends JPanel implements ReturnHandler{
         dataPanel.setOpaque(true);
         dataPanel.setBackground(Color.BLACK);
         dataPanel.setBorder(new EmptyBorder(10,10,10,10));
-        pesoActual= coloredLabel("0.0 Kg", acentColor, 20.0f);
-        nombreMaquina = coloredLabel(resumen.getMaquina().toString(),acentColor, 20.0f);
-        numRepeticiones = coloredLabel("0 repeticiones",acentColor, 20.0f);
+        pesoFinal= coloredLabel("0.0 Kg", acentColor, 20.0f);
+        caloriasQuemadas = coloredLabel("0.0 cal",acentColor, 20.0f);
+        numRepeticionesTotales = coloredLabel("0 repeticiones",acentColor, 20.0f);
 
         addDataPanel();
 
@@ -88,19 +92,26 @@ public class RutinaMaquinaPane extends JPanel implements ReturnHandler{
         actividadPanel.setBorder(new EmptyBorder(10,10,10,10));
         actividadPanel.setOpaque(true);
         actividadPanel.setBackground(Color.BLACK);
-        actividadPanel.add(coloredLabel("Registrando datos...", Color.WHITE, 15.0f));
-        pesoActualTime= coloredLabel(Double.toString(rutinaActual.getPesos().get(numEjercicio).getValor()), acentColor, 20.0f);
-        numRepeticionesTime = coloredLabel(Integer.toString(rutinaActual.getNumRepeticiones().get(numEjercicio).getNumero()),acentColor, 20.0f);
+        actividadPanel.setLayout(new BorderLayout());        
         
-        //addDataPaneRealTime();
+        JLabel regLabel = coloredLabel("Registrando datos...", Color.WHITE, 15.0f);
+        regLabel.setHorizontalAlignment(JLabel.CENTER);
+        actividadPanel.add(regLabel, BorderLayout.NORTH);
+        JLabel icon = new JLabel();
+        try {
+            ImageIcon image = rutinaActual.getMaquina().utilizar();
+            icon.setIcon(new ImageIcon(image.getImage().getScaledInstance(120,120,Image.SCALE_AREA_AVERAGING)));
+            icon.setHorizontalAlignment(JLabel.CENTER);
+            actividadPanel.add(icon);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+      
         
         actionBtn.addActionListener(a -> {
-            cambiarPaneles();
-            this.rutinaActual.iniciar();
+            accionBoton();
         });
         add(dataPanel, BorderLayout.CENTER);
-        //add(actividadPanel, BorderLayout.CENTER);
-        //actividadPanel.setVisible(false);
     }
     
 
@@ -116,44 +127,20 @@ public class RutinaMaquinaPane extends JPanel implements ReturnHandler{
         c.fill = GridBagConstraints.HORIZONTAL;
         c.gridx = 0;
         c.gridy = 0;
-        dataPanel.add(coloredLabel("Nombre Maquina", Color.WHITE, 13.0f), c);
+        dataPanel.add(coloredLabel("Calorias Quemadas", Color.WHITE, 13.0f), c);
         c.gridy = 1;
-        dataPanel.add(nombreMaquina, c);
+        dataPanel.add(caloriasQuemadas, c);
         c.gridy = 2;
-        dataPanel.add(coloredLabel("Peso Actual", Color.WHITE, 13.0f), c);
+        dataPanel.add(coloredLabel("Peso Total Levantado", Color.WHITE, 13.0f), c);
         c.gridy = 3;
-        dataPanel.add(pesoActual, c);
+        dataPanel.add(pesoFinal, c);
         c.gridy = 0;
         c.gridx = 1;
-        dataPanel.add(coloredLabel("Repeticiones", Color.WHITE, 13.0f), c);
+        dataPanel.add(coloredLabel("Num Repeticiones Totales", Color.WHITE, 13.0f), c);
         c.gridy = 1;
-        dataPanel.add(numRepeticiones, c);
+        dataPanel.add(numRepeticionesTotales, c);
     }
-    private void addDataPaneRealTime(){
-        GridBagLayout gd = new GridBagLayout();
-        gd.columnWidths = new int[]{0,0};
-        gd.columnWeights = new double[]{1.0,1.0};
-        gd.rowHeights = new int[]{0,0,0,0,0};
-        gd.rowWeights = new double[]{0.0,0.0,0.0,0.0,1.0};
-        dataPanel.setLayout(gd);
-        GridBagConstraints c = new GridBagConstraints();
-        c.insets = new Insets(5,5,5,5);
-        c.fill = GridBagConstraints.HORIZONTAL;
-        c.gridx = 0;
-        c.gridy = 0;
-        dataPanel.add(coloredLabel("Nombre Maquina", Color.WHITE, 13.0f), c);
-        c.gridy = 1;
-        dataPanel.add(nombreMaquina, c);
-        c.gridy = 2;
-        dataPanel.add(coloredLabel("Peso Actual", Color.WHITE, 13.0f), c);
-        c.gridy = 3;
-        dataPanel.add(pesoActualTime, c);
-        c.gridy = 0;
-        c.gridx = 1;
-        dataPanel.add(coloredLabel("Repeticiones", Color.WHITE, 13.0f), c);
-        c.gridy = 1;
-        dataPanel.add(numRepeticionesTime, c);
-    }
+    
 
     private JLabel coloredLabel(String title, Color c, float size){
         JLabel label = new JLabel(title);
@@ -161,11 +148,18 @@ public class RutinaMaquinaPane extends JPanel implements ReturnHandler{
         label.setFont(label.getFont().deriveFont(size));
         return label;
     }
-    
-    private void iniciarRutina(){
-        this.rutinaActual.iniciar();
-    }
+    private void accionBoton() {
+        if(realizandoActividad){
+            rutinaActual.detener();
+            caloriasQuemadas.setText(String.format("%.2f cal",rutinaActual.calcularCaloriasQuemadas()));
+            pesoFinal.setText(String.format("%.2f kg",rutinaActual.calcularPromedioPesos()));
+            numRepeticionesTotales.setText(String.format("%.2f m",rutinaActual.calcularNumRepeteciciones()));
 
+        }else{
+            rutinaActual.iniciar();
+        }
+        cambiarPaneles();
+    }
     private void cambiarPaneles(){
 
         if(realizandoActividad){
@@ -192,6 +186,7 @@ public class RutinaMaquinaPane extends JPanel implements ReturnHandler{
 
     @Override
     public void doReturnAction() {
+        if(realizandoActividad) rutinaActual.detener();
         mainFrame.setMainPanel(new AreaMaquinasPanel(mainFrame));
     }
 
