@@ -1,30 +1,6 @@
 package main;
 
 public class Vec3 {
-
-    public static void main(String[] args) {
-        Ubicacion u1 = new Ubicacion();
-        Ubicacion u2 = new Ubicacion(0,20,-2);
-        Vec3 v1 = toVec3(u1);
-        Vec3 v2 = toVec3(u2);
-
-        System.out.println(v1);
-        System.out.println(v2);
-
-        Vec3 a = toVec3(u1);
-        Vec3 b = toVec3(u2);
-        Vec3 c = b.minus(a);
-        Vec3 b1 = b.times(a.getModule()/b.getModule());
-        Vec3 d = b1.minus(a);
-
-        double ang1 = d.angle(b1);
-        double ang2 = a.angle(c.times(-1));
-        double tetha = ang2 - ang1;
-
-        System.out.println(tetha);
-
-    }
-
     private static Vec3 toVec3(Ubicacion ubicacion){
         //6371e3
         double R = 10 + ubicacion.getElevacion();
