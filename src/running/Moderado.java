@@ -4,46 +4,32 @@ package running;
 
 public class Moderado extends NivelRutinaRunning{
 
-    double velocidad;
-   double inclinacion;
+  
 
-    public Moderado() {
-        this.velocidad = velocidad;
-        this.inclinacion = inclinacion;
+    public Moderado(RutinaEstandarRunning rutinaEstandar) {
+        super(rutinaEstandar);
+        inclinacion = 2;
+        tiempo = 7;
+        velocidad = 6;
     }
    
     
     
     
-    public double getVelocidad() {
-        return velocidad;
-    }
 
-    public void setVelocidad(double velocidad) {
-        this.velocidad = velocidad;
-    }
-
-    public double getInclinacion() {
-        return inclinacion;
-    }
-
-    public void setInclinacion(double inclinacion) {
-        this.inclinacion = inclinacion;
-    }
 
     
     //metodos
-    
-    
-    @Override
-    public void cambiarInclinacion() {
-        
-    }
 
     @Override
-    public void cambiarVelocidad() {
-       
+    public void cambiarNivelRutina(NivelRutinaRunning nivel) {
+        try {
+            Thread.sleep(tiempo*1000);
+            rutinaEstandar.cambiarNivel(new Avanzado(rutinaEstandar));
+        } catch (Exception e) {
+        }
     }
+    
     
     
     

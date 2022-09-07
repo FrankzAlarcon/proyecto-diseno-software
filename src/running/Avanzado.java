@@ -4,46 +4,33 @@ package running;
 
 public class Avanzado extends NivelRutinaRunning{
     
-   double velocidad;
-   double inclinacion;
-
-    public Avanzado() {
-        this.velocidad = velocidad;
-        this.inclinacion = inclinacion;
+   
+    public Avanzado(RutinaEstandarRunning rutinaEstandar) {
+        super(rutinaEstandar);
+        inclinacion = 3;
+        velocidad = 10;
+        tiempo = 15;
     }
    
     
     
     //getters & setters
-    public double getVelocidad() {
-        return velocidad;
-    }
-
-    public void setVelocidad(double velocidad) {
-        this.velocidad = velocidad;
-    }
-
-    public double getInclinacion() {
-        return inclinacion;
-    }
-
-    public void setInclinacion(double inclinacion) {
-        this.inclinacion = inclinacion;
-    }
-
+    
     
     //metodos
-    
-    
-    @Override
-    public void cambiarInclinacion() {
-        
-    }
 
     @Override
-    public void cambiarVelocidad() {
-       
+    public void cambiarNivelRutina(NivelRutinaRunning nivel) {
+        try {
+            Thread.sleep(tiempo*1000);
+            rutinaEstandar.detener();
+                    
+        } catch (Exception e) {
+        }
     }
+    
+    
+   
     
     
     
