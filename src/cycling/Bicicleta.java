@@ -9,7 +9,7 @@ import main.*;
 
 /**
  *
- * @author Stalin
+ * @author 
  */
 public class Bicicleta {
 

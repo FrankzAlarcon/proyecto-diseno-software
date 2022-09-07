@@ -10,7 +10,7 @@ import trailrunning.Cronometro;
 
 /**
  *
- * @author Stalin
+ * @author
  */
 public class RutinaExternaCycling implements Rutina {
 
@@ -20,7 +20,7 @@ public class RutinaExternaCycling implements Rutina {
     private double distanciaRecorrida;
     private Aplicacion aplicacion;
     private Cronometro cronometro;
-    private static double MET = 8.0;
+    private static double MET = 7.2;
 
     public RutinaExternaCycling(Aplicacion aplicacion) {
         this.ruta = new Ruta();
@@ -73,7 +73,8 @@ public class RutinaExternaCycling implements Rutina {
     }
 
     public double calcularCaloriasQuemadas() {
-        return aplicacion.getUsuario().getPeso()*MET*0.0175*cronometro.calcular()/60;
+        
+        return aplicacion.getUsuario().getPeso() * MET * 0.0175 * cronometro.calcular()/60;
     }
 
     public double calcularDistancia() {

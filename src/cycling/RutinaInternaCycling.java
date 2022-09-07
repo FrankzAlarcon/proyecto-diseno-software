@@ -5,39 +5,27 @@
  */
 package cycling;
 
-import static java.lang.Thread.sleep;
-import main.ActionThread;
 import main.Aplicacion;
 import main.ControladorUbicacion;
-import main.DefinableAction;
 import main.Rutina;
-import main.SensorUbicacion;
-import main.Ubicacion;
 import trailrunning.Cronometro;
 
 /**
  *
- * @author Stalin
+ * @author 
  */
 public class RutinaInternaCycling implements Rutina {
 
     private static double MET = 7.0;
     private Bicicleta bicicleta;
     private Cronometro cronometro;
-    private ControladorUbicacion controladorUbicacion;
     private double caloriaaQuemadas;
-    private Ruta ruta;
-    private double distanciaRecorrida;
     private Aplicacion aplicacion;
 
     public RutinaInternaCycling(Aplicacion aplicacion) {
         bicicleta = new Bicicleta(5);
         this.aplicacion=aplicacion;
         
-    }
-
-    public ControladorUbicacion getControladorUbicacion() {
-        return controladorUbicacion;
     }
 
     public void iniciar() {
@@ -56,8 +44,7 @@ public class RutinaInternaCycling implements Rutina {
     }
 
     public double calcularCaloriasQuemadas() {
-        return aplicacion.getUsuario().getPeso()*cronometro.calcular()/60*0.0175*MET; 
-        //return 0;
+        return aplicacion.getUsuario().getPeso()*cronometro.calcular()*0.0175*MET/60; 
     }
 
     public double calcularDistancia() {

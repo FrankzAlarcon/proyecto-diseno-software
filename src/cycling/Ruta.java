@@ -10,16 +10,14 @@ import main.Ubicacion;
 
 /**
  *
- * @author Stalin
+ * @author
  */
+
 public class Ruta {
     private ArrayList<Ubicacion> ubicaciones;
     
     public Ruta(){
         ubicaciones = new ArrayList<>();
-    }
-    
-    public void calcularDistancia(){
     }
     
     public void agregar(Ubicacion ubicacion){

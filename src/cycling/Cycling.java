@@ -9,7 +9,7 @@ import main.Aplicacion;
 
 /**
  *
- * @author Stalin
+ * @author 
  */
 public class Cycling {
     private Aplicacion aplicacion;
