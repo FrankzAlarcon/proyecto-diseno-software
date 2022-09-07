@@ -54,7 +54,7 @@
     <Component class="javax.swing.JToggleButton" name="btnRutinaEstandar">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="66" green="cc" red="0" type="rgb"/>
+          <Color blue="69" green="9f" red="e8" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="18" style="1"/>
@@ -71,7 +71,7 @@
     <Component class="javax.swing.JToggleButton" name="btnRutinaPersonalizada">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="ff" green="ff" red="0" type="rgb"/>
+          <Color blue="43" green="87" red="e2" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="18" style="1"/>

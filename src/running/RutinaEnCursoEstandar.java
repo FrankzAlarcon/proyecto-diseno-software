@@ -11,19 +11,19 @@ import main.ReturnHandler;
  *
  * @author Stalin
  */
-public class RutinaEnCurso extends javax.swing.JPanel implements ReturnHandler{
+public class RutinaEnCursoEstandar extends javax.swing.JPanel implements ReturnHandler{
 
     /**
      * Creates new form RutinaEnCurso
      */
     MainFrame mainframe;
-    public RutinaEnCurso(MainFrame mainframe) {
+    public RutinaEnCursoEstandar(MainFrame mainframe) {
         
         this.mainframe = mainframe;
         initComponents();
         //actionBtn.setVisible(false);
     }
-    public RutinaEnCurso() {
+    public RutinaEnCursoEstandar() {
         initComponents();
     }
 
@@ -43,7 +43,7 @@ public class RutinaEnCurso extends javax.swing.JPanel implements ReturnHandler{
 
         setBackground(new java.awt.Color(0, 0, 0));
 
-        finalBtn.setBackground(new java.awt.Color(92, 161, 2));
+        finalBtn.setBackground(new java.awt.Color(226, 135, 67));
         finalBtn.setFont(new java.awt.Font("Dialog", 0, 17)); // NOI18N
         finalBtn.setForeground(new java.awt.Color(255, 255, 255));
         finalBtn.setText("Finalizar rutina");
@@ -98,7 +98,7 @@ public class RutinaEnCurso extends javax.swing.JPanel implements ReturnHandler{
 
     private void finalBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_finalBtnActionPerformed
         
-        mainframe.setMainPanel(new ResultadosPanel(mainframe)); // TODO add your handling code here:
+        mainframe.setMainPanel(new ResultadosEstandarPanel(mainframe)); // TODO add your handling code here:
         
     }//GEN-LAST:event_finalBtnActionPerformed
 
