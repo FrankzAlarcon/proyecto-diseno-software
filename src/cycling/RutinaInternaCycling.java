@@ -56,7 +56,6 @@ public class RutinaInternaCycling implements Rutina {
     }
 
     public double calcularCaloriasQuemadas() {
-
         return aplicacion.getUsuario().getPeso()*cronometro.calcular()/60*0.0175*MET; 
         //return 0;
     }

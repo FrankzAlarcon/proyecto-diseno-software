@@ -6,8 +6,6 @@
 package cycling;
 
 import main.Aplicacion;
-import main.SensorUbicacion;
-import main.Ubicacion;
 
 /**
  *
@@ -19,26 +17,12 @@ public class Cycling {
     private RutinaExternaCycling rutinaExterna;
 
     public Cycling(Aplicacion aplicacion){ // Realizar el constructor
-        rutinaExterna = new RutinaExternaCycling();
+        rutinaExterna = new RutinaExternaCycling(aplicacion);
         rutinaInterna = new RutinaInternaCycling(aplicacion);
         this.aplicacion=aplicacion;
     }
     
-    public void iniciar(){
 
-
-    }
-    public void detener(){
-    }
-    
-    public void mostrarRutinas(){
-    }
-    
-    public void seleccionarRutina(){
-    }
-    
-    public void mostrarResultado(){
-    }
 
     public RutinaExternaCycling seleccionarRutinaExterna() {
         return rutinaExterna;

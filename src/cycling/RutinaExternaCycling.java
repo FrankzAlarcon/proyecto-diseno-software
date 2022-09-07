@@ -6,6 +6,7 @@
 package cycling;
 
 import main.*;
+import trailrunning.Cronometro;
 
 /**
  *
@@ -16,13 +17,19 @@ public class RutinaExternaCycling implements Rutina {
     private Ruta ruta;
     private ControladorUbicacion controladorUbicacion;
     private ActionThread thread;
-    private double distancia;
+    private double distanciaRecorrida;
+    private Aplicacion aplicacion;
+    private Cronometro cronometro;
+    private static double MET = 8.0;
 
-    public RutinaExternaCycling() {
+    public RutinaExternaCycling(Aplicacion aplicacion) {
         this.ruta = new Ruta();
+        this.aplicacion = aplicacion;
     }
 
     public void iniciar() {
+        cronometro = new Cronometro();
+        cronometro.iniciar();
         //Inicializacion del observado y observador
         SensorUbicacion sensorUbicacion = new SensorUbicacion();
         Ubicacion ubicacion = new Ubicacion();
@@ -37,7 +44,7 @@ public class RutinaExternaCycling implements Rutina {
             @Override
             public void exec() {
                 ruta.agregar(new Ubicacion(ubicacion.getLatitud(), ubicacion.getLongitud(), ubicacion.getElevacion()));
-                distancia += controladorUbicacion.getDistanciaRecorrida();
+                distanciaRecorrida += controladorUbicacion.getDistanciaRecorrida();
             }
         });
         System.out.println("Acción iniciada ------------------------------");
@@ -61,18 +68,16 @@ public class RutinaExternaCycling implements Rutina {
     }
 
     public void detener() {
+        cronometro.detener();
         thread.stopAction();
     }
 
     public double calcularCaloriasQuemadas() {
-        return 0.0;
+        return aplicacion.getUsuario().getPeso()*MET*0.0175*cronometro.calcular()/60;
     }
 
     public double calcularDistancia() {
-        return distancia;
-    }
-
-    public void compararUbicacionActual() {
+        return distanciaRecorrida;
     }
 
     public Ruta getRuta() {

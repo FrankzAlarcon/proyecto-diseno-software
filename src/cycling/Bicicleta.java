@@ -38,13 +38,7 @@ public class Bicicleta {
 
         return dificultad;
     }
-
-    public void calcularDistanciaRecorrida() {
-    }
-
-    public void calcularCaloriasQuemadas() {
-    }
-
+    
     public void iniciar() {
         Giro giro = new Giro();
         SensorGiro sensorGiro = new SensorGiro();

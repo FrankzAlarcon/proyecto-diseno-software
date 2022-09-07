@@ -163,7 +163,7 @@ public class RutinaInternaPanel extends JPanel implements ReturnHandler {
 
             rutinaInterna.detener();
             distanciaRecorrida.setText(String.format("%.2f m", rutinaInterna.calcularDistancia()));
-            caloriasQuemadas.setText(rutinaInterna.calcularCaloriasQuemadas() + " cal");
+            caloriasQuemadas.setText(String.format("%.2f cal",rutinaInterna.calcularCaloriasQuemadas()));
             dificutad.setText(rutinaInterna.getBicicleta().getDificultad() + " N");
 
         } else {
