@@ -15,6 +15,7 @@ public class Usuario {
     private double peso;
     private double altura;
     private char sexo;
+    private Aplicacion aplicacion;
 
     public Usuario(String name, int edad, double peso, double altura, char sexo) {
         this.name = name;
@@ -59,5 +60,8 @@ public class Usuario {
     public static void main(String[] args) {
         Usuario.iniciarAplicacion();
     }
-    
+
+    public void setAplicacion(Aplicacion aplicacion) {
+        this.aplicacion = aplicacion;
+    }
 }

@@ -9,7 +9,7 @@ public class LogIn extends JPanel implements ReturnHandler {
     private JPasswordField contraseniaIn;
     private JButton ingresarBtn, registrarseBtn;
     private MainFrame mainFrame;
-    private String user = "pepito", pass = "1234";
+    private String user = "juan123", pass = "contraseña";
     public LogIn(MainFrame mainFrame) {
         this.mainFrame = mainFrame;
         ingresarBtn = new JButton("Ingresar");

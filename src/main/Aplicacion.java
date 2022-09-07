@@ -21,7 +21,7 @@ import javax.swing.*;
 public class Aplicacion {
 
     private Cycling cycling;
-    Usuario usuario;
+    private Usuario usuario;
     MainFrame mainFrame;
     private Padel padel;
     private TrailRunning trailRunning;
@@ -41,12 +41,13 @@ public class Aplicacion {
             e.printStackTrace();
         }
         mainFrame = new MainFrame(this);
-        usuario = new Usuario("Pepito Pistolas",
+        usuario = new Usuario("Juan Pérez",
                 23,
                 160.26,
                 1.85,
                 'M'
         );
+        usuario.setAplicacion(this);
         padel = Padel.createInstance(this);
         trailRunning = new TrailRunning(this);
         cycling = new Cycling(this);
