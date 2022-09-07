@@ -13,6 +13,7 @@ import main.Peso;
 import main.Rutina;
 import main.SensorPeso;
 import main.SensorRepeticion;
+import main.SensorUbicacion;
 
 /**
  *
@@ -74,7 +75,7 @@ public class RutinaMaquinas implements Rutina{
         controladorPeso.setAction(new DefinableAction() {
             @Override
             public void exec() {
-                //actualizarSubRutina(nuevoPeso);
+                actualizarSubRutina();
             }
         });
         threadPeso = new ActionThread() {
@@ -95,7 +96,7 @@ public class RutinaMaquinas implements Rutina{
         controladorRepeticion.setAction(new DefinableAction() {
             @Override
             public void exec() {
-                //actualizarSubRutina(nuevoPeso);
+                actualizarRepeticion();
             }
         });
         threadRepeticion = new ActionThread() {
@@ -203,14 +204,24 @@ public class RutinaMaquinas implements Rutina{
     
     
     
-    public void actualizarSubRutina(Peso nuevoPeso){
-        
+    public void actualizarSubRutina(){
+        SensorPeso sensorPeso = ((SensorPeso)controladorPeso.getSensor());
+        Peso nuevoPeso=sensorPeso.getPesoActual();
         this.numRepeticiones.add(new NumeroRepeticion()); //La repetecion se establece en 0
         this.pesos.add(nuevoPeso);
         LocalTime tiempo=LocalTime.now();
         double segundosFinal = tiempo.getHour()*3600.0 + tiempo.getMinute() * 60.0 + tiempo.getSecond();
         this.tiempos.add(segundosFinal - tiempoUltimo);
         this.tiempoUltimo = segundosFinal;
+    }
+    
+    public void actualizarRepeticion(){
+        SensorRepeticion sensorRepeticion = ((SensorRepeticion)controladorRepeticion.getSensor());
+        NumeroRepeticion nuevaRepeticion=sensorRepeticion.getNumRepeticiones();
+        
+        numRepeticiones.set(numRepeticiones.size()-1, nuevaRepeticion);
+        
+       
     }
     
     
