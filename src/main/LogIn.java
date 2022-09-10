@@ -11,11 +11,12 @@ import java.nio.charset.StandardCharsets;
 import java.util.Properties;
 
 public class LogIn {
-    private String usuario;
-    private String contrasenia;
+    //private String usuario;
+   // private String contrasenia;
     private MainFrame mainFrame;
 
     public LogIn() {
+        /*
         try {
             InputStreamReader reader = new InputStreamReader(new FileInputStream("./user.conf"), StandardCharsets.UTF_8);
             Properties p = new Properties();
@@ -25,19 +26,17 @@ public class LogIn {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        */
     }
 
     public void validarCredenciales(String user, String password) {
-        if( usuario.equals(user) && contrasenia.equals(password)){
+        Registro registro = new Registro();
+        registro.cargarUsuarios();
+        Usuario usuario = registro.buscarUsuario(user, password);
+        if(usuario  != null){
             Aplicacion aplicacion = new Aplicacion();
             mainFrame.setAplicacion(aplicacion);
-            mainFrame.getAplicacion().setUsuario(new Usuario(
-                    "Juan Pérez",
-                    25,
-                    65.25,
-                    1.75,
-                    'M'
-            ));
+            mainFrame.getAplicacion().setUsuario(usuario);
             mainFrame.setMainPanel(new ActividadesPane(mainFrame));
         }else{
             JOptionPane.showMessageDialog(mainFrame, "Usuario y/o contraseña incorrecto(s)","Error",JOptionPane.ERROR_MESSAGE);

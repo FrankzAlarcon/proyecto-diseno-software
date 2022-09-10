@@ -20,13 +20,17 @@ public class Usuario {
     private double altura;
     private char sexo;
     private Aplicacion aplicacion;
+    private String id;
+    private String contrasenia;
 
-    public Usuario(String name, int edad, double peso, double altura, char sexo) {
+    public Usuario(String name, int edad, double peso, double altura, char sexo, String id, String contrasenia) {
         this.name = name;
         this.edad = edad;
         this.peso = peso;
         this.altura = altura;
         this.sexo = sexo;
+        this.id = id;
+        this.contrasenia = contrasenia;
     }
 
     public String getName() {
@@ -77,5 +81,27 @@ public class Usuario {
 
     public void setAplicacion(Aplicacion aplicacion) {
         this.aplicacion = aplicacion;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public String getContrasenia() {
+        return contrasenia;
+    }
+
+    @Override
+    public String toString() {
+        return "Usuario{" +
+                "name='" + name + '\'' +
+                ", edad=" + edad +
+                ", peso=" + peso +
+                ", altura=" + altura +
+                ", sexo=" + sexo +
+                ", aplicacion=" + aplicacion +
+                ", id='" + id + '\'' +
+                ", contrasenia='" + contrasenia + '\'' +
+                '}';
     }
 }

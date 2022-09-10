@@ -1,0 +1,38 @@
+[
+  {
+    "id": "pepe1",
+    "contrasenia": "1234",
+    "name": "Pepe",
+    "edad": 25,
+    "peso": 65.25,
+    "altura": 1.65,
+    "sexo": "M"
+  },
+  {
+    "id": "pepe2",
+    "contrasenia": "12345",
+    "name": "Pepe Ñandúl",
+    "edad": 25,
+    "peso": 65.25,
+    "altura": 1.65,
+    "sexo": "M"
+  },
+  {
+    "id": "kenneth",
+    "contrasenia": "kennethulloa",
+    "name": "Kenneth Ulloa",
+    "edad": 22,
+    "peso": 56.0,
+    "altura": 1.65,
+    "sexo": "M"
+  },
+  {
+    "id": "mario",
+    "contrasenia": "mariovillamar",
+    "name": "Mario Villamar",
+    "edad": 24,
+    "peso": 60.0,
+    "altura": 1.7,
+    "sexo": "M"
+  }
+]

@@ -93,7 +93,15 @@ public class ActividadesPane extends JPanel implements ReturnHandler{
     }
     @Override
     public void doReturnAction() {
-
+        int op = JOptionPane.showConfirmDialog(mainFrame,"¿Estás seguro que deseas salir?","Log Out", JOptionPane.YES_NO_OPTION,JOptionPane.PLAIN_MESSAGE);
+        if(op == JOptionPane.NO_OPTION){
+            return;
+        }
+        LogIn logIn = new LogIn();
+        LogInPane logInPane = new LogInPane(mainFrame);
+        logInPane.setLogIn(logIn);
+        logIn.setMainFrame(mainFrame);
+        mainFrame.setMainPanel(logInPane);
     }
 
     @Override

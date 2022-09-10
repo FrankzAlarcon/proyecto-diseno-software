@@ -21,6 +21,7 @@ public class LogInPane extends JPanel implements ReturnHandler {
         JLabel iconLabel = new JLabel();
         try {
             ImageIcon imageIcon = new ImageIcon(LogInPane.class.getResource("/res/logo.png"));
+            iconLabel.setHorizontalAlignment(JLabel.CENTER);
             iconLabel.setIcon(new ImageIcon(imageIcon.getImage().getScaledInstance(150,150,Image.SCALE_AREA_AVERAGING)));
 
         }catch (Exception e){

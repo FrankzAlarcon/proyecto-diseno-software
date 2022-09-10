@@ -59,6 +59,7 @@ public class RutinaExternaPanel extends JPanel implements ReturnHandler {
         caloriasQuemadas = coloredLabel("0.0 cal", acentColor, 20.0f);
         distanciaRecorrida = coloredLabel("0 m", acentColor, 20.0f);
         ubicaciones = coloredLabel("",acentColor,20.0f);
+        ubicaciones.setBorder(new EmptyBorder(5,5,5,5));
         
 
         
