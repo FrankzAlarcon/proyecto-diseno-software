@@ -48,11 +48,10 @@ public class Peso extends Factor {
     
         
     @Override
-    public void notificar() {
-        Random r = new Random();
+    public void notificar() {        
         SensorPeso sensor = ((SensorPeso) this.sensor);
         
-        valor=r.nextInt(10)+1;
+        valor = Math.random() * 10 + 3;
         
         sensor.actualizar();
     }

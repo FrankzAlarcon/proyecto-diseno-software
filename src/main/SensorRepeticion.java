@@ -10,22 +10,22 @@ package main;
  * @author Frankz
  */
 public class SensorRepeticion extends Sensor {
-    private NumeroRepeticion numRepeticiones;
+    private Repeticion repeticion;
 
     public SensorRepeticion() {
-        this.numRepeticiones = null;
+        this.repeticion = null;
     }
     
-    public SensorRepeticion(NumeroRepeticion numRepeticiones) {
-        this.numRepeticiones = numRepeticiones;
+    public SensorRepeticion(Repeticion numRepeticiones) {
+        this.repeticion = numRepeticiones;
     }
 
-    public NumeroRepeticion getNumRepeticiones() { 
-        return numRepeticiones;
+    public Repeticion getRepeticion() { 
+        return repeticion;
     }
 
-    public void setNumRepeticiones(NumeroRepeticion numRepeticiones) {
-        this.numRepeticiones = numRepeticiones;
+    public void setRepeticion(Repeticion numRepeticiones) {
+        this.repeticion = numRepeticiones;
     }
 
     @Override

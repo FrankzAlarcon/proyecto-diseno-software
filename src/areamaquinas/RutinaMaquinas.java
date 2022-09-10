@@ -8,19 +8,23 @@ import main.ActionThread;
 import main.ControladorPeso;
 import main.ControladorRepeticion;
 import main.DefinableAction;
-import main.NumeroRepeticion;
+import main.Repeticion;
 import main.Peso;
 import main.Rutina;
 import main.SensorPeso;
 import main.SensorRepeticion;
+import trailrunning.Cronometro;
 
 /**
  *
  * @author dell
  */
 public class RutinaMaquinas implements Rutina{
-    private ArrayList<NumeroRepeticion> numRepeticiones;
-    private ArrayList<Peso> pesos;
+    private ArrayList<Repeticion> numRepeticionesAnterior;
+    private ArrayList<Peso> pesosAnterior;
+    private ListaPesos pesos;
+    private ListaRepeticiones numRepeticiones;
+    private Cronometro cronometro;
     private double tiempo;
     private double caloriasQuemadas;
     private double tiempoInicial;
@@ -29,46 +33,41 @@ public class RutinaMaquinas implements Rutina{
     private ActionThread threadPeso;
     private ActionThread threadRepeticion;
     private Maquina maquina;
+    private AreaMaquinas areaMaquinas;
 
 
     public RutinaMaquinas() {
-        this.numRepeticiones = new ArrayList();
-        this.pesos = new ArrayList();
+        this.numRepeticionesAnterior = new ArrayList();
+        this.pesosAnterior = new ArrayList();
         this.tiempo = 0.0;
         this.caloriasQuemadas = 0.0;
         this.tiempoInicial = 0.0;
         this.controladorPeso =  null;
         this.controladorRepeticion = null;
         this.maquina = null;
-
+        this.pesos = new ListaPesos();
+        this.numRepeticiones = new ListaRepeticiones();
+        this.cronometro = new Cronometro();
+        this.areaMaquinas = null;
     }
     public RutinaMaquinas(Maquina m) {
         this.maquina = m;
-        this.numRepeticiones = new ArrayList();
-        this.pesos = new ArrayList();
+        this.numRepeticionesAnterior = new ArrayList();
+        this.pesosAnterior = new ArrayList();
         this.tiempo = 0.0;
         this.caloriasQuemadas = 0.0;
         this.tiempoInicial = 0.0;
         this.controladorPeso =  null;
         this.controladorRepeticion = null;
-    }
-    
-    public RutinaMaquinas(ArrayList<NumeroRepeticion> numRepeticiones, ArrayList<Peso> pesos, double tiempo, Double caloriasQuemadas, double tiempoActual, ControladorPeso controladorPeso, ControladorRepeticion controladorRepeticion, Maquina maquina) {
-        this.numRepeticiones = numRepeticiones;
-        this.pesos = pesos;
-        this.tiempo = tiempo;
-        this.caloriasQuemadas = caloriasQuemadas;
-        this.tiempoInicial = tiempoActual;
-        this.controladorPeso = controladorPeso;
-        this.controladorRepeticion = controladorRepeticion;
-        this.maquina = maquina;
+        this.pesos = new ListaPesos();
+        this.numRepeticiones = new ListaRepeticiones();
+        this.cronometro = new Cronometro();
+        this.areaMaquinas = null;
     }
      
     @Override
     public void iniciar() {
-        LocalTime tiempo=LocalTime.now();
-        double segundosInicio = tiempo.getHour()*3600.0 + tiempo.getMinute() * 60.0 + tiempo.getSecond();
-        this.tiempoInicial=  segundosInicio;
+        cronometro.iniciar();
         
         Peso peso=new Peso(5);
         SensorPeso sensorPeso=new SensorPeso();
@@ -76,14 +75,14 @@ public class RutinaMaquinas implements Rutina{
         sensorPeso.setFactor(peso);
         sensorPeso.setPesoActual(peso);
         
-        NumeroRepeticion nrepeticion=new NumeroRepeticion(0);
+        Repeticion nrepeticion=new Repeticion(0);
         SensorRepeticion sensorRepeticion=new SensorRepeticion();
         nrepeticion.setSensor(sensorRepeticion);
         sensorRepeticion.setFactor(nrepeticion);
-        sensorRepeticion.setNumRepeticiones(nrepeticion);
+        sensorRepeticion.setRepeticion(nrepeticion);
         
         controladorPeso=new ControladorPeso(5, sensorPeso);
-        controladorRepeticion=new ControladorRepeticion(1, sensorRepeticion);
+        controladorRepeticion=new ControladorRepeticion(3, sensorRepeticion);
         
         controladorPeso.setSensor(sensorPeso);
         controladorRepeticion.setSensor(sensorRepeticion);
@@ -126,7 +125,7 @@ public class RutinaMaquinas implements Rutina{
             public void run() {
                 while(isRunning) {
                     try {
-                        sleep(1000);
+                        sleep(100);
                         nrepeticion.notificar();
 
                     } catch (InterruptedException e) {
@@ -137,126 +136,62 @@ public class RutinaMaquinas implements Rutina{
         };
 
         threadPeso.start();
-        threadRepeticion.start();
-        
-        
-        
-        
+        threadRepeticion.start();        
     }
 
     @Override
     public void detener() {
         //Finaliza la rutina y manda a llamar al metodo calorias quemadas
-        LocalTime tiempo=LocalTime.now();
-        double segundosFinal = tiempo.getHour()*3600.0 + tiempo.getMinute() * 60.0 + tiempo.getSecond();
-        this.tiempo = (segundosFinal - tiempoInicial);
+        cronometro.detener();
         this.caloriasQuemadas = this.calcularCaloriasQuemadas(); //Retorna y asigna
     }
     
+    //@Override
+    /*public double calcularCaloriasQuemadas() {
+        double calorias=0.0;
+        for(int i=0; i < pesosAnterior.size(); i++){
+            calorias += (this.numRepeticionesAnterior.get(i).getDistancia() * this.pesosAnterior.get(i).getValor()) / this.tiempo; 
+        }
+        return calorias ;
+    }*/
     @Override
     public double calcularCaloriasQuemadas() {
         double calorias=0.0;
-        for(int i=0; i < pesos.size(); i++){
-            calorias += (this.numRepeticiones.get(i).getNumero() * this.pesos.get(i).getValor()) / this.tiempo; 
+        double pesoUsuario = this.areaMaquinas.getAplicacion().getUsuario().getPeso();
+        for(int i=0; i < this.pesos.getPesos().size(); i++){            
+            int repeticiones = this.numRepeticiones.getRepeticiones().get(i);
+            double peso = this.pesos.getPesos().get(i).getValor();
+            calorias +=  pesoUsuario * 0.0175 + (repeticiones / peso);
         }
-        return calorias ;
+        calorias = calorias * cronometro.obtenerTiempo();
+        return calorias;
     }
 
-    public ArrayList<NumeroRepeticion> getNumRepeticiones() {
-        return numRepeticiones;
+    public void agregarRepeticion(Repeticion nuevo){
+        this.numRepeticionesAnterior.add(nuevo);
     }
 
-    public void setNumRepeticiones(ArrayList<NumeroRepeticion> numRepeticiones) {
-        this.numRepeticiones = numRepeticiones;
-    }
-    public void agregarRepeticion(NumeroRepeticion nuevo){
-        this.numRepeticiones.add(nuevo);
-    }
-
-    public ArrayList<Peso> getPesos() {
-        return pesos;
-    }
-
-    public void setPesos(ArrayList<Peso> pesos) {
-        this.pesos = pesos;
-    }
     public void agregarPeso(Peso nuevo){
-        this.pesos.add(nuevo);
-    }
-
-    public double getTiempo() {
-        return tiempo;
-    }
-
-    public void setTiempo(double tiempo) {
-        this.tiempo = tiempo;
-    }
-
-    public double getCaloriasQuemadas() {
-        return caloriasQuemadas;
-    }
-
-    public void setCaloriasQuemadas(double caloriasQuemadas) {
-        this.caloriasQuemadas = caloriasQuemadas;
-    }
-
-    public double getTiempoInicial() {
-        return tiempoInicial;
-    }
-
-    public void setTiempoInicial(double tiempoInicial) {
-        this.tiempoInicial = tiempoInicial;
-    }
-
-    public ControladorPeso getControladorPeso() {
-        return controladorPeso;
-    }
-
-    public void setControladorPeso(ControladorPeso controladorPeso) {
-        this.controladorPeso = controladorPeso;
-    }
-
-    public ControladorRepeticion getControladorRepeticion() {
-        return controladorRepeticion;
-    }
-
-    public void setControladorRepeticion(ControladorRepeticion controladorRepeticion) {
-        this.controladorRepeticion = controladorRepeticion;
-    }
-    
-    
+        this.pesosAnterior.add(nuevo);
+    }    
     
     public void actualizarSubRutina(){
         SensorPeso sensorPeso = ((SensorPeso)controladorPeso.getSensor());
         Peso nuevoPeso=sensorPeso.getPesoActual();
-        this.numRepeticiones.add(new NumeroRepeticion()); //La repetecion se establece en 0
-        this.pesos.add(nuevoPeso);
+        pesos.agregar(nuevoPeso);
+        
+        numRepeticiones.agregar(0); //La repetecion se establece en 0
+        //this.numRepeticionesAnterior.add(new Repeticion()); 
+        // this.agregarPeso(nuevoPeso);
     }
     
     public void actualizarRepeticion(){
         SensorRepeticion sensorRepeticion = ((SensorRepeticion)controladorRepeticion.getSensor());
-        NumeroRepeticion nuevaRepeticion=sensorRepeticion.getNumRepeticiones();
+        Repeticion nuevaRepeticion=sensorRepeticion.getRepeticion();
         
-        numRepeticiones.add(new NumeroRepeticion(0));
-        numRepeticiones.set(numRepeticiones.size()-1, nuevaRepeticion);
-        
-       
-    }
+        numRepeticiones.actualizarUltimo();
 
-    public ActionThread getThreadPeso() {
-        return threadPeso;
-    }
-
-    public void setThreadPeso(ActionThread threadPeso) {
-        this.threadPeso = threadPeso;
-    }
-
-    public ActionThread getThreadRepeticion() {
-        return threadRepeticion;
-    }
-
-    public void setThreadRepeticion(ActionThread threadRepeticion) {
-        this.threadRepeticion = threadRepeticion;
+        //numRepeticionesAnterior.set(numRepeticionesAnterior.size()-1, nuevaRepeticion);               
     }
 
     public Maquina getMaquina() {
@@ -267,25 +202,34 @@ public class RutinaMaquinas implements Rutina{
         this.maquina = maquina;
     }
     
-    public double calcularPromedioPesos(){
+    
+    
+    /*public double calcularPromedioPesos(){
         double aux = 0.0;
-        for(int i=0; i < this.pesos.size(); i++ ){
-            aux += pesos.get(i).getValor();        
+        for(int i=0; i < this.pesosAnterior.size(); i++ ){
+            aux += pesosAnterior.get(i).getValor();        
         }
         return aux;
-    }
-    public int calcularNumRepeteciciones(){
+    }*/
+    /*public int calcularNumRepeteciciones(){
         int aux = 0;
-        for(int i=0; i < this.numRepeticiones.size(); i++ ){
-            aux += numRepeticiones.get(i).getNumero();        
+        for(int i=0; i < this.numRepeticionesAnterior.size(); i++ ){
+            aux += numRepeticionesAnterior.get(i).getDistancia();        
         }
         return aux;
-    }
-    
-    
-    
+    }  */
 
- 
+    public ListaRepeticiones getNumRepeticiones() {
+        return numRepeticiones;
+    }
+
+    public ListaPesos getPesos() {
+        return pesos;
+    }
+
+    public void setAreaMaquinas(AreaMaquinas areaMaquinas) {
+        this.areaMaquinas = areaMaquinas;
+    }
     
     
     

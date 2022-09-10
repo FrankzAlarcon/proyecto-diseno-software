@@ -34,5 +34,14 @@
     "peso": 60.0,
     "altura": 1.7,
     "sexo": "M"
+  },
+  {
+    "id": "Frankz361",
+    "contrasenia": "1234",
+    "name": "Frankz",
+    "edad": 20,
+    "peso": 70.0,
+    "altura": 1.7,
+    "sexo": "M"
   }
 ]

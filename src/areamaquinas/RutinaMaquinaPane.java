@@ -15,7 +15,7 @@ import java.awt.*;
 public class RutinaMaquinaPane extends JPanel implements ReturnHandler{
     private MainFrame mainFrame;
     private JButton actionBtn;
-    private JLabel caloriasQuemadas, numRepeticionesTotales, pesoFinal, titulo;
+    private JLabel caloriasQuemadas, numRepeticionesTotales, pesoFinal, titulo, regLabel;
     private JPanel dataPanel, actividadPanel;
     private Color acentColor = new Color(96, 2, 163); //Color Morado
     private boolean realizandoActividad = false;
@@ -37,6 +37,7 @@ public class RutinaMaquinaPane extends JPanel implements ReturnHandler{
         maquina = mainFrame.getAplicacion().seleccionarAreaMaquina().getRutina().getMaquina();
         rutinaActual = mainFrame.getAplicacion().seleccionarAreaMaquina().getRutina();
         rutinaActual.setMaquina(maquina);
+        rutinaActual.setAreaMaquinas(mainFrame.getAplicacion().seleccionarAreaMaquina());
 
         setOpaque(true);
         setBackground(Color.BLACK);
@@ -69,7 +70,7 @@ public class RutinaMaquinaPane extends JPanel implements ReturnHandler{
         actividadPanel.setBackground(Color.BLACK);
         actividadPanel.setLayout(new BorderLayout());        
         
-        JLabel regLabel = coloredLabel("Registrando datos...", Color.WHITE, 15.0f);
+        regLabel = coloredLabel("Registrando datos...", Color.WHITE, 15.0f);
         regLabel.setHorizontalAlignment(JLabel.CENTER);
         actividadPanel.add(regLabel, BorderLayout.NORTH);
         JLabel icon = new JLabel();
@@ -127,9 +128,10 @@ public class RutinaMaquinaPane extends JPanel implements ReturnHandler{
         if(realizandoActividad){
             rutinaActual.detener();
             caloriasQuemadas.setText(String.format("%.2f cal",rutinaActual.calcularCaloriasQuemadas()));
-            pesoFinal.setText(String.format("%.2f kg",rutinaActual.calcularPromedioPesos()));
-            numRepeticionesTotales.setText(String.format("%d ",rutinaActual.calcularNumRepeteciciones()));
+            pesoFinal.setText(String.format("%.2f kg",rutinaActual.getPesos().calcularPromedio()));
+            numRepeticionesTotales.setText(String.format("%d ",rutinaActual.getNumRepeticiones().calcularTotal()));
             this.rutinaActual = new RutinaMaquinas(maquina);
+            this.rutinaActual.setAreaMaquinas(mainFrame.getAplicacion().seleccionarAreaMaquina());
 
         }else{
             rutinaActual.iniciar();
@@ -141,11 +143,16 @@ public class RutinaMaquinaPane extends JPanel implements ReturnHandler{
         if(realizandoActividad){
             actionBtn.setText("Iniciar rutina");
             realizandoActividad = false;
-            remove(actividadPanel);
+            remove(actividadPanel);            
+            remove(regLabel);
+            titulo = new JLabel(maquina.toString());
+            titulo.setFont(titulo.getFont().deriveFont(Font.BOLD).deriveFont(25.0f));
+            titulo.setForeground(Color.WHITE);
+            titulo.setHorizontalAlignment(JLabel.CENTER);
             add(titulo, BorderLayout.NORTH);
             add(dataPanel, BorderLayout.CENTER);
             dataPanel.setVisible(true);
-            actividadPanel.setVisible(false);
+         actividadPanel.setVisible(false);
             
         }else{
             actionBtn.setText("Terminar rutina");

@@ -47,29 +47,9 @@ public class AreaMaquinas {
     public Maquina getMaquina(int indice) {
         return lista.getMaquina(indice);
     }
-    
-    public Aplicacion getAplicacion() {
-        return aplicacion;
-    }
-
-    public void setAplicacion(Aplicacion aplicacion) {
-        this.aplicacion = aplicacion;
-    }
-
-    public ListaMaquinas getLista() {
-        return lista;
-    }
 
     public void setLista(ListaMaquinas lista) {
         this.lista = lista;
-    }
-
-    public AreaMaquinasPanel getArea() {
-        return area;
-    }
-
-    public void setArea(AreaMaquinasPanel area) {
-        this.area = area;
     }
 
     public RutinaMaquinas getRutina() {
@@ -78,9 +58,10 @@ public class AreaMaquinas {
 
     public void setRutina(RutinaMaquinas rutina) {
         this.rutina = rutina;
+    } 
+
+    public Aplicacion getAplicacion() {
+        return aplicacion;
     }
-    
-    
-    
     
 }

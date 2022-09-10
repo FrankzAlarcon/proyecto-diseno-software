@@ -25,7 +25,7 @@ public class ControladorRepeticion extends Controlador{
     public void verificarUmbral() {
          SensorRepeticion sensor = (SensorRepeticion) this.sensor;
         
-        if(sensor.getNumRepeticiones().getNumero() >= umbral){
+        if(sensor.getRepeticion().getDistancia() >= umbral){
             action.exec();
         }
     }

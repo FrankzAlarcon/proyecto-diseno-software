@@ -9,30 +9,30 @@ package main;
  *
  * @author Frankz
  */
-public class NumeroRepeticion extends Factor {
-    private int numero;
+public class Repeticion extends Factor {
+    private double distancia;
     SensorRepeticion sensor;
 
-    public NumeroRepeticion() {
-        this.numero = 0;
+    public Repeticion() {
+        this.distancia = 0;
         this.sensor = null;
     }
-    public NumeroRepeticion(int numero) {
-        this.numero = numero;
+    public Repeticion(int numero) {
+        this.distancia = numero;
         
     }
     
-    public NumeroRepeticion(int valor,SensorRepeticion sensor) {
-        this.numero = valor;
+    public Repeticion(int valor,SensorRepeticion sensor) {
+        this.distancia = valor;
         this.sensor = sensor;
     }
 
-    public int getNumero() {
-        return numero;
+    public double getDistancia() {
+        return distancia;
     }
 
-    public void setNumero(int numero) {
-        this.numero = numero;
+    public void setDistancia(double numero) {
+        this.distancia = numero;
     }
 
     public SensorRepeticion getSensor() {
@@ -42,13 +42,11 @@ public class NumeroRepeticion extends Factor {
     public void setSensor(SensorRepeticion sensor) {
         this.sensor = sensor;
     }
-    
-    
-
+        
     @Override
     public void notificar() {
        SensorRepeticion sensor = ((SensorRepeticion) this.sensor);
-        numero++;
+        distancia = Math.random()*10;
        
         sensor.actualizar();
     }
