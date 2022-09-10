@@ -21,15 +21,14 @@ public class Cronometro {
     public void detener() {
         horaFinal = LocalTime.now();
     }
-    
-    public double calcular() {
+    public double obtenerTiempo() {
         if(horaInicio == null || horaFinal == null){
             return 0.0;
         }
-        
+
         double segundosFinal = horaFinal.getHour()*3600.0 + horaFinal.getMinute() * 60.0 + horaFinal.getSecond();
         double segundosInicio = horaInicio.getHour()*3600.0 + horaInicio.getMinute() * 60.0 + horaInicio.getSecond();
-                
+
         return segundosFinal - segundosInicio;
     }
 }

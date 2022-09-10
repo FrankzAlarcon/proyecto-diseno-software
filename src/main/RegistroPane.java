@@ -86,7 +86,11 @@ public class RegistroPane extends JPanel implements ReturnHandler {
 
     @Override
     public void doReturnAction() {
-        mainFrame.setMainPanel(new LogIn(mainFrame));
+        LogIn logIn = new LogIn();
+        LogInPane logInPane = new LogInPane(mainFrame);
+        logInPane.setLogIn(logIn);
+        logIn.setMainFrame(mainFrame);
+        mainFrame.setMainPanel(new LogInPane(mainFrame));
     }
 
     @Override

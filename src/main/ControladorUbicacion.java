@@ -11,6 +11,7 @@ package main;
 public class ControladorUbicacion extends Controlador{
 
     private double distanciaRecorrida;
+    private double grado;
 
     @Override
     public void definirUmbral(double umbral) {
@@ -20,9 +21,16 @@ public class ControladorUbicacion extends Controlador{
     @Override
     public void verificarUmbral() {
         SensorUbicacion sensor = (SensorUbicacion) this.sensor;
-        Vec3 inicio = sensor.getUbicacionAnterior().toVec3();
-        Vec3 destino = sensor.getUbicacionActual().toVec3();
-        distanciaRecorrida = destino.minus(inicio).getModule();
+        Vec3 a = sensor.getUbicacionAnterior().toVec3();
+        Vec3 b = sensor.getUbicacionActual().toVec3();
+        Vec3 c = b.minus(a);
+        Vec3 b1 = b.times(a.getModule()/b.getModule());
+        Vec3 d = b1.minus(a);
+
+        double ang1 = d.angle(b1);
+        double ang2 = a.angle(c.times(-1));
+        grado = ang2 - ang1;
+        distanciaRecorrida = c.getModule();
         if(distanciaRecorrida >= umbral){
             action.exec();
         }
@@ -31,5 +39,8 @@ public class ControladorUbicacion extends Controlador{
     public double getDistanciaRecorrida() {
         return distanciaRecorrida;
     }
-    
+
+    public double getGrado() {
+        return grado;
+    }
 }

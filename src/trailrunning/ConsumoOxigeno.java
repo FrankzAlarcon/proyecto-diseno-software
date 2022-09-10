@@ -9,26 +9,31 @@ package trailrunning;
  * @author green
  */
 public class ConsumoOxigeno {
-    
-    private double velocidad;
-    private double grado;
-    
+    private double grado = 0.0;
+    private int numMediciones;
+    private Velocidad velocidad;
+
+    public ConsumoOxigeno(Velocidad velocidad) {
+        this.velocidad = velocidad;
+    }
+
     public double calcular() {
-        double MPH = velocidad * (3600.0/1609.34); // m/s a mph
+        double velocidad = this.velocidad.calcular()*60; //m/min
+        double gradoPromedio = grado/numMediciones;
+        double MPH = velocidad * (60.0/1609.34); // m/min a mph
         if(MPH <= 3.7){
-            return 0.1*velocidad + (1.8*velocidad*grado);
+            return 0.1*velocidad + (1.8*velocidad * gradoPromedio);
         }else {
-           return 0.2*velocidad + (0.9*velocidad*grado);
+            return 0.2*velocidad + (0.9*velocidad * gradoPromedio);
         }
         
     }
 
-    public void setVelocidad(double velocidad) {
-        this.velocidad = velocidad;
-    }
-
-    public void setGrado(double grado) {
-        this.grado = grado;
+    public void actualizarGrado(double grado){
+        if(grado >= 0) {
+            this.grado += grado;
+            numMediciones += 1;
+        }
     }
 
 

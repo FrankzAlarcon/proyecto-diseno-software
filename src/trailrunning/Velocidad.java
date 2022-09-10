@@ -9,22 +9,28 @@ package trailrunning;
  * @author green
  */
 public class Velocidad {
-    private double distancia = 1.0;
-    private double tiempo = 1.0;
+    private double distanciaRecorrida = 0.0;
+    private Cronometro cronometro;
     public double calcular() {
-        return distancia/tiempo;
+        cronometro.detener();
+        return distanciaRecorrida/cronometro.obtenerTiempo();
     }
 
-    public Velocidad() {
+    public Velocidad(Cronometro cronometro) {
+        this.cronometro = cronometro;
     }
 
-    public void setDistancia(double distancia) {
-        this.distancia = distancia;
+    public void actualizarDistanciaRecorrida(double nuevaDistancia){
+        distanciaRecorrida += nuevaDistancia;
     }
 
-    public void setTiempo(double tiempo) {
-        this.tiempo = tiempo;
+    public double getDistanciaRecorrida(){
+        return distanciaRecorrida;
     }
+
+
+
+
     
     
     

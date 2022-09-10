@@ -5,6 +5,10 @@
  */
 package main;
 
+import com.formdev.flatlaf.FlatDarkLaf;
+
+import javax.swing.*;
+
 /**
  *
  * @author Frankz
@@ -53,12 +57,22 @@ public class Usuario {
         this.peso = peso;
     }
 
-    public static void iniciarAplicacion(){
-        new Aplicacion().iniciar();
+    public static void iniciarSesion(){
+
+
+        try {
+            UIManager.setLookAndFeel(new FlatDarkLaf());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        LogIn logIn = new LogIn();
+        logIn.setMainFrame(new MainFrame());
+        logIn.mostrarVentana();
+        //new Aplicacion().iniciar();
     }
 
     public static void main(String[] args) {
-        Usuario.iniciarAplicacion();
+        Usuario.iniciarSesion();
     }
 
     public void setAplicacion(Aplicacion aplicacion) {

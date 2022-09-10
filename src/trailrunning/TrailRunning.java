@@ -9,29 +9,24 @@ import main.*;
  */
 public class TrailRunning {
     private final double MET = 6.0;
-    private double distanciaRecorrida;
-    private double gradoPromedio;
-    private double caloriasQuemadas;
-    private double oxigenoConsumido;
     private Velocidad velocidad;
     private Aplicacion aplicacion;
     private Cronometro cronometro;
-    private ControladorUbicacion controladorUbicacion;
     private ConsumoOxigeno consumoOxigeno;
+    private ControladorUbicacion controladorUbicacion;
+    private ResumenTrailRunning resumenTrailRunning;
     private ActionThread thread;
 
     public TrailRunning(Aplicacion aplicacion) {
         this.aplicacion = aplicacion;
-        velocidad = new Velocidad();
-        consumoOxigeno = new ConsumoOxigeno();
-    }
-
-    public ControladorUbicacion getControladorUbicacion() {
-        return controladorUbicacion;
+        cronometro = new Cronometro();
+        velocidad = new Velocidad(cronometro);
+        consumoOxigeno = new ConsumoOxigeno(velocidad);
+        resumenTrailRunning = new ResumenTrailRunning();
     }
 
     public void iniciar() {
-        cronometro = new Cronometro();
+
         cronometro.iniciar();
         //Inicializacion del observado y observador
         SensorUbicacion sensorUbicacion = new SensorUbicacion();
@@ -43,13 +38,8 @@ public class TrailRunning {
         controladorUbicacion.setSensor(sensorUbicacion);
         sensorUbicacion.setControlador(controladorUbicacion);
         controladorUbicacion.definirUmbral(5);
-        controladorUbicacion.setAction(new DefinableAction() {
-            @Override
-            public void exec() {
-                actualizarGradoElevacion();
-                actualizarDistanciaRecorrida();
-            }
-        });
+
+        controladorUbicacion.setAction(new TrailRunningAction(controladorUbicacion, velocidad, consumoOxigeno));
         thread = new ActionThread() {
             @Override
             public void run() {
@@ -71,15 +61,13 @@ public class TrailRunning {
     
     public void detener(){
         thread.stopAction();
-        cronometro.detener();
-        caloriasQuemadas = calcularCaloriasQuemadas();
-        distanciaRecorrida += controladorUbicacion.getDistanciaRecorrida();
-        velocidad.setTiempo(cronometro.calcular());
-        velocidad.setDistancia(distanciaRecorrida);
-        consumoOxigeno.setVelocidad(velocidad.calcular());
-        consumoOxigeno.setGrado(gradoPromedio);
-        
+        resumenTrailRunning.actualizarDatos(velocidad, cronometro, aplicacion.getUsuario(), consumoOxigeno);
     }
+
+    public ResumenTrailRunning getResumen() {
+        return resumenTrailRunning;
+    }
+    /*
     public void actualizarDistanciaRecorrida() {
         distanciaRecorrida += controladorUbicacion.getDistanciaRecorrida();
     }
@@ -113,4 +101,6 @@ public class TrailRunning {
     public double getOxigenoConsumido() {
         return consumoOxigeno.calcular();
     }
+
+    */
 }

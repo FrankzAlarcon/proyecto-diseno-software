@@ -74,7 +74,7 @@ public class RutinaExternaCycling implements Rutina {
 
     public double calcularCaloriasQuemadas() {
         
-        return aplicacion.getUsuario().getPeso() * MET * 0.0175 * cronometro.calcular()/60;
+        return aplicacion.getUsuario().getPeso() * MET * 0.0175 * cronometro.obtenerTiempo()/60;
     }
 
     public double calcularDistancia() {

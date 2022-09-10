@@ -107,9 +107,10 @@ public class TrailRunningPane extends JPanel implements ReturnHandler {
     private void accionBoton() {
         if(realizandoActividad){
             trailRunning.detener();
-            caloriasQuemadas.setText(String.format("%.2f cal",trailRunning.calcularCaloriasQuemadas()));
-            distanciaRecorrida.setText(String.format("%.2f m",trailRunning.getDistanciaRecorrida()));
-            consumoOxigeno.setText(String.format("%.2f m",trailRunning.getOxigenoConsumido()));
+            ResumenTrailRunning resumenTrailRunning = trailRunning.getResumen();
+            caloriasQuemadas.setText(String.format("%.2f cal",resumenTrailRunning.getCaloriasQuemadas()));
+            distanciaRecorrida.setText(String.format("%.2f m",resumenTrailRunning.getDistanciaRecorrida()));
+            consumoOxigeno.setText(String.format("%.2f O2",resumenTrailRunning.getOxigenoConsumido()));
 
         }else{
             trailRunning.iniciar();

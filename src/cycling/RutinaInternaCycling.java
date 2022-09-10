@@ -38,13 +38,13 @@ public class RutinaInternaCycling implements Rutina {
     public void detener() {
         cronometro.detener();
         bicicleta.detener();
-        double segundos = cronometro.calcular();
+        double segundos = cronometro.obtenerTiempo();
         caloriaaQuemadas = calcularCaloriasQuemadas();
 
     }
 
     public double calcularCaloriasQuemadas() {
-        return aplicacion.getUsuario().getPeso()*cronometro.calcular()*0.0175*MET/60; 
+        return aplicacion.getUsuario().getPeso()*cronometro.obtenerTiempo()*0.0175*MET/60;
     }
 
     public double calcularDistancia() {

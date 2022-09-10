@@ -18,8 +18,7 @@ public class MainFrame extends JFrame {
     private ReturnHandler currentPane;
     private JPanel mainPanel;
     private Aplicacion aplicacion;
-    public MainFrame(Aplicacion aplicacion) {
-        this.aplicacion = aplicacion;
+    public MainFrame() {
         regresarBtn = new JButton("Regresar");
         mainPanel = new JPanel(new BorderLayout());
         //mainPanel.add(regresarBtn);
@@ -43,6 +42,10 @@ public class MainFrame extends JFrame {
         images.add(imageIcon.getImage().getScaledInstance(32,32,Image.SCALE_AREA_AVERAGING));
         setIconImages(images);
 
+    }
+
+    public void setAplicacion(Aplicacion aplicacion) {
+        this.aplicacion = aplicacion;
     }
 
     public void setMainPanel(ReturnHandler panel){

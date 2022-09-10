@@ -3,14 +3,14 @@ package main;
 import javax.swing.*;
 import java.awt.*;
 
-public class LogIn extends JPanel implements ReturnHandler {
+public class LogInPane extends JPanel implements ReturnHandler {
 
+    private LogIn logIn;
     private JTextField usuarioIn;
     private JPasswordField contraseniaIn;
     private JButton ingresarBtn, registrarseBtn;
     private MainFrame mainFrame;
-    private String user = "juan123", pass = "contraseña";
-    public LogIn(MainFrame mainFrame) {
+    public LogInPane(MainFrame mainFrame) {
         this.mainFrame = mainFrame;
         ingresarBtn = new JButton("Ingresar");
         ingresarBtn.setBackground(new Color(0, 75, 156));
@@ -20,7 +20,7 @@ public class LogIn extends JPanel implements ReturnHandler {
         contraseniaIn = new JPasswordField(25);
         JLabel iconLabel = new JLabel();
         try {
-            ImageIcon imageIcon = new ImageIcon(LogIn.class.getResource("/res/logo.png"));
+            ImageIcon imageIcon = new ImageIcon(LogInPane.class.getResource("/res/logo.png"));
             iconLabel.setIcon(new ImageIcon(imageIcon.getImage().getScaledInstance(150,150,Image.SCALE_AREA_AVERAGING)));
 
         }catch (Exception e){
@@ -64,13 +64,14 @@ public class LogIn extends JPanel implements ReturnHandler {
 
     }
 
-    private void validarDatos(){
-        String tempPass = String.valueOf(contraseniaIn.getPassword());
-        if(usuarioIn.getText().equals(user) && tempPass.equals(pass) ){
-            mostarPanelActividades();
-        }else {
-            JOptionPane.showMessageDialog(mainFrame,"Usuario y/o contraseña inválidos...","Error", JOptionPane.ERROR_MESSAGE);
-        }
+    public void setLogIn(LogIn logIn) {
+        this.logIn = logIn;
+    }
+
+    private void validarDatos() {
+        String usuario = usuarioIn.getText();
+        String contrasenia = String.valueOf(contraseniaIn.getPassword());
+        logIn.validarCredenciales(usuario,contrasenia);
     }
 
     private void mostarPanelActividades(){

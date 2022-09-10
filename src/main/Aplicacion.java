@@ -22,32 +22,12 @@ public class Aplicacion {
 
     private Cycling cycling;
     private Usuario usuario;
-    MainFrame mainFrame;
     private Padel padel;
     private TrailRunning trailRunning;
     private AreaMaquinas areaMaquinas;
     private Running running;
 
-    public void iniciar() {
-        mainFrame.setMainPanel(new LogIn(mainFrame));
-        mainFrame.setVisible(true);
-
-    }
-
     public Aplicacion() {
-        try {
-            UIManager.setLookAndFeel(new FlatDarkLaf());
-        } catch (UnsupportedLookAndFeelException e) {
-            e.printStackTrace();
-        }
-        mainFrame = new MainFrame(this);
-        usuario = new Usuario("Juan Pérez",
-                23,
-                160.26,
-                1.85,
-                'M'
-        );
-        usuario.setAplicacion(this);
         padel = Padel.createInstance(this);
         trailRunning = new TrailRunning(this);
         cycling = new Cycling(this);
@@ -60,6 +40,7 @@ public class Aplicacion {
 
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
+        this.usuario.setAplicacion(this);
     }
 
     public Padel seleccionarPadel() {
