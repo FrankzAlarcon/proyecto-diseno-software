@@ -54,8 +54,8 @@ public class TrailRunningPane extends JPanel implements ReturnHandler {
         actividadPanel.add(regLabel, BorderLayout.NORTH);
         JLabel icon = new JLabel();
         try {
-            ImageIcon image = new ImageIcon(this.getClass().getResource("/res/trail.png"));
-            icon.setIcon(new ImageIcon(image.getImage().getScaledInstance(120,120,Image.SCALE_AREA_AVERAGING)));
+            ImageIcon image = new ImageIcon(this.getClass().getResource("/res/trailrunning.png"));
+            icon.setIcon(new ImageIcon(image.getImage().getScaledInstance(180,180,Image.SCALE_AREA_AVERAGING)));
             icon.setHorizontalAlignment(JLabel.CENTER);
             actividadPanel.add(icon);
         } catch (Exception e) {
