@@ -21,16 +21,6 @@ public class RutinaMaquinaPane extends JPanel implements ReturnHandler{
     private boolean realizandoActividad = false;
     private RutinaMaquinas rutinaActual;
     private Maquina maquina;
-    /*
-    private int numEjercicio = 0;
-    private Peso auxPeso;
-    private SensorPeso sensorPesoSctual;
-    private ControladorPeso controladorPeso;
-
-    private NumeroRepeticion auxRepeticion;
-    private SensorRepeticion sensorRepeticionActual;
-    private ControladorRepeticiones controladorRepeticion;
-    */
     
     public RutinaMaquinaPane(MainFrame mainFrame) {
         this.mainFrame = mainFrame;
@@ -107,7 +97,7 @@ public class RutinaMaquinaPane extends JPanel implements ReturnHandler{
         c.gridy = 1;
         dataPanel.add(caloriasQuemadas, c);
         c.gridy = 2;
-        dataPanel.add(coloredLabel("Peso Total Levantado", Color.WHITE, 13.0f), c);
+        dataPanel.add(coloredLabel("Peso Promedio Levantado", Color.WHITE, 13.0f), c);
         c.gridy = 3;
         dataPanel.add(pesoFinal, c);
         c.gridy = 0;

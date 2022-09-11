@@ -93,12 +93,7 @@ public class RutinaMaquinas implements Rutina{
         
         
         
-        controladorPeso.setAction(new DefinableAction() {
-            @Override
-            public void exec() {
-                actualizarSubRutina();
-            }
-        });
+        controladorPeso.setAction(new PesoAction(controladorPeso, this));
         threadPeso = new ActionThread() {
             @Override
             public void run() {
@@ -114,12 +109,7 @@ public class RutinaMaquinas implements Rutina{
             }
         };
         
-        controladorRepeticion.setAction(new DefinableAction() {
-            @Override
-            public void exec() {
-                actualizarRepeticion();
-            }
-        });
+        controladorRepeticion.setAction(new RepeticionAction(controladorRepeticion, this));
         threadRepeticion = new ActionThread() {
             @Override
             public void run() {
@@ -181,8 +171,6 @@ public class RutinaMaquinas implements Rutina{
         pesos.agregar(nuevoPeso);
         
         numRepeticiones.agregar(0); //La repetecion se establece en 0
-        //this.numRepeticionesAnterior.add(new Repeticion()); 
-        // this.agregarPeso(nuevoPeso);
     }
     
     public void actualizarRepeticion(){
@@ -190,8 +178,6 @@ public class RutinaMaquinas implements Rutina{
         Repeticion nuevaRepeticion=sensorRepeticion.getRepeticion();
         
         numRepeticiones.actualizarUltimo();
-
-        //numRepeticionesAnterior.set(numRepeticionesAnterior.size()-1, nuevaRepeticion);               
     }
 
     public Maquina getMaquina() {
@@ -201,23 +187,6 @@ public class RutinaMaquinas implements Rutina{
     public void setMaquina(Maquina maquina) {
         this.maquina = maquina;
     }
-    
-    
-    
-    /*public double calcularPromedioPesos(){
-        double aux = 0.0;
-        for(int i=0; i < this.pesosAnterior.size(); i++ ){
-            aux += pesosAnterior.get(i).getValor();        
-        }
-        return aux;
-    }*/
-    /*public int calcularNumRepeteciciones(){
-        int aux = 0;
-        for(int i=0; i < this.numRepeticionesAnterior.size(); i++ ){
-            aux += numRepeticionesAnterior.get(i).getDistancia();        
-        }
-        return aux;
-    }  */
 
     public ListaRepeticiones getNumRepeticiones() {
         return numRepeticiones;
@@ -229,8 +198,5 @@ public class RutinaMaquinas implements Rutina{
 
     public void setAreaMaquinas(AreaMaquinas areaMaquinas) {
         this.areaMaquinas = areaMaquinas;
-    }
-    
-    
-    
+    }        
 }
