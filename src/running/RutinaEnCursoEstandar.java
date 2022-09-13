@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package running;
+import running.TiempoPanel;
 import javax.swing.JPanel;
 import main.MainFrame;
 import main.ReturnHandler;
@@ -109,6 +110,9 @@ public class RutinaEnCursoEstandar extends javax.swing.JPanel implements ReturnH
     @Override
     public void doReturnAction() {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        mainframe.setMainPanel(new TiempoPanel(mainframe));
+        mainframe.getAplicacion().seleccionarRunning().seleccionarEstandar().setCaloriasQuemadas(0);
+        mainframe.getAplicacion().seleccionarRunning().seleccionarEstandar().setTiempo(0);
     }
 
     @Override

@@ -120,7 +120,7 @@ public class ResultadosPersonalizadoPanel extends javax.swing.JPanel implements 
 
     @Override
     public void doReturnAction() {
-        mainframe.setMainPanel(new ActividadesPane(mainframe));
+        mainframe.setMainPanel(new RunningPanel(mainframe));
     }
 
     @Override

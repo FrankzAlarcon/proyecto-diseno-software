@@ -87,6 +87,8 @@ public class ResultadosEstandarPanel extends javax.swing.JPanel implements Retur
     @Override
     public void doReturnAction() {
         mainFrame.setMainPanel(new RunningPanel(mainFrame));
+        mainFrame.getAplicacion().seleccionarRunning().seleccionarEstandar().setCaloriasQuemadas(0);
+        mainFrame.getAplicacion().seleccionarRunning().seleccionarEstandar().setTiempo(0);
     }
 
     @Override

@@ -92,5 +92,5 @@ public class TiempoPanel extends javax.swing.JPanel implements ReturnHandler{
         return this;
     }
 
-    // End of variables declaration//GEN-END:variables
+    // End of variables declaration                   
 }
