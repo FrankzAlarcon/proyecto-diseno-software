@@ -61,23 +61,11 @@ public class Raqueta {
         sensorPosicion.setControlador(controladorPosicion);
         this.controladorPosicion.setSensor(sensorPosicion);
         this.controladorPosicion.definirUmbral(0.35);
-        controladorPosicion.setAction(new DefinableAction() {
-            @Override
-            public void exec() {
-                registrarDistancia();
-            }
-        });
         
         presion.setSensor(sensorPresion);
         sensorPresion.setControlador(controladorPresion);
         this.controladorPresion.setSensor(sensorPresion);
         this.controladorPresion.definirUmbral(120);
-        controladorPresion.setAction(new DefinableAction() {
-            @Override
-            public void exec() {
-                registrarGolpe();
-            }
-        });
         
         thread = new ActionThread(){
 
@@ -105,12 +93,4 @@ public class Raqueta {
         //this.controladorPresion = null;
         thread.stopAction();
     };
-    
-    private void registrarDistancia(){
-        this.distanciaRecorrida += this.controladorPosicion.getDesplazamiento();
-    }
-    
-    private void registrarGolpe(){
-        this.numeroGolpes += 1;
-    }
 }

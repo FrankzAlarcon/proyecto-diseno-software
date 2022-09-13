@@ -79,8 +79,8 @@ public class PadelPane extends JPanel implements ReturnHandler {
             padel.detenerEntrenamiento();
             caloriasQuemadas.setText(padel.getCaloriasQuemadas() + " cal");
             marcaRaqueta.setText(padel.getRaqueta().getMarca());
-            distanciaRecorrida.setText(padel.getRaqueta().getDistanciaRecorrida() + " m");
-            golpesDados.setText(padel.getRaqueta().getNumeroGolpes() + "");
+            distanciaRecorrida.setText(padel.getPartida().getDistanciaRecorrida() + " m");
+            golpesDados.setText(padel.getPartida().getNumeroGolpes() + "");
         }else{
             padel.iniciarEntrenamiento();
         }
