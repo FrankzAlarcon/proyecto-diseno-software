@@ -4,26 +4,31 @@
  * and open the template in the editor.
  */
 package running;
+
 import running.TiempoPanel;
 import javax.swing.JPanel;
+import main.ActionThread;
 import main.MainFrame;
 import main.ReturnHandler;
+
 /**
  *
  * @author Stalin
  */
-public class RutinaEnCursoPersonalizado extends javax.swing.JPanel implements ReturnHandler{
+public class RutinaEnCursoPersonalizado extends javax.swing.JPanel implements ReturnHandler {
 
     /**
      * Creates new form RutinaEnCursoPersonalizado
      */
     MainFrame mainframe;
+
     public RutinaEnCursoPersonalizado(MainFrame mainframe) {
-        
+
         this.mainframe = mainframe;
         initComponents();
         //actionBtn.setVisible(false);
     }
+
     public RutinaEnCursoPersonalizado() {
         initComponents();
     }
@@ -98,9 +103,8 @@ public class RutinaEnCursoPersonalizado extends javax.swing.JPanel implements Re
     }// </editor-fold>//GEN-END:initComponents
 
     private void finalBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_finalBtnActionPerformed
-        
         mainframe.setMainPanel(new ResultadosPersonalizadoPanel(mainframe)); // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_finalBtnActionPerformed
 
     @Override
@@ -115,7 +119,6 @@ public class RutinaEnCursoPersonalizado extends javax.swing.JPanel implements Re
     public JPanel getReference() {
         return this;
     }
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton finalBtn;

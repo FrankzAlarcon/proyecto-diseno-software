@@ -144,30 +144,15 @@ public class PersonalizadoPanel extends javax.swing.JPanel implements ReturnHand
         double tiempo;
         int inclinacion, velocidad;
 
-        if (txtTiempo.getText().equals("")) {
-            JOptionPane.showMessageDialog(null, "Valor tiempo vacio!");
+        if (!esVacio() && esNumero(txtTiempo.getText())) {
+            tiempo = Double.parseDouble(txtTiempo.getText());
+            velocidad = cmbVelocidad.getSelectedIndex() + 1;
+            inclinacion = cmbInclinacion.getSelectedIndex();
+            mainframe.getAplicacion().seleccionarRunning().seleccionarPersonalizada().verificarDatos(tiempo, velocidad, inclinacion);
+            mainframe.setMainPanel(new RutinaEnCursoPersonalizado(mainframe));
         } else {
-            try {
-                tiempo = Double.parseDouble(txtTiempo.getText());
-                if (tiempo <= 0) {
-                    JOptionPane.showMessageDialog(null, "No se admiten valores negativos");
-                } else {
-                    if (cmbVelocidad.getSelectedIndex() != -1 || cmbInclinacion.getSelectedIndex() != -1) {
-                        velocidad = cmbVelocidad.getSelectedIndex() + 1;
-                        inclinacion = cmbInclinacion.getSelectedIndex();
-
-                        mainframe.getAplicacion().seleccionarRunning().seleccionarPersonalizada().obtenerDatos(tiempo, velocidad, inclinacion);
-                        mainframe.getAplicacion().seleccionarRunning().seleccionarPersonalizada().iniciar();
-                        mainframe.setMainPanel(new RutinaEnCursoPersonalizado(mainframe));
-                    }else{JOptionPane.showMessageDialog(null, "Debe seleccionar velocidad e inclinación ");}
-                }
-            } catch (NumberFormatException e) {
-                if (esNumero(txtTiempo.getText()) == false) {
-                    JOptionPane.showMessageDialog(null, "Valor de tiempo incorrecto!");
-                }
-            }
+            JOptionPane.showMessageDialog(null, "Datos invalidos");
         }
-        //mainframe.setMainPanel(new RutinaEnCursoPersonalizado(mainframe));     
     }//GEN-LAST:event_actionBtnActionPerformed
 
     @Override
@@ -183,6 +168,14 @@ public class PersonalizadoPanel extends javax.swing.JPanel implements ReturnHand
     public boolean esNumero(String str) {
 
         return str.matches("[+-]?\\d*(\\.\\d+)?");
+    }
+
+    public boolean esVacio() {
+
+        if (txtTiempo.getText().equals("") || cmbVelocidad.getSelectedIndex() == -1 || cmbInclinacion.getSelectedIndex() == -1) {
+            return true;
+        }
+        return false;
     }
 
 

@@ -1,5 +1,6 @@
 package running;
 
+import javax.swing.JOptionPane;
 import main.Rutina;
 import main.Aplicacion;
 import main.MainFrame;
@@ -14,17 +15,10 @@ public class RutinaPersonalizadaRunning implements Rutina {
     private double caloriasQuemadas;
     private double distancia;
 
-    //constructor
     public RutinaPersonalizadaRunning(Aplicacion aplicacion) {
         this.aplicacion = aplicacion;
     }
 
-    /*public RutinaPersonalizadaRunning(double tiempo, int nivelVelocidad, int nivelInclinacion, double caloriasQuemadas) {
-        this.tiempo = tiempo;
-        this.nivelVelocidad = nivelVelocidad;
-        this.nivelInclinacion = nivelInclinacion;
-        this.caloriasQuemadas = caloriasQuemadas;
-    }*/
     //getters & setters
     public double getTiempo() {
         return tiempo;
@@ -73,45 +67,45 @@ public class RutinaPersonalizadaRunning implements Rutina {
         this.setNivelInclinacion(inclinacion);
 
     }
+
     public void calcularDistancia() {
-    int aux= this.nivelVelocidad;    
-    double min=this.tiempo/60;
-    switch(aux){
-        case 1:
-        this.setDistancia(1.2*min);
-        break;
-        case 2:
-        this.setDistancia(2.4*min);    
-        break;
-        case 3:
-        this.setDistancia(3.6*min);    
-        break;
-        case 4:
-        this.setDistancia(4.8*min);    
-        break;
-        case 5:
-        this.setDistancia(6*min);    
-        break;
-        case 6:
-        this.setDistancia(7.2*min);    
-        break;
-        case 7:
-        this.setDistancia(8.4*min);    
-        break;
-        case 8:
-        this.setDistancia(9.6*min);    
-        break;
-        case 9:
-        this.setDistancia(10.8*min);    
-        break;
-        case 10:
-        this.setDistancia(12*min);    
-        break;
-        default:
-        break;    
-    }
-    
-    
+        int aux = this.nivelVelocidad;
+        double min = this.tiempo / 60;
+        switch (aux) {
+            case 1:
+                this.setDistancia(1.2 * min);
+                break;
+            case 2:
+                this.setDistancia(2.4 * min);
+                break;
+            case 3:
+                this.setDistancia(3.6 * min);
+                break;
+            case 4:
+                this.setDistancia(4.8 * min);
+                break;
+            case 5:
+                this.setDistancia(6 * min);
+                break;
+            case 6:
+                this.setDistancia(7.2 * min);
+                break;
+            case 7:
+                this.setDistancia(8.4 * min);
+                break;
+            case 8:
+                this.setDistancia(9.6 * min);
+                break;
+            case 9:
+                this.setDistancia(10.8 * min);
+                break;
+            case 10:
+                this.setDistancia(12 * min);
+                break;
+            default:
+                break;
+        }
+
     }
 
     @Override
@@ -119,6 +113,7 @@ public class RutinaPersonalizadaRunning implements Rutina {
 
         setCaloriasQuemadas(calcularCaloriasQuemadas());
         calcularDistancia();
+
     }
 
     @Override
@@ -146,6 +141,16 @@ public class RutinaPersonalizadaRunning implements Rutina {
         }
 
         return caloriasQuemadas;
+    }
+
+    public void verificarDatos(double t, int v, int i) {
+
+        if (t <= 0) {
+            JOptionPane.showMessageDialog(null, "No se admiten tiempos negativos");
+        }
+        aplicacion.seleccionarRunning().seleccionarPersonalizada().obtenerDatos(t, v, i);
+        aplicacion.seleccionarRunning().seleccionarPersonalizada().iniciar();
+
     }
 
 }
