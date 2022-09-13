@@ -12,13 +12,9 @@ public class Raqueta {
     private ControladorPosicion controladorPosicion;
     private ControladorPresion controladorPresion;
     private ActionThread thread;
-    private float distanciaRecorrida;
-    private int numeroGolpes;
 
-    public Raqueta(String marca, float distanciaRecorrida, int numeroGolpes) {
+    public Raqueta(String marca) {
         this.marca = marca;
-        this.distanciaRecorrida = distanciaRecorrida;
-        this.numeroGolpes = numeroGolpes;
     }
     
     public String getMarca() {
@@ -32,19 +28,8 @@ public class Raqueta {
     public ControladorPresion getControladorPresion() {
         return controladorPresion;
     }
-
-    public float getDistanciaRecorrida() {
-        return distanciaRecorrida;
-    }
-
-    public int getNumeroGolpes() {
-        return numeroGolpes;
-    }
     
     public void iniciar(){
-        //Reinicio de los datos
-        this.numeroGolpes = 0;
-        this.distanciaRecorrida = 0.0f;
 
         //Se inicia el medidor de posición
         Posicion posicion = new Posicion();

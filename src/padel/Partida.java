@@ -27,4 +27,9 @@ public class Partida {
     public void registrarGolpe(){
         this.numeroGolpes++;
     }
+    
+    public void reiniciar(){
+        this.distanciaRecorrida = 0.0f;
+        this.numeroGolpes = 0;
+    }
 }

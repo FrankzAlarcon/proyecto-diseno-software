@@ -10,7 +10,7 @@ import main.Aplicacion;
 public class Padel {
 
     public static Padel createInstance(Aplicacion aplicacion){
-        return new Padel(new Raqueta("Nox", 0.0f, 0), aplicacion, new Partida(), 0.0f);
+        return new Padel(new Raqueta("Nox"), aplicacion, new Partida(), 0.0f);
     }
 
     private Raqueta raqueta;
@@ -27,6 +27,7 @@ public class Padel {
 
     public void iniciarEntrenamiento() {
         this.caloriasQuemadas = 0.0f;
+        this.partida.reiniciar();
         this.raqueta.iniciar();
         this.raqueta.getControladorPosicion().setAction(new PadelDesplazamientoAction(this.raqueta.getControladorPosicion(), partida));
         this.raqueta.getControladorPresion().setAction(new PadelGolpeAction(partida));
