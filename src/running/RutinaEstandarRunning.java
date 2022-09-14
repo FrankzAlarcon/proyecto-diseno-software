@@ -13,7 +13,9 @@ public class RutinaEstandarRunning implements Rutina {
     NivelRutinaRunning nivel;
     private int tiempo;
     private double caloriasQuemadas;
+    private double distancia;
     private Aplicacion aplicacion;
+    CalculadoraCaloriasRunning calculadora = new CalculadoraCaloriasRunning();
 
     //constructor
     public RutinaEstandarRunning(Aplicacion aplicacion) {
@@ -72,15 +74,27 @@ public class RutinaEstandarRunning implements Rutina {
     public void setMainFrame(MainFrame mainFrame) {
         this.mainFrame = mainFrame;
     }
-    
-    
+
+    public double getDistancia() {
+        return distancia;
+    }
+
+    public void setDistancia(double distancia) {
+        this.distancia = distancia;
+    }
 
     //metodos
     @Override
     public double calcularCaloriasQuemadas() {
         double caloriasQuemadas = 0;
-        caloriasQuemadas = this.tiempo * mainFrame.getAplicacion().getUsuario().getPeso()*0.029;
+        caloriasQuemadas = this.tiempo * mainFrame.getAplicacion().getUsuario().getPeso() * 0.029;
         return caloriasQuemadas;
+    }
+
+    public double calcularDistancia() {
+        double distancia = 0;
+        distancia = tiempo * velocidad;
+        return distancia;
     }
 
     @Override
@@ -88,29 +102,28 @@ public class RutinaEstandarRunning implements Rutina {
         //this.calcularCaloriasQuemadas();
         nivel.actionThread.interrupt();
         mainFrame.setMainPanel(new ResultadosEstandarPanel(mainFrame));
-
-
     }
 
     @Override
     public void iniciar() {
         nivel.cambiarNivelRutina(null);
-        
 
     }
-    public void cambiarNivel(NivelRutinaRunning nivel){
+
+    public void cambiarNivel(NivelRutinaRunning nivel) {
         this.nivel = nivel;
         this.nivel.cambiarNivelRutina(nivel);
-
-        
     }
-
 
     public void actualizarTiempo() {
         tiempo += nivel.tiempo;
     }
 
     public void actualizarCalorias() {
-        caloriasQuemadas += calcularCaloriasQuemadas();
+        caloriasQuemadas += calculadora.calcularCaloriasEstandar(this.tiempo, mainFrame.getAplicacion().getUsuario().getPeso());
+    }
+
+    public void actualizarDistancia() {
+        distancia += calcularDistancia();
     }
 }

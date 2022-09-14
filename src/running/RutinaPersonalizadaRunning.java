@@ -110,8 +110,8 @@ public class RutinaPersonalizadaRunning implements Rutina {
 
     @Override
     public void iniciar() {
-
-        setCaloriasQuemadas(calcularCaloriasQuemadas());
+        CalculadoraCaloriasRunning calculadora = new CalculadoraCaloriasRunning();
+        setCaloriasQuemadas(calculadora.calcularCaloriasPersonalizado(this.nivelVelocidad, this.nivelInclinacion, aplicacion.getUsuario().getPeso()));
         calcularDistancia();
 
     }
