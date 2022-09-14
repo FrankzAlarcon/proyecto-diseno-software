@@ -2,6 +2,8 @@ package main;
 
 public class Giro extends Factor {
     private double anguloTotal;
+    private double distanciaRecorrida;
+    
 
     @Override
     public void notificar() {

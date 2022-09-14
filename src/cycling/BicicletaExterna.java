@@ -26,14 +26,7 @@ public class BicicletaExterna extends Bicicleta{
         controladorGiro = new ControladorGiro();
         controladorGiro.setSensor(sensorGiro);
         sensorGiro.setControlador(controladorGiro);
-        controladorGiro.setAction(new DefinableAction() {
-            @Override
-            public void exec() {
-
-                distanciaRecorrida += (controladorGiro.getAnguloTotal()) * radio * Math.PI * 2;
-            }
-
-        });
+        controladorGiro.setAction(new CyclingGiroActionExterna(controladorGiro, this));
 
         thread = new ActionThread() {
             @Override

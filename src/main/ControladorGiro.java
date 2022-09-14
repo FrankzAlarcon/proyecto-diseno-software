@@ -2,7 +2,6 @@ package main;
 
 public class ControladorGiro extends Controlador{
 
-
     private double anguloTotal;
     @Override
     public void definirUmbral(double umbral) {

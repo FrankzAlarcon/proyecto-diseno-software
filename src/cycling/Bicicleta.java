@@ -11,7 +11,7 @@ import main.*;
  *
  * @author 
  */
-public class Bicicleta {
+public abstract class Bicicleta {
 
     protected int dificultad;
     protected ControladorGiro controladorGiro;
@@ -35,51 +35,23 @@ public class Bicicleta {
     }
 
     public int getDificultad() {
-
         return dificultad;
     }
     
+    public double getRadio(){
+        return radio;
+    }
+    
     public void iniciar() {
-        Giro giro = new Giro();
-        SensorGiro sensorGiro = new SensorGiro();
-        giro.setSensor(sensorGiro);
-        sensorGiro.setFactor(giro);
-        controladorGiro = new ControladorGiro();
-        controladorGiro.setSensor(sensorGiro);
-        sensorGiro.setControlador(controladorGiro);
-        controladorGiro.setAction(new DefinableAction() {
-            @Override
-            public void exec() {
-
-                distanciaRecorrida += (controladorGiro.getAnguloTotal()-dificultad*2) * radio * Math.PI * 2;
-            }
-
-        });
-
-        thread = new ActionThread() {
-            @Override
-            public void run() {
-                while (isRunning) {
-                    try {
-                        sleep(1000);
-                        giro.notificar();
-                    } catch (InterruptedException e) {
-                        throw new RuntimeException(e);
-                    }
-                }
-            }
-        };
-
-        thread.start();
     }
 
     public void detener() {
-        thread.stopAction();
+    }
+    
+    public void actualizarDistanciaRecorrida(double distancia){
+        this.distanciaRecorrida += distancia;
     }
 
-    public double getAnguloTotal() {
-        return controladorGiro.getAnguloTotal();
-    }
 
 
 }

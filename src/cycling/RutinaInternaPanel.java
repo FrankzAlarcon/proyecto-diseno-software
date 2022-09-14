@@ -108,6 +108,7 @@ public class RutinaInternaPanel extends JPanel implements ReturnHandler {
             @Override
             public void actionPerformed(ActionEvent e) {
                 int dificultadF = Integer.parseInt((String) actionDificultad.getSelectedItem());
+                //poner la dificultad en la bicicleta interna
                 mainFrame.getAplicacion().seleccionarCycling().seleccionarRutinaInterna().getBicicleta().setDificultad(dificultadF);
                 dificutad.setText(dificultadF + " N");
             }

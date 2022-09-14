@@ -58,7 +58,7 @@ public class RutinaInternaCycling implements Rutina {
     public double calcularDistancia() {
         return bicicleta.getDistaciaRecorrida();
     }
-
+    
     public void setBicicleta(BicicletaInterna bicicleta) {
         this.bicicleta = bicicleta;
     }
@@ -66,4 +66,6 @@ public class RutinaInternaCycling implements Rutina {
     public Bicicleta getBicicleta() {
         return bicicleta;
     }
+    
+
 }

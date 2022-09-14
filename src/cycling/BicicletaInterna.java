@@ -12,8 +12,9 @@ public class BicicletaInterna extends Bicicleta{
     public BicicletaInterna(int dificultad) {
         super(dificultad);
     }
+
     
-    
+     @Override
      public void iniciar() {
         Giro giro = new Giro();
         SensorGiro sensorGiro = new SensorGiro();
@@ -22,14 +23,8 @@ public class BicicletaInterna extends Bicicleta{
         controladorGiro = new ControladorGiro();
         controladorGiro.setSensor(sensorGiro);
         sensorGiro.setControlador(controladorGiro);
-        controladorGiro.setAction(new DefinableAction() {
-            @Override
-            public void exec() {
-
-                distanciaRecorrida += (controladorGiro.getAnguloTotal()-dificultad*2) * radio * Math.PI * 2;
-            }
-
-        });
+        controladorGiro.definirUmbral(9);
+        controladorGiro.setAction(new CyclingGiroAction(controladorGiro,this));
 
         thread = new ActionThread() {
             @Override
@@ -49,6 +44,8 @@ public class BicicletaInterna extends Bicicleta{
        
     }
      
+     
+    @Override
     public void detener() {
         thread.stopAction();
     }
