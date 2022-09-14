@@ -110,8 +110,8 @@ public class RutinaPersonalizadaRunning implements Rutina {
 
     @Override
     public void iniciar() {
-        CalculadoraCaloriasRunning calculadora = new CalculadoraCaloriasRunning();
-        setCaloriasQuemadas(calculadora.calcularCaloriasPersonalizado(this.nivelVelocidad, this.nivelInclinacion, aplicacion.getUsuario().getPeso()));
+
+        setCaloriasQuemadas(calcularCaloriasQuemadas());
         calcularDistancia();
 
     }
@@ -123,22 +123,8 @@ public class RutinaPersonalizadaRunning implements Rutina {
 
     @Override
     public double calcularCaloriasQuemadas() {
-        double caloriasQuemadas = 0;
-        double pesoLibras = aplicacion.getUsuario().getPeso() / 2.2;
-        double mpm = this.nivelVelocidad * 1.2 * 16.66;
-        double calificacionPorcentual = 0;
-
-        if (this.nivelInclinacion == 2) {
-            calificacionPorcentual = 20 / 100;
-        } else if (this.nivelInclinacion == 3) {
-            calificacionPorcentual = 40 / 100;
-        }
-
-        if (this.nivelVelocidad <= 5) {
-            caloriasQuemadas = (0.1 * mpm) + (1.8 * mpm * calificacionPorcentual) + 3.5;
-        } else {
-            caloriasQuemadas = (0.2 * mpm) + (0.9 * mpm * calificacionPorcentual) + 3.5;
-        }
+        CalculadoraCaloriasRunning calculadora = new CalculadoraCaloriasRunning();
+        double caloriasQuemadas = calculadora.calcularCaloriasPersonalizado(this.nivelVelocidad, this.nivelInclinacion, aplicacion.getUsuario().getPeso());
 
         return caloriasQuemadas;
     }

@@ -77,8 +77,7 @@ public class RutinaEstandarRunning implements Rutina {
     //metodos
     @Override
     public double calcularCaloriasQuemadas() {
-        double caloriasQuemadas = 0;
-        caloriasQuemadas = this.tiempo * mainFrame.getAplicacion().getUsuario().getPeso() * 0.029;
+        double caloriasQuemadas = calculadora.calcularCaloriasEstandar(this.tiempo, mainFrame.getAplicacion().getUsuario().getPeso());
         return caloriasQuemadas;
     }
 
@@ -105,7 +104,7 @@ public class RutinaEstandarRunning implements Rutina {
     }
 
     public void actualizarCalorias() {
-        caloriasQuemadas += calculadora.calcularCaloriasEstandar(this.tiempo, mainFrame.getAplicacion().getUsuario().getPeso());
+        caloriasQuemadas += calcularCaloriasQuemadas();
     }
 
 }
