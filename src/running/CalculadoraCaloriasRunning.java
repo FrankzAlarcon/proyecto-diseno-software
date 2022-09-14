@@ -2,8 +2,8 @@ package running;
 
 public class CalculadoraCaloriasRunning {
 
-    double velocidad, tiempo, peso;
-    int indexVelocidad, indexInclinacion;
+    private double velocidad, tiempo, peso;
+    private int indexVelocidad, indexInclinacion;
 
     public CalculadoraCaloriasRunning() {
 
