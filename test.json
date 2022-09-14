@@ -43,5 +43,14 @@
     "peso": 70.0,
     "altura": 1.7,
     "sexo": "M"
+  },
+  {
+    "id": "lenin123",
+    "contrasenia": "1234",
+    "name": "Lenin",
+    "edad": 20,
+    "peso": 70.0,
+    "altura": 1.75,
+    "sexo": "M"
   }
 ]

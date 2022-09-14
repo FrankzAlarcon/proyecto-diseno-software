@@ -42,17 +42,7 @@ public class AreaMaquinasPanel extends javax.swing.JPanel implements ReturnHandl
     public AreaMaquinasPanel(MainFrame mainframe) {
         initComponents();
         this.mainframe = mainframe;
-        this.areaMaquianas=this.mainframe.getAplicacion().seleccionarAreaMaquina();
-        
-        
-        lista=new ListaMaquinas();
-        lista.agregar(new PrensaPiernas(1, false, 4));
-        lista.agregar(new PrensaPiernas(2, false, 4));
-        lista.agregar(new Dorsalera(1, false, 4));
-        lista.agregar(new Dorsalera(2, false, 4));
-        lista.agregar(new MaquinaPoleas(1, false, 4));
-        lista.agregar(new MaquinaPoleas(2, false, 4));
-        areaMaquianas.setLista(lista);
+        this.areaMaquianas = this.mainframe.getAplicacion().seleccionarAreaMaquina();                
         
         setBackground(Color.BLACK);
         setLayout(new GridBagLayout());        
@@ -61,10 +51,9 @@ public class AreaMaquinasPanel extends javax.swing.JPanel implements ReturnHandl
        
     }
     
-    public void setMatriz(){
-        
+    public void setMatriz(){        
         int c=0;
-        maquinasBotones=new JButton[m][n];
+        maquinasBotones = new JButton[m][n];
         int posicionesY[] = {0,2,4};
         String nombres[] = {"Prensas de Piernas", "Dorsaleras", "Máquinas de Poleas"};
         for (int i = 0; i < m; i++) {
@@ -75,9 +64,6 @@ public class AreaMaquinasPanel extends javax.swing.JPanel implements ReturnHandl
                 }else{
                      maquinasBotones[i][j]=createStyledButton(areaMaquianas.getMaquina(c).toString(),new Color(203, 50, 52) , Color.WHITE);
                 }
-                /*maquinasBotones[i][j].setBounds(x, y, ancho, alto);
-                maquinasBotones[i][j].setText(lista.getMaquina(c).toString());
-                */
                 ButtonController bt = new ButtonController();
                 maquinasBotones[i][j].addActionListener(bt);
                 GridBagConstraints restricciones = generarRestriccionesLayout(j + 1,  posicionesY[i] + 1 , 1, true);
@@ -125,28 +111,23 @@ public class AreaMaquinasPanel extends javax.swing.JPanel implements ReturnHandl
     }
     
      private class ButtonController implements ActionListener{
-
         @Override			
         public void actionPerformed(ActionEvent e) {
             int c=0;
             for (int i = 0; i < m; i++) {
-                for (int j = 0; j < n; j++) {
-                    
-                    if (e.getSource().equals(maquinasBotones[i][j])) {
-                            
-                        Maquina m=areaMaquianas.seleccionarMaquina(c, mainframe);
+                for (int j = 0; j < n; j++) {                    
+                    if (e.getSource().equals(maquinasBotones[i][j])) {                            
+                        Maquina m = areaMaquianas.seleccionarMaquina(c, mainframe);
                            if(m!=null){
                                rutina =new RutinaMaquinas(m);
                                areaMaquianas.setRutina(rutina);
                                mainframe.setMainPanel(new RutinaMaquinaPane(mainframe));
                            }                          
                         }
-                        c++;
-                    }
-                
-                }
+                    c++;
+                }                
             }
-      
+        }      
      }
     
 

@@ -20,14 +20,9 @@ import trailrunning.Cronometro;
  * @author dell
  */
 public class RutinaMaquinas implements Rutina{
-    private ArrayList<Repeticion> numRepeticionesAnterior;
-    private ArrayList<Peso> pesosAnterior;
     private ListaPesos pesos;
     private ListaRepeticiones numRepeticiones;
     private Cronometro cronometro;
-    private double tiempo;
-    private double caloriasQuemadas;
-    private double tiempoInicial;
     private ControladorPeso controladorPeso ;
     private ControladorRepeticion controladorRepeticion;
     private ActionThread threadPeso;
@@ -37,11 +32,6 @@ public class RutinaMaquinas implements Rutina{
 
 
     public RutinaMaquinas() {
-        this.numRepeticionesAnterior = new ArrayList();
-        this.pesosAnterior = new ArrayList();
-        this.tiempo = 0.0;
-        this.caloriasQuemadas = 0.0;
-        this.tiempoInicial = 0.0;
         this.controladorPeso =  null;
         this.controladorRepeticion = null;
         this.maquina = null;
@@ -52,11 +42,6 @@ public class RutinaMaquinas implements Rutina{
     }
     public RutinaMaquinas(Maquina m) {
         this.maquina = m;
-        this.numRepeticionesAnterior = new ArrayList();
-        this.pesosAnterior = new ArrayList();
-        this.tiempo = 0.0;
-        this.caloriasQuemadas = 0.0;
-        this.tiempoInicial = 0.0;
         this.controladorPeso =  null;
         this.controladorRepeticion = null;
         this.pesos = new ListaPesos();
@@ -133,37 +118,16 @@ public class RutinaMaquinas implements Rutina{
     public void detener() {
         //Finaliza la rutina y manda a llamar al metodo calorias quemadas
         cronometro.detener();
-        this.caloriasQuemadas = this.calcularCaloriasQuemadas(); //Retorna y asigna
+        //this.caloriasQuemadas = this.calcularCaloriasQuemadas(); //Retorna y asigna
     }
     
-    //@Override
-    /*public double calcularCaloriasQuemadas() {
-        double calorias=0.0;
-        for(int i=0; i < pesosAnterior.size(); i++){
-            calorias += (this.numRepeticionesAnterior.get(i).getDistancia() * this.pesosAnterior.get(i).getValor()) / this.tiempo; 
-        }
-        return calorias ;
-    }*/
     @Override
     public double calcularCaloriasQuemadas() {
-        double calorias=0.0;
-        double pesoUsuario = this.areaMaquinas.getAplicacion().getUsuario().getPeso();
-        for(int i=0; i < this.pesos.getPesos().size(); i++){            
-            int repeticiones = this.numRepeticiones.getRepeticiones().get(i);
-            double peso = this.pesos.getPesos().get(i).getValor();
-            calorias +=  pesoUsuario * 0.0175 + (repeticiones / peso);
-        }
-        calorias = calorias * cronometro.obtenerTiempo();
-        return calorias;
-    }
-
-    public void agregarRepeticion(Repeticion nuevo){
-        this.numRepeticionesAnterior.add(nuevo);
-    }
-
-    public void agregarPeso(Peso nuevo){
-        this.pesosAnterior.add(nuevo);
+         CalculadoraCaloriasAreaMaquinas calculadora = new CalculadoraCaloriasAreaMaquinas();
+         calculadora.calcularCaloriasQuemadas(this);    
+         return calculadora.getCaloriasQuemadas();
     }    
+
     
     public void actualizarSubRutina(){
         SensorPeso sensorPeso = ((SensorPeso)controladorPeso.getSensor());
@@ -198,5 +162,15 @@ public class RutinaMaquinas implements Rutina{
 
     public void setAreaMaquinas(AreaMaquinas areaMaquinas) {
         this.areaMaquinas = areaMaquinas;
-    }        
+    }     
+
+    public Cronometro getCronometro() {
+        return cronometro;
+    }
+
+    public AreaMaquinas getAreaMaquinas() {
+        return areaMaquinas;
+    }
+    
+    
 }
