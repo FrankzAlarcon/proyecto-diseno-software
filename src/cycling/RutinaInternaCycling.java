@@ -48,8 +48,10 @@ public class RutinaInternaCycling implements Rutina {
                 cronometro.obtenerTiempo() / 60,
                 aplicacion.getUsuario().getAltura(),
                 MET);
+         System.out.println("jsjs");
 
         return calculadora.calcularCaloriasQuemadas();
+       
         //return aplicacion.getUsuario().getPeso()*cronometro.obtenerTiempo()*0.0175*MET/60;
     }
 
