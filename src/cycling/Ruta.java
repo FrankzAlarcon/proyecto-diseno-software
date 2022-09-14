@@ -32,7 +32,4 @@ public class Ruta {
         return ubicaciones;
     }
     
-    public void Imprimir(){
-        System.out.println(ubicaciones);
-    }
 }

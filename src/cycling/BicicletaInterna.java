@@ -3,7 +3,6 @@ package cycling;
 import static java.lang.Thread.sleep;
 import main.ActionThread;
 import main.ControladorGiro;
-import main.DefinableAction;
 import main.Giro;
 import main.SensorGiro;
 
@@ -49,16 +48,12 @@ public class BicicletaInterna extends Bicicleta{
     public void detener() {
         thread.stopAction();
     }
-
     
     public double getDistaciaRecorrida() {
 
         return distanciaRecorrida;
     }
     
-    public double getAnguloTotal() {
-        return controladorGiro.getAnguloTotal();
-    }
     
     
 }

@@ -3,19 +3,14 @@ package cycling;
 import static java.lang.Thread.sleep;
 import main.ActionThread;
 import main.ControladorGiro;
-import main.DefinableAction;
 import main.Giro;
 import main.SensorGiro;
 
 public class BicicletaExterna extends Bicicleta{
 
-    
-    private int dificultad;
-    
-    
     public BicicletaExterna(int dificultad) {
         super(dificultad);
-        this.dificultad = dificultad = 1;
+        this.dificultad = 1;
     }
     
     public void iniciar() {
@@ -26,6 +21,7 @@ public class BicicletaExterna extends Bicicleta{
         controladorGiro = new ControladorGiro();
         controladorGiro.setSensor(sensorGiro);
         sensorGiro.setControlador(controladorGiro);
+        controladorGiro.definirUmbral(9);
         controladorGiro.setAction(new CyclingGiroActionExterna(controladorGiro, this));
 
         thread = new ActionThread() {
@@ -50,16 +46,7 @@ public class BicicletaExterna extends Bicicleta{
         thread.stopAction();
     }
     public double getDistaciaRecorrida() {
-
         return distanciaRecorrida;
     }
-    
-    public double getAnguloTotal() {
-        return controladorGiro.getAnguloTotal();
-    }
-    
-    
-    
-    
     
 }

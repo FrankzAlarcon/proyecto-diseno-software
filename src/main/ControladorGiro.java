@@ -3,6 +3,11 @@ package main;
 public class ControladorGiro extends Controlador{
 
     private double anguloTotal;
+    
+    public ControladorGiro(){
+        this.anguloTotal = 0.0;
+    }
+    
     @Override
     public void definirUmbral(double umbral) {
         this.umbral = umbral;

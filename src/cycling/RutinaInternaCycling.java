@@ -18,7 +18,6 @@ public class RutinaInternaCycling implements Rutina {
     private static double MET = 7.0;
     private BicicletaInterna bicicleta;
     private Cronometro cronometro;
-    private double caloriaaQuemadas;
     private Aplicacion aplicacion;
 
     public RutinaInternaCycling(Aplicacion aplicacion) {
@@ -37,9 +36,6 @@ public class RutinaInternaCycling implements Rutina {
     public void detener() {
         cronometro.detener();
         bicicleta.detener();
-        double segundos = cronometro.obtenerTiempo();
-        caloriaaQuemadas = calcularCaloriasQuemadas();
-
     }
 
     public double calcularCaloriasQuemadas() {
@@ -50,16 +46,10 @@ public class RutinaInternaCycling implements Rutina {
                 MET);
 
         return calculadora.calcularCaloriasQuemadas();
-       
-        //return aplicacion.getUsuario().getPeso()*cronometro.obtenerTiempo()*0.0175*MET/60;
     }
 
-    public double calcularDistancia() {
+    public double obtenerDistancia() {
         return bicicleta.getDistaciaRecorrida();
-    }
-    
-    public void setBicicleta(BicicletaInterna bicicleta) {
-        this.bicicleta = bicicleta;
     }
 
     public Bicicleta getBicicleta() {

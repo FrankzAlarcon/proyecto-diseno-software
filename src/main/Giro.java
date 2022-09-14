@@ -2,7 +2,10 @@ package main;
 
 public class Giro extends Factor {
     private double anguloTotal;
-    private double distanciaRecorrida;
+    
+    public Giro(){
+        this.anguloTotal = 0.0;
+    }
     
 
     @Override

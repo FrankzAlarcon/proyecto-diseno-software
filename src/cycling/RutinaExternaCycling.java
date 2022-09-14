@@ -40,13 +40,7 @@ public class RutinaExternaCycling implements Rutina {
         controladorUbicacion.setSensor(sensorUbicacion);
         sensorUbicacion.setControlador(controladorUbicacion);
         controladorUbicacion.definirUmbral(5);
-        controladorUbicacion.setAction(new DefinableAction() {
-            @Override
-            public void exec() {
-                ruta.agregar(new Ubicacion(ubicacion.getLatitud(), ubicacion.getLongitud(), ubicacion.getElevacion()));
-                ruta.Imprimir();
-            }
-        });
+        controladorUbicacion.setAction(new CyclingUbicacionAction(ruta, ubicacion));
 
         thread = new ActionThread() {
             @Override
@@ -84,11 +78,12 @@ public class RutinaExternaCycling implements Rutina {
         return calculadora.calcularCaloriasQuemadas();
     }
 
-    public double calcularDistancia() {
+    public double obtenerDistancia() {
         return bicicleta.getDistaciaRecorrida();
     }
 
     public Ruta getRuta() {
         return ruta;
     }
+
 }

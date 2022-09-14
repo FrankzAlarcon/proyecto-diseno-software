@@ -139,7 +139,7 @@ public class RutinaExternaPanel extends JPanel implements ReturnHandler {
     private void accionBoton() {
         if(realizandoActividad) {
             rutinaExterna.detener();
-            distanciaRecorrida.setText(String.format("%.2f m",rutinaExterna.calcularDistancia()));
+            distanciaRecorrida.setText(String.format("%.2f m",rutinaExterna.obtenerDistancia()));
             caloriasQuemadas.setText(String.format("%.2f cal",rutinaExterna.calcularCaloriasQuemadas()));
             String ubicacionesTxt = "<html>";
             for(Ubicacion u : rutinaExterna.getRuta().getUbicaciones()){
