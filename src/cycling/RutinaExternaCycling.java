@@ -29,9 +29,9 @@ public class RutinaExternaCycling implements Rutina {
         this.aplicacion = aplicacion;
     }
 
-      public void iniciar() {
-          cronometro = new Cronometro();
-          SensorUbicacion sensorUbicacion = new SensorUbicacion();
+    public void iniciar() {
+        cronometro = new Cronometro();
+        SensorUbicacion sensorUbicacion = new SensorUbicacion();
         Ubicacion ubicacion = new Ubicacion();
         ubicacion.setSensor(sensorUbicacion);
         sensorUbicacion.setFactor(ubicacion);
@@ -47,7 +47,7 @@ public class RutinaExternaCycling implements Rutina {
                 ruta.Imprimir();
             }
         });
-        
+
         thread = new ActionThread() {
             @Override
             public void run() {
@@ -66,9 +66,9 @@ public class RutinaExternaCycling implements Rutina {
         thread.start();
         cronometro.iniciar();
         bicicleta.iniciar();
-        
 
     }
+
     public void detener() {
         cronometro.detener();
         bicicleta.detener();
@@ -76,14 +76,17 @@ public class RutinaExternaCycling implements Rutina {
     }
 
     public double calcularCaloriasQuemadas() {
-        
-        return aplicacion.getUsuario().getPeso() * MET * 0.0175 * cronometro.obtenerTiempo()/60;
+        CalculadoraCaloriasCycling calculadora = new CalculadoraCaloriasCycling(
+                cronometro.obtenerTiempo() / 60,
+                aplicacion.getUsuario().getAltura(),
+                MET);
+
+        return calculadora.calcularCaloriasQuemadas();
     }
 
     public double calcularDistancia() {
         return bicicleta.getDistaciaRecorrida();
     }
-   
 
     public Ruta getRuta() {
         return ruta;

@@ -11,7 +11,7 @@ import trailrunning.Cronometro;
 
 /**
  *
- * @author 
+ * @author
  */
 public class RutinaInternaCycling implements Rutina {
 
@@ -23,8 +23,8 @@ public class RutinaInternaCycling implements Rutina {
 
     public RutinaInternaCycling(Aplicacion aplicacion) {
         bicicleta = new BicicletaInterna(5);
-        this.aplicacion=aplicacion;
-        
+        this.aplicacion = aplicacion;
+
     }
 
     public void iniciar() {
@@ -43,7 +43,14 @@ public class RutinaInternaCycling implements Rutina {
     }
 
     public double calcularCaloriasQuemadas() {
-        return aplicacion.getUsuario().getPeso()*cronometro.obtenerTiempo()*0.0175*MET/60;
+
+        CalculadoraCaloriasCycling calculadora = new CalculadoraCaloriasCycling(
+                cronometro.obtenerTiempo() / 60,
+                aplicacion.getUsuario().getAltura(),
+                MET);
+
+        return calculadora.calcularCaloriasQuemadas();
+        //return aplicacion.getUsuario().getPeso()*cronometro.obtenerTiempo()*0.0175*MET/60;
     }
 
     public double calcularDistancia() {
