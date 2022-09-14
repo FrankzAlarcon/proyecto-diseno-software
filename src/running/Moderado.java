@@ -14,13 +14,7 @@ public class Moderado extends NivelRutinaRunning{
         tiempo = 7;
         velocidad = 6;
     }
-   
-    
-    
-    
-
-
-    
+       
     //metodos
 
     @Override
@@ -40,8 +34,6 @@ public class Moderado extends NivelRutinaRunning{
         };
         actionThread.start();
     }
-    
-    
-    
+
     
 }

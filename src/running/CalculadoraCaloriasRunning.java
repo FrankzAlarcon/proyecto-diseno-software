@@ -13,7 +13,7 @@ public class CalculadoraCaloriasRunning {
         this.indexVelocidad = indexVelocidad;
         this.peso = peso;
     }
-//hola
+
     public double calcularCaloriasEstandar(double tiempo, double peso) {
         double caloriasQuemadas = 0;
         caloriasQuemadas = tiempo * peso * 0.029;

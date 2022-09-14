@@ -15,11 +15,7 @@ public class Basico extends NivelRutinaRunning{
         inclinacion = 1;
     }
    
-    
-
-    
-
-    
+   
     //metodos
 
     @Override
@@ -40,12 +36,6 @@ public class Basico extends NivelRutinaRunning{
         actionThread.start();
     }
     
-    
-    
-
-   
-
-
 
     
 }

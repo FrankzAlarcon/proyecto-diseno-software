@@ -14,8 +14,7 @@ public class Avanzado extends NivelRutinaRunning{
         tiempo = 15;
     }
    
-    
-    
+   
     //getters & setters
     
     
@@ -39,10 +38,6 @@ public class Avanzado extends NivelRutinaRunning{
         };
         actionThread.start();
     }
-    
-    
-   
-    
     
     
 }
