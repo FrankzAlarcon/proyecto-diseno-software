@@ -6,7 +6,6 @@
 package cycling;
 
 import main.Aplicacion;
-import main.ControladorUbicacion;
 import main.Rutina;
 import trailrunning.Cronometro;
 
@@ -17,13 +16,13 @@ import trailrunning.Cronometro;
 public class RutinaInternaCycling implements Rutina {
 
     private static double MET = 7.0;
-    private Bicicleta bicicleta;
+    private BicicletaInterna bicicleta;
     private Cronometro cronometro;
     private double caloriaaQuemadas;
     private Aplicacion aplicacion;
 
     public RutinaInternaCycling(Aplicacion aplicacion) {
-        bicicleta = new Bicicleta(5);
+        bicicleta = new BicicletaInterna(5);
         this.aplicacion=aplicacion;
         
     }
@@ -51,7 +50,7 @@ public class RutinaInternaCycling implements Rutina {
         return bicicleta.getDistaciaRecorrida();
     }
 
-    public void setBicicleta(Bicicleta bicicleta) {
+    public void setBicicleta(BicicletaInterna bicicleta) {
         this.bicicleta = bicicleta;
     }
 

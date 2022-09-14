@@ -13,11 +13,11 @@ import main.*;
  */
 public class Bicicleta {
 
-    private int dificultad;
-    private ControladorGiro controladorGiro;
-    private double distanciaRecorrida;
-    private ActionThread thread;
-    private double radio = 0.5;//
+    protected int dificultad;
+    protected ControladorGiro controladorGiro;
+    protected double distanciaRecorrida;
+    protected ActionThread thread;
+    protected double radio = 0.5;//
 
     public Bicicleta(int dificultad) {
         this.dificultad = dificultad;
@@ -81,8 +81,5 @@ public class Bicicleta {
         return controladorGiro.getAnguloTotal();
     }
 
-    public double getDistaciaRecorrida() {
 
-        return distanciaRecorrida;
-    }
 }

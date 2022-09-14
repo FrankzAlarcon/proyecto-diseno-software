@@ -10,8 +10,8 @@ public class Giro extends Factor {
         sensorGiro.actualizar();
 
     }
+    
     public double getAnguloTotal() {
-        
         return anguloTotal;
     }
 }

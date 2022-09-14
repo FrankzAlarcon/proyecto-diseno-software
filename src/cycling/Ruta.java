@@ -31,4 +31,8 @@ public class Ruta {
     public ArrayList<Ubicacion> getUbicaciones() {
         return ubicaciones;
     }
+    
+    public void Imprimir(){
+        System.out.println(ubicaciones);
+    }
 }

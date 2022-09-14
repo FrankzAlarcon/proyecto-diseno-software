@@ -15,6 +15,7 @@ import trailrunning.Cronometro;
 public class RutinaExternaCycling implements Rutina {
 
     private Ruta ruta;
+    private BicicletaExterna bicicleta;
     private ControladorUbicacion controladorUbicacion;
     private ActionThread thread;
     private double distanciaRecorrida;
@@ -23,15 +24,14 @@ public class RutinaExternaCycling implements Rutina {
     private static double MET = 7.2;
 
     public RutinaExternaCycling(Aplicacion aplicacion) {
+        bicicleta = new BicicletaExterna(1);
         this.ruta = new Ruta();
         this.aplicacion = aplicacion;
     }
 
-    public void iniciar() {
-        cronometro = new Cronometro();
-        cronometro.iniciar();
-        //Inicializacion del observado y observador
-        SensorUbicacion sensorUbicacion = new SensorUbicacion();
+      public void iniciar() {
+          cronometro = new Cronometro();
+          SensorUbicacion sensorUbicacion = new SensorUbicacion();
         Ubicacion ubicacion = new Ubicacion();
         ubicacion.setSensor(sensorUbicacion);
         sensorUbicacion.setFactor(ubicacion);
@@ -44,10 +44,10 @@ public class RutinaExternaCycling implements Rutina {
             @Override
             public void exec() {
                 ruta.agregar(new Ubicacion(ubicacion.getLatitud(), ubicacion.getLongitud(), ubicacion.getElevacion()));
-                distanciaRecorrida += controladorUbicacion.getDistanciaRecorrida();
+                ruta.Imprimir();
             }
         });
-
+        
         thread = new ActionThread() {
             @Override
             public void run() {
@@ -64,11 +64,14 @@ public class RutinaExternaCycling implements Rutina {
         };
 
         thread.start();
+        cronometro.iniciar();
+        bicicleta.iniciar();
+        
 
     }
-
     public void detener() {
         cronometro.detener();
+        bicicleta.detener();
         thread.stopAction();
     }
 
@@ -78,8 +81,9 @@ public class RutinaExternaCycling implements Rutina {
     }
 
     public double calcularDistancia() {
-        return distanciaRecorrida;
+        return bicicleta.getDistaciaRecorrida();
     }
+   
 
     public Ruta getRuta() {
         return ruta;
