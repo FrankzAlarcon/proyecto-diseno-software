@@ -18,7 +18,11 @@ public class ResumenTrailRunning {
     }
 
     private double calcularCalorias(Usuario usuario, Cronometro cronometro){
-        return MET * usuario.getPeso() * cronometro.obtenerTiempo()/60;
+        CalculadoraCaloriasTrailRunning calculadora = new CalculadoraCaloriasTrailRunning(
+                cronometro.obtenerTiempo()/60,
+                usuario.getPeso(),
+                MET);
+        return  calculadora.calcularCaloriasQuemadas();
     }
 
     public double getDistanciaRecorrida() {

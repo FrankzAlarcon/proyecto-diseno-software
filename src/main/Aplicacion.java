@@ -40,7 +40,6 @@ public class Aplicacion {
 
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
-        this.usuario.setAplicacion(this);
     }
 
     public Padel seleccionarPadel() {

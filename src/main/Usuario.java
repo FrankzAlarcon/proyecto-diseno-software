@@ -19,7 +19,6 @@ public class Usuario {
     private double peso;
     private double altura;
     private char sexo;
-    private Aplicacion aplicacion;
     private String id;
     private String contrasenia;
 
@@ -79,10 +78,6 @@ public class Usuario {
         Usuario.iniciarSesion();
     }
 
-    public void setAplicacion(Aplicacion aplicacion) {
-        this.aplicacion = aplicacion;
-    }
-
     public String getId() {
         return id;
     }
@@ -99,7 +94,6 @@ public class Usuario {
                 ", peso=" + peso +
                 ", altura=" + altura +
                 ", sexo=" + sexo +
-                ", aplicacion=" + aplicacion +
                 ", id='" + id + '\'' +
                 ", contrasenia='" + contrasenia + '\'' +
                 '}';

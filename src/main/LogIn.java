@@ -14,7 +14,8 @@ public class LogIn {
     //private String usuario;
    // private String contrasenia;
     private MainFrame mainFrame;
-
+    private String usuario;
+    private String contrasenia;
     public LogIn() {
         /*
         try {
@@ -44,7 +45,6 @@ public class LogIn {
     }
 
     public void mostrarVentana() {
-
         LogInPane logInPane = new LogInPane(mainFrame);
         logInPane.setLogIn(this);
         mainFrame.setMainPanel(logInPane);
