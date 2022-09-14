@@ -22,7 +22,7 @@ public class RutinaInternaCycling implements Rutina {
     private Aplicacion aplicacion;
 
     public RutinaInternaCycling(Aplicacion aplicacion) {
-        bicicleta = new BicicletaInterna(5);
+        bicicleta = new BicicletaInterna(1);
         this.aplicacion = aplicacion;
 
     }
@@ -48,7 +48,6 @@ public class RutinaInternaCycling implements Rutina {
                 cronometro.obtenerTiempo() / 60,
                 aplicacion.getUsuario().getAltura(),
                 MET);
-         System.out.println("jsjs");
 
         return calculadora.calcularCaloriasQuemadas();
        

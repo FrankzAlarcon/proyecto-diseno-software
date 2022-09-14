@@ -24,7 +24,7 @@ public class BicicletaInterna extends Bicicleta{
         controladorGiro.setSensor(sensorGiro);
         sensorGiro.setControlador(controladorGiro);
         controladorGiro.definirUmbral(9);
-        controladorGiro.setAction(new CyclingGiroAction(controladorGiro,this));
+        controladorGiro.setAction(new CyclingGiroActionInterna(controladorGiro,this));
 
         thread = new ActionThread() {
             @Override

@@ -10,17 +10,17 @@ import main.DefinableAction;
  *
  * @author BRYAN_ANDRADE
  */
-public class CyclingGiroAction implements DefinableAction{
-    ControladorGiro controladorGiro;
+public class CyclingGiroActionInterna implements DefinableAction{
+    private ControladorGiro controladorGiro;
     private Bicicleta bicicleta;
 
-    public CyclingGiroAction(ControladorGiro controladorGiro, Bicicleta bicicleta){
+    public CyclingGiroActionInterna(ControladorGiro controladorGiro, Bicicleta bicicleta){
         this.controladorGiro = controladorGiro;
         this.bicicleta = bicicleta;
     }
     @Override
     public void exec() {
-        bicicleta.actualizarDistanciaRecorrida((controladorGiro.getAnguloTotal()-bicicleta.getDificultad()*2) * bicicleta.getRadio() * Math.PI * 2);
+        bicicleta.actualizarDistanciaRecorrida((controladorGiro.getAnguloTotal()/bicicleta.getDificultad()) * bicicleta.getRadio() * Math.PI * 2);
         
     }
     

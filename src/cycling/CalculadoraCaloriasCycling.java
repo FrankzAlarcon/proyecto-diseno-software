@@ -22,8 +22,7 @@ public class CalculadoraCaloriasCycling {
     
     
     public double calcularCaloriasQuemadas(){
-        
-        return MET*peso*tiempo*0.0175;
+        return MET*peso*tiempo*0.175;
     }
     
 }
