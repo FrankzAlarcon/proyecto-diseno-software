@@ -17,7 +17,7 @@ public abstract class Bicicleta {
     protected ControladorGiro controladorGiro;
     protected double distanciaRecorrida;
     protected ActionThread thread;
-    protected double radio = 0.5;//
+    protected double radio = 0.5;
 
     public Bicicleta(int dificultad) {
         this.dificultad = dificultad;

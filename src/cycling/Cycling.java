@@ -12,18 +12,20 @@ import main.Aplicacion;
  * @author 
  */
 public class Cycling {
+    //Atributos
     private Aplicacion aplicacion;
     private RutinaInternaCycling rutinaInterna;
     private RutinaExternaCycling rutinaExterna;
 
-    public Cycling(Aplicacion aplicacion){ // Realizar el constructor
+    
+    //Constructor
+    public Cycling(Aplicacion aplicacion){
         rutinaExterna = new RutinaExternaCycling(aplicacion);
         rutinaInterna = new RutinaInternaCycling(aplicacion);
         this.aplicacion=aplicacion;
     }
     
-
-
+    
     public RutinaExternaCycling seleccionarRutinaExterna() {
         return rutinaExterna;
     }

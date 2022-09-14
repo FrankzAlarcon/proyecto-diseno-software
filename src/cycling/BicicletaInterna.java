@@ -50,7 +50,6 @@ public class BicicletaInterna extends Bicicleta{
     }
     
     public double getDistaciaRecorrida() {
-
         return distanciaRecorrida;
     }
     
