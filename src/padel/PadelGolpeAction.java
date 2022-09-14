@@ -1,7 +1,6 @@
 
 package padel;
 
-import main.ControladorPresion;
 import main.DefinableAction;
 
 public class PadelGolpeAction implements DefinableAction{

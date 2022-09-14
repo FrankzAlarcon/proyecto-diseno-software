@@ -20,8 +20,10 @@ public class PadelPane extends JPanel implements ReturnHandler {
     private Color acentColor = new Color(0, 75, 156);
     private boolean realizandoActividad = false;
     private Padel padel;
+    private CalculadoraCaloriasPadel calculadoraCaloriasPadel;
     public PadelPane(MainFrame mainFrame) {
         padel = mainFrame.getAplicacion().seleccionarPadel();
+        calculadoraCaloriasPadel = new CalculadoraCaloriasPadel();
         this.mainFrame = mainFrame;
         setOpaque(true);
         setBackground(Color.BLACK);
@@ -77,7 +79,7 @@ public class PadelPane extends JPanel implements ReturnHandler {
     private void accionBoton(){
         if(realizandoActividad){
             padel.detenerEntrenamiento();
-            caloriasQuemadas.setText(padel.getCaloriasQuemadas() + " cal");
+            caloriasQuemadas.setText(calculadoraCaloriasPadel.calcularCaloriasQuemadas(padel) + " cal");
             marcaRaqueta.setText(padel.getRaqueta().getMarca());
             distanciaRecorrida.setText(padel.getPartida().getDistanciaRecorrida() + " m");
             golpesDados.setText(padel.getPartida().getNumeroGolpes() + "");
