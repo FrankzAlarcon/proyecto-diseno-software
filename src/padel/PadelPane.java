@@ -79,7 +79,7 @@ public class PadelPane extends JPanel implements ReturnHandler {
     private void accionBoton(){
         if(realizandoActividad){
             padel.detenerEntrenamiento();
-            caloriasQuemadas.setText(calculadoraCaloriasPadel.calcularCaloriasQuemadas(padel) + " cal");
+            caloriasQuemadas.setText(padel.getPartida().getCaloriasQuemadas() + " cal");
             marcaRaqueta.setText(padel.getRaqueta().getMarca());
             distanciaRecorrida.setText(padel.getPartida().getDistanciaRecorrida() + " m");
             golpesDados.setText(padel.getPartida().getNumeroGolpes() + "");

@@ -6,10 +6,12 @@ public class Partida {
     
     private float distanciaRecorrida;
     private int numeroGolpes;
+    private float caloriasQuemadas;
 
     public Partida() {
         this.distanciaRecorrida = 0.0f;
         this.numeroGolpes = 0;
+        this.caloriasQuemadas = 0.0f;
     }
 
     public float getDistanciaRecorrida() {
@@ -18,6 +20,14 @@ public class Partida {
 
     public int getNumeroGolpes() {
         return numeroGolpes;
+    }
+    
+    public float getCaloriasQuemadas(){
+        return caloriasQuemadas;
+    }
+    
+    public void setCaloriasQuemadas(float caloriasQuemadas){
+        this.caloriasQuemadas = caloriasQuemadas;
     }
     
     public void registrarDesplazamiento(float desplazamiento){
@@ -31,5 +41,6 @@ public class Partida {
     public void reiniciar(){
         this.distanciaRecorrida = 0.0f;
         this.numeroGolpes = 0;
+        this.caloriasQuemadas = 0.0f;
     }
 }

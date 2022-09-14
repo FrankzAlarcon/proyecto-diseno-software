@@ -32,6 +32,8 @@ public class Padel {
 
     public void detenerEntrenamiento() {
         this.raqueta.detener();
+        CalculadoraCaloriasPadel c = new CalculadoraCaloriasPadel();
+        this.partida.setCaloriasQuemadas(c.calcularCaloriasQuemadas(this));
     }
 
     public Raqueta getRaqueta() {
